@@ -56,3 +56,26 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# conda
+*.pyc
+*.swp
+.ipynb_checkpoints/
+
+bin
+conda-meta
+compiler_compat
+etc
+include
+lib
+share
+ssl
+var
+x86_64-conda_cos6-linux-gnu
+doc
+mkspecs
+libexec
+phrasebooks
+qml
+translations
+resources
