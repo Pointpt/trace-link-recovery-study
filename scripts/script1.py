@@ -12,10 +12,41 @@ df_trace = None
 sources_names = []
 targets_names = []
 
+df_artifacts_descriptions = pd.DataFrame(columns=['artf_name','description'])
+
+BASE_DIR = 'data/EasyClinic/EasyClinicDataset/'
+
+
+def _register_source_artifact(s_name):
+    if s_name not in sources_names:
+        sources_names.append(s_name)
+    
+    global df_artifacts_descriptions
+
+    if s_name not in list(df_artifacts_descriptions.artf_name):
+        new_row = []
+        
+        artf_type = s_name.split('_')[0]
+        artf_num = s_name.split('_')[1]
+
+        fl = open('{0}{1}/{2}/{3}.txt'.format(BASE_DIR, 'docs_english', artf_type, artf_num))
+        artf_desc = fl.read().encode('utf-8')
+        d = {s_name : artf_desc}
+
+        new_row.append(d)
+    
+    df_artifacts_descriptions = df_artifacts_descriptions.append(new_row, sort=True)
+
+
+def _register_target_artifact(t_list_names):
+    for t_name in t_list_names:
+        if t_name not in targets_names:
+            targets_names.append(t_name)
+
+
 def read_oracle_files():
-    path = 'data/EasyClinic/EasyClinicDataset/oracle/'
     for f_name in files:
-        fl = open(path + f_name + '.txt')
+        fl = open(BASE_DIR + 'oracle/' + f_name + '.txt')
         lines = fl.readlines()
         source_abv = f_name.split('_')[0] + '_'
         target_abv = f_name.split('_')[1] + '_'
@@ -28,12 +59,8 @@ def read_oracle_files():
 
             trace_dict[s_name] = t_list_names
 
-            if s_name not in sources_names:
-                sources_names.append(s_name)
-            
-            for t_name in t_list_names:
-                if t_name not in targets_names:
-                    targets_names.append(t_name)
+            _register_source_artifact(s_name)
+            _register_target_artifact(t_list_names)
 
 
 def dict2df():
@@ -52,8 +79,7 @@ def dict2df():
 
 if __name__ == '__main__':
     read_oracle_files()
-    encode_artifacts()
     dict2df()
 
-    df_trace.to_csv('data/EasyClinic/EasyClinicDataset/oracle/output/trace_matrix.csv', sep=',', index=False)
-
+    df_trace.to_csv(BASE_DIR + '/oracle/output/trace_matrix.csv', sep=',', index=False)
+    df_artifacts_descriptions.to_csv(BASE_DIR + '/oracle/output/artifacts_descriptions.csv', sep=',', index=False)
