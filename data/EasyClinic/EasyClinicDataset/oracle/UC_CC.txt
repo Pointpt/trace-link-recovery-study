@@ -16,12 +16,12 @@
 16.txt:138.txt 148.txt 159.txt 
 17.txt:136.txt 145.txt 154.txt 
 18.txt:136.txt 137.txt 144.txt 145.txt 154.txt 
-19.txt: 
+19.txt:
 20.txt:132.txt 145.txt 154.txt 
 21.txt:118.txt 149.txt 155.txt 156.txt 
 22.txt:117.txt 148.txt 159.txt 
 23.txt:116.txt 145.txt 154.txt 
-24.txt: 
+24.txt:
 25.txt:114.txt 145.txt 154.txt 
 26.txt:128.txt 148.txt 159.txt 
 27.txt:126.txt 150.txt 155.txt 

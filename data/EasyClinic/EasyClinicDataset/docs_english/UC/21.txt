@@ -51,7 +51,7 @@ details of a visit
           patient history made by the doctor 
           diagnostic tests prescribed therapy 
           (giving medicines and time of recruitment) 
-          They are required altresý reported values 
+          They are required altres reported values 
           any observations made instrumental 
           during the visit (eg heartbeat 
           blood pressure values of n number of 
