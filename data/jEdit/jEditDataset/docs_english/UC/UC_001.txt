@@ -1,0 +1,28 @@
+Use Case ID: 001
+
+Use Case Name: User Searches for Word in Text
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main window is selected
+. There is some text in the text area
+
+Basic Flow:
+
+1. User clicks the ‘Find…’ button 
+    System displays new window with ‘Search and Replace’ options
+2. User insert the text to be found in the field ‘Search for’
+    System displays the inserted text in the text area
+3. User clicks the button ‘Find’ 
+    System highlights word found in text
+4. User clicks the button ‘Find’ again 
+    System displays a dialog box informing the user that no more matches were found and asks if he/she wishes to continue the search from the beginning
+5. User clicks the button ‘No’
+    System closes the dialog box
+6. User clicks button ‘Close’
+    System closes the ‘Search and Replace’ window and main window is displayed with the found word highlighted and the caret next to it
+
+Postconditions:
+. The original text was not modified in the system

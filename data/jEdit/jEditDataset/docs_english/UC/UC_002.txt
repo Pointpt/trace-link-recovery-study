@@ -1,0 +1,22 @@
+Use Case ID: 002
+
+Use Case Name: User Saves New File
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main window is selected
+
+Basic Flow:
+
+1. User enters some text in the TextArea 
+    System displays text entered in the TextArea of the main View
+2. User clicks ‘Save’ button
+    System opens a new window to choose the file name and directory
+3. User navigates through the directories until the chosen one, enters the file name and click in ‘Save’ button
+    System displays the main window with the file saved
+
+
+Postconditions:
+. The file is saved in the system

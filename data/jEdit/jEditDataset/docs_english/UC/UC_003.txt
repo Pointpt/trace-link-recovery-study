@@ -1,0 +1,33 @@
+Use Case ID: 003
+
+Use Case Name: User Replaces Words in Text
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main window is selected
+. There is some text in the text area from a file saved in the system
+
+Basic Flow:
+
+1. User clicks the ‘Find…’ button
+    System displays new window with ‘Search and Replace’ options
+2. User insert the text to be found in the field ‘Search for’ and the text to replace the original one in the ‘Replace with’ field
+    System displays the inserted texts in the respective text areas
+3. User clicks the button ‘Find’
+    System highlights first occurrence of word found in text
+4. User clicks the button ‘Replace’
+    System changes highlighted word by word in ‘Replace with’ field
+5. User clicks the button ‘Find’ again
+    System displays a dialog box informing the user that no more matches were found and asks if he/she wishes to continue the search from the beginning
+6. User clicks the button ‘No’
+    System closes the dialog box
+7. User clicks button ‘Close’
+    System closes the ‘Search and Replace’ window and main window is displayed with the found word highlighted and the caret next to it
+8. User clicks button ‘Save’
+    System saves file
+
+
+Postconditions:
+. The original text is updated with the new content and file is saved with new content

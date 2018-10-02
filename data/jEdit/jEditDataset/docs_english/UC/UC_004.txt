@@ -1,0 +1,30 @@
+Use Case ID: 004
+
+Use Case Name: User Opens New View
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main window is selected
+. There is some text in the text area from a file saved in the system
+
+Basic Flow:
+
+1. User clicks the ‘View’ button in the Navigator bar
+    System displays list of ‘View’ options
+2. User clicks on ‘New View’ button
+    System displays a new window with a copy of the text of the original view, the new window appear on top of the original
+3. User inserts some text in the text area
+    System displays the same new text in text areas of both views: old and new one
+4. User clicks ‘Save’ button
+    System displays File System Navigator
+5. User selects file location (folder)
+    System exhibits files inside the selected folder
+6. User inserts file name in ‘File name’ field
+    System displays inserted file name
+7. User clicks ‘Save’ button
+    System saves file
+
+Postconditions:
+. Both views are open and point out to the same file saved in the system

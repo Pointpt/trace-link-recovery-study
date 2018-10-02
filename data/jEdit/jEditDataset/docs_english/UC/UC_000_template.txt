@@ -1,0 +1,30 @@
+Use Case ID: 000
+
+Use Case Name: xxxxxxx
+
+User/Actor: xxxxxxx
+
+Preconditions:
+. xxxxxxx
+. xxxxxxx
+
+Basic Flow:
+
+1. User xxxxx xxxxxx x xxxx 
+    System xxxxxx xxx   xxxx  xxx
+2. User xxxxx xxxxxx x xxxx 
+    System xxxxxx xxx   xxxx  xxx
+3. User xxxxx xxxxxx x xxxx 
+    System xxxxxx xxx   xxxx  xxx
+4. User xxxxx xxxxxx x xxxx 
+    System xxxxxx xxx   xxxx  xxx
+5. User xxxxx xxxxxx x xxxx 
+    System xxxxxx xxx   xxxx  xxx
+6. User xxxxx xxxxxx x xxxx 
+    System xxxxxx xxx   xxxx  xxx
+7. User xxxxx xxxxxx x xxxx 
+    System xxxxxx xxx   xxxx  xxx
+
+Postconditions:
+. xxxxxxx
+. xxxxxxx
