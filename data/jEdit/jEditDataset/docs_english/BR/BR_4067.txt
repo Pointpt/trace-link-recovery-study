@@ -1,0 +1,4 @@
+Bug Number: 4067
+Summary: Erroneous Dialog - Opening Backup File
+Description: jEdit 5.5.0 under JAVA SE 1.8.0_171 under Windows 10 Pro
+Every file I open now pops up the "Opening Backup File" dialog saying "the file ... is likely a jEdit backup file".  This never happened before v5.5.0. What is the criteria for determining when this dialog should appear?
