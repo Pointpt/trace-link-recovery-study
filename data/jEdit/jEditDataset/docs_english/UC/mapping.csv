@@ -1,0 +1,11 @@
+UID, Name
+001, User Searches for Word in Text
+002, User Saves New File
+003, User Replaces Words in Text
+004, User Opens New View           
+005, User Opens New File
+006, User Opens Source Code File
+007, User Creates New Shortcut
+008, User Visualizes Help Content
+009, User Finds Matching Brackets
+010, User Indent Lines

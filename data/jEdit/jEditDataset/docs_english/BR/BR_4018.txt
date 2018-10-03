@@ -1,0 +1,13 @@
+Bug Number: 4018
+Summary: file browser allows opening file in dir box as dir
+Description: may be related to another bug I authored with yellow square in file tab.
+1. start jedit
+2. ctrl-o
+2. put in full filepath into path box, click open
+3. filename will show as "yellow tab" (white tab with yellow box in it), empty file (where there should be something), and filname showing with \ on end strangely enough, or the path shown has this the wrong way, or both.
+4. close file.
+5. open file by browsing and clicking
+4. 2nd attempt to do it wrong on same file will fail.
+5. 3rd attempt to do it wrong on different file will fail.
+
+it only seems to happen when jedit is started.

@@ -1,0 +1,20 @@
+Use Case ID: 008
+
+Use Case Name: User Visualizes Help Content
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main View is active
+
+Basic Flow:
+
+1. User clicks the ‘Help’ button in the Navigator bar
+    System displays ‘Help Pane’
+2. User clicks the 'jEdit Help' button
+    System displays new window with jEdit Help content
+3. User clicks the 'x' button
+    System closes the jEdit Help window and displays main view
+
+Postconditions:

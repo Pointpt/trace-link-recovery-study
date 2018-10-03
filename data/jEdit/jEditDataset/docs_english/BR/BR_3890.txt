@@ -1,0 +1,7 @@
+Bug Number: 3890
+Summary: HTML/XHTML DTD and JavaScript-Syntaxhighlighting
+Description: If you specify a DTD in a HTML-file, the parser doesn't
+care about it, that shouldn't be.
+And if you want to handle XHTML-files, you have to
+parse them with XML as parser, but then JavaScript
+isn't syntax-highlighted.

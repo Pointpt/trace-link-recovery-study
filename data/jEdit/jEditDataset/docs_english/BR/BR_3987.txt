@@ -1,0 +1,3 @@
+Bug Number: 3987
+Summary: multiview doesn't show failed hypersearch results
+Description: it should be shown. that way the user doesn't think editor is buggy and complain or send bug reports.

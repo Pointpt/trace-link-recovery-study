@@ -1,0 +1,5 @@
+Bug Number: 4058
+Summary: menu alt shortcuts not working for non-latin languages
+Description: This is now true for japanese, chinese, korean and russian. I do not know how first three deal with shortcuts but in russian it is the same as in latin, single character is used.
+
+I put $ before russian character in jedit_ru.props file and that combination does not work.

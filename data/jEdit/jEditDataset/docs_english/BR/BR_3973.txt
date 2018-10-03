@@ -1,0 +1,3 @@
+Bug Number: 3973
+Summary: file browser (save as) don't refresh dirs after rt-clk,new dir
+Description: java 8.4 je 5.3 windows vista x32

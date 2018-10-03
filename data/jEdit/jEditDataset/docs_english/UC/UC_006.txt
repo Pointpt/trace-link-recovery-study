@@ -1,0 +1,26 @@
+Use Case ID: 006
+
+Use Case Name: User Opens Source Code File
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main window is selected
+. There is a valid source code file saved in the system
+
+Basic Flow:
+
+1. User clicks the ‘Open’ button in the Navigator bar
+    System displays File Navigator window
+2. User navigates until target directory
+    System exhibits files inside the selected folder
+3. User selects source code file to open
+    System displays the file name in the ‘File name’ text field
+4. User clicks ‘Open’ button
+    System displays source code file content in main view highlighted
+
+
+Postconditions:
+. The selected file has no modifications in file system
+. The source code is highlighted in the main view 

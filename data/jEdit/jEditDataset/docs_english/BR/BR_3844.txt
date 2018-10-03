@@ -1,0 +1,3 @@
+Bug Number: 3844
+Summary: edit - "indent lines" for unsupported modes does nothing
+Description: For modes which do not support it, this action should spit out an informative message either as a dialog or to the activity log, instead of just doing nothing.

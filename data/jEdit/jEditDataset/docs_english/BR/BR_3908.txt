@@ -1,0 +1,23 @@
+Bug Number: 3908
+Summary: Performance problem when matching brackets in long lines.
+Description: Host System:
+- jEdit 5.1.0
+- Java 1.7.0_65
+- Ubuntu 14.04
+
+(This is a similar issue to https://sourceforge.net/p/jedit/bugs/3904/ , but I believe it can be easily fixed while being consistent with the functionality of the feature)
+
+The editor becomes unresponsive when matching brackets on long lines.
+
+It seems to be iterating over the entire line to find the opening bracket.
+
+In earlier versions the edit became slow when it tried to perform bracket matching "vertically", iterating over previous lines until the opening bracket was found. As a result, a bound of 10000 lines for bracket matching was imposed.
+
+However, this bound was not imposed for "horizontal" bracket matching, so we can see a slowdown when lines become arbitrarily large.
+
+My suggestion would be to impose a bound for the numbers of characters in the current line, similar to the bound on the number of lines iterated.
+
+I'm attaching a Java program that generates a file exposing this problem.
+
+Regards,
+ Oswaldo.

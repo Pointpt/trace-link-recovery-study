@@ -1,0 +1,11 @@
+Bug Number: 4065
+Summary: Ruby syntax highlighting broken on string interpolation
+Description: Consider the Ruby string expression
+
+~~~
+"#{f.map {0}.g};#{h}"
+~~~
+
+The highlighter fails to match in colour the closing brace following the *g* to the opening brace preceding the *f*
+
+jEdit 5.4.0

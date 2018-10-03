@@ -1,0 +1,11 @@
+Bug Number: 3974
+Summary: syntax highlighter doesn't like division. confusion with RegExp //?
+Description: ~~~~
+mediaSizeB=(atold_(t.value,true,true,',',["b"],false)/8)+atold_(t.value,true,true,',',["B"],false);//column 1 is media size in bytes
+~~~~
+vista x32 java 8.4 je 5.3
+syntax highlighter (.js) shows this with incorrect highlighting from 
+~~~~
+/8)+atold_(t.value,true,true,',',["B"],false);//column 1 is media size in bytes
+~~~~
+and on

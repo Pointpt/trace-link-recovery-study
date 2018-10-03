@@ -1,0 +1,11 @@
+Bug Number: 3880
+Summary: Syntax Highlighting RPM spec
+Description: bug: jEdit doesn't highlight "License:", "%changelog" and "%defattr" correctly.
+
+jEdit version number: Jedit 4.3.3
+
+platform: CentOS 6.5
+
+Java version: Java 1.7.0_55
+
+steps to reproduce: Edit spec file, and save it with spec extension.

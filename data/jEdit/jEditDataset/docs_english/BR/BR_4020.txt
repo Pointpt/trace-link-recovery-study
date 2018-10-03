@@ -1,0 +1,27 @@
+Bug Number: 4020
+Summary: XML with entity and xml schema produces error and breaks jEdit UI
+Description: When I open XML file then jEdit writes NullPointerException on STDERR and UI stops refreshing properly.
+
+Steps to reproduce:
+1. extract files from testCase.tar.gz to one directory
+2. start jEdit
+3. open file apiEntities.xml
+4. NullPointerException message is written on STDERR
+5. put cursor to the last line of apiEntities.xml file
+6. press Enter and keep it pressed for a while
+7. line numbers in gutter bar stops updated properly after few seconds
+8. release Enter key
+9. press and keep Up key
+10. line numbers in gutter bar are updated but only from to bottom to the current cursor position (so for example you can see that line 7 is followed by line 63)
+11. Keep the Up key pressed untill it hits begin of document
+12. You can see that document content is not displayed properly (some lines are missing)
+13. You can see other anomalies. For example try to click to some docked panel and then click them again to be not displayed (part of plugin window remains visible)
+
+You can see something similar to attached screenshot.
+
+
+jEdit version number: 5.2.0
+platform: Gentoo Linux
+Java version: Oracle Java(TM) SE Runtime Environment (build 1.8.0_102-b14)
+Activity log: see attached activit.log file
+Plugins: see attached plugin-list.txt file

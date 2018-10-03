@@ -1,0 +1,29 @@
+Use Case ID: 007
+
+Use Case Name: User Creates New Shortcut
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+
+Basic Flow:
+
+1. User clicks the ‘Utilities’ button in the Navigator bar
+    System displays ‘Utilities Pane’
+2. User clicks the 'Global Options...' button
+    System displays new window with General Global Options
+3. User selects Shortcuts option in the side menu
+    System displays imported keymap of shortcuts
+4. User selects which shortcut to edit
+    System displays dialog box to specify the shortcut
+5. User enters the new shortcut
+    System displays each keyboard key pressed by user in the input field
+6. User clicks 'Ok' button
+    System closes dialog box
+7. User clicks 'Ok' button
+    System closes the Shortcuts window and displays the main view
+
+
+Postconditions:
+. A new shortcut is created and saved

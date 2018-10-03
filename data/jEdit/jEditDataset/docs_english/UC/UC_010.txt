@@ -1,0 +1,24 @@
+Use Case ID: 010
+
+Use Case Name: User Indent Lines
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main View is active
+. There is some valid source code in the main view
+
+Basic Flow:
+
+1. User selects text lines to be indented 
+    System hightlights text and displays caret at the end of selection
+2. User clicks the 'Edit' button in Navigate panel
+    System displays Edit options
+3. User clicks the 'Indent' button into Edit options
+    System displays Indent options
+4. User clicks the 'Indent Lines' option
+    System indents selected text and caret is displayed in the beggining of indented text
+
+Postconditions:
+. The file content has no modifications

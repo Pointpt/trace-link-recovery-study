@@ -1,0 +1,24 @@
+Use Case ID: 009
+
+Use Case Name: User Finds Matching Brackets
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main View is active
+. There is some valid source code with brackets in the main view
+
+Basic Flow:
+
+1. User puts caret next to bracket he/she wants to localize matching bracket
+    System displays caret next to bracket
+2. User clicks the 'Edit' button in Navigate panel
+    System displays Edit options
+3. User clicks the 'Source' button into Edit options
+    System displays Source options
+4. User clicks the 'Go to Matching Bracket' option
+    System displays caret next to found matching bracket and hightlight the first one
+
+Postconditions:
+. The file content has no modifications
