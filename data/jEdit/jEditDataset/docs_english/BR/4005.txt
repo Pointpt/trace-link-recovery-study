@@ -1,0 +1,9 @@
+Bug Number: 4005
+Summary: Odd change of help viewer font after change of text area font
+Description: This is jEdit trunk 24461 with jdk-8u92 on Linux.
+
+With Nimbus or GTK+ L&F the following odd behaviour can be seen in the help viewer. Starting situation: help viewer font 36px and main text area font 36px. Now open the help viewer. Keep it open while changing the main text area font to 24px: the help viewer font is somehow reset as well.
+
+Closing help and re-opening it gets back to the 36px help viewer font.
+
+Nothing like that happens for Metal L&F.

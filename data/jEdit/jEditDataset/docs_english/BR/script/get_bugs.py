@@ -2,13 +2,13 @@ import requests
 
 BASE_URL = "https://sourceforge.net/rest/p/jedit/bugs/"
 
-BASE_FILE_PATH = "data/jEdit/jEditDataset/docs_english/BR/BR_{0}.txt"
+BASE_FILE_PATH = "data/jEdit/jEditDataset/docs_english/BR/{0}.txt"
 
 tickets_ids = [4067,4065,4058,
                 4018,4020,3987,
                 3974,3973,3908,
                 3898,3890,3880,
-                3844]
+                3844,4005]
 
 line = "Bug Number: {0}\nSummary: {1}\nDescription: {2}"
 
