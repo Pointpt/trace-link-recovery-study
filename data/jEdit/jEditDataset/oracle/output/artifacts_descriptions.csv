@@ -1,32 +1,43 @@
-artf_name,artf_description
-BR_4067_SRC,"Bug Number: 4067
-Summary: Erroneous Dialog - Opening Backup File
-Description: jEdit 5.5.0 under JAVA SE 1.8.0_171 under Windows 10 Pro
-Every file I open now pops up the ""Opening Backup File"" dialog saying ""the file ... is likely a jEdit backup file"".  This never happened before v5.5.0. What is the criteria for determining when this dialog should appear?"
-UC_005_TRG,"Use Case ID: 005
+artf_name|artf_description
+BR_4020_SRC|"Bug Number: 4020
+Summary: XML with entity and xml schema produces error and breaks jEdit UI
+Description: When I open XML file then jEdit writes NullPointerException on STDERR and UI stops refreshing properly.
 
-Use Case Name: User Opens New File
+Steps to reproduce:
+1. extract files from testCase.tar.gz to one directory
+2. start jEdit
+3. open file apiEntities.xml
+4. NullPointerException message is written on STDERR
+5. put cursor to the last line of apiEntities.xml file
+6. press Enter and keep it pressed for a while
+7. line numbers in gutter bar stops updated properly after few seconds
+8. release Enter key
+9. press and keep Up key
+10. line numbers in gutter bar are updated but only from to bottom to the current cursor position (so for example you can see that line 7 is followed by line 63)
+11. Keep the Up key pressed untill it hits begin of document
+12. You can see that document content is not displayed properly (some lines are missing)
+13. You can see other anomalies. For example try to click to some docked panel and then click them again to be not displayed (part of plugin window remains visible)
 
-User/Actor: End user
+You can see something similar to attached screenshot.
 
-Preconditions:
-. System is running
-. Main window is selected
 
-Basic Flow:
-
-1. User clicks the ‘Open’ button in the Navigator bar
-    System displays File Navigator window
-2. User navigates until target directory
-    System exhibits files inside the selected folder
-3. User selects file to open
-    System displays the file name in the ‘File name’ text field
-4. User clicks ‘Open’ button
-    System displays file content in main view
-
-Postconditions:
-. The selected file has no modifications in file system"
-BR_4065_SRC,"Bug Number: 4065
+jEdit version number: 5.2.0
+platform: Gentoo Linux
+Java version: Oracle Java(TM) SE Runtime Environment (build 1.8.0_102-b14)
+Activity log: see attached activit.log file
+Plugins: see attached plugin-list.txt file
+"
+BR_3890_SRC|"Bug Number: 3890
+Summary: HTML/XHTML DTD and JavaScript-Syntaxhighlighting
+Description: If you specify a DTD in a HTML-file, the parser doesn't
+care about it, that shouldn't be.
+And if you want to handle XHTML-files, you have to
+parse them with XML as parser, but then JavaScript
+isn't syntax-highlighted."
+BR_3844_SRC|"Bug Number: 3844
+Summary: edit - ""indent lines"" for unsupported modes does nothing
+Description: For modes which do not support it, this action should spit out an informative message either as a dialog or to the activity log, instead of just doing nothing."
+BR_4065_SRC|"Bug Number: 4065
 Summary: Ruby syntax highlighting broken on string interpolation
 Description: Consider the Ruby string expression
 
@@ -37,38 +48,127 @@ Description: Consider the Ruby string expression
 The highlighter fails to match in colour the closing brace following the *g* to the opening brace preceding the *f*
 
 jEdit 5.4.0"
-UC_006_TRG,"Use Case ID: 006
+BR_3880_SRC|"Bug Number: 3880
+Summary: Syntax Highlighting RPM spec
+Description: bug: jEdit doesn't highlight ""License:"", ""%changelog"" and ""%defattr"" correctly.
 
-Use Case Name: User Opens Source Code File
+jEdit version number: Jedit 4.3.3
+
+platform: CentOS 6.5
+
+Java version: Java 1.7.0_55
+
+steps to reproduce: Edit spec file, and save it with spec extension.
+"
+BR_3987_SRC|"Bug Number: 3987
+Summary: multiview doesn't show failed hypersearch results
+Description: it should be shown. that way the user doesn't think editor is buggy and complain or send bug reports."
+BR_4067_SRC|"Bug Number: 4067
+Summary: Erroneous Dialog - Opening Backup File
+Description: jEdit 5.5.0 under JAVA SE 1.8.0_171 under Windows 10 Pro
+Every file I open now pops up the ""Opening Backup File"" dialog saying ""the file ... is likely a jEdit backup file"".  This never happened before v5.5.0. What is the criteria for determining when this dialog should appear?"
+BR_3973_SRC|"Bug Number: 3973
+Summary: file browser (save as) don't refresh dirs after rt-clk,new dir
+Description: java 8.4 je 5.3 windows vista x32"
+BR_3898_SRC|"Bug Number: 3898
+Summary: Bracket matching not working on very large files with brackets very far apart
+Description: The functionality for Bracket Matching does not work when the beginning and ending brackets are very far apart. This has occurred on very large files where a pair of brackets are very far apart. I do not know whether or not this is because the attempt to find the matching bracket just takes so long a time that it will never return as completed or whether or not there is some limit on the number of bytes/lines between matching brackets, but jedit should give some information of what is going on. It is very annoying to edit a very large file in jedit and get back no indication when Bracket Matching is supposed to be occurring. Along with Bracket Matching not happening the various various Bracket Matching functionality, most specifically Got to Matching Bracket, does not work in these same situations."
+BR_3908_SRC|"Bug Number: 3908
+Summary: Performance problem when matching brackets in long lines.
+Description: Host System:
+- jEdit 5.1.0
+- Java 1.7.0_65
+- Ubuntu 14.04
+
+(This is a similar issue to https://sourceforge.net/p/jedit/bugs/3904/ , but I believe it can be easily fixed while being consistent with the functionality of the feature)
+
+The editor becomes unresponsive when matching brackets on long lines.
+
+It seems to be iterating over the entire line to find the opening bracket.
+
+In earlier versions the edit became slow when it tried to perform bracket matching ""vertically"", iterating over previous lines until the opening bracket was found. As a result, a bound of 10000 lines for bracket matching was imposed.
+
+However, this bound was not imposed for ""horizontal"" bracket matching, so we can see a slowdown when lines become arbitrarily large.
+
+My suggestion would be to impose a bound for the numbers of characters in the current line, similar to the bound on the number of lines iterated.
+
+I'm attaching a Java program that generates a file exposing this problem.
+
+Regards,
+ Oswaldo.
+"
+BR_4058_SRC|"Bug Number: 4058
+Summary: menu alt shortcuts not working for non-latin languages
+Description: This is now true for japanese, chinese, korean and russian. I do not know how first three deal with shortcuts but in russian it is the same as in latin, single character is used.
+
+I put $ before russian character in jedit_ru.props file and that combination does not work."
+BR_4018_SRC|"Bug Number: 4018
+Summary: file browser allows opening file in dir box as dir
+Description: may be related to another bug I authored with yellow square in file tab.
+1. start jedit
+2. ctrl-o
+2. put in full filepath into path box, click open
+3. filename will show as ""yellow tab"" (white tab with yellow box in it), empty file (where there should be something), and filname showing with \ on end strangely enough, or the path shown has this the wrong way, or both.
+4. close file.
+5. open file by browsing and clicking
+4. 2nd attempt to do it wrong on same file will fail.
+5. 3rd attempt to do it wrong on different file will fail.
+
+it only seems to happen when jedit is started."
+BR_4005_SRC|"Bug Number: 4005
+Summary: Odd change of help viewer font after change of text area font
+Description: This is jEdit trunk 24461 with jdk-8u92 on Linux.
+
+With Nimbus or GTK+ L&F the following odd behaviour can be seen in the help viewer. Starting situation: help viewer font 36px and main text area font 36px. Now open the help viewer. Keep it open while changing the main text area font to 24px: the help viewer font is somehow reset as well.
+
+Closing help and re-opening it gets back to the 36px help viewer font.
+
+Nothing like that happens for Metal L&F."
+BR_3974_SRC|"Bug Number: 3974
+Summary: syntax highlighter doesn't like division. confusion with RegExp //?
+Description: ~~~~
+mediaSizeB=(atold_(t.value,true,true,',',[""b""],false)/8)+atold_(t.value,true,true,',',[""B""],false);//column 1 is media size in bytes
+~~~~
+vista x32 java 8.4 je 5.3
+syntax highlighter (.js) shows this with incorrect highlighting from 
+~~~~
+/8)+atold_(t.value,true,true,',',[""B""],false);//column 1 is media size in bytes
+~~~~
+and on"
+UC_003_TRG|"Use Case ID: 003
+
+Use Case Name: User Replaces Words in Text
 
 User/Actor: End user
 
 Preconditions:
 . System is running
 . Main window is selected
-. There is a valid source code file saved in the system
+. There is some text in the text area from a file saved in the system
 
 Basic Flow:
 
-1. User clicks the ‘Open’ button in the Navigator bar
-    System displays File Navigator window
-2. User navigates until target directory
-    System exhibits files inside the selected folder
-3. User selects source code file to open
-    System displays the file name in the ‘File name’ text field
-4. User clicks ‘Open’ button
-    System displays source code file content in main view highlighted
+1. User clicks the ‘Find…’ button
+    System displays new window with ‘Search and Replace’ options
+2. User insert the text to be found in the field ‘Search for’ and the text to replace the original one in the ‘Replace with’ field
+    System displays the inserted texts in the respective text areas
+3. User clicks the button ‘Find’
+    System highlights first occurrence of word found in text
+4. User clicks the button ‘Replace’
+    System changes highlighted word by word in ‘Replace with’ field
+5. User clicks the button ‘Find’ again
+    System displays a dialog box informing the user that no more matches were found and asks if he/she wishes to continue the search from the beginning
+6. User clicks the button ‘No’
+    System closes the dialog box
+7. User clicks button ‘Close’
+    System closes the ‘Search and Replace’ window and main window is displayed with the found word highlighted and the caret next to it
+8. User clicks button ‘Save’
+    System saves file
 
 
 Postconditions:
-. The selected file has no modifications in file system
-. The source code is highlighted in the main view "
-BR_4058_SRC,"Bug Number: 4058
-Summary: menu alt shortcuts not working for non-latin languages
-Description: This is now true for japanese, chinese, korean and russian. I do not know how first three deal with shortcuts but in russian it is the same as in latin, single character is used.
-
-I put $ before russian character in jedit_ru.props file and that combination does not work."
-UC_007_TRG,"Use Case ID: 007
+. The original text is updated with the new content and file is saved with new content"
+UC_007_TRG|"Use Case ID: 007
 
 Use Case Name: User Creates New Shortcut
 
@@ -97,80 +197,79 @@ Basic Flow:
 
 Postconditions:
 . A new shortcut is created and saved"
-BR_4018_SRC,"Bug Number: 4018
-Summary: file browser allows opening file in dir box as dir
-Description: may be related to another bug I authored with yellow square in file tab.
-1. start jedit
-2. ctrl-o
-2. put in full filepath into path box, click open
-3. filename will show as ""yellow tab"" (white tab with yellow box in it), empty file (where there should be something), and filname showing with \ on end strangely enough, or the path shown has this the wrong way, or both.
-4. close file.
-5. open file by browsing and clicking
-4. 2nd attempt to do it wrong on same file will fail.
-5. 3rd attempt to do it wrong on different file will fail.
+UC_010_TRG|"Use Case ID: 010
 
-it only seems to happen when jedit is started."
-BR_4020_SRC,"Bug Number: 4020
-Summary: XML with entity and xml schema produces error and breaks jEdit UI
-Description: When I open XML file then jEdit writes NullPointerException on STDERR and UI stops refreshing properly.
-
-Steps to reproduce:
-1. extract files from testCase.tar.gz to one directory
-2. start jEdit
-3. open file apiEntities.xml
-4. NullPointerException message is written on STDERR
-5. put cursor to the last line of apiEntities.xml file
-6. press Enter and keep it pressed for a while
-7. line numbers in gutter bar stops updated properly after few seconds
-8. release Enter key
-9. press and keep Up key
-10. line numbers in gutter bar are updated but only from to bottom to the current cursor position (so for example you can see that line 7 is followed by line 63)
-11. Keep the Up key pressed untill it hits begin of document
-12. You can see that document content is not displayed properly (some lines are missing)
-13. You can see other anomalies. For example try to click to some docked panel and then click them again to be not displayed (part of plugin window remains visible)
-
-You can see something similar to attached screenshot.
-
-
-jEdit version number: 5.2.0
-platform: Gentoo Linux
-Java version: Oracle Java(TM) SE Runtime Environment (build 1.8.0_102-b14)
-Activity log: see attached activit.log file
-Plugins: see attached plugin-list.txt file
-"
-BR_4005_SRC,"Bug Number: 4005
-Summary: Odd change of help viewer font after change of text area font
-Description: This is jEdit trunk 24461 with jdk-8u92 on Linux.
-
-With Nimbus or GTK+ L&F the following odd behaviour can be seen in the help viewer. Starting situation: help viewer font 36px and main text area font 36px. Now open the help viewer. Keep it open while changing the main text area font to 24px: the help viewer font is somehow reset as well.
-
-Closing help and re-opening it gets back to the 36px help viewer font.
-
-Nothing like that happens for Metal L&F."
-UC_008_TRG,"Use Case ID: 008
-
-Use Case Name: User Visualizes Help Content
+Use Case Name: User Indent Lines
 
 User/Actor: End user
 
 Preconditions:
 . System is running
 . Main View is active
+. There is some valid source code in the main view
 
 Basic Flow:
 
-1. User clicks the ‘Help’ button in the Navigator bar
-    System displays ‘Help Pane’
-2. User clicks the 'jEdit Help' button
-    System displays new window with jEdit Help content
-3. User clicks the 'x' button
-    System closes the jEdit Help window and displays main view
+1. User selects text lines to be indented 
+    System hightlights text and displays caret at the end of selection
+2. User clicks the 'Edit' button in Navigate panel
+    System displays Edit options
+3. User clicks the 'Indent' button into Edit options
+    System displays Indent options
+4. User clicks the 'Indent Lines' option
+    System indents selected text and caret is displayed in the beggining of indented text
 
-Postconditions:"
-BR_3987_SRC,"Bug Number: 3987
-Summary: multiview doesn't show failed hypersearch results
-Description: it should be shown. that way the user doesn't think editor is buggy and complain or send bug reports."
-UC_004_TRG,"Use Case ID: 004
+Postconditions:
+. The file content has no modifications"
+UC_002_TRG|"Use Case ID: 002
+
+Use Case Name: User Saves New File
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main window is selected
+
+Basic Flow:
+
+1. User enters some text in the TextArea 
+    System displays text entered in the TextArea of the main View
+2. User clicks ‘Save’ button
+    System opens a new window to choose the file name and directory
+3. User navigates through the directories until the chosen one, enters the file name and click in ‘Save’ button
+    System displays the main window with the file saved
+
+
+Postconditions:
+. The file is saved in the system"
+UC_006_TRG|"Use Case ID: 006
+
+Use Case Name: User Opens Source Code File
+
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main window is selected
+. There is a valid source code file saved in the system
+
+Basic Flow:
+
+1. User clicks the ‘Open’ button in the Navigator bar
+    System displays File Navigator window
+2. User navigates until target directory
+    System exhibits files inside the selected folder
+3. User selects source code file to open
+    System displays the file name in the ‘File name’ text field
+4. User clicks ‘Open’ button
+    System displays source code file content in main view highlighted
+
+
+Postconditions:
+. The selected file has no modifications in file system
+. The source code is highlighted in the main view "
+UC_004_TRG|"Use Case ID: 004
 
 Use Case Name: User Opens New View
 
@@ -200,23 +299,9 @@ Basic Flow:
 
 Postconditions:
 . Both views are open and point out to the same file saved in the system"
-BR_3974_SRC,"Bug Number: 3974
-Summary: syntax highlighter doesn't like division. confusion with RegExp //?
-Description: ~~~~
-mediaSizeB=(atold_(t.value,true,true,',',[""b""],false)/8)+atold_(t.value,true,true,',',[""B""],false);//column 1 is media size in bytes
-~~~~
-vista x32 java 8.4 je 5.3
-syntax highlighter (.js) shows this with incorrect highlighting from 
-~~~~
-/8)+atold_(t.value,true,true,',',[""B""],false);//column 1 is media size in bytes
-~~~~
-and on"
-BR_3973_SRC,"Bug Number: 3973
-Summary: file browser (save as) don't refresh dirs after rt-clk,new dir
-Description: java 8.4 je 5.3 windows vista x32"
-UC_002_TRG,"Use Case ID: 002
+UC_005_TRG|"Use Case ID: 005
 
-Use Case Name: User Saves New File
+Use Case Name: User Opens New File
 
 User/Actor: End user
 
@@ -226,41 +311,66 @@ Preconditions:
 
 Basic Flow:
 
-1. User enters some text in the TextArea 
-    System displays text entered in the TextArea of the main View
-2. User clicks ‘Save’ button
-    System opens a new window to choose the file name and directory
-3. User navigates through the directories until the chosen one, enters the file name and click in ‘Save’ button
-    System displays the main window with the file saved
-
+1. User clicks the ‘Open’ button in the Navigator bar
+    System displays File Navigator window
+2. User navigates until target directory
+    System exhibits files inside the selected folder
+3. User selects file to open
+    System displays the file name in the ‘File name’ text field
+4. User clicks ‘Open’ button
+    System displays file content in main view
 
 Postconditions:
-. The file is saved in the system"
-BR_3908_SRC,"Bug Number: 3908
-Summary: Performance problem when matching brackets in long lines.
-Description: Host System:
-- jEdit 5.1.0
-- Java 1.7.0_65
-- Ubuntu 14.04
+. The selected file has no modifications in file system"
+UC_008_TRG|"Use Case ID: 008
 
-(This is a similar issue to https://sourceforge.net/p/jedit/bugs/3904/ , but I believe it can be easily fixed while being consistent with the functionality of the feature)
+Use Case Name: User Visualizes Help Content
 
-The editor becomes unresponsive when matching brackets on long lines.
+User/Actor: End user
 
-It seems to be iterating over the entire line to find the opening bracket.
+Preconditions:
+. System is running
+. Main View is active
 
-In earlier versions the edit became slow when it tried to perform bracket matching ""vertically"", iterating over previous lines until the opening bracket was found. As a result, a bound of 10000 lines for bracket matching was imposed.
+Basic Flow:
 
-However, this bound was not imposed for ""horizontal"" bracket matching, so we can see a slowdown when lines become arbitrarily large.
+1. User clicks the ‘Help’ button in the Navigator bar
+    System displays ‘Help Pane’
+2. User clicks the 'jEdit Help' button
+    System displays new window with jEdit Help content
+3. User clicks the 'x' button
+    System closes the jEdit Help window and displays main view
 
-My suggestion would be to impose a bound for the numbers of characters in the current line, similar to the bound on the number of lines iterated.
+Postconditions:"
+UC_001_TRG|"Use Case ID: 001
 
-I'm attaching a Java program that generates a file exposing this problem.
+Use Case Name: User Searches for Word in Text
 
-Regards,
- Oswaldo.
-"
-UC_009_TRG,"Use Case ID: 009
+User/Actor: End user
+
+Preconditions:
+. System is running
+. Main window is selected
+. There is some text in the text area
+
+Basic Flow:
+
+1. User clicks the ‘Find…’ button 
+    System displays new window with ‘Search and Replace’ options
+2. User insert the text to be found in the field ‘Search for’
+    System displays the inserted text in the text area
+3. User clicks the button ‘Find’ 
+    System highlights word found in text
+4. User clicks the button ‘Find’ again 
+    System displays a dialog box informing the user that no more matches were found and asks if he/she wishes to continue the search from the beginning
+5. User clicks the button ‘No’
+    System closes the dialog box
+6. User clicks button ‘Close’
+    System closes the ‘Search and Replace’ window and main window is displayed with the found word highlighted and the caret next to it
+
+Postconditions:
+. The original text was not modified in the system"
+UC_009_TRG|"Use Case ID: 009
 
 Use Case Name: User Finds Matching Brackets
 
@@ -281,55 +391,6 @@ Basic Flow:
     System displays Source options
 4. User clicks the 'Go to Matching Bracket' option
     System displays caret next to found matching bracket and hightlight the first one
-
-Postconditions:
-. The file content has no modifications"
-BR_3898_SRC,"Bug Number: 3898
-Summary: Bracket matching not working on very large files with brackets very far apart
-Description: The functionality for Bracket Matching does not work when the beginning and ending brackets are very far apart. This has occurred on very large files where a pair of brackets are very far apart. I do not know whether or not this is because the attempt to find the matching bracket just takes so long a time that it will never return as completed or whether or not there is some limit on the number of bytes/lines between matching brackets, but jedit should give some information of what is going on. It is very annoying to edit a very large file in jedit and get back no indication when Bracket Matching is supposed to be occurring. Along with Bracket Matching not happening the various various Bracket Matching functionality, most specifically Got to Matching Bracket, does not work in these same situations."
-BR_3890_SRC,"Bug Number: 3890
-Summary: HTML/XHTML DTD and JavaScript-Syntaxhighlighting
-Description: If you specify a DTD in a HTML-file, the parser doesn't
-care about it, that shouldn't be.
-And if you want to handle XHTML-files, you have to
-parse them with XML as parser, but then JavaScript
-isn't syntax-highlighted."
-BR_3880_SRC,"Bug Number: 3880
-Summary: Syntax Highlighting RPM spec
-Description: bug: jEdit doesn't highlight ""License:"", ""%changelog"" and ""%defattr"" correctly.
-
-jEdit version number: Jedit 4.3.3
-
-platform: CentOS 6.5
-
-Java version: Java 1.7.0_55
-
-steps to reproduce: Edit spec file, and save it with spec extension.
-"
-BR_3844_SRC,"Bug Number: 3844
-Summary: edit - ""indent lines"" for unsupported modes does nothing
-Description: For modes which do not support it, this action should spit out an informative message either as a dialog or to the activity log, instead of just doing nothing."
-UC_010_TRG,"Use Case ID: 010
-
-Use Case Name: User Indent Lines
-
-User/Actor: End user
-
-Preconditions:
-. System is running
-. Main View is active
-. There is some valid source code in the main view
-
-Basic Flow:
-
-1. User selects text lines to be indented 
-    System hightlights text and displays caret at the end of selection
-2. User clicks the 'Edit' button in Navigate panel
-    System displays Edit options
-3. User clicks the 'Indent' button into Edit options
-    System displays Indent options
-4. User clicks the 'Indent Lines' option
-    System indents selected text and caret is displayed in the beggining of indented text
 
 Postconditions:
 . The file content has no modifications"
