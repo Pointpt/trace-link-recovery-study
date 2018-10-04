@@ -38,7 +38,7 @@ def _register_target_artifact(t_list_names):
 
     for t_name in t_list_names:
         if t_name not in targets_names:
-            targets_ahnames.append(t_name)
+            targets_names.append(t_name)
 
             print("t_name: " + t_name)
 
@@ -67,6 +67,7 @@ class OracleLoader():
         self.trace_dict = {}
         self.df_trace = None
 
+    def load_oracle(self):
         for f_name in self.files:
             with open(BASE_DIR + 'oracle/' + f_name + '.txt', 'r') as fl:
                 lines = fl.readlines()
@@ -98,24 +99,27 @@ class OracleLoader():
 
 
     def save_oracle_as_csv(self):
-        list_source_artifacts = os.listdir(BASE_DIR + "/docs_english/BR/")
-        list_target_artifacts = os.listdir(BASE_DIR + "/docs_english/UC/")
-
-        rows_list = []
-        for artf_1 in list_source_artifacts:
-            for artf_2 in list_target_artifacts:
-                if artf_2.split('_')[2] == 'TRG' and artf_1.split('_')[2] == 'SRC':
-                    if artf_2 in self.trace_dict[artf_1]:
-                        rows_list.append({'src_artf': artf_1, 'trg_artf':artf_2, 'link': 1})
-                    else:
-                        rows_list.append({'src_artf': artf_1, 'trg_artf':artf_2, 'link': 0})
+        list_source_artifacts = ['BR_{}_SRC'.format(f.replace('.txt','')) for f in os.listdir(BASE_DIR + "/docs_english/BR/") if os.path.isfile(BASE_DIR + "/docs_english/BR/" + f)]
+        list_target_artifacts = ['UC_{}_TRG'.format(f.replace('.txt','')) for f in os.listdir(BASE_DIR + "/docs_english/UC/") if os.path.isfile(BASE_DIR + "/docs_english/UC/" + f)]
         
-        self.df_trace = pd.DataFrame(rows_list)
+        print("list_source_artfs: " + str(list_source_artifacts))
+        print("list_target_artfs: " + str(list_target_artifacts))
+        
+        rows_list = []
+        for src_art in list_source_artifacts:
+            for trg_art in list_target_artifacts:
+                if trg_art in self.trace_dict[src_art]:
+                    rows_list.append({'src_artf': src_art, 'trg_artf': trg_art, 'link': 1})
+                else:
+                    rows_list.append({'src_artf': src_art, 'trg_artf': trg_art, 'link': 0})
+        
+        self.df_trace = pd.DataFrame(rows_list, columns=['src_artf', 'trg_artf', 'link'])
         self.df_trace.to_csv(BASE_DIR + '/oracle/output/trace_matrix.csv', sep=',', index=False)
 
 
 if __name__ == '__main__':    
     oLoader = OracleLoader()
+    oLoader.load_oracle()
     oLoader.save_oracle_as_csv()
    
     #df_artifacts_descriptions.to_csv(BASE_DIR + '/oracle/output/artifacts_descriptions.csv', sep=',', index=False)
