@@ -61,7 +61,6 @@ target/
 *.pyc
 *.swp
 .ipynb_checkpoints/
-
 bin
 conda-meta
 compiler_compat
@@ -79,3 +78,6 @@ phrasebooks
 qml
 translations
 resources
+
+# custom
+*.p
