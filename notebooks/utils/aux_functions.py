@@ -39,7 +39,7 @@ def report_best_model(results_df):
     print("\nBest Model Hyperparameters Combination Found:\n")            
 
     row_idx = results_df['model_dump'][results_df.recall == results_df.recall.max()].index[0]
-    best_model = pickle.load(open(results_df['model_dump'][row_idx], 'rb'))
+    bm = pickle.load(open(results_df['model_dump'][row_idx], 'rb'))
     evalu = pickle.load(open(results_df['evaluator_dump'][row_idx], 'rb'))
     evalu.evaluate_model(verbose=True)
 
@@ -50,16 +50,24 @@ def report_best_model(results_df):
     #plot_heatmap(results_df)
 
     #evalu.save_log()
-
     
-def print_report_top_3_and_5(results_df):
+    return bm
+    
+def print_report_top_3_and_5_v1(results_df):
     for top in [3,5]:
         row_idx_top = results_df[results_df.top_value == top].recall.argmax()
-        best_model_top = pickle.load(open(results_df['model_dump'][row_idx_top], 'rb'))
+        bm_top = pickle.load(open(results_df['model_dump'][row_idx_top], 'rb'))
         evalu_top = pickle.load(open(results_df['evaluator_dump'][row_idx_top], 'rb'))
         evalu_top.evaluate_model(verbose=True)
         print("------------------------------------------------------------------")
-        
+
+def print_report_top_3_and_5_v2(results_df, metric_threshold, metric):
+    for top in [3,5]:
+        row_idx_top = results_df[(results_df.top_value == top) & (results_df.metric_value == metric_threshold) & (results_df.metric == metric)].recall.argmax()
+        bm_top = pickle.load(open(results_df['model_dump'][row_idx_top], 'rb'))
+        evalu_top = pickle.load(open(results_df['evaluator_dump'][row_idx_top], 'rb'))
+        evalu_top.evaluate_model(verbose=True)
+        print("------------------------------------------------------------------")
 
 def highlight_df(df):
     cm = sns.light_palette("green", as_cmap=True)

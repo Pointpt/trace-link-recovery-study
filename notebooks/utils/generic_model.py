@@ -21,11 +21,7 @@ class GenericModel(object):
     
     def set_sim_measure_min_threshold(self, sim_measure_min_threshold):
         self.sim_measure_min_threshold = sim_measure_min_threshold
-    
-    def set_model_dump_path(self, model_dump_path):
-        self.model_dump_path = model_dump_path
-    
-    
+        
     def _fillUp_traceLinksDf(self, use_cases_names, bug_reports_names, sim_matrix):
         self.trace_links_df = pd.DataFrame(index = use_cases_names,
                                            columns = bug_reports_names,
@@ -54,7 +50,7 @@ class GenericModel(object):
         return self.trace_links_df
     
     def get_model_dump_path(self):
-        return self.model_dump_path
+        return 'dumps/{}/model/{}.p'.format(self.get_model_gen_name(), self.get_name())
                                 
     def get_model_gen_name(self):
         return self.model_gen_name
