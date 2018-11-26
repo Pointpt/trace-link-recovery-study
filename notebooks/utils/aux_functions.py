@@ -69,6 +69,15 @@ def print_report_top_3_and_5_v2(results_df, metric_threshold, metric):
         evalu_top.evaluate_model(verbose=True)
         print("------------------------------------------------------------------")
 
+
+def print_report_top_3_and_5_v3(results_df, metric):
+    for top in [3,5]:
+        row_idx_top = results_df[(results_df.top_value == top) & (results_df.metric == metric)].recall.argmax()
+        bm_top = pickle.load(open(results_df['model_dump'][row_idx_top], 'rb'))
+        evalu_top = pickle.load(open(results_df['evaluator_dump'][row_idx_top], 'rb'))
+        evalu_top.evaluate_model(verbose=True)
+        print("------------------------------------------------------------------")
+        
 def highlight_df(df):
     cm = sns.light_palette("green", as_cmap=True)
     return df.style.background_gradient(cmap=cm)   
