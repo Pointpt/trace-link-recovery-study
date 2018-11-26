@@ -1,4 +1,6 @@
 from itertools import product
+import pickle
+import seaborn as sns
 
 def generate_params_comb_list(**kwargs):
     list_params = []
@@ -29,9 +31,36 @@ def plot_heatmap(results_df):
     fig, ax = plt.subplots(figsize=(10, 4 * 10)) 
     ax = sns.heatmap(tmp_df, vmin=0, vmax=1, linewidths=.5, cmap="Greens", annot=True, cbar=False, ax=ax)
 
+      
+def report_best_model(results_df):
+    print("------------ Report -------------------\n")
+    print("Total of Analyzed Hyperparameters Combinations: {}".format(results_df.shape[0]))
+
+    print("\nBest Model Hyperparameters Combination Found:\n")            
+
+    row_idx = results_df['model_dump'][results_df.recall == results_df.recall.max()].index[0]
+    best_model = pickle.load(open(results_df['model_dump'][row_idx], 'rb'))
+    evalu = pickle.load(open(results_df['evaluator_dump'][row_idx], 'rb'))
+    evalu.evaluate_model(verbose=True)
+
+    #print("\nPlot Precision vs Recall - Best Model")
+    #evalu.plot_precision_vs_recall()
+
+    #print("\nHeatmap of All Models")
+    #plot_heatmap(results_df)
+
+    #evalu.save_log()
+
+    
+def print_report_top_3_and_5(results_df):
+    for top in [3,5]:
+        row_idx_top = results_df[results_df.top_value == top].recall.argmax()
+        best_model_top = pickle.load(open(results_df['model_dump'][row_idx_top], 'rb'))
+        evalu_top = pickle.load(open(results_df['evaluator_dump'][row_idx_top], 'rb'))
+        evalu_top.evaluate_model(verbose=True)
+        print("------------------------------------------------------------------")
+        
 
 def highlight_df(df):
     cm = sns.light_palette("green", as_cmap=True)
     return df.style.background_gradient(cmap=cm)   
-
-

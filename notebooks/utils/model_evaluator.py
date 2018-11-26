@@ -1,13 +1,24 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.sparse import csr_matrix
+from sklearn.metrics import precision_recall_fscore_support
+import pprint
+import pickle
+
 class ModelEvaluator:
     def __init__(self, oracle, model):
         self.model = model
         self.oracle = oracle
         self.recovered_links = model.trace_links_df
         
+        self.evaluator_dump_path = None
+        
         self.eval_df = pd.DataFrame(columns=['precision','recall','fscore','support'])
         self.mean_precision = -1
         self.mean_recall = -1
         self.mean_fscore = -1
+        
+        self.set_evaluator_dump_path()
     
     def evaluate_model(self, verbose=False, file=None):
         y_true = csr_matrix(self.oracle.values, dtype=int)
@@ -77,5 +88,14 @@ class ModelEvaluator:
     def get_model(self):
         return self.model
     
-    def get_evaluator_dump(self):
-        return 'dumps/bm25/evaluator/eval_{}.p'.format(self.get_model().get_name())
+    def get_evaluator_dump_path(self):
+        return self.evaluator_dump_path
+    
+    def dump_evaluator(self):
+        pickle.dump(self, open(self.get_evaluator_dump_path(), 'wb'))
+        
+    def dump_model(self):
+        pickle.dump(self.get_model(), open(self.get_model().get_model_dump_path(), 'wb'))
+        
+    def set_evaluator_dump_path(self):
+        self.evaluator_dump_path = 'dumps/{}/evaluator/eval_{}.p'.format(self.get_model().get_model_gen_name(), self.get_model().get_name())
