@@ -1,6 +1,7 @@
 import pandas as pd
+from abc import ABCMeta, abstractmethod
 
-class GenericModel(object):
+class GenericModel(metaclass=ABCMeta):
     def __init__(self):
         self.name = None
         self.top = None
@@ -21,7 +22,11 @@ class GenericModel(object):
     
     def set_sim_measure_min_threshold(self, sim_measure_min_threshold):
         self.sim_measure_min_threshold = sim_measure_min_threshold
-        
+    
+    @abstractmethod
+    def recover_links(self, corpus, query, use_cases_names, bug_reports_names):
+        pass
+    
     def _fillUp_traceLinksDf(self, use_cases_names, bug_reports_names, sim_matrix):
         self.trace_links_df = pd.DataFrame(index = use_cases_names,
                                            columns = bug_reports_names,
@@ -54,3 +59,7 @@ class GenericModel(object):
                                 
     def get_model_gen_name(self):
         return self.model_gen_name
+    
+    @abstractmethod
+    def model_setup(self):
+        pass
