@@ -1,0 +1,25 @@
+TC Number: 8
+Test Day: 20181221
+Generic Title: update directory
+Crt. Nr. 3
+Title: Pending updates can be resumed by other user
+Preconditions: "NO current installed version of Firefox Beta/Nightly is installed (uninstall it, if present).
+Download the installer from: https://archive.mozilla.org/pub/firefox/candidates/65.0b3-candidates/build2/win64/en-US/ Firefox Setup 65.0b3.exe
+Leave the default installer settings intact and follow the instructions to install Firefox."
+
+Steps: 1. Launch Firefox (older beta after Dec 10th, older nightly after Oct 25th) 
+2. Update Firefox (hamburger menu >> help >> about nightly )
+3. Don't click on the "Restart to update Firefox". 
+4. Go to C:\ProgramData\Mozilla\updates\<hash>\updates\0. Click on update status doc. 
+5. Close Firefox application. 
+6. Sign in to windows desktop as another standard user
+7. Start Firefox
+8. Verify Firefox is updated to the latest update
+
+Expected Result: 1. Firefox opens.
+2. Firefox restarts.
+4. Update status displays as pending-service.
+5. Firefox closes. 
+6. Another user is signed in to windows desktop
+7. Firefox starts
+8. Firefox is updated

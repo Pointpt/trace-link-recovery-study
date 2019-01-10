@@ -1,0 +1,14 @@
+TC Number: 12
+Test Day: 20181221
+Generic Title: update directory
+Crt. Nr. 7
+Title: User permission on the update directory
+Preconditions: 
+Steps: 1. Go to new update directory. 
+2. Go to Properties and verify default permission on the new directory look like following
+Administrators: Full Control
+Users: Read/Execute
+SYSTEM: Full Control
+Creator: Full Control
+basically, we need it to also be writable to the Users group
+Expected Result: 

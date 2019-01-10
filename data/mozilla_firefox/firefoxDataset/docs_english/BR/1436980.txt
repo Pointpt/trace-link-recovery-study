@@ -1,0 +1,27 @@
+Bug Number: 1436980
+Summary: Links do not open in youtube
+Platform: Unspecified
+Component: Untriaged
+Creation Time: 2018-02-09T11:41:10Z
+Whiteboard: 
+QA Whiteboard:
+First Comment Text: Created attachment 8949693
+Screenshot 2018-02-09 13:39.png
+
+User Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0
+Build ID: 20180104101914
+
+Steps to reproduce:
+
+Click on any link in youtube
+
+
+Actual results:
+
+A blank youtube screen appear, no content is loaded. Content loads after refreshing the page
+
+
+Expected results:
+
+Youtube page content loaded
+First Comment Creation Time: 2018-02-09T11:41:10Z

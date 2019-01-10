@@ -1,0 +1,24 @@
+TC Number: 9
+Test Day: 20181221
+Generic Title: update directory
+Crt. Nr. 4
+Title: Closing Firefox without update can be resumed by other user
+
+Preconditions: NO current installed version of Firefox Beta/Nightly is installed (uninstall it, if present).
+Download the installer from: https://archive.mozilla.org/pub/firefox/candidates/65.0b3-candidates/build2/win64/en-US/ Firefox Setup 65.0b3.exe
+Leave the default installer settings intact and follow the instructions to install Firefox.
+Steps: 1. Launch Firefox with new profile (older beta after Dec 10th, older nightly after Oct 25th).
+2. Go to C:\ProgramData\Mozilla\updates\<hash>\updates\0. Open the update.status doc. 
+3. Close Firefox application, don't click on the ""Restart to update Firefox"" from  Hambureger/Help/About Firefox.
+4. Sign in to windows desktop as another standard user.
+5. Go to C:\ProgramData\Mozilla\updates\<hash>\updates\0. Open the update.status doc. 
+6. Start Firefox.
+7. Verify Firefox is updated to the latest update."
+
+Expected Result: 1. Firefox opens.
+2. Update status displays as pending-service.
+3. Firefox closes.
+4. Another user is signed in to windows desktop.
+5. Update status displays as pending-service.
+6. Firefox starts. While Firefox starts C:\ProgramData\Mozilla\updates\<hash>\updates\0 status is "Working on it" then the status became "This folder is empty".
+7. Firefox is updated.

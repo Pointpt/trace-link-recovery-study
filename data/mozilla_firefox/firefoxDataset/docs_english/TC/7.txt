@@ -1,0 +1,18 @@
+TC Number: 7
+Test Day: 20181221
+Generic Title: update directory
+Crt. Nr. 2
+Title: New Update directory
+Preconditions: 
+Steps: 1. Launch Firefox with new profile (older beta after Dec 10th, older nightly after Oct 25th) 
+2. Update Firefox (hamburger menu >> help >> about nightly >> Restart to update Firefox)
+3. Verify Firefox is updated to the latest Firefox (beta/nightly), if not follow step # 2 again.
+4. Go to 'C:\' directory and verify ProgramData folder.
+5. Click on ProgramData >> Mozilla and verify 'updates' folder.
+6. Click on update folder. Click on the latest modified folder. (i.e. "C:\ProgramData\Mozilla\updates\<hash>")
+7. Go to update folder and verify the last - update and backup - update docs.
+Expected Result: 1. Firefox opens.
+2. Firefox restarts.
+3. Firefox is updated to the latest beta/nightly.
+4. ProgramData folder is present in 'C:\' directory.
+5. 'updates' folder is there in "ProgramData".

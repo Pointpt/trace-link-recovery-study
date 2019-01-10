@@ -1,0 +1,24 @@
+Bug Number: 1437397
+Summary: Home Page will not load
+Platform: Unspecified
+Component: Untriaged
+Creation Time: 2018-02-11T20:17:31Z
+Whiteboard: 
+QA Whiteboard:
+First Comment Text: User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0
+Build ID: 20180206200532
+
+Steps to reproduce:
+
+When I start Firefox, my home page will not load. 
+
+
+Actual results:
+
+When Firefox starts, it just "hangs" until I click on the Home button and then it takes me to my home page.
+
+
+Expected results:
+
+Firefox should open my home page upon start up.
+First Comment Creation Time: 2018-02-11T20:17:31Z

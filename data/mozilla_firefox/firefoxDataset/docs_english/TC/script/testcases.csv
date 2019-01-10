@@ -1,0 +1,145 @@
+TC Number,Test Day,Gen. Title,Crt. Nr.,Title,Preconditions,Steps,Expected Result
+1,20181221,"<notificationbox> 
+and
+ <notification>
+ changes",1,Notification - Popup Block,,"1. Launch Firefox
+2. Navigate to http://www.popuptest.com/popuptest1.html
+3. Verify the notifcation ""Firefox has blocked xyz number of pop-up windows."" appears.
+4. Select ""Options""
+5. Select ""Allow Popups from popuptest.com""
+6. Refresh profile
+7. Navigate to http://www.popuptest.com/popuptest1.html
+8. Select ""Options""
+9. Select ""Edit Pop-Up Blocker Options""
+10. Select ""Options"" again
+11. Select ""Show popuptest.com/popup1.html"" etc","1. Firefox is successfully launched
+9. The allowed websites window appears.
+11.The popup website is shown in a new instance of Firefox."
+2,20181221,"<notificationbox> 
+and
+ <notification>
+ changes",2,Notification - Process Hang,,"1. Launch Firefox
+2. In the URL bar, navigate to 
+data:text/html,<script>while(true);</script>
+3. Verify the notification appears.
+4. Select ""Stop It""
+5. Select ""Wait""","1. Firefox is successfully launched
+2. Firefox begins to hang.
+3. The Process Hang notification appears.
+4. The script is stopped.
+5. The web page is put on wait to see if the browser will resolve.
+"
+3,20181221,"<notificationbox> 
+and
+ <notification>
+ changes",3,Verify Notifications appear in RTL Mode,,"1. Launch Firefox
+2. In about:config, change intl.uidirection from -1 to 1.
+3. In the URL bar, navigate to 
+data:text/html,<script>while(true);</script>
+4. Verify the notification appears and there are no visual issues RTL mode.
+5. Click on ""Wait"" and ""Stop"" and ensure the functionality still works in RTL mode.","1. Firefox is successfully launched
+2.The format is switched to RTL.
+3. Firefox begins to hang.
+4. The notification appears and there are no issues in RTL Mode."
+4,20181221,"<notificationbox> 
+and
+ <notification>
+ changes",4,Verify Notifications appear in High Contrast Mode.,,"1. While the browser is in High Contrast Mode, Launch Firefox
+2. In the URL bar, navigate to 
+data:text/html,<script>while(true);</script>
+3. Verify the notification appears.
+4. In the URL bar, navigate to 
+data:text/html,<script>while(true);</script>
+5. Verify the notification appears and there are no visual issues in High Contrast Mode.","1. Firefox has been launched.
+2. Firefox begins to hang.
+3.The Process Hang notification appears.
+4. Firefox begins to hang.
+5.The notification appears and there are no issues in High Contrast Mode."
+5,20181221,"<notificationbox> 
+and
+ <notification>
+ changes",5,Verify notifications react to differing Zoom levels,,"1. While the browser is in High Contrast Mode, Launch Firefox
+2. In the URL bar, navigate to 
+data:text/html,<script>while(true);</script>
+3. Use the CTRL +/- keys to zoom in and out of the page and verify the notification bar does not change radically upon changes.
+
+","1. Firefox has been launched.
+2. Firefox begins to hang.
+3. The actions for the zoom controls react accordingly.
+"
+6,20181221,update directory,1,Update the Firefox application to the latest update,,"1. Launch Firefox with new profile(older beta after Dec10th, older nightly after Oct 25th) 
+2. Update Firefox (hamburger menu >> help >> about nightly >> Restart to update Firefox)
+3. Verify Firefox is updated to the latest Firefox (beta/nightly), if not follow step # 2 again.
+","1. Firefox opens.
+2. Firefox restarts.
+3. Firefox is updated to the latest beta/nightly."
+7,20181221,update directory,2,New Update directory,,"1. Launch Firefox with new profile (older beta after Dec 10th, older nightly after Oct 25th) 
+2. Update Firefox (hamburger menu >> help >> about nightly >> Restart to update Firefox)
+3. Verify Firefox is updated to the latest Firefox (beta/nightly), if not follow step # 2 again.
+4. Go to 'C:\' directory and verify ProgramData folder.
+5. Click on ProgramData >> Mozilla and verify 'updates' folder.
+6. Click on update folder. Click on the latest modified folder. (i.e. ""C:\ProgramData\Mozilla\updates\<hash>"")
+7. Go to update folder and verify the last - update and backup - update docs.","1. Firefox opens.
+2. Firefox restarts.
+3. Firefox is updated to the latest beta/nightly.
+4. ProgramData folder is present in 'C:\' directory.
+5. 'updates' folder is there in ""ProgramData"".
+"
+8,20181221,update directory,3,Pending updates can be resumed by other user,"""NO current installed version of Firefox Beta/Nightly is installed (uninstall it, if present).
+Download the installer from: https://archive.mozilla.org/pub/firefox/candidates/65.0b3-candidates/build2/win64/en-US/ Firefox Setup 65.0b3.exe
+Leave the default installer settings intact and follow the instructions to install Firefox.""
+","1. Launch Firefox (older beta after Dec 10th, older nightly after Oct 25th) 
+2. Update Firefox (hamburger menu >> help >> about nightly )
+3. Don't click on the ""Restart to update Firefox"". 
+4. Go to C:\ProgramData\Mozilla\updates\<hash>\updates\0. Click on update status doc. 
+5. Close Firefox application. 
+6. Sign in to windows desktop as another standard user
+7. Start Firefox
+8. Verify Firefox is updated to the latest update
+","1. Firefox opens.
+2. Firefox restarts.
+4. Update status displays as pending-service.
+5. Firefox closes. 
+6. Another user is signed in to windows desktop
+7. Firefox starts
+8. Firefox is updated"
+9,20181221,update directory,4,"Closing Firefox without update can be resumed by other user
+","NO current installed version of Firefox Beta/Nightly is installed (uninstall it, if present).
+Download the installer from: https://archive.mozilla.org/pub/firefox/candidates/65.0b3-candidates/build2/win64/en-US/ Firefox Setup 65.0b3.exe
+Leave the default installer settings intact and follow the instructions to install Firefox.","1. Launch Firefox with new profile (older beta after Dec 10th, older nightly after Oct 25th).
+2. Go to C:\ProgramData\Mozilla\updates\<hash>\updates\0. Open the update.status doc. 
+3. Close Firefox application, don't click on the """"Restart to update Firefox"""" from  Hambureger/Help/About Firefox.
+4. Sign in to windows desktop as another standard user.
+5. Go to C:\ProgramData\Mozilla\updates\<hash>\updates\0. Open the update.status doc. 
+6. Start Firefox.
+7. Verify Firefox is updated to the latest update.""
+","1. Firefox opens.
+2. Update status displays as pending-service.
+3. Firefox closes.
+4. Another user is signed in to windows desktop.
+5. Update status displays as pending-service.
+6. Firefox starts. While Firefox starts C:\ProgramData\Mozilla\updates\<hash>\updates\0 status is ""Working on it"" then the status became ""This folder is empty"".
+7. Firefox is updated."
+10,20181221,update directory,5,Old update data in the new directory,,"1. Launch Firefox with new profile (older beta after Dec 10th, older nightly after Oct 25th).
+2. Go to ""C:\ProgramData\Mozilla\updates\<hash>"" and verify old update data in backup-update.log and last-update.log","1. Firefox starts.
+2. It may have some old data in it, particularly if that installation has run updates before."
+11,20181221,update directory,6,Update directory is shared by multiple users,"NO current installed version of Firefox Beta/Nightly is installed (uninstall it, if present).
+Download the installer from: https://archive.mozilla.org/pub/firefox/candidates/65.0b3-candidates/build2/win64/en-US/ Firefox Setup 65.0b3.exe
+Leave the default installer settings intact and follow the instructions to install Firefox.","1. Sign in to windows desktop with user 1.
+2. Launch Firefox (older beta after Dec 10th, older nightly after Oct 25th)
+3. Update Firefox (hamburger menu >> help >> about nightly >> Restart to update Firefox )
+4. Sign off from windows desktop and log in with user 2.
+5. Go to ""C:\ProgramData\Mozilla\updates\<hash>"" and verify the latest updates log.
+6. Update Firefox if there is any updates available and verify the new update directory.","1. User 1 is signed in to windows desktop.
+2. Firefox opens.
+3. Firefox restarts.
+4. User 2 is logged in on windows desktop.
+5. User 2 is able to access log.
+6. User 2 can update Firefox and access update directory."
+12,20181221,update directory,7,User permission on the update directory,,"1. Go to new update directory. 
+2. Go to Properties and verify default permission on the new directory look like following
+Administrators: Full Control
+Users: Read/Execute
+SYSTEM: Full Control
+Creator: Full Control
+basically, we need it to also be writable to the Users group",
