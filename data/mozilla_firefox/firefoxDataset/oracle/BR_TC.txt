@@ -1,15 +1,5 @@
-{
-    "testdays": [
-        {
-            "TestDay" : "20181221",
-            "BR" : ["1436284.txt  1436872.txt  1436980.txt  1437320.txt  1437354.txt  1437359.txt  1437397.txt"]
-            "TC": ["1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt 8.txt 9.txt 10.txt 11.txt 12.txt"]
-        },
-        {
+779465.txt:
+604710.txt:
 
-        },
-        {
-            
-        }
-    ]
-}
+
+

@@ -81,3 +81,5 @@ resources
 
 # custom
 *.p
+
+data/mozilla_firefox/firefoxDataset/new_data/
