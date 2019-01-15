@@ -1,0 +1,13 @@
+TC Number: 110
+Test Day: 20160812
+Generic Title: windows 10 compatibility
+Crt. Nr. 6
+Title: Firefox can Open new tab from taskbar
+Preconditions: - make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver
+Steps: 1. Launch Firefox.	
+2. Pin Firefox to taskbar and close it.        	
+3. Right click on pinned Firefox from taskbar and Open new tab.	
+Expected Result: 1. ...
+2. Firefox is successfully pined to taskbar.
+3. Firefox is successfully load "New tab" from taskbar.

@@ -1,0 +1,16 @@
+TC Number: 57
+Test Day: 20160603
+Generic Title: apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				
+Crt. Nr. 20
+Title: Scroll through a webpage while being in Fullscreen Mode
+Preconditions: - make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad
+Steps: 1. Launch Firefox.        
+2. Open a webpage.	
+3. Enter in Fullscreen Mode.	
+4. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	
+Expected Result: 1. 
+2. 
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues.

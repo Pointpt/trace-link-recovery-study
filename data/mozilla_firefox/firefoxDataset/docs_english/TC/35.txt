@@ -1,0 +1,15 @@
+TC Number: 35
+Test Day: 20160603
+Generic Title: windows child mode - BOOKMARKS & HISTORY				
+Crt. Nr. 9
+Title: Drag and drop a URL from the Location Bar onto the Bookmarks Toolbar
+Preconditions: 1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode" pref (integer) and set it's value to 2.				
+Steps: 1. Launch Firefox.	
+2. Enable the Bookmarks Toolbar.	
+3. Open a website that's currently NOT in your bookmarks list.	
+4. Drag and drop the website's site identity button from the Location Bar onto the Bookmarks Toolbar.	
+Expected Result: 1. 
+2. The Bookmarks Toolbar is enabled and displayed below the Location Bar.
+3. 
+4. The star-shaped button changes its color to blue and the website is successfully placed onto the Bookmarks Toolbar, displaying the correct name.

@@ -1,0 +1,13 @@
+TC Number: 112
+Test Day: 20160812
+Generic Title: text to speech on desktop
+Crt. Nr. 2
+Title: Verify the "media.webspeech.synth.enabled" pref
+
+Preconditions:  
+Steps: 1. Launch Firefox.	
+2. Go to about:config page. 	
+3. Verify the "media.webspeech.synth.enabled" pref	
+Expected Result: 1. ...
+2. ...
+3. The pref is set to True by default.

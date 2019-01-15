@@ -1,0 +1,18 @@
+TC Number: 117
+Test Day: 20160812
+Generic Title: text to speech in reader mode
+Crt. Nr. 5
+Title: Play/Stop button correctly works
+Preconditions: "media.webspeech.synth.enabled" is set to true
+Steps: 1. Launch Firefox.
+2. Open a page in Reader Mode. 
+3. In the left toolbar, click the third icon from the top (the Narrate icon).
+4. Move the mouse over the Play button.
+5. Click the "Play" button and mouse over the button.
+6. Click the "Stop" button and mouse over the button. 
+Expected Result: 1. 
+2.
+3. The pop-up is correctly displayed.
+4. The tooltip of the button is "Start". 
+5. Speech synthesis correctly starts and the tooltip of the button is "Stop". 
+6. Speech synthesis correctly stops and the tooltip of the button is ""Play"". 

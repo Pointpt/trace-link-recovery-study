@@ -1,0 +1,15 @@
+TC Number: 134
+Test Day: 20160930
+Generic Title: PointerLock api
+Crt. Nr. 9
+Title: Verify PointerLock functionality by keyboard only
+Preconditions:  
+Steps: 1. Launch the latest Beta.  	
+2. Navigate to this pointer lock demo	
+3. "Click on the demo and start navigating through the ""forest"" by using the keyboard shortcuts:
+W, A, S, D
+Up, down, left, right arrows"	
+Expected Result: 1. Beta is properly opened
+2. Navigation is allowed
+3. "The pointer is locked and the PointerLock API warning bar is displayed.
+   - There are no issues encounterd while navigating through the forest."

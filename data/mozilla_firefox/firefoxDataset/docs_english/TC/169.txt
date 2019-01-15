@@ -1,0 +1,17 @@
+TC Number: 169
+Test Day: 20161028
+Generic Title: downloads dropmaker
+Crt. Nr. 16
+Title: Download Sumary is properly displayed
+Preconditions:   
+Steps: 1. Open Firefox with new profile	
+2. Go to page	
+3. Click to download a very large file (1GB)	
+4. Click Save file and OK button	
+5. Click the Downloads button from the toolbar	
+Expected Result: 1. Firefox is open with new profile"
+2. The page is successfully loaded"	
+3. An pop-up with file details is displayed"	
+4. The download of the selected file is started."	
+5. - The Downloads panel is opened.
+    - The started download is listed in it along with a corresponding progress indicator."	

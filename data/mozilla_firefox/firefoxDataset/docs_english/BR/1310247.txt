@@ -1,0 +1,59 @@
+Bug Number: 1310247
+Summary: WebGL 2.0 demo not work having useTransformFeedback enabled
+Platform: All
+Component: Canvas: WebGL
+Creation Time: 2016-10-14T16:00:26Z
+Whiteboard: [gfx-noted]
+QA Whiteboard:[qe-webgl2]
+First Comment Text: [Affected versions]:
+- latest Nightly 52.0a1
+- latest Developer Edition 51.0a2
+
+[Affected platforms]:
+- Mac OS X 10.12
+- Windows 7 32-bit
+
+[Steps to reproduce]:
+1. Start Firefox
+2. Open http://toji.github.io/webgl2-crowd/
+3. Check and uncheck useTransformFeedback
+
+[Expected result]:
+- Having Transform Feedback checked and unchecked the crowd is successfully seen. (I'm not sure of this expected result though)
+
+[Actual result]:
+- Crowd does not show having Transform Feedback checked
+
+[Regression range]:
+- Here is the regression range found using mozregression:
+
+Last good revision: 4ebed327385b6827b9275c21e29f23b13aa92457
+First bad revision: fa9844b0dee37aeb4c94d027f7c68a94721db320
+Pushlog:
+https://hg.mozilla.org/integration/mozilla-inbound/pushloghtml?fromchange=4ebed327385b6827b9275c21e29f23b13aa92457&tochange=fa9844b0dee37aeb4c94d027f7c68a94721db320
+
+I see a few bugs there Bug 1300946, Bug 1303879 and Bug 1303878
+
+[Additional notes]:
+- This is the Console output: http://pastebin.com/PABRTYSq
+- Here is my Graphics from about:support
+
+Features
+Compositing	OpenGL
+Asynchronous Pan/Zoom	wheel input enabled
+WebGL Renderer	ATI Technologies Inc. -- AMD Radeon HD 6750M OpenGL Engine
+WebGL2 Renderer	ATI Technologies Inc. -- AMD Radeon HD 6750M OpenGL Engine
+Hardware H264 Decoding	Yes
+Audio Backend	audiounit
+GPU #1
+Active	Yes
+Vendor ID	0x1002
+Device ID	0x6741
+Diagnostics
+AzureCanvasAccelerated	1
+AzureCanvasBackend	skia
+AzureContentBackend	skia
+AzureFallbackCanvasBackend	none
+TileHeight	512
+TileWidth	512
+First Comment Creation Time: 2016-10-14T16:00:26Z

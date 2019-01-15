@@ -1,0 +1,15 @@
+TC Number: 85
+Test Day: 20160722
+Generic Title: context menu - full functional testing
+Crt. Nr. 11
+Title: The "view background image" context menu option opens the background image of the page.
+Preconditions:  
+Steps: 1. Launch Firefox.	
+2. Open several random pages in the same tab, sequentially.	
+3. Bring up the context menu by right-clicking an area from this page`s background.	
+4. Click the "view background image" context menu option.	
+Expected Result: 1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. "- The user is able to bring up the context menu through this action 
+4. - The ""view background image"" context menu option is available."
+The background image of the page in question is properly displayed in the same tab (on its default dimensions).

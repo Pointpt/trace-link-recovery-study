@@ -1,0 +1,13 @@
+TC Number: 175
+Test Day: 20161125
+Generic Title: flac support
+Crt. Nr. 1
+Title: FLAC support core functionality is intact on web sites with eligible content
+Preconditions:  
+Steps: 1. Spot-check the FLAC feature support by loading each audio file listed below:
+Sample 1: http://hpr.dogphilosophy.net/test/
+Sample 2: http://tools.woolyss.com/html5-audio-video-tester/?u=hpr.dogphilosophy.net/test/flac.flac
+
+Note: make sure you are selecting FLAC format each time you play a file.
+Expected Result: 1. Verify that all the core functionality associated to FLAC support works properly.
+Verify and pay extra attention to all available video options: toggle the play/pause buttons, change volume, use the contextual menu options, etc.

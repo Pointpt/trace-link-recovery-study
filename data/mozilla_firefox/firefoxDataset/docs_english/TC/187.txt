@@ -1,0 +1,23 @@
+TC Number: 187
+Test Day: 20161125
+Generic Title: indicator for device permissions
+Crt. Nr. 7
+Title: Window sharing
+Preconditions: Go to about:config and write in the search field "media.getusermedia.screensharing.allowed_domains" and add betweens to commas this text *people.mozilla.org
+Steps: 1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and choose "Window".
+2. Select a window that you want to share and click "Share Selected Window"
+3. Click on "Pause/Play"
+4. Click on "Snapshot"
+5. Click on "Stop Snapshot"
+6. Click on "Stop"
+7. Refresh the page and select a window that you want to share and click "Share Window".
+8. In a new Tab open again the page from step 7 and share the same window.
+Expected Result: 1. A pop-up appears requiring to select a window to share.
+2. The window that you choose to share appears. 
+The "i" from the address bar starts to alternate with a red monitor icon.
+3. Window sharing stops. 
+4. Snapshots starts. 
+5. Snapshot stops.
+6. Share window stops and you are redirected to the page from step 1. 
+7. The window that you choose to share appears. The "i" from the address bar starts to alternate with a red window icon.
+8. The window that you choose to share appears. The "i" from the address bar starts to alternate with a red window icon. Under the "Permissions" you see only "Share the Window" icon.

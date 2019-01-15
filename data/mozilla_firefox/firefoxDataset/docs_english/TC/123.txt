@@ -1,0 +1,14 @@
+TC Number: 123
+Test Day: 20160826
+Generic Title: webgl compatibility
+Crt. Nr. 3
+Title: WebGL graphs are properly rendered and work as expected
+Preconditions:  
+Steps: 1. Launch Firefox and open the `Browser Console` from menu [≡] → select `Developer` → select `Browser Console`.
+2. Open the following [Google Graph](http://goo.gl/zz1rox) in a _New Tab_.
+3. Use the settings available for this graph, e.g. modify values, rotate, zoom in, etc.
+Expected Result: 1. - Firefox is successfully launched.
+    - The Browser Console is enabled.
+2. The graph is successfully loaded and rendered.
+3. - The animation is properly loaded and rendered fine before and after modifying the default values.
+    - There are no errors thrown for these actions in the Browser Console.

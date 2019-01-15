@@ -1,0 +1,14 @@
+TC Number: 180
+Test Day: 20161125
+Generic Title: flac support
+Crt. Nr. 6
+Title: FLAC sample file is properly playing if tabs are switched
+Preconditions:  
+Steps: 1. Launch Firefox.
+2. Open and playback FLAC [Sample 1](http://hpr.dogphilosophy.net/test/) audio file.
+3. Open a few tabs and switch FLAC `Sample 1` audio file tab through those tabs.
+4. Try out all the available options: toggle the play/pause buttons, change volume, use the contextual menu options, etc.
+Expected Result: 1. Firefox is successfully launched.
+2. The FLAC `Sample 1` file is opened and played correctly in Firefox.
+3. The FLAC `Sample 1` is played correctly if tabs are switched.
+4. The options available for this file format work as expected.

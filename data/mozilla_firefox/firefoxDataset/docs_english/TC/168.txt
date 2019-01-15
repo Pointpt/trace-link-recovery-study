@@ -1,0 +1,14 @@
+TC Number: 168
+Test Day: 20161028
+Generic Title: downloads dropmaker
+Crt. Nr. 15
+Title: Malicious URL icon color
+Preconditions:  
+Steps: 1. Open Firefox with new profile	
+2. Go to http://testsafebrowsing.appspot.com/ and from "Desktop Download Warnings" choose NO.6 link "Should show an "uncommon" warning, for https .exe" and download it.	
+3. Go to http://testsafebrowsing.appspot.com/ and from "Desktop Download Warnings" choose NO.3 link "Should show a "malicious" warning, based on content with https" and download it.	
+4. Go to http://testsafebrowsing.appspot.com/ and from "Desktop Download Warnings" choose NO.5 link "Should show an "uncommon" warning, for .exe" and download it.	
+Expected Result: 1. Firefox is open with new profile"
+2. Download Panel has a yellow dot."	
+3. Download Panel has a red dot."	
+4. Download Panel has a yellow dot."	

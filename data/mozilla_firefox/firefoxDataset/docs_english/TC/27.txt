@@ -1,0 +1,14 @@
+TC Number: 27
+Test Day: 20160603
+Generic Title: windows child mode - FIREFOX BASIC FUNCTIONALITY				
+WEBGL COMPATIBILITY				
+Crt. Nr. 2
+Title: Open and play WebGL animations
+Preconditions: 1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode" pref (integer) and set it's value to 2.				
+Steps: 1. Launch Firefox and open the Browser Console, from Menu bar → Tools menu → select " Web Developer" → select "Browser Console".	
+2. Open the Water animation.	
+3. Use the settings available for this animation, e.g. press spacebar, press the L and G keys, etc.	
+Expected Result: 1. 
+2. A page confirming that the password was reset is presented.
+3. The animation is rendered fine in the new private window and all the actions initiated are successfully applied.

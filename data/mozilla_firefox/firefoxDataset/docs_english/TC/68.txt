@@ -1,0 +1,8 @@
+TC Number: 68
+Test Day: 20160722
+Generic Title: pdf viewer
+Crt. Nr. 3
+Title: Apply predefined zoom levels to PDF files using pdf.js
+Preconditions:  
+Steps: 1. Choose a predefined zoom value from the drop down list, choose "Page Fit", "Page width", "Actual size" and "Automatic zoom".	
+Expected Result: 1. The PDF file is zoomed in or out and the file is successfully displayed according to the requested values of each of the size presets.

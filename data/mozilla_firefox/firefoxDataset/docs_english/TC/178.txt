@@ -1,0 +1,13 @@
+TC Number: 178
+Test Day: 20161125
+Generic Title: flac support
+Crt. Nr. 4
+Title: FLAC sample file is properly playing in a New Tab
+Preconditions: 
+Steps: 1. Launch Firefox.
+
+2. Open and playback FLAC [Sample 1](http://hpr.dogphilosophy.net/test/) audio file.
+3. Open a `New Tab` and load FLAC [Sample 2] (http://tools.woolyss.com/html5-audio-video-tester/?u=hpr.dogphilosophy.net/test/flac.flac) audio file.
+Expected Result: 1. Firefox is successfully launched.
+2. The FLAC `Sample 1` file is opened and played correctly.
+3. The FLAC `Sample 2` file is opened and played correctly in the new tab.

@@ -1,0 +1,16 @@
+TC Number: 74
+Test Day: 20160722
+Generic Title: context menu - exploratory testing
+Crt. Nr. 1
+Title: Context Menu functionality
+Preconditions: 
+Steps: 1. Open Firefox	
+2. Right click on the page to bring up the Context Menu	
+3. Hover over the Context Menu elements.	
+4. Check the functionality of the Navigation elements (back, forward, refresh/stop, bookmark)	
+5. Right click and inspect the context menu for each of the following: link, image, image link, selected text, selected image, selected text link and selected image link	
+Expected Result: 1. 
+2. The Context Menu looks as it follows
+3. The elements are highlighted while hovered
+4. All of the elements perform the corresponding action
+5. The menu is different for each of them, as it follows (*note that Add-ons might not be displayed)

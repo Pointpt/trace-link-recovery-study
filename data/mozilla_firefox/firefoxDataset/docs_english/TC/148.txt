@@ -1,0 +1,30 @@
+TC Number: 148
+Test Day: 20161028
+Generic Title: zoom indicator
+Crt. Nr. 6
+Title: Zoom Indicator Hides
+
+Preconditions:  
+Steps: 1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Press [Ctrl] & [+] buttons	
+4. Press [Ctrl] & [-] buttons	
+5. Press [Ctrl] & [-] buttons again	
+6. Press [Ctrl] & [+] buttons	
+Expected Result: 1.  - Firefox is successfully launched
+     - Default zoom is 100%
+     - There is no Zoom Indicator in the Location Bar
+2.  - The chosen page is properly displayed
+     - There is no Zoom Indicator in the Location Bar
+3. - Page updates
+    - Zoom level is accurately increased
+    - Zoom Indicator appears in the Location Bar at 110%
+4. - Page updates
+    - Zoom level is removed (default)
+    - The Zoom Indicator is removed from the Location Bar
+5. - Page updates
+    - Zoom level is accurately decreased
+    - The Zoom Indicator is displayed in the Location Bar at 90%
+6. - Page updates
+    - Zoom level is removed (default)
+    - The Zoom Indicator is removed from the Location Bar

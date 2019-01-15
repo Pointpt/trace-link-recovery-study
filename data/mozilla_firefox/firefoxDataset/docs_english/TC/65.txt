@@ -1,0 +1,10 @@
+TC Number: 65
+Test Day: 20160722
+Generic Title: browser customization
+Crt. Nr. 6
+Title: Restore Firefox's default interface
+Preconditions: 
+Steps: 1. Click menu [≡] → select "Customize".
+2. Press the "Restore Defaults" button and then the "Exit Customize" button.
+Expected Result: 1. The Customize window is opened.
+2. Firefox resets to the initial state, i.e. no toolbars and only default Navigation items.

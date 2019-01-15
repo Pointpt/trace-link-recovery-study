@@ -1,0 +1,11 @@
+TC Number: 33
+Test Day: 20160603
+Generic Title: windows child mode - PDF COMPATIBILITY				                          
+Crt. Nr. 7
+Title: Open and navigate through a PDF file containing images, using pdf.js
+Preconditions: 1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode" pref (integer) and set it's value to 2.				
+Steps: 1. Open a *.pdf sample file containing several images.	
+2. Navigate through the page and use the available controls: zoom in and out, jump-to-page, scrolling, etc.	
+Expected Result: 1. The document is loaded and displayed properly using Firefox's pdf.js.
+2. The images from the PDF file are correctly displayed and the controls are working as expected.

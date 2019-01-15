@@ -1,0 +1,18 @@
+TC Number: 52
+Test Day: 20160603
+Generic Title: apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				
+Crt. Nr. 15
+Title: Scroll through a popular image website
+Preconditions: - make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad
+Steps: 1. Launch Firefox.        
+2. Open a random *.pdf file.	
+3. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	
+4. Enter in Presentation Mode.	
+5. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	
+Expected Result: 1. 
+2. 
+3. The scrolling is smooth, without any jerkiness or rendering issues.
+4.
+5. The scrolling is smooth, without any jerkiness or rendering issues.

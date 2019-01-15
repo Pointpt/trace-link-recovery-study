@@ -1,0 +1,15 @@
+TC Number: 78
+Test Day: 20160722
+Generic Title: context menu - full functional testing
+Crt. Nr. 4
+Title: The "edit this bookmark" context menu option opens "edit this bookmark" pop-up window.
+Preconditions:  
+Steps: 1. Launch Firefox.	
+2. Open a random page: e.g. about:home and then bookmark it.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the "edit this bookmark" button. 	
+Expected Result: 1. The browser is successfully launched.
+2. The page in question is successfully loaded and bookmarked.
+3. The user is able to bring up the context menu through this action.
+4. "- The ""edit this bookmark"" pop-up window is opened.
+     - The user is able to edit his bookmark."

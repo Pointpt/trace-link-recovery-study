@@ -1,0 +1,15 @@
+TC Number: 102
+Test Day: 20160722
+Generic Title: context menu - full functional testing
+Crt. Nr. 28
+Title: The "set as desktop background" context menu option opens "set desktop background" window.
+Preconditions:   
+Steps: 1. Launch Firefox.	
+2. Open a page that contains several images: e.g. on https://www.google.com/ and search a word in "images" tab.	
+3. Bring up the context menu by right-clicking an image from this page.	
+4. Click "set as desktop background" context menu option. 	
+Expected Result: 1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. "- The ""set desktop background"" window is opened.
+     - The user is able to manage the image background settings."

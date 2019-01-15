@@ -1,0 +1,35 @@
+Bug Number: 1320419
+Summary: Buttons disabled after refreshing on WebRTC peer connection sample
+Platform: x86_64
+Component: WebRTC
+Creation Time: 2016-11-26T04:26:51Z
+Whiteboard: [testday-20161125]
+QA Whiteboard:
+First Comment Text: Created attachment 8814530
+firefox.png
+
+User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:51.0) Gecko/20100101 Firefox/51.0
+Build ID: 20161124073320
+
+Steps to reproduce:
+
+1. Open the following URL
+      https://webrtc.github.io/samples/src/content/peerconnection/pc1/
+2. Click on Start
+3. Click Share Selected Devices in permissions
+4. Click Call
+5. Click Hang Up
+6. Refresh page
+
+
+
+Actual results:
+
+All the 3 buttons ( Start, Call, Hang Up) are diabled
+
+
+
+Expected results:
+
+Start button should be clickable and should ask for the required permissions
+First Comment Creation Time: 2016-11-26T04:26:51Z

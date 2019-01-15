@@ -1,0 +1,14 @@
+TC Number: 114
+Test Day: 20160812
+Generic Title: text to speech in reader mode
+Crt. Nr. 2
+Title: The Narrate icon
+Preconditions: "media.webspeech.synth.enabled" is set to true
+Steps: 1. Launch Firefox.
+2. Open a page in Reader Mode. 
+3. In the left toolbar, observe the third icon from the top (the Narrate icon).
+4. Mouse over the Narrate icon. 
+Expected Result: 1. 
+2. 
+3. The Narrate icon looks like this.
+4. The tooltip ("Narrate") is correctly displayed.

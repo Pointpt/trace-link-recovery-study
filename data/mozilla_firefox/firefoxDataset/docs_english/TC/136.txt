@@ -1,0 +1,15 @@
+TC Number: 136
+Test Day: 20160930
+Generic Title: PointerLock api
+Crt. Nr. 11
+Title: Verify PointerLock functionality in Private Browsing
+Preconditions:  
+Steps: 1. Launch Beta and open the Browser Console, from menu [≡] → select "Developer" → select "Browser Console".        	
+2. "In the new private window - navigate to the following games and demos and do any actions you can think of (enter/exit full screen, open Devtools, refresh using the keyboard, etc) Pay attention to any hangs or crashes that might occur.
+. https://kripken.github.io/BananaBread/wasm-demo/index.html        
+. http://substack.net/projects/voxel-forest/        
+. http://threejs.org/examples/misc_controls_pointerlock.html        
+. http://media.tojicode.com/q3bsp/        "	
+Expected Result: 1. Beta is properly opened and the Browser Console is enabled.
+2. - "There are no issues encountered while playing/navigating and no errors thrown in the Browser Console while browsing
+    - The pointer is locked and the PointerLock API warning bar is shown when clicking on the canvas content."

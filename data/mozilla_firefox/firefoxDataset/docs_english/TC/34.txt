@@ -1,0 +1,17 @@
+TC Number: 34
+Test Day: 20160603
+Generic Title: windows child mode - BOOKMARKS & HISTORY				
+Crt. Nr. 8
+Title: Bookmark a website using the star-shaped button
+Preconditions: 1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode" pref (integer) and set it's value to 2.				
+Steps: 1. Launch Firefox.        
+2. Open a website that's currently NOT in your Bookmarks list.	
+3. From the toolbar, click the star-shaped button.	
+4. Click the star-shaped button again.	
+Expected Result: 1. 
+2. 
+3. "- On click, the star-shaped button shows an animation and changes its color to blue. 
+
+- The website is successfully bookmarked and no errors are thrown for this action."
+4. Clicking the button again brings up the "Edit This Bookmark" panel.

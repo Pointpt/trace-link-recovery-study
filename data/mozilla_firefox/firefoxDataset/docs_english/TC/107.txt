@@ -1,0 +1,13 @@
+TC Number: 107
+Test Day: 20160812
+Generic Title: windows 10 compatibility
+Crt. Nr. 3
+Title: Firefox can be dragged and dropped either on right or left side of the screen
+Preconditions: - make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver
+Steps: 1. Launch 2 Firefox instances.        
+2. Drag and drop Firefox 1 to the left side of the screen.        
+3. Drag and drop Firefox 2 to the right side of the screen.        
+Expected Result: 1. ...
+2. Firefox is put on the left side of the screen.
+3. Firefox is put on the right side of the screen.

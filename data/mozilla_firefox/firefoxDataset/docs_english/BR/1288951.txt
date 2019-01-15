@@ -1,0 +1,33 @@
+Bug Number: 1288951
+Summary: Firefox 49.0a2 Aurora (Developer Edition) [testday-20160722] Context Menu FULL FUNCTIONAL TESTING Test Case 29 | Context Menu appears while double right clicking
+Platform: Unspecified
+Component: Untriaged
+Creation Time: 2016-07-24T10:42:27Z
+Whiteboard: 
+QA Whiteboard:
+First Comment Text: Created attachment 8774113
+photo_2016-07-24_16-09-23.jpg
+
+User Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0
+Build ID: 20160606113944
+
+Steps to reproduce:
+
+Launch Firefox
+Open https://www.youtube.com
+video starts paying automatically
+paused the video
+right click on the video
+appeared youtube menu
+once again right click, context menu will appear
+
+
+Actual results:
+
+context menu was supposed to appear on first right click but appears on second right click
+
+
+Expected results:
+
+it should have appeared on first right click
+First Comment Creation Time: 2016-07-24T10:42:27Z

@@ -1,0 +1,18 @@
+TC Number: 120
+Test Day: 20160812
+Generic Title: text to speech in reader mode
+Crt. Nr. 8
+Title: Tab Sound Indicator displayed in the tab
+Preconditions:  
+Steps: 1. Launch Firefox. 
+2. Open a page in Reader Mode. 
+3. In the left toolbar, click the third icon from the top (the Narrate icon).
+4. Click on the "Play" button. 
+5. Observe the sound tab indicator displayed in the tab title. 
+6. Click the speaker icon in the tab to mute audio on the page.
+Expected Result: 1. 
+2.
+3. The "Narrate" pop-up is correctly displayed.
+4. Narrate correctly starts. 
+5. A little speaker icon appears in the tab.
+6. Narration is muted.

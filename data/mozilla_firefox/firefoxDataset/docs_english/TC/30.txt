@@ -1,0 +1,11 @@
+TC Number: 30
+Test Day: 20160603
+Generic Title: windows child mode - PDF COMPATIBILITY				                          
+Crt. Nr. 5
+Title: Print a PDF file using pdf.js
+Preconditions: 1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode" pref (integer) and set it's value to 2.				
+Steps: 1. Press the printer icon or use the following key combination to print the PDF File: "Ctrl /Cmd+P". 	
+2. Try printing specific pages.	
+Expected Result: 1. All the print related options are working as expected for the PDF file.
+2. Specific pages are successfully printed.

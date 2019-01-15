@@ -1,0 +1,29 @@
+TC Number: 130
+Test Day: 20160930
+Generic Title: PointerLock api
+Crt. Nr. 5
+Title: Disable the PointerLock mode
+Preconditions:  
+Steps: 1. Launch the latest Beta.        
+2. Navigate to this pointer lock vs non pointer lock demo        
+3. In the first canvas - click on it and move your mouse inside and outside it's content        
+4. In the second canvas - click on it and move your mouse inside and outside it's content        
+5. Navigate to about:config         
+6. Set "full-screen-api.pointer-lock.enabled" preference to false        
+7. Restart Beta.        
+8. Navigate again to the pointer lock vs non pointer lock demo:        
+9. Click on both demos and move your mouse inside and outside their content	
+Expected Result: 1. Beta is properly opened
+2. Navigation is allowed.
+3. "The mouse movement controls the spaceship
+    - The pointer is not locked as you can move your mouse outside the canvas's content."
+4. "The PointerLock API warning bar is displayed
+    - The mouse movement controls the spaceship.
+    - The pointer is locked."
+5. Navigation is allowed
+6. Toggling the preference from true to false is possible
+7. Beta is properly restarted
+8. The navigation is allowed.
+9. "- The pointer is not locked
+     - The first demo works as in step 3
+     - The second demo is not working anymore because the PointerLock API feature was disabled"

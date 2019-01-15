@@ -1,0 +1,11 @@
+TC Number: 105
+Test Day: 20160812
+Generic Title: windows 10 compatibility
+Crt. Nr. 1
+Title: Browse through popular websites
+Preconditions: - make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver
+Steps: 1. Access popular websites listed by Alexa Topsites: Facebook, Linkedin, Baidu, Amazon, Ebay, Wikipedia, Twitter, Bing, Instagram, Pinterest, Reddit, Tumblr, Wordpress, Blogspot, etc.	
+2. Make sure these websites are properly loaded, rendered and that they work as expected.	
+Expected Result: 1.
+2. There are no rendering issues, functional issues, performance issues or crashes encountered.

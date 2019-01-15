@@ -1,0 +1,10 @@
+TC Number: 71
+Test Day: 20160722
+Generic Title: pdf viewer
+Crt. Nr. 6
+Title: Download a PDF file using pdf.js
+Preconditions:  
+Steps: 1. Press the download icon and save the file to local drive.	
+2. Press the download icon and choose to open the file with a 3rd party PDF application (e.g. Foxit).	
+Expected Result: 1. The PDF file is successfully saved to the local drive.
+2. The PDF file is successfully opened in the 3rd party application selected by the user.

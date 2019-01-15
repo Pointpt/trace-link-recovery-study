@@ -1,0 +1,11 @@
+TC Number: 22
+Test Day: 20160603 +
+20160624 
+Generic Title: new awesomebar tests - awesome bar icons left
+Crt. Nr. 10
+Title: URL Bar - Information Icon
+Preconditions: 
+Steps: 1. Access a main site such as Facebook, CNN or Youtube.	
+2. Click the information icon	
+Expected Result: 1. Information icon is displayed to the left of the URL Bar
+2. Doorhanger displays additional information about the site

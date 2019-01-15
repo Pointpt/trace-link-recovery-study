@@ -1,0 +1,12 @@
+TC Number: 23
+Test Day: 20160603 +
+20160624 
+Generic Title: new awesomebar tests - awesome bar icons right
+Crt. Nr. 11
+Title: URL Bar - History
+Preconditions: 
+Steps: 1. "Hover over the URL Bar and look if the drop down arrow is displayed
+(Not hidden on Mac)"	
+2. Click the arrow and verify the drop down list displays with History	
+Expected Result: 1. Arrow is available
+2. Drop down list displays showing History

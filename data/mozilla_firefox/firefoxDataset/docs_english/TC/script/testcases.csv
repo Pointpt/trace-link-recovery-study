@@ -143,3 +143,1645 @@ Users: Read/Execute
 SYSTEM: Full Control
 Creator: Full Control
 basically, we need it to also be writable to the Users group",
+13,20160603,new awesomebar tests - awesome bar search,1,Default State,,"1. Launch Firefox.	
+2. No AwesomeBar Entry","1. Firefox launches without any issues.
+2. URL displays  www.mozilla.org/en-US or end-user set Home Page"
+14,"20160603 +
+20160624 ",new awesomebar tests - awesome bar search,2,Search State - Drop down,,"1. Launch Firefox.	
+2. Enter ""test"" or characters to search for in the URL 	
+3. Ensure the characters entered are distinguished in the drop down	
+4. Ensure the URL is displayed for results - Example typing ""cnn"" in the search bar should display in the drop down list containing CNN and link that will take end-user to that site 	","1. Firefox launches without any issues.
+2. Drop down list appears
+3. Matching characters are distinguished
+4. If the site was already visited, the drop down contains full URL links where a match is available"
+15,"20160603 +
+20160624 ",new awesomebar tests - awesome bar search,3,Search State - Favicons/Search Indicator,,1. Ensure Favicons for sites are displayed - Example W for Wiki is displayed	,"1. Favicon or search indicator icon is displayed. Where there is no Favicon, the Search indicator is displayed (magnifier)"
+16,"20160603 +
+20160624 ",new awesomebar tests - awesome bar search,4,Search State - Favorites ,,"1. Ensure the star appears if the drop down displays a result that is marked as a favorite	
+2. Ensure clicking the link for the favorite opens the appropriate site	","1. Search result has the star icon displayed
+2. The link is correctly opened."
+17,"20160603 +
+20160624 ",new awesomebar tests - awesome bar search,5,"Search State - Synced
+
+",user has several tabs synced from other devices,"1. Ensure the tab icon appears if the drop down displays a result that is marked as a synced tab	
+2. Ensure the tab icon displays the name of the synced tab's device. 	
+3. Ensure clicking the Synced device link opens appropriately site.	","1. Tab icon is displayed
+2. Synced device link is displayed
+3. Synced device link opens the correct site."
+18,"20160603 +
+20160624 ",new awesomebar tests - awesome bar search,6,        Overflow States                        ,,1. Enter a very long string in the URL Bar	,"1. When the string reaches the end of the URL dropdown, the text is truncated correctly"
+19,"20160603 +
+20160624 ",new awesomebar tests - awesome bar icons left,7,URL Bar - Globe Icon,,"1. Verify the Globe icon displays for Firefox 
+about pages (i.e. about:support)",1. The globe is correctly displayed.
+20,"20160603 +
+20160624 ",new awesomebar tests - awesome bar icons left,8,URL Bar - Lock Icon: Secure Connection,,"1. Navigate to a https site - i.e. https://www.facebook.com/        
+2. Click the lock icon.	","1. The lock icon is displayed for https sites
+2. The lock icon is displayed for https sites; the door hanger displays, there is an indication that this is a Secure Connection"
+21,"20160603 +
+20160624 ",new awesomebar tests - awesome bar icons left,9,URL Bar - Lock Icon: Not a Secure Connection,,"1. Navigate to an unsecure site (i.e. http://www.nytimes.com/)	
+2. Click the slash/lock.	","1. The slash/lock icon is displayed for the unsecure site
+2. The lock icon is displayed for https sites; the door hanger displays, there is indication that this is Not a Secure Connection"
+22,"20160603 +
+20160624 ",new awesomebar tests - awesome bar icons left,10,URL Bar - Information Icon,,"1. Access a main site such as Facebook, CNN or Youtube.	
+2. Click the information icon	","1. Information icon is displayed to the left of the URL Bar
+2. Doorhanger displays additional information about the site"
+23,"20160603 +
+20160624 ",new awesomebar tests - awesome bar icons right,11,URL Bar - History,,"1. ""Hover over the URL Bar and look if the drop down arrow is displayed
+(Not hidden on Mac)""	
+2. Click the arrow and verify the drop down list displays with History	","1. Arrow is available
+2. Drop down list displays showing History"
+24,"20160603 +
+20160624 ",new awesomebar tests - awesome bar icons right,12,URL Bar Reader View,,"1. ""Verify the Reader Mode icon is displayed in the URL Bar for 
+sites with removable clutter
+http://www.subhub.com/blog/subscription-websites-top-subjects/""	
+2. Click on the Reader Mode icon	","1. The Reader Mode icon is also displayed for https sites
+2. User enters Reader Mode.
+"
+25,"20160603 +
+20160624 ",new awesomebar tests - awesome bar icons right,13,URL Bar - Reload Current Page,,"1. Navigate to any website and observe if the reload/revolving arow is displayed.	
+2. Click the revolving arrow.	","1. Reload icon is displayed
+2.The page is reloaded. "
+26,20160603,"windows child mode - FIREFOX BASIC FUNCTIONALITY				
+WEBGL COMPATIBILITY				",1,Open and play WebGL games,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Launch Firefox and open the Browser Console, from Menu bar → Tools menu → select "" Web Developer"" → select ""Browser Console"".	
+2. Play a few random games from 3dsitelinks.com.	
+3. Perform any actions allowed, e.g. navigate through the game's menu/options, play the game, etc. Pay attention to any hangs or crashes that might occur and look for Browser Console errors as well.	","1. The Browser Console is enabled.
+2. 
+3. The user can play any WebGL game without encountering any rendering, functional or performance issues. "
+27,20160603,"windows child mode - FIREFOX BASIC FUNCTIONALITY				
+WEBGL COMPATIBILITY				",2,Open and play WebGL animations,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Launch Firefox and open the Browser Console, from Menu bar → Tools menu → select "" Web Developer"" → select ""Browser Console"".	
+2. Open the Water animation.	
+3. Use the settings available for this animation, e.g. press spacebar, press the L and G keys, etc.	","1. 
+2. A page confirming that the password was reset is presented.
+3. The animation is rendered fine in the new private window and all the actions initiated are successfully applied."
+28,20160603,"windows child mode - FIREFOX BASIC FUNCTIONALITY				
+WEBGL COMPATIBILITY				",3,Open and customize WebGL graphs,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Launch Firefox and open the Browser Console, from Menu bar → Tools menu → select "" Web Developer"" → select ""Browser Console"".	
+2. Open this Google Graph in a New Tab.	
+3. Use the settings available for this graph, e.g. modify values, rotate, zoom in, etc.	","1. 
+2. 
+3. ""- The animation is properly loaded and rendered fine before and after modifying the default values.
+
+- There are no errors thrown for these actions in the Browser Console."""
+29,20160603,windows child mode - PDF COMPATIBILITY,4,Navigate through PDF files using pdf.js,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Launch Firefox.	
+2. Open a random *.pdf file.	
+3. Press the ""down"" and ""up"", ""right"" and ""left"", ""Page Down"" and ""Page Up"", ""End"" and ""Home"" keys from the keyboard.	
+4. Click the ""Next page"" and ""Previous page"" buttons from the upper side of the document.	
+5. Enter a random number inside the jump-to-page field and press the enter key.	","1. Firefox launches without any issues.
+2. The PDF file is successfully opened.
+3. By pressing the keys, the current view moves to next or previous pages.
+4. By clicking the arrows, the current view moves to next or previous pages.
+5. The requested page number is shown in the current view."
+30,20160603,windows child mode - PDF COMPATIBILITY				                          ,5,Print a PDF file using pdf.js,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Press the printer icon or use the following key combination to print the PDF File: ""Ctrl /Cmd+P"". 	
+2. Try printing specific pages.	","1. All the print related options are working as expected for the PDF file.
+2. Specific pages are successfully printed."
+31,20160603,windows child mode - PDF COMPATIBILITY				                          ,6,Download a PDF file using pdf.js,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Press the download icon and save the file to local drive.	
+2. Press the download icon and choose to open the file with a 3rd party PDF application (e.g. Foxit).	","1. The PDF file is successfully saved to the local drive.
+2. The PDF file is successfully opened in the 3rd party application selected by the user."
+33,20160603,windows child mode - PDF COMPATIBILITY				                          ,7,"Open and navigate through a PDF file containing images, using pdf.js","1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Open a *.pdf sample file containing several images.	
+2. Navigate through the page and use the available controls: zoom in and out, jump-to-page, scrolling, etc.	","1. The document is loaded and displayed properly using Firefox's pdf.js.
+2. The images from the PDF file are correctly displayed and the controls are working as expected."
+34,20160603,windows child mode - BOOKMARKS & HISTORY				,8,Bookmark a website using the star-shaped button,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Launch Firefox.        
+2. Open a website that's currently NOT in your Bookmarks list.	
+3. From the toolbar, click the star-shaped button.	
+4. Click the star-shaped button again.	","1. 
+2. 
+3. ""- On click, the star-shaped button shows an animation and changes its color to blue. 
+
+- The website is successfully bookmarked and no errors are thrown for this action.""
+4. Clicking the button again brings up the ""Edit This Bookmark"" panel."
+35,20160603,windows child mode - BOOKMARKS & HISTORY				,9,Drag and drop a URL from the Location Bar onto the Bookmarks Toolbar,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Launch Firefox.	
+2. Enable the Bookmarks Toolbar.	
+3. Open a website that's currently NOT in your bookmarks list.	
+4. Drag and drop the website's site identity button from the Location Bar onto the Bookmarks Toolbar.	","1. 
+2. The Bookmarks Toolbar is enabled and displayed below the Location Bar.
+3. 
+4. The star-shaped button changes its color to blue and the website is successfully placed onto the Bookmarks Toolbar, displaying the correct name."
+36,20160603,windows child mode - BOOKMARKS & HISTORY				,10,Open a bookmark from the Bookmarks Toolbar,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.                                
+3. - use a dirty profile with reasonable amount of browsing history and bookmarks		","1. Launch Firefox.	
+2. Enable the Bookmarks Toolbar.	
+3.Open one of the bookmarks displayed in the Bookmarks Toolbar.	 ","1. 
+2. The Bookmarks Toolbar is enabled and displayed below the Location Bar.
+3. The bookmark is successfully opened and displayed in the current tab."
+37,20160603,windows child mode - ADD-ON COMPATIBILITY				,11,Install popular add-ons and perform everyday tasks,"1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode"" pref (integer) and set it's value to 2.				","1. Launch Firefox and open the Browser Console, from Menu bar → Tools menu → select "" Web Developer"" → select ""Browser Console"".	
+2. Install popular add-ons from AMO.	
+3. Install some of the newest add-ons from AMO.	
+4. Test these add-ons for rendering issues, functional issues, performance issues, and crashes. Pay particular attention to any problems seen after updating Firefox with add-ons installed.	","1. 
+2. The user is able to install any compatible add-ons from AMO.
+3. The user is able to install any compatible add-ons from AMO.
+4. There are no issues encountered while using these add-ons."
+38,"20160603 + 
+20160708",apz - Async Scrolling,1,Scroll through a long web page,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open: https://en.wikipedia.org/wiki/Facebook	
+3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+39,"20160603 + 
+20160708",apz - Async Scrolling,2,Scroll through a popular image website,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. ""Visit popular websites that display images:
+- https://instagram.com/
+- http://www.reddit.com/r/pics
+- http://imgur.com/
+- https://www.flickr.com/photos
+- https://images.google.com/?gws_rd=ssl
+- https://www.pinterest.com/
+- http://9gag.com/
+- http://www.boredpanda.com/
+- http://highqualityart.deviantart.com/gallery/""	
+3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+40,"20160603 + 
+20160708",apz - Async Scrolling,3,"Scroll through a web page that contains videos
+","- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open: http://www.bbc.com/news/business-35349576	
+3. Scroll up and down using mouse wheel.	
+4. Open: https://gaming.youtube.com/watch?v=gCISR0T3grE	
+5. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues.
+4. 
+5. The scrolling is smooth, without any jerkiness or rendering issues."
+41,"20160603 + 
+20160708",apz - Async Scrolling,4,"Scroll through a PDF document
+","- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open a random *.pdf file.	
+3. Scroll up and down using mouse wheel.	
+4. Enter in Presentation Mode.	
+5. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues.
+4. 
+5. There are no glitches or rendering issues while scrolling in Presentation Mode."
+42,"20160603 + 
+20160708",apz - Async Scrolling,5,Scroll through high-traffic sites,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open websites from Alexa's topsites ranking list.	
+3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+43,"20160603 + 
+20160708",apz - Async Scrolling,6,Scroll through webpages while being in print-preview mode,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open a webpage in print-preview mode.	
+3.  Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+44,"20160603 + 
+20160708",apz - Async Scrolling,7,"Scroll through webpages while being in Reader Mode
+","- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open a webpage in reader mode.	
+3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+45,"20160603 + 
+20160708",apz - Async Scrolling,8,Scroll through webpages and resize the window,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open a webpage.	
+3. Resize the window.	
+4. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues."
+46,"20160603 + 
+20160708",apz - Async Scrolling,9,Scroll through a webpage which has been moved to a new window,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open a webpage.	
+3. Move the tab to New Window.	
+4. Scroll up and down using mouse wheel.	
+5. Move the tab back into the initial window.	
+6. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues.
+5.
+6. The scrolling is smooth, without any jerkiness or rendering issues."
+47,"20160603 + 
+20160708",apz - Async Scrolling,10,"Scroll through a webpage while being in Fullscreen Mode
+","- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open a webpage.	
+3. Enter in Fullscreen Mode.	
+4. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2.
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues."
+48,"20160603 + 
+20160708",apz - Async Scrolling,11,"Scroll through a web page while being zoomed in or out
+","- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
+2. Open a webpage.	
+3. Zoom in or out of the web page.	
+4. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
+2. 
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues."
+49,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",12,"Scroll through a long web page
+","- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.	
+2. Open: https://facebook.com	
+3. Login and scroll up and down using a wired mouse, a wireless mouse and the touchpad. Zoom in on images, videos, gifs text and continue to scroll	","1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+50,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",13,Scroll through a popular image website,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.	
+2. Go to Google images, search for something and load several result pages.	
+3. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	","1. 
+2. 
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+51,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",14,Scroll through a popular image website,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.        
+2. Open: https://gaming.youtube.com/watch?v=gCISR0T3grE	
+3. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	","1. 
+2. 
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+52,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",15,Scroll through a popular image website,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.        
+2. Open a random *.pdf file.	
+3. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	
+4. Enter in Presentation Mode.	
+5. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	","1. 
+2. 
+3. The scrolling is smooth, without any jerkiness or rendering issues.
+4.
+5. The scrolling is smooth, without any jerkiness or rendering issues."
+53,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",16,Scroll through high-traffic sites,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.        
+2. Open websites from Alexa's topsites ranking list.	
+3. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	","1. 
+2. 
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+54,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",17,Scroll through high-traffic sites,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.        
+2. Open a webpage in reader mode.	
+3. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	","1. 
+2. 
+3. The scrolling is smooth, without any jerkiness or rendering issues."
+55,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",18,Scroll through webpages and resize the window,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.        
+2. Open a webpage.	
+3. Resize the window.	
+4. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	","1. 
+2. 
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues."
+56,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",19,"Scroll through a webpage which has been moved to a new window.
+","- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.        
+2. Open a webpage.	
+3. Move the tab to New Window.	
+4. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	
+5. Move the tab back into the initial window.	
+6. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	","1. 
+2. 
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues.
+5.
+6. The scrolling is smooth, without any jerkiness or rendering issues."
+57,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",20,Scroll through a webpage while being in Fullscreen Mode,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.        
+2. Open a webpage.	
+3. Enter in Fullscreen Mode.	
+4. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	","1. 
+2. 
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues."
+58,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",21,Scroll through a web page while being zoomed in or out,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.        
+2. Open a webpage.	
+3. Zoom in or out of the web page.	
+4. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	","1. 
+2. 
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues."
+59,20160603,"apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				",22,Swipe to navigate back and forward,"- make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad","1. Launch Firefox.        
+2. Open youtube.com, select a video and while it's playing select another video from the suggestions.        
+3. Swipe back using the trackpad (swipe two fingers from right to left).        
+4. Swipe forward using the trackpad (swipe two fingers from left to right).	","1. 
+2. 
+3. The browser navigates back to the previously opened page.
+4. The browser navigates forward."
+60,20160722,browser customization,1,Install and use lightweight themes (personas),,"1. Launch Firefox.
+2. Open the Add-ons Manager from menu [≡] → Add-ons.
+3. Click on the ""Get Add-ons"" category from the left, vertical menu.
+4. Install featured lightweight themes (personas) from the ""Featured themes"" section of the page, e.g. ""Sunset Fisherman"", ""Grey lion"".","1. about:addons page is successfully opened in a new tab.
+2. The user is redirected to a page showing various popular add-ons.
+3. ""* The user is able to install lightweight themes (personas). 
+    * The latest installed lightweight theme is the enabled one, while the default theme and any other personas installed are disabled.
+    * Each of them appear in the """"Appearance"""" section of the Add-ons Manager."""
+61,20160722,browser customization,2,Install and use complete themes,,"1. Install a few complete themes.
+2. Restart the browser to complete each theme installation.","1. The user is able to initiate installation process for complete themes.
+2. ""* Once the browser is restarted, the new theme will be enabled by the default. 
+     * The latest installed theme replaces any previously active, installed complete themes or lightweight themes. 
+     * All previous themes are disabled and each of them appears in the """"Appearance"""" section of the Add-ons Manager."""
+62,20160722,browser customization,3,Switch through lightweight and complete themes, ,"1. Open the Add-ons Manager.
+2. Disable your current lightweight theme (complete themes cannot be disabled, they can only be removed).
+3. Enable that lightweight theme back.
+4. Remove your current lightweight or complete theme.
+5. Enable another lightweight or complete theme.
+6. Verify that basic actions work as expcted with the enabled theme: open a new tab, close a tab, open a new window, enable the bookmarks toolbar, check the menus, pin a tab, move a tab to a new window, etc.","1. The default theme is restored and the previous lightweight theme is disabled.
+2. The lightweight theme is restored and the default theme is disabled.
+3. The current persona or complete theme is removed and the default theme is restored.
+4. The selected lightweight or complete theme is enabled and the default theme is disabled.
+5. All the basic actions are working properly with both lightweight and complete themes."
+63,20160722,browser customization,4,Customize Firefox's toolbar,,"1. Launch Firefox.
+2. Click menu [≡] → select ""Customize"".
+3. Drag at least 3 new items from the palette or menu panel and drop them onto the Navigation toolbar.
+4. Remove a couple of the items added in Step 3 and add a few to the tab bar.
+5. Exit Customize.
+6. Restart the browser. Make sure you wait at least 15 seconds after exiting customize.","1. 
+2. The Customize window is opened.
+3. All the items are added onto the Navigation toolbar.
+4. The items are properly removed from the Navigation toolbar and successfully added to the tab bar.
+5. The changes are applied.
+6. Browser is restarted and the previously made customizations are in place."
+64,20160722,browser customization,5,Customize Firefox's Bookmarks Toolbar,,"1. Enable the Bookmarks Toolbar by clicking the bookmarks button and selecting ""Bookmarks Toolbar"" → ""View Bookmarks Toolbar"".
+2. Use the options available in the Bookmarks Toolbar: open a bookmark, remove a bookmark, etc.","1. The Bookmarks Toolbar is enabled.
+2. The Bookmarks Toolbar works as expected."
+65,20160722,browser customization,6,Restore Firefox's default interface,,"1. Click menu [≡] → select ""Customize"".
+2. Press the ""Restore Defaults"" button and then the ""Exit Customize"" button.","1. The Customize window is opened.
+2. Firefox resets to the initial state, i.e. no toolbars and only default Navigation items."
+66,20160722,pdf viewer,1,Navigate through PDF files using pdf.js,,"1. Launch Firefox.   
+2. Open a random *.pdf file.	
+3. Press the ""down"" and ""up"", ""right"" and ""left"", ""Page Down"" and ""Page Up"", ""End"" and ""Home"" keys from the keyboard.	
+4. Click the ""Next page"" and ""Previous page"" buttons from the upper side of the document.	
+5. Enter a random number inside the jump-to-page field and press the enter key.	","1. Firefox launches without any issues.
+2. The PDF file is successfully opened.
+3. By pressing the keys, the current view moves to next or previous pages.
+4. By clicking the arrows, the current view moves to next or previous pages.
+5. The requested page number is shown in the current view."
+67,20160722,pdf viewer,2,Zoom in and out of PDF files using pdf.js,,"1. Click the ""-"" and ""+"" keys, to zoom in and zoom out of the document.	
+2. Use the following key combination: [ctrl] / [cmd] + scroll, to zoom in and out of PDF files.	","1. The PDF file is successfully zoomed in and out.
+2. The PDF file is successfully zoomed in and out."
+68,20160722,pdf viewer,3,Apply predefined zoom levels to PDF files using pdf.js, ,"1. Choose a predefined zoom value from the drop down list, choose ""Page Fit"", ""Page width"", ""Actual size"" and ""Automatic zoom"".	",1. The PDF file is zoomed in or out and the file is successfully displayed according to the requested values of each of the size presets.
+69,20160722,pdf viewer,4,Enter Presentation Mode from a PDF file using pdf.js, ,"1. Click the ""Presentation Mode"" button to enter in full screen mode → allow the request to enter full screen → scroll through pages and use the options available in the context menu.	",1. The PDF file is successfully displayed in full screen. All the options available in the context menu work as expected.
+70,20160722,pdf viewer,5,Print a PDF file using pdf.js, ,"1. Press the printer icon or use the following key combination to print the PDF File: ""Ctrl /Cmd+P"". 	
+2. Try printing specific pages.	","1. All the print related options are working as expected for the PDF file.
+2. Specific pages are successfully printed."
+71,20160722,pdf viewer,6,Download a PDF file using pdf.js, ,"1. Press the download icon and save the file to local drive.	
+2. Press the download icon and choose to open the file with a 3rd party PDF application (e.g. Foxit).	","1. The PDF file is successfully saved to the local drive.
+2. The PDF file is successfully opened in the 3rd party application selected by the user."
+72,20160722,pdf viewer,7,"Open and navigate through a PDF file containing images, using pdf.js", ,"1. Open a *.pdf sample file containing several images.	
+2. Navigate through the page and use the available controls: zoom in and out, jump-to-page, scrolling, etc.	","1. The document is loaded and displayed properly using Firefox's pdf.js.
+2. The images from the PDF file are correctly displayed and the controls are working as expected."
+73,20160722,pdf viewer,8,Viewing embedded PDF files using pdf.js,,"1. Open a page with embedded PDFs.	
+2. Notice PDF content for all three cases (object/embed/iframe).	","1. Pages containing embedded PDFs are successfully loaded inside the browser.
+2. - The PDF shows correctly in all 3 cases.
+- Notice if native plugin is selected (instead of internal PDF viewer) on the test configuration, the native plugin shall be shown."
+74,20160722,context menu - exploratory testing,1,Context Menu functionality,,"1. Open Firefox	
+2. Right click on the page to bring up the Context Menu	
+3. Hover over the Context Menu elements.	
+4. Check the functionality of the Navigation elements (back, forward, refresh/stop, bookmark)	
+5. Right click and inspect the context menu for each of the following: link, image, image link, selected text, selected image, selected text link and selected image link	","1. 
+2. The Context Menu looks as it follows
+3. The elements are highlighted while hovered
+4. All of the elements perform the corresponding action
+5. The menu is different for each of them, as it follows (*note that Add-ons might not be displayed)"
+75,20160722,context menu - full functional testing,1,The refresh context menu option reloads the page, ,"1. Launch Firefox.	
+2. Open a random page: e.g. about:home.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the reload button.	","1. The browser is successfully launched.
+2. The page in question is successfully loaded.
+3. The user is able to bring up the context menu through this action.
+4. Clicking the button reloads the page."
+76,20160722,context menu - full functional testing,2,"The ""bookmark this page"" context menu option bookmarks the current page", ,"1. Launch Firefox.	
+2. Open a random page: e.g. about:home.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""bookmark this page"" button.	
+5. Click the ""show your bookmarks"" button and verify if the page in question is bookmarked on set location.	","1. The browser is successfully launched.
+2. The page in question is successfully loaded.
+3. The user is able to bring up the context menu through this action.
+4. Clicking the ""bookmark this page"" button opens the ""page bookmarked"" pop-up, where the user can edit the new bookmark. 
+5. The page in question is successfully bookmarked."
+77,20160722,context menu - full functional testing,3,"The ""edit this bookmark"" button replaces ""bookmark this page"" context menu option on an already bookmarked page.", ,"1. Launch Firefox.	
+2. Open a random page: e.g. about:home and then bookmark it.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Move the pointer over the fourth button from the top of the context menu.	","1. The browser is successfully launched.
+2. The page in question is successfully loaded and bookmarked.
+3. The user is able to bring up the context menu through this action.
+4. The ""bookmark this page"" button is replaced by ""edit this bookmark"" button."
+78,20160722,context menu - full functional testing,4,"The ""edit this bookmark"" context menu option opens ""edit this bookmark"" pop-up window.", ,"1. Launch Firefox.	
+2. Open a random page: e.g. about:home and then bookmark it.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""edit this bookmark"" button. 	","1. The browser is successfully launched.
+2. The page in question is successfully loaded and bookmarked.
+3. The user is able to bring up the context menu through this action.
+4. ""- The """"edit this bookmark"""" pop-up window is opened.
+     - The user is able to edit his bookmark."""
+79,20160722,context menu - full functional testing,5,The available context menu options are differentiated properly from the unavailable one., ,"1. Launch Firefox.	
+2. Open a random page: e.g. about:home.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Inspect all context menu options by moving the pointer over them.	","1. The browser is successfully launched.
+2. The page in question is successfully loaded.
+3. The user is able to bring up the context menu through this action.
+4. ""- The available context menu options have black colour and are highlighted with a blue background.
+- The unavailable ones have a grey color and are highlighted with a grey background."""
+80,20160722,context menu - full functional testing,6,"The ""back"" context menu option makes the current tab to go back one page.", ,"1. Launch Firefox.	
+2. Open several random pages in the same tab, sequentially.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""back"" button.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. The current tab goes back one page."
+81,20160722,context menu - full functional testing,7,"The ""forward"" context menu option makes the current tab to go forward one page.", ,"1. Launch Firefox.	
+2. Open several random pages in the same tab, sequentially.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""back"" button.	
+5. Click the ""forward"" button.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. The current tab goes back one page.
+5. The current tab goes forward one page."
+82,20160722,context menu - full functional testing,8,"The ""save page as"" context menu option saves the current page.", ,"1. Launch Firefox.	
+2. Open several random pages in the same tab, sequentially.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""save page as"" context menu option.	
+5. Verify if the page in question is saved in the proper location and with the proper name and format.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. The ""save as"" pop-up window is opened and the user is able to manage his saving process.
+5. The page in question is successfully saved."
+83,20160722,context menu - full functional testing,9,"The ""select all"" context menu option selects the entire content of the page.", ,"1. Launch Firefox.	
+2. Open several random pages in the same tab, sequentially.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""select all"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. The entire content of the page in question is selected (highlighted with a blue background)."
+84,20160722,context menu - full functional testing,10,"The ""view page source"" context menu option displays the source code of the page.", ,"1. Launch Firefox.	
+2. Open several random pages in the same tab, sequentially.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""view page source"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. The source code of the page in question is properly displayed in another tab with the following URL ""view-source:[the address of the page in question]"". "
+85,20160722,context menu - full functional testing,11,"The ""view background image"" context menu option opens the background image of the page.", ,"1. Launch Firefox.	
+2. Open several random pages in the same tab, sequentially.	
+3. Bring up the context menu by right-clicking an area from this page`s background.	
+4. Click the ""view background image"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. ""- The user is able to bring up the context menu through this action 
+4. - The """"view background image"""" context menu option is available.""
+The background image of the page in question is properly displayed in the same tab (on its default dimensions)."
+86,20160722,context menu - full functional testing,12,"The ""view page info"" context menu option opens the ""page info"" pop-up window.", ,"1. Launch Firefox.        
+2. Open several random pages in the same tab, sequentially.        
+3. Bring up the context menu by right-clicking an empty area from this page.        
+4. Click the ""view page info"" context menu option.         
+5. Inspect the tabs and all the fields displayed then click the ""help"" button.        ","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu.
+4. - The ""page info"" pop-up window is properly displayed and the user is able to view and to manage all the informations displayed in ""General"", ""Media"", ""Permissions"" and ""Security"" tabs. 
+5. After clicking the ""help"" button, a new tab is displayed and the user is redirected to a page offering helping details about the ""page info"" window."
+87,20160722,context menu - full functional testing,13,"The ""inspect element"" context menu option opens the ""developer tools"" window.",  ,"1. Launch Firefox.	
+2. Open several random pages in the same tab, sequentially.	
+3. Bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""inspect element"" context menu option and study the displayed window. 	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu.
+4. ""- The """"developer tools"""" window is displayed properly in the bottom of the browser`s window. 
+- All its fields are active."""
+88,20160722,context menu - full functional testing,14,"The ""copy"" context menu option transfers a copy of the selected field on the clipboard.", ,"1. Launch Firefox.	
+2. Open a page that has a reasonable amount of text available: e.g. https://www.wikipedia.org/.	
+3. Select some text from the page then bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""copy"" context menu option and then paste the selected area (e.g. on a search field).	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. ""- The text is selected.
+     - The user is able to bring up the context menu.""
+4. The selected text is successfully pasted."
+89,20160722,context menu - full functional testing,15,"The ""search [default search engine] for"" context menu option opens a google search for selected field.", ,"1. Launch Firefox.	
+2. Open a page that has a reasonable amount of text available: e.g. https://www.wikipedia.org/.	
+3. Select some text from the page then bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""search [default search engine] for [selected text]"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. ""- The text is selected.
+     - The user is able to bring up the context menu.""
+4. A new [default search engine] search tab is opened containing the results for searching with google the selected text."
+90,20160722,context menu - full functional testing,16,"The ""view selection source"" context menu option displays the source code of the selection.", ,"1. Launch Firefox.	
+2. Open a page that has a reasonable amount of text available: e.g. https://www.wikipedia.org/.	
+3. Select some text from the page then bring up the context menu by right-clicking an empty area from this page.	
+4. Click the ""view selection source"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. ""- The text is selected.
+     - The user is able to bring up the context menu.""
+4. The source code of the selected field is properly displayed in another tab. "
+91,20160722,context menu - full functional testing,17,"The ""open link in a new tab"" context menu option opens the link in a new Firefox tab.", ,"1. Launch Firefox.	
+2. Open a random page: e.g. https://en.wikipedia.org/wiki/Main_Page.	
+3. Bring up the context menu by right-clicking a link from this page.	
+4. Click the ""open link in a new tab"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. The link in question in opened in a new tab and the related page is successfully loaded."
+92,20160722,context menu - full functional testing,18,"The ""open link in a new window"" context menu option opens the link in a new Firefox window.", ,"1. Launch Firefox.	
+2. Open a random page: e.g. https://en.wikipedia.org/wiki/Main_Page.	
+3. Bring up the context menu by right-clicking a link from this page.	
+4. Click the ""open link in a new window"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. ""- The link in question in opened in a new window.
+     - The related page is successfully loaded."""
+93,20160722,context menu - full functional testing,19,"The ""open link in a new private window"" context menu option opens the link in a new Firefox private window.", ,"1. Launch Firefox.	
+2. Open a random page: e.g. https://en.wikipedia.org/wiki/Main_Page.	
+3. Bring up the context menu by right-clicking a link from this page.	
+4. Click the ""open link in a new private window"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. ""- The link in question in opened in a new private window.
+     - The related page is successfully loaded."""
+94,20160722,context menu - full functional testing,20,"The ""bookmark this link"" context menu option opens the ""new bookmark"" pop-up window.", ,"1. Launch Firefox.	
+2. Open a random page: e.g. https://en.wikipedia.org/wiki/Main_Page.	
+3. Bring up the context menu by right-clicking a link from this page.	
+4. Click the ""bookmark this link"" context menu option.	
+5. Click the ""show your bookmarks"" button and verify if the link in question is bookmarked on set location.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. ""- The """"new bookmark"""" pop-up window is opened.
+     - The user is able to edit his new bookmark.""
+5. The link in question is successfully bookmarked."
+95,20160722,context menu - full functional testing,21,"The ""save link as"" context menu option saves the current link.", ,"1. Launch Firefox.	
+2. Open a random page: e.g. https://en.wikipedia.org/wiki/Main_Page.	
+3. Bring up the context menu by right-clicking a link from this page.	
+4. Click the ""save link as"" context menu option. 	
+5. Verify if the link in question is saved in the proper location and with the proper name.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. ""- The """"enter name of file to save to"""" pop-up window is opened. 
+     - The user is able to manage his saving process.""
+5. The link in question is successfully saved."
+96,20160722,context menu - full functional testing,22,"The ""copy link location"" context menu option transfers in the clipboard a copy of the link location (URL).", ,"1. Launch Firefox.	
+2. Open a random page: e.g. https://en.wikipedia.org/wiki/Main_Page.	
+3. Bring up the context menu by right-clicking a link from this page.	
+4. Click the ""copy link location"" context menu option. 	
+5. Access the awesomebar and paste the clipboard content and press [Enter].	
+6. Compare the page displayed with the one at which you are redirected when click directly on the link in question.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. The link is successfully copied.
+5. ""- The link is pasted in the adress bar.
+     - The pasted link is accessed.""
+6. These two pages are the same."
+97,20160722,context menu - full functional testing,23,"The ""view image"" context menu option opens the image.", ,"1. Launch Firefox.	
+2. Open a page that contains several images: e.g. on https://www.google.com/ and search a word in ""images"" tab.	
+3. Bring up the context menu by right-clicking an image from this page.	
+4. Click the ""view image"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. The image in question is properly displayed in the same tab (on its default dimensions)."
+98,20160722,context menu - full functional testing,24,"The ""copy image"" context menu option transfers a copy of the image in the clipboard.", ,"1. Launch Firefox.	
+2. Open a page that contains several images: e.g. on https://www.google.com/ and search a word in ""images"" tab.	
+3. Bring up the context menu by right-clicking an image from this page.	
+4. Click the ""copy image"" context menu option.	
+5. Open an image editor a random document and paste the clipboard's content.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. 
+5. The image in question is properly pasted."
+99,20160722,context menu - full functional testing,25,"The ""copy image location"" context menu option transfers in the clipboard a copy of the image location (URL).", ,"1. Launch Firefox.	
+2. Open a page that contains several images: e.g. on https://www.google.com/ and search a word in ""images"" tab.	
+3. Bring up the context menu by right-clicking an image from this page.	
+4. Click the ""copy image location"" context menu option.	
+5. Access the awesomebar, paste the clipboard content and press [Enter].	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. 
+5. The image in question is loaded and displayed properly. "
+100,20160722,context menu - full functional testing,26,"The ""save image as"" context menu option opens the ""save image"" pop-up window.", ,"1. Launch Firefox.	
+2. Open a page that contains several images: e.g. on https://www.google.com/ and search a word in ""images"" tab.	
+3; Bring up the context menu by right-clicking an image from this page.	
+4. Click the ""save image as"" context menu option.	
+5. Verify if the image in question is saved in the proper location and with the proper name.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. ""- The """"save image"""" pop-up window is opened.
+     - The user is able to manage his saving process.""
+5. The image in question is successfully saved."
+101,20160722,context menu - full functional testing,27,"The ""email image"" context menu option opens the default email client and inserts the image location (URL) in the body of a new email.", ,"1. Launch Firefox.	
+2. Open a page that contains several images: e.g. on https://www.google.com/ and search a word in ""images"" tab.	
+3. Bring up the context menu by right-clicking an image from this page.	
+4. Click the ""email image"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. ""- If the default email client isn`t set, a pop-up window asking the user to choose an application by which the email to be created is opened. 
+     - If the default email client is set, it opens a new email that contains the chosen image location (URL) in its body."""
+102,20160722,context menu - full functional testing,28,"The ""set as desktop background"" context menu option opens ""set desktop background"" window.",  ,"1. Launch Firefox.	
+2. Open a page that contains several images: e.g. on https://www.google.com/ and search a word in ""images"" tab.	
+3. Bring up the context menu by right-clicking an image from this page.	
+4. Click ""set as desktop background"" context menu option. 	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. ""- The """"set desktop background"""" window is opened.
+     - The user is able to manage the image background settings."""
+103,20160722,context menu - full functional testing,29,"The ""play"" context menu option starts playing back a paused video file.", ,"1. Launch Firefox.	
+2. Open a page that contains video content: e.g. https://www.youtube.com/ and choose a random video.	
+3. If the video starts playing automatically, pause it. 	
+4. Bring up the context menu by right-clicking a video content from this page.	
+5. Click the ""play"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The video playback is paused.
+4. The user is able to bring up the context menu through this action.
+5. Video playback is successfully resumed."
+104,20160722,context menu - full functional testing,30,"The ""pause"" context menu option stops rendering a playing video file.", ,"1. Launch Firefox.	
+2. Open a page that contains video content: e.g. https://www.youtube.com/ and choose a random video.	
+3. If the video starts playing automatically, pause it. 	
+4. Bring up the context menu by right-clicking a video content from this page.	
+5. Click the ""pause"" context menu option.	","1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The video playback is paused.
+4. The user is able to bring up the context menu through this action.
+5. Video playback is paused."
+105,20160812,windows 10 compatibility,1,Browse through popular websites,"- make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver","1. Access popular websites listed by Alexa Topsites: Facebook, Linkedin, Baidu, Amazon, Ebay, Wikipedia, Twitter, Bing, Instagram, Pinterest, Reddit, Tumblr, Wordpress, Blogspot, etc.	
+2. Make sure these websites are properly loaded, rendered and that they work as expected.	","1.
+2. There are no rendering issues, functional issues, performance issues or crashes encountered."
+106,20160812,windows 10 compatibility,2,User's can switch between windows screen with Alt+Tab	,"- make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver","1. Launch at least 2 Firefox instances.	
+2. Switch between Firefox screens by pressing Alt+Tab. 	","1. ...
+2. Firefox is successfully switched."
+107,20160812,windows 10 compatibility,3,Firefox can be dragged and dropped either on right or left side of the screen,"- make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver","1. Launch 2 Firefox instances.        
+2. Drag and drop Firefox 1 to the left side of the screen.        
+3. Drag and drop Firefox 2 to the right side of the screen.        ","1. ...
+2. Firefox is put on the left side of the screen.
+3. Firefox is put on the right side of the screen."
+108,20160812,windows 10 compatibility,4,Image's source URL can be dragged and dropped onto desktop,"- make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver","1. Launch Firefox.	
+2. Go to: http://goo.gl/spmBSS	
+3. ""Drag the image source URL from Location Bar and dropped onto desktop.	""	","1. ...
+2. ...
+3. A hiperlink shortcut is proprely created."
+109,20160812,windows 10 compatibility,5,Firefox can be pinned/unpinned from taskbar,"- make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver","1. Launch Firefox.	
+2. Pin Firefox to taskbar and close it.        	
+3. ""Unpin Firefox from taskbar.	""	","1. ...
+2. Firefox is successfully pined to taskbar.
+3. Firefox is successfully unpined from taskbar."
+110,20160812,windows 10 compatibility,6,Firefox can Open new tab from taskbar,"- make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver","1. Launch Firefox.	
+2. Pin Firefox to taskbar and close it.        	
+3. Right click on pinned Firefox from taskbar and Open new tab.	","1. ...
+2. Firefox is successfully pined to taskbar.
+3. Firefox is successfully load ""New tab"" from taskbar."
+111,20160812,text to speech on desktop,1,"Speech synthesis correctly works on several demo pages
+
+
+", ,"1. Launch Firefox.	
+2. Open a demo page	
+3. Type some long text and click the ""Speak"" button. 	
+4. Try out all the available options: Volume, Rate, Pitch	","1. ...
+2. ...
+3. Speech synthesis correctly starts. 
+4. The options work as expected."
+112,20160812,text to speech on desktop,2,"Verify the ""media.webspeech.synth.enabled"" pref
+", ,"1. Launch Firefox.	
+2. Go to about:config page. 	
+3. Verify the ""media.webspeech.synth.enabled"" pref	","1. ...
+2. ...
+3. The pref is set to True by default."
+113,20160812,text to speech in reader mode,1,"Verify the ""media.webspeech.synth.enabled"" pref", ,"1. Launch Firefox.
+2. Go to about:config page. 
+3. Verify the ""media.webspeech.synth.enabled"" pref","1. 
+2. 
+3. The pref is set to True by default."
+114,20160812,text to speech in reader mode,2,The Narrate icon,"""media.webspeech.synth.enabled"" is set to true","1. Launch Firefox.
+2. Open a page in Reader Mode. 
+3. In the left toolbar, observe the third icon from the top (the Narrate icon).
+4. Mouse over the Narrate icon. ","1. 
+2. 
+3. The Narrate icon looks like this.
+4. The tooltip (""Narrate"") is correctly displayed."
+115,20160812,text to speech in reader mode,3,Active animated state for the Narrate icon,"""media.webspeech.synth.enabled"" is set to true","1. Launch Firefox.
+2. Open a page in Reader Mode.
+3. In the left toolbar, click the third icon from the top (the Narrate icon).
+4. Click on the ""Play"" button.
+5. Dismiss the ""Narrate"" pop-up. 
+6. Observe the Narrate icon","1. 
+2. 
+3. The ""Narrate"" pop-up is correctly displayed.
+4. Narrate correctly starts. 
+5. The narration doesn't stop. 
+6. An active animated state for the Narrate icon is displayed."
+116,20160812,text to speech in reader mode,4,TTS in Reader Mode correctly works (with all the available options),"""media.webspeech.synth.enabled"" is set to true","1. Launch Firefox.
+2. Open a page in Reader Mode. 
+3. In the left toolbar, click the third icon from the top (the Narrate icon).
+4. Try out all the available options: Play/Stop, Forward, Back","1. 
+2.
+3. The ""Narrate"" pop-up is correctly displayed.
+4. The options work as expected. "
+117,20160812,text to speech in reader mode,5,Play/Stop button correctly works,"""media.webspeech.synth.enabled"" is set to true","1. Launch Firefox.
+2. Open a page in Reader Mode. 
+3. In the left toolbar, click the third icon from the top (the Narrate icon).
+4. Move the mouse over the Play button.
+5. Click the ""Play"" button and mouse over the button.
+6. Click the ""Stop"" button and mouse over the button. ","1. 
+2.
+3. The pop-up is correctly displayed.
+4. The tooltip of the button is ""Start"". 
+5. Speech synthesis correctly starts and the tooltip of the button is ""Stop"". 
+6. Speech synthesis correctly stops and the tooltip of the button is """"Play"""". "
+118,20160812,text to speech in reader mode,6,Narrate correctly speaks,"""media.webspeech.synth.enabled"" is set to true","1. Launch Firefox.
+2. Open this page and enter in Reader Mode.
+3. In the left toolbar, click the third icon from the top (the Narrate icon).
+4. Click on the ""Narrate"" button and listen.","1. 
+2.
+3. The ""Narrate"" pop-up is correctly displayed.
+4. Narrate correctly speaks (especially at the end of paragraphs) "
+119,20160812,text to speech in reader mode,7,"The voices from ""Voice"" list correctly work","""media.webspeech.synth.enabled"" is set to true","1. Launch Firefox. 
+2. Open a page in Reader Mode. 
+3. In the left toolbar, click the third icon from the top (the Narrate icon).
+4. Click on the ""Play"" button. 
+5. Try out all the available voices from the ""Voice"" list.","1. 
+2. 
+3. The ""Narrate"" pop-up is correctly displayed.
+4. Narrate correctly starts. 
+5. Narrate correctly speaks for the selected voice. "
+120,20160812,text to speech in reader mode,8,Tab Sound Indicator displayed in the tab, ,"1. Launch Firefox. 
+2. Open a page in Reader Mode. 
+3. In the left toolbar, click the third icon from the top (the Narrate icon).
+4. Click on the ""Play"" button. 
+5. Observe the sound tab indicator displayed in the tab title. 
+6. Click the speaker icon in the tab to mute audio on the page.","1. 
+2.
+3. The ""Narrate"" pop-up is correctly displayed.
+4. Narrate correctly starts. 
+5. A little speaker icon appears in the tab.
+6. Narration is muted."
+121,20160826,webgl compatibility,1,WebGL games are properly rendered and work as expected, ,"1. ""1. Launch Firefox and open the `Browser Console` from menu [≡] → select `Developer` → select `Browser Console`.
+2. Play a few random games from [3dsitelinks.com] http://www.3dsitelinks.com/webgl-games/
+
+","1. - Firefox is successfully launched. 
+    - The Browser Console is enabled.
+2. There are no issues encountered and no errors thrown in the Browser Console while playing WebGL games.
+
+**⚠ NOTE** Look for rendering, functional or performance issues and pay attention to any hangs or crashes that might occur."
+122,20160826,webgl compatibility,2,WebGL animations are properly rendered and work as expected, ,"1. Launch Firefox and open the `Browser Console` from menu [≡] → select `Developer` → select `Browser Console`.
+2. Open the following WebGL animation - [Pulpo](http://dl.dropboxusercontent.com/u/6983010/wserv/gexp_pulpo/index.html).
+3. Use the settings available for this animation, e.g. change FOV, check/uncheck Pospo, etc.
+4. Open the following WebGL animation in a _New Tab_ - [Aquarium](http://webglsamples.org/aquarium/aquarium.html).
+5. Use the settings available for this animation, e.g. change view, change the number of fish, etc. 
+6. Open the following WebGL animation in a _New Window_ - [Water](http://madebyevan.com/webgl-water/).
+7. Use the settings available for this animation, e.g. press `spacebar`, press the `l` and `g` keys, etc.
+","1. - Firefox is successfully launched.
+    - The Browser Console is enabled.
+2. The WebGL animation is properly loaded and rendered.
+3. - The WebGL animation is properly loaded and rendered. 
+    - All the changes are seen accordingly and no errors are thrown in the Browser Console.
+4. WebGL animation is properly loaded and rendered.
+5. The animation is properly loaded before and after changing some of the available options.
+6. The WebGL animation is properly loaded and rendered.
+7. The animation is properly rendered in the new window and all the actions initiated are successful."
+123,20160826,webgl compatibility,3,WebGL graphs are properly rendered and work as expected, ,"1. Launch Firefox and open the `Browser Console` from menu [≡] → select `Developer` → select `Browser Console`.
+2. Open the following [Google Graph](http://goo.gl/zz1rox) in a _New Tab_.
+3. Use the settings available for this graph, e.g. modify values, rotate, zoom in, etc.","1. - Firefox is successfully launched.
+    - The Browser Console is enabled.
+2. The graph is successfully loaded and rendered.
+3. - The animation is properly loaded and rendered fine before and after modifying the default values.
+    - There are no errors thrown for these actions in the Browser Console."
+124,20160826,exploratory testing,4,There are no rendering artifacts or crashes encountered while browsing popular websites providing video content, ,"1. Access popular websites providing video content: 
+ . YouTube: https://www.youtube.com/
+ . Twitch: https://www.twitch.tv/
+ . Vimeo: //www.vimeo.com/",1. There are no rendering artifacts or crashes encountered while browsing popular websites providing video content
+125,20160826,exploratory testing,5,There are no rendering artifacts or crashes encountered while browsing popular websites providing canvas demos, ,"1. Access any of the following websites providing canvas demos: 
+  . MDN  :  https://developer.mozilla.org/en-US/demos/tag/tech:canvas/
+  . HTML5 Demos  : http://html5demos.com/canvas
+  . HTML5 Doctor : http://html5doctor.com/demos/video-canvas-magic/demo0.html
+  . Flash Canvas  : http://flashcanvas.net/example/demo",1. There are no rendering artifacts or crashes encountered while browsing popular websites providing canvas demos
+126,20160930,PointerLock api,1,The PointerLock API warning bar is displayed,- install the latest Beta.,"1. Launch the latest Beta        
+2. Navigate to the simple pointer lock demo         
+3. Click on the canvas area and move your mouse        
+4. Press on the Esc key button.        ","1. Beta is properly opened
+2. Navigation is allowed
+3. - The PointerLock API bar is displayed in the upper side of the browser stating the following message: """"mdn.gihub.io has control of your pointer. Press Esc to take back control.""
+   - Your mouse will directly control the ball inside the canvas
+   - The pointer is locked to the canvas's area.
+4. The pointer is unlocked. Moving the pointer anywhere in the browser is allowed.  "
+127,20160930,PointerLock api,2,Verify that the PointerLock warning bar is not displayed in Full Screen, ,"1. Launch the latest Beta	
+2. Navigate to this pointer lock demo	
+3. Click on the Fullscreen button located in the right site of the canvas and move your mouse	
+4. Press the Esc key	
+5. Navigate to this pointer lock demo	
+6. Click on the content area and move your mouse	
+7. Press the Esc key	","1. Beta is properly opened
+2. Navigation is allowed
+3. - Full screen mode is entered and the pointer is locked to the demo's area.
+    - The full screen warning bar is displayed in the middle upper side of the window stating that: """"tojicode.com is now full screen. Exit Full Screen (Esc)""""
+    - No other notification, like the PointerLock one is displayed.""
+4. - The Full Screen is exited
+    - The PointerLock mode is also exited.
+5. Navigation is allowed
+6. - The PointerLock Mode is entered and so is Full Screen
+    - The full screen warning bar is displayed in the middle upper side of the window stating that: """"tojicode.com is now full screen. Exit Full Screen (Esc)""""""
+7. - The Full Screen is exited
+    - The PointerLock mode is also exited."""
+128,20160930,PointerLock api,3,Exit PointerLock mode by changing focus to another application (ALT+TAB/CMD+TAB), ,"1. Launch the latest Beta.        
+2. Navigate to this pointer lock demo        
+3. Click the canvas content to enter PointerLock mode and move your mouse        
+4. Change focus by using the keyboard shortcut ALT+TAB (Cmd +TAB on Mac OS X)        
+5. Using the keyboard shortcut, return back to the Beta window         
+6. Click to enter pointer lock again and then press the Esc key to exit        
+7. Navigate to another pointer lock demo         
+8. Repeat steps 2.3 -> 2.6 for the demo from the previous step        ","1. Beta is properly opened
+2. Navigation is properly allowed
+3. ""- The PointerLock API bar is displayed in the upper side of the browser stating the following message: """"""""mdn.gihub.io has control of your pointer. Press Esc to take back control.""""""""
+    - Your mouse will directly control the ball inside the canvas.
+4. Another opened application is focused and PointerLock mode is exited
+5. The demo from step 2 is back in focus and the PointerLock mode is exited
+6. The pointer is succesfully locked and then unlocked.
+7. Navigation is properly allowed
+8. Focus is changed, pointerLock is lost (after step 4) and entered and exited again (in step 6) "
+129,20160930,PointerLock api,4,Exit PointerLock mode by changing focus to another tab (Ctrl+Page Up/Down), ,"1. Launch the latest Beta with several opened tabs (any desired websites)        
+2. Navigate to this pointer lock demo        
+3. Click the canvas content to enter PointerLock mode and move your mouse        
+4. Switch tabs by using the keyboard shortcut Ctrl+ Page UP (windows and ubuntu only, use also Ctrl+Tab)        
+5. Open 3 more tabs, go back to the tab with the loaded demo from step 2 and click on the canvas content        
+6. Switch tabs by using the keyboard shortcut Ctrl+ Page Down        ","1. Beta is properly opened
+2. Navigation is properly allowed
+3. ""- The PointerLock API bar is displayed in the upper side of the browser stating the following message: """"""""mdn.gihub.io has control of your pointer. Press Esc to take back control.""""""""
+     - Your mouse will directly control the ball inside the canvas""
+4. ""- The previous tab is focused.
+     - The pointer is also unlocked.""
+5. The tabs are properly opened and the pointer is locked after clicking on the canvas content
+6. - The focus is switched to the tabs from the right side of the last focused tab.
+    - The pointer is unlocked."""
+130,20160930,PointerLock api,5,Disable the PointerLock mode, ,"1. Launch the latest Beta.        
+2. Navigate to this pointer lock vs non pointer lock demo        
+3. In the first canvas - click on it and move your mouse inside and outside it's content        
+4. In the second canvas - click on it and move your mouse inside and outside it's content        
+5. Navigate to about:config         
+6. Set ""full-screen-api.pointer-lock.enabled"" preference to false        
+7. Restart Beta.        
+8. Navigate again to the pointer lock vs non pointer lock demo:        
+9. Click on both demos and move your mouse inside and outside their content	","1. Beta is properly opened
+2. Navigation is allowed.
+3. ""The mouse movement controls the spaceship
+    - The pointer is not locked as you can move your mouse outside the canvas's content.""
+4. ""The PointerLock API warning bar is displayed
+    - The mouse movement controls the spaceship.
+    - The pointer is locked.""
+5. Navigation is allowed
+6. Toggling the preference from true to false is possible
+7. Beta is properly restarted
+8. The navigation is allowed.
+9. ""- The pointer is not locked
+     - The first demo works as in step 3
+     - The second demo is not working anymore because the PointerLock API feature was disabled"""
+131,20160930,PointerLock api,6,Change the setting that shows how long the PointerLock warning is displayed,- start Beta with a new profile.,"1. Launch the latest Beta.           
+2. Navigate to about:config         
+3. Set ""pointer-lock-api.warning.timeout"" to a different value (for e.g. 9000)        
+4. Restart Beta.        
+5. Navigate to this pointer lock demo         
+6. Click on the canvas area and pay attention to the time the PointerLock warning is displayed        
+7. ""Navigate back to about:config and set the preference """"pointer-lock-api.warning.timeout"""" to the default value (3000)        ""        
+8. Navigate to this pointer lock demo         
+9. Click on the canvas area and pay attention to the time the PointerLock warning is displayed        ","1. Beta is properly opened
+2. Navigation is allowed
+3. Modifying the preference's value is possible
+4. Beta is properly restarted
+5. The navigation is allowed
+6. ""- The pointer is locked
+     - The PointerLock warning bar is displayed in the upper side of the browser for as long as it was set (if the preference's value was decreased than it's showed for a shorter periof of time and if the value was increased it's displayed for a longer period)
+     - The PointerLock warning bar dissapears after a while (depending of the value in step 3).""
+7. Modifying the preference's to it's default value is possible.
+8. The navigation is allowed
+9. ""- The pointer is locked
+     - The period of time the PointerLock API warning bar is set back to the default one."""
+132,20160930,PointerLock api,7,Play with  Pointerlock functionality,- start Beta with a new profile.,"1. Launch Beta and open the Browser Console, from menu [≡] → select ""Developer"" → select ""Browser Console"".                
+2. ""Navigate to the following games and demos and do any actions you can think of (enter/exit full screen, open Devtools, refresh using the keyboard, etc)  Pay attention to any hangs or crashes that might occur.
+. https://kripken.github.io/BananaBread/wasm-demo/index.html        
+. http://substack.net/projects/voxel-forest/        
+. http://threejs.org/examples/misc_controls_pointerlock.html        
+. http://media.tojicode.com/q3bsp/        ""         ","1. Beta is properly opened and the Browser Console is enabled.
+2. ""There are no issues encountered while playing/navigating and no errors thrown in the Browser Console while browsing
+    - The pointer is locked and the PointerLock API warning bar is shown when clicking on the canvas content."""
+133,20160930,PointerLock api,8,Check the PointerLock API warning bar with high contrast themes installed (not applicable on Mac OS X),"- set a high contrast theme: 
+Windows: Go to Personalise> Themes> Theme Settings and activate a High Contrast Theme.
+Ubuntu: Install ""gnome-control-center""- System settings-Appearance","1. Launch the latest Beta.	
+2. Navigate to this game	
+3. Click on the canvas and start playing the game	","1. Beta is properly opened
+2. Navigation is allowed
+3. - ""The PointerLock API warning bar is properly displayed.
+    - The pointer is locked.
+    - There are no issues encountered while playing."""
+134,20160930,PointerLock api,9,Verify PointerLock functionality by keyboard only, ,"1. Launch the latest Beta.  	
+2. Navigate to this pointer lock demo	
+3. ""Click on the demo and start navigating through the """"forest"""" by using the keyboard shortcuts:
+W, A, S, D
+Up, down, left, right arrows""	","1. Beta is properly opened
+2. Navigation is allowed
+3. ""The pointer is locked and the PointerLock API warning bar is displayed.
+   - There are no issues encounterd while navigating through the forest."""
+135,20160930,PointerLock api,10,Verify that the PointerLock API warning bar is displayed when minimizing/maximising Firefox, ,"1. Launch the latest Beta.	
+2. ""Navigate to the simple pointer lock demo 	""	
+3. Resize the browser's window and then click on the canvas	
+4. Maximize the browser's window and then click on the canvas	
+5. Repeat steps 3 and 4 several times, having the browser's window sized and located diffrently	","1. Beta is properly opened
+2. Navigation is allowed
+3. The PointerLock API warning bar is diplayed in the upper side of the browser's window
+4. The PointerLock API warning bar is diplayed in the upper side of the browser's window
+5. The PointerLock API warning bar is diplayed each time the canvas is clicked."
+136,20160930,PointerLock api,11,Verify PointerLock functionality in Private Browsing, ,"1. Launch Beta and open the Browser Console, from menu [≡] → select ""Developer"" → select ""Browser Console"".        	
+2. ""In the new private window - navigate to the following games and demos and do any actions you can think of (enter/exit full screen, open Devtools, refresh using the keyboard, etc) Pay attention to any hangs or crashes that might occur.
+. https://kripken.github.io/BananaBread/wasm-demo/index.html        
+. http://substack.net/projects/voxel-forest/        
+. http://threejs.org/examples/misc_controls_pointerlock.html        
+. http://media.tojicode.com/q3bsp/        ""	","1. Beta is properly opened and the Browser Console is enabled.
+2. - ""There are no issues encountered while playing/navigating and no errors thrown in the Browser Console while browsing
+    - The pointer is locked and the PointerLock API warning bar is shown when clicking on the canvas content."""
+137,20160930,WebM EME support for Widevine,1,WebM EME support for Widevine core functionality is intact on Shaka Player Demo Page, ,"1. Spot-check the WebM EME support for Widevine feature and focus on the following core functionality:
+- check if Widevine is pre-installed and is working if not install it from about:addons.
+- Shaka Player Demo Page: http://goo.gl/vQ99DW
+- Angel One (multicodec, multilingual, Widevine) video
+- Sintel 4k (multicodec, Widevine) video
+- ""Dig the Uke"" by Stefan Kartenberg (audio only, multicodec, Widevine) video
+
+Goals
+- Load each video and check the full core functionality.
+- Verify that all the core functionality associated to WebM EME and Widevine works properly.
+- Verify and pay extra attention to all available video options: toggle the play/pause buttons, change volume, enter/exit full screen mode, use the contextual menu options, CC, etc.
+",
+138,20160930,WebM EME support for Widevine,2,WebM EME is working as expected on Saka Player Demo in normal window, ,"1. Start Firefox in normal window.	
+2. Go to: http://goo.gl/0cVfha.	
+3. From drop-down Asset menu choose ""Sintel 4k (multicodec, Widevine)"".	
+4. Click ""Load"".	
+5. Try out all the available options: toggle the play/pause buttons, change volume, enter/exit full screen mode, use the contextual menu options, CC, etc.	","1. Firefox started successfully.
+2. The web site is successfully loaded.
+3. The video in question is properly selected.
+4. The video starts playing automatically.
+5. The options available for this video work as expected."
+139,20160930,WebM EME support for Widevine,3,WebM EME is working as expected on Saka Player Demo in private window,  ,"1. Start Firefox in private window.        
+2. Go to: http://goo.gl/0cVfha.        
+3. From drop-down Asset menu choose ""Sintel 4k (multicodec, Widevine)"".        
+4. Click ""Load"".        
+5. Try out all the available options: toggle the play/pause buttons, CC, change volume, enter/exit full screen mode, use the contextual menu options, etc.        ","1. Firefox started successfully.""
+2. The web site is successfully loaded.""
+3. The video in question is properly selected.""
+4. The video starts playing automatically.""
+5. The options available for this video work as expected."""
+140,20160930,WebM EME support for Widevine,4,WebM EME is working as expected on Saka Player Demo when is moved into another window, ,"1. Start Firefox.	
+2. Go to: http://goo.gl/0cVfha.	
+3. From drop-down Asset menu choose ""Sintel 4k (multicodec, Widevine)"".	
+4. Click ""Load"".	
+5. Move window in question to another window.	
+6. Try out all the available options: toggle the play/pause buttons, CC, change volume, enter/exit full screen mode, use the contextual menu options, etc.	","1. Firefox started successfully.
+2. The web site is successfully loaded.
+3. The video in question is properly selected.
+4. The video starts playing automatically.
+5. The web site is successfully loaded and the video in question is playing properly.
+6. The options available for this video work as expected."
+141,20160930,WebM EME support for Widevine,5,User is able to change resolution and bits/s while video is playing, ,"1. Start Firefox	
+2. Go to: http://goo.gl/0cVfha.	
+3. From drop-down Asset menu choose ""Sintel 4k (multicodec, Widevine)"".	
+4. Select ""Info"" and choose another resolution/bits: e.q 256x110, 81054 bits/s.	","1. Firefox started successfully.""
+2. The web site is successfully loaded.
+3. The video in question is properly selected.
+4. The video resolution/bits is loaded properly."
+142,20160930,WebM EME support for Widevine,6,User is able to change language while video is playing, ,"1. Start Firefox.        
+2. Go to: http://goo.gl/0cVfha.        
+3. From drop-down Asset menu choose ""Angel One (multicodec, multilingual, Widevine)"".        
+4. Click ""Load"".        
+5. Select ""Info"" and choose another language from ""Audio tracks"": e.q language: de (subtitle).        ","1. Firefox started successfully.
+2. The web site is successfully loaded.
+3. The video in question is properly selected.
+4. The video starts playing automatically.
+5. The language is loaded properly."
+143,20161028,zoom indicator,1,"Default Zoom Level
+", ,"1. Launch Firefox with a clean profile	
+2. Verify there is nothing in the Location Bar related to zooming	
+3. Click the Menu [≡]	
+4. There are control buttons available for zooming [-] [%] [+]	","1. Firefox is successfully launched
+2. Location Bar displays URL information, there is no Zoom Indicator
+3. The Menu Panel successfully opens
+4. Control buttons for zooming appear under the Cut/Copy/Paste buttons"
+144,20161028,zoom indicator,2,"Zoom Controls on Toolbar
+", ,"1. Launch Firefox with a clean profile	
+2. Verify there is nothing in the Location Bar related to zooming	
+3. Click the Menu [≡]	
+4. Click the [+] Customize button	
+5. Click anywhere on the zoom controls and drag them to the Toolbar	
+6. Click the [√] Exit Customize button and verify the Zoom Controls still function in the toolbar	
+7. Verify there is nothing in the Location Bar related to zooming	
+8. Remove the Zoom Controls from the toolbar and ensure default value is 100% when clicking the Menu [≡]	","1. Firefox is successfully launched
+2. - Location Bar displays URL information
+    - There is no Zoom Indicator""        
+3. The Menu Panel successfully opens
+4. Customize tab is opened
+5. Zoom Controls can be placed on the toolbar""
+6. Zoom Controls appear in the toolbar and remain functional
+7. Location Bar displays URL Information, there is nothing related to a zoom
+8. - Zoom Controls are not in the toolbar
+    - Default Zoom is 100%"
+145,20161028,zoom indicator,3,"Location Bar & No Zoom Indicator
+", ,"1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	","1. - Firefox is successfully launched
+    - Default zoom is 100%""
+2. - The chosen page is properly displayed
+    - There is no Zoom Indicator in the Location Bar"""
+146,20161028,zoom indicator,4,"Location Bar Displays Zoom Indicator
+", ,"1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Press [Ctrl] & [+] buttons	","1. - Firefox is successfully launched
+    - Default zoom is 100%
+    - There is no Zoom Indicator in the Location Bar""
+2. - The chosen page is properly displayed
+    - There is no Zoom Indicator in the Location Bar""
+3. - Page updates
+    - The page zoom level increases
+    - Zoom Indicator appears in the Location Bar - the first press of [+] = 110%"
+147,20161028,zoom indicator,5,"Zoom Indicator Animation
+", ,"1. Launch Firefox and verify if the Zoom Indicator appears in the Location Bar	
+2. - Press [Ctrl] & [+] buttons and verify the Zoom Indicator in the Location Bar as well as the page display are accurately reflecting the growth
+    - Verify if the process is smooth without interruption or distortion to the page
+    - Confirm that the Max Growth is 300% and the Max Decrease is 30%	
+3. - Press [Ctrl] & [-] buttons and verify the Zoom Indicator in the Location Bar as well as the page display are accurately reflecting the shrinkage
+    - Verify the process is smooth without interruption or distortion to the page
+    - Confirm that the Max Growth is 300% and the Max Decrease is 30%""	","1. - Firefox is successfully launched
+    - Zoom Indicator is displayed with a value (if the last zoom level of the page had this value in a previous session)
+    - There is no Zoom Indicator in the Location Bar (if that page was not open in a previous session or if the page was last time displayed at default zoom 100% in a previous session)
+2. - Zoom Indicator value is accurately increasing
+    - Page display is accurately zooming in
+    - There is no interruption/distortion
+3. - Zoom Indicator value is accurately decreasing
+    - Page display is accurately zooming out
+    - There is no interruption/distortion"
+148,20161028,zoom indicator,6,"Zoom Indicator Hides
+", ,"1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Press [Ctrl] & [+] buttons	
+4. Press [Ctrl] & [-] buttons	
+5. Press [Ctrl] & [-] buttons again	
+6. Press [Ctrl] & [+] buttons	","1.  - Firefox is successfully launched
+     - Default zoom is 100%
+     - There is no Zoom Indicator in the Location Bar
+2.  - The chosen page is properly displayed
+     - There is no Zoom Indicator in the Location Bar
+3. - Page updates
+    - Zoom level is accurately increased
+    - Zoom Indicator appears in the Location Bar at 110%
+4. - Page updates
+    - Zoom level is removed (default)
+    - The Zoom Indicator is removed from the Location Bar
+5. - Page updates
+    - Zoom level is accurately decreased
+    - The Zoom Indicator is displayed in the Location Bar at 90%
+6. - Page updates
+    - Zoom level is removed (default)
+    - The Zoom Indicator is removed from the Location Bar"
+149,20161028,zoom indicator,7,"Zoom Level + Multi Tabs/Sites
+", ,"1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Press [Ctrl] & [+] buttons	
+4. Open a new tab and open the same site	
+5. Open a new tab and open a new site, e.g. amazon.com	","1. - Firefox is successfully launched
+    - Default zoom is 100%
+    - There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+    - There is no Zoom Indicator in the Location Bar
+3. - Page updates
+    - Zoom level is accurately increased
+    - Zoom Indicator appears in the Location Bar at 110%
+4. Zoom Indicator is displayed in the Location Bar at 110%
+5. - There is no Zoom Indicator in the Location Bar
+    - Zoom level is at its default value (100%)"
+150,20161028,zoom indicator,8,"Zoom Level + Window State
+", ,"1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Press [Ctrl] & [+] buttons	
+4. Keep applying [Ctrl] & [+] until the maximum zoom of 300% is achieved	
+5. Minimize and then Maximize the window	","1. - Firefox is successfully launched
+    - Default zoom is 100%
+    - There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+    - There is no Zoom Indicator in the Location Bar""
+3. - Zoom Indicator is displayed in the Location Bar at 110%
+    - The page Zoom Level is increased
+4. - The page Zoom Level is gradually increased
+    - The Zoom Indicator reaches the 300% value
+5. The window remains readable: there is no distortion or interruption to the displayed page"
+151,20161028,zoom indicator,9,"Zoom Indicator & Menu [≡] - Zoom In [+]
+", ,"1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Click the Menu [≡]	
+4. Click the Zoom Control [+] button and close the door-hanger	","1. - Firefox is successfully launched
+    - Default zoom is 100%
+    - There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+    - There is no Zoom Indicator in the Location Bar
+3. The Menu Panel door-hanger is properly displayed
+4. - Door-hanger is removed
+    - Zoom Indicator is displayed in the Location Bar at 110%
+    - Page Zoom Level is increased"
+152,20161028,zoom indicator,10,"Zoom Indicator & Menu [≡] - Zoom Out [-]
+",,"1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Click the Menu [≡]	
+4. Click the Zoom Control [-] button and close the door-hanger	","1. - Firefox is successfully launched
+    - Default zoom is 100%
+    - There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+    - There is no Zoom Indicator in the Location Bar
+3. The Menu Panel door-hanger is properly displayed
+4. - Door-hanger is removed
+    - Zoom Indicator is displayed in the Location Bar at 90%
+    - Page Zoom Level is decreased"
+153,20161028,zoom indicator,11,"Zoom Indicator & Menu [≡] - Reset Zoom Level [%]
+", ,"1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Click the Menu [≡]	
+4. Click the Zoom Control [+] button and close the door-hanger	
+5. Click the Menu [≡] again, apply the Zoom Control [%] button and close the door-hanger	","1. - Firefox is successfully launched
+    - Default zoom is 100%
+    - There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+    - There is no Zoom Indicator in the Location Bar
+3. The Menu Panel door-hanger is properly displayed
+4. - Door-hanger is removed
+    - Zoom Indicator is displayed in the Location Bar at 110%
+    - Page Zoom Level is increased
+5. - Zoom Level returns to 100%
+    - Door-hanger is removed
+    - Zoom Indicator is removed from the Location Bar
+    - Page Zoom Level has a smooth transition"
+154,20161028,downloads dropmaker,1,The downloading of a file can be cancelled or retried, ,"1. Launch Firefox with a clean profile	
+2. Load a website from where you can download a file larger than 10 MB	
+3. Start the download.	
+4. Click the Downloads button from the toolbar.	
+5. Click the Cancel button (x) next to the download progress.	
+6. Click on the Retry button (↺) next to the download progress and let the download finish.	
+7. Once the download is finished click on it from the panel.	","1. Firefox is successfully launched
+2. 
+3. The download of the selected file is started.
+4. - The Downloads panel is opened.
+    - The started download is listed in it along with a corresponding progress indicator.
+5. The download is cancelled.
+6. - The download restarts. 
+    - The file is completely downloaded.
+7. - The downloaded file is opened.
+    - The user might have to select an application to open it with."
+155,20161028,downloads dropmaker,2,The number of downloads displayed in the panel is truncated properly, ,"1. Perform 3 (three) downloads of your choice and wait for them to be completed	
+2. Open the Downloads Panel.	
+3. Accept saving the following large file to your local drive.	
+4. Open the Downloads Panel and pause the active download.	
+5. While the first download is paused, initiate 3 additional small downloads.	
+6. Open the Downloads Panel again.	
+7. Open the Downloads Panel again, click on +4 other downloads then right-click on the paused download and select Resume.	
+8. From the downloads view, right-click on any of the completed downloads and choose to remove it from the history.	
+9. Open the Downloads Panel again.	","1. - All the downloads are successful.
+    - Notifications at the beginning and at the completion of the downloads are displayed.
+2. - All 3 downloads are displayed in the Downloads panel.
+    - Information about the size, domain and the time of the download completion are also displayed.
+3. The download of the file in question is started.
+4. The download is paused.
+5. The additional downloads are successfully initiated and finished.
+6. All the additional downloads are displayed in the Downloads Panel and at the bottom of it, instead of the generic 'Show All Downloads' , the button states there are 4 more downloads.
+7. The downloads view is opened and the download is resumed.
+8. The download is successfully removed.
+9. +3 other downloads is displayed at the bottom of the panel."
+156,20161028,downloads dropmaker,3,The downloads button works properly no matter where it's positioned in the browser UI, ,"1. Launch Firefox with a clean profile	
+2. Click menu [≡] → select Customize.	
+3. Drag the download button from the navigation bar and place it on the tabs bar.	
+4. Perform at least 3 downloads.	
+5. Open the Downloads Panel.	","1. Firefox is successfully launched
+2. Customize mode is enabled.
+3. - The downloads button is placed on the tabs bar.
+    - On Windows 7 (Aero), the button's color is white.
+    - After the downloads are completed the downloads button turns blue.        
+4. The downloads button's color is changed."
+157,20161028,downloads dropmaker,4,All the contextual options available in the downloads panel work properly, ,"1. Launch Firefox with a clean profile	
+2. Perform several downloads and pause one of them.	
+3. Open the Library → select Downloads.	
+4. Right-click the paused download and select Resume then right-click it again and select Pause.	
+5. Right-click a completed download and select Remove from history.	
+6. ""Righ-click the third download and select:
+     - Windows or Ubuntu: Open Containing Folder
+     - Mac OS X: Show in Finder
+    then go to the download page, copy its download link and paste it in a new tab.""	
+7. Right-click any of the downloads and select Clear Downloads.	","1. Firefox is successfully launched""	
+2. Several downloads are completed and one of them is paused.
+3. The Downloads section is successfully selected from the Library.
+4. The download is resumed and then paused again successfully.
+5. - The selected download is removed from history.
+    - The actual physical file associated to the selected download will not be removed from the local drive.
+6. - The folder that contains the download is opened.
+    - The page from where the download was done is opened.
+    - The download link is copied.
+7. - All the completed/failed/cancelled downloads are removed.
+    - Only the paused/in progress downloads are kept."
+158,20161028,downloads dropmaker,5,The downloads initiated from a private window are not leaked to the non-private window, ,"1. Launch Firefox.	
+2. Open the Download Library and select Downloads.	
+3. Clear all downloads.	
+4. Open a private window.	
+5. Open the Library and select Downloads again.	
+6. Perform 5 downloads of your choice and go to the Downloads category from the Library.	
+7. Try all the options from the context menu.	
+8. Perform one more download and close the private window.	
+9. In the non-private window, open the Downloads Panel and the Downloads category from the Library.	","1. Firefox is successfully launched.""	
+2. The Library is successfully opened.""	
+3. All downloads are cleared (if any).""	
+4. A new private window is opened.""	
+5. The downloads category is brought to view and the following message is displayed in the tab: There are no downloads.""	
+6. All the downloads are successful and displayed in the Downloads category.""	
+7. Every contextual option works properly.""	
+8. The private window is successfully closed.""	
+9. There are no downloads displayed in either Downloads Panel or Downloads category.""	"
+159,20161028,downloads dropmaker,6,Notifications are displayed if downloads are finished or new ones initiated, ,"1. Launch Firefox with a clean profile        
+2. Go to: http://www.mozilla.org/ and download the latest version of Firefox.        
+3. Close the Downloads Panel by clicking anywhere on the page.        
+4. Go to: http://nightly.mozilla.org/ and download the latest Nightly build.        ","1. Firefox is successfully launched""	
+2. The beginning of the download is notified by a downward arrow animation near the download button and the panel automatically opens (). 
+     - ⚠ NOTE The panel opens only for the first download made on that profile.
+     - While the download is active, a progress bar and the remaining time (if known) is shown on the download button. 
+     - The completion of the download is notified by a downwards arrow animation. 
+     - The completion of the download makes the indicator glow until the panel is opened.""	
+3. The Downloads Panel is dismissed.""	
+4. Both the beginning and completion of the download are notified by downward arrow animations.
+    - The indicator glows until the panel is opened.""	"
+160,20161028,downloads dropmaker,7,Download warnings are displayed in case of malicious content, ,"1. Launch Firefox with a new profile.	
+2. Open the Safe browsing test page	
+3. Click the 2nd item from the Desktop Download Warnings section.	
+4. Open file / Save file.	
+5. Click the Download button.	
+6. Right-click the item in download list and choose Allow Download.	
+7. Click the Cancel button.	
+8. Right-click the item in download list and choose Allow Download, then choose Allow Download this time.	
+9. Repeat these last few steps for the 3rd item.	","1. Firefox is successfully launched.""	
+2. The Safe Browsing test page is successfully loaded.""	
+3. 
+4. Note animation and red icon in menu bar, with red exclamation point.""	
+5. - Red exclamation icon disappears.
+    - Downloaded Item appears in download list.
+    - Item has a red hexacon icon with X.
+    - Message: This file contains a virus or malware is displayed.""	
+6. A new dialog is prompted asking the user if he really wants to download the file""	
+7. The dialog is closed and no file is downloaded.""	
+8. The file is successfully downloaded""	
+9. The expected behavior is met for each of those steps.""	"
+161,20161028,downloads dropmaker,8,Uncommon download warnings are displayed for eligible content, ,"1. Launch Firefox with a new profile.	
+2. Open the Safe browsing test page	
+3. Click the 5th item from the Desktop Download Warnings section.	
+4. Open file / Save file.	
+5. Click the Download button.	
+6. Right-click the item in the download list and choose Allow Download.	
+7. Click the Cancel button.	
+8. Right-click the item in the download list again and choose Allow Download, but this time click Allow Download.	
+9. Click the magnifying glass or folder icon (depending on OS).	
+10. Click Remove File.
+11. Repeat all these steps for the 6th item.	","1. Firefox is successfully launched.""	
+2. The Safe Browsing test page is successfully loaded.""	
+3. 
+4. Note animation and yellow icon in menu bar, with exclamation point.""	
+5. - Yellow exclamation icon disappears..
+    - Downloaded Item appears in download list
+    - Item has a blue circle with letter i.
+    - Message: This file is not commonly downloaded is displayed.
+    - Magnifying glass icon (Mac) or folder icon (Windows & Linux).""	
+6. A new dialog is prompted asking the user if he really wants to download the file.""	
+7. The dialog is closed and no file is downloaded.""	
+8. The file is successfully downloaded""	
+9. A new dialog is brought up asking the user if he really wants to download the file.""	
+10. The file that was removed earlier no longer has a magnifying glass or folder icon.""	
+11. All those steps meet the expected behavior.""	"
+162,20161028,downloads dropmaker,9,Potentially unwanted apps trigger download warnings, ,"1. Launch Firefox with a new profile.	
+2. Open the Safe browsing test page	
+3. Click the 7th item.	
+4. Open file / Save file.	
+5. Click the Download button.	
+6. Right-click the item in the download list and choose Allow Download.	
+7. Click the Cancel button.	
+8. Right-click another item in download list and choose Allow Download, then this time click Allow Download.	
+9. Click the magnifying glass or folder icon (depending on OS).	
+10. Click Remove File.","1. Firefox is successfully launched.""	
+2. The Safe Browsing test page is successfully loaded.""	
+3. 
+4. Note animation and yellow icon in menu bar, with exclamation point.""	
+5. - Yellow exclamation icon disappears.
+    - Downloaded Item appears in download list.
+    - Item has a yellow triangle with and exclamation point.
+    - Message: This file may harm your computer is displayed.
+    - Magnifying glass icon (Mac) or folder icon (Windows & Linux).""	
+6. A new dialog is prompted asking the user if he really wants to download the file.""	
+7. The dialog is closed and no file is downloaded.""	
+8. The file is successfully downloaded""	
+9. A new dialog is displayed asking the user if he really wants to download the file.""	
+10. The file that was removed earlier no longer has a magnifying glass or folder icon.""	"
+163,20161028,downloads dropmaker,10,All the contextual options available in the downloads panel work properly, ,"1. Launch Firefox with a clean profile	
+2. Go to: about:preferences#security in a new tab.	
+3. Uncheck Block dangerous and deceptive content.	
+4. Access the Safe browsing test page	
+5. Download all the items from Desktop Download Warning.	
+6. Check Block dangerous downloads again, but leave Warn me about unwanted... unchecked.	
+7. Download all the items from Desktop Download Warning.	","1. Firefox is successfully launched""	
+2. All checkboxes are checked by default for Block dangerous and deceptive content, Block dangerous downloads and Warn me about unwanted and uncommon software.""	
+3. Block Dangerous downloads and Warn me about unwanted... are grayed out (disabled).""	
+4. The Safe Browsing test page is successfully loaded""	
+5. The downloads are no longer blocked.""	
+6. The setting is successfully applied.""	
+7. Only the downloads from #1 to #4 are blocked, #5 to #7 are allowed.""	"
+164,20161028,downloads dropmaker,11,"Verify the preference to enable/dissable Download Panel dropmarker
+", ,"1. Launch Firefox	
+2. In address bar type: ""about:config"" and after confirming, type ""browser.download.showPanelDropmarker"".	
+3. Set the preference to true.	
+4. Click the download icon of toolbar	
+5. Set the preference to false.	
+6. Click the download icon of toolbar	","1. 
+2. Preference exists in about:config.""
+3. 
+4. Dropmarker exists on download panel""	
+5. 
+6. Dropmarker doesn't exist on download panel""	"
+165,20161028,downloads dropmaker,12,"Verify ""Open Download folder"" opens the folder in which Firefox is set to save its downloads", ,"1. Launch Firefox with a clean profile	
+2. Click on the downloads button.	
+3. Click on panel dropmarker and click ""Open Download Folder"".	
+4. Verify the opened folder from step 3 is the download folder set in FF: open Options/General and under Downloads section, check the path for ""Save files to"".	","1. Firefox is successfully launched""	
+2. Downloads panel is opened.""	
+3. A folder is opened.""	
+4. The path from """"Save files to"""" should be the same as the location it was opened when """"Open Download Folder"""" was opened for the panel dropmarker.""	"
+166,20161028,downloads dropmaker,13,Clear Download Preview Panel, ,"1. Launch Firefox with a clean profile	
+2. Start a download and wait for it to complete.	
+3. Click on the downloads button.	
+4. Click on panel dropmarker and click ""Clear Preview Panel"".	","1. Firefox is successfully launched""	
+2. Download is completed.""	
+3. Downloads panel is opened.""	
+4. Download Preview Panel is cleared.""	"
+167,20161028,downloads dropmaker,14,Malicious URL is open, ,"1. Open Firefox with new profile	
+2. Go to http://testsafebrowsing.appspot.com/ and from ""Desktop Download Warnings"" choose NO.1 link ""Should show a ""malicious"" warning, based on URL""	
+3. Click on the download button	","1. Firefox is open with new profile""
+2. Download is blocked based on dangerous or deceptive content and above download button you see a red dot. ""	
+3. You are informed that this file contains a virus or a malware.""	"
+168,20161028,downloads dropmaker,15,Malicious URL icon color, ,"1. Open Firefox with new profile	
+2. Go to http://testsafebrowsing.appspot.com/ and from ""Desktop Download Warnings"" choose NO.6 link ""Should show an ""uncommon"" warning, for https .exe"" and download it.	
+3. Go to http://testsafebrowsing.appspot.com/ and from ""Desktop Download Warnings"" choose NO.3 link ""Should show a ""malicious"" warning, based on content with https"" and download it.	
+4. Go to http://testsafebrowsing.appspot.com/ and from ""Desktop Download Warnings"" choose NO.5 link ""Should show an ""uncommon"" warning, for .exe"" and download it.	","1. Firefox is open with new profile""
+2. Download Panel has a yellow dot.""	
+3. Download Panel has a red dot.""	
+4. Download Panel has a yellow dot.""	"
+169,20161028,downloads dropmaker,16,Download Sumary is properly displayed,  ,"1. Open Firefox with new profile	
+2. Go to page	
+3. Click to download a very large file (1GB)	
+4. Click Save file and OK button	
+5. Click the Downloads button from the toolbar	","1. Firefox is open with new profile""
+2. The page is successfully loaded""	
+3. An pop-up with file details is displayed""	
+4. The download of the selected file is started.""	
+5. - The Downloads panel is opened.
+    - The started download is listed in it along with a corresponding progress indicator.""	"
+170,20161028,downloads dropmaker,17,Show All Downloads States with no download items, ,"1. Launch Firefox with a clean profile	
+2. Click the Downloads button from the toolbar and then click the dropdown arrow .	","1. Firefox is successfully launched""
+2. The Downloads panel is opened."""
+171,20161028,downloads dropmaker,18,Show All Downloads States with more than 5 download files, ,"1. Launch Firefox	
+2. Go to page	
+3. Click to download a very large file (1GB) and other 5 small files	
+4. Click the Downloads button from the toolbar	
+5. Hover over bottom of the download panel	
+6. Click on dropdown arrow	","1. 
+2. The page is successfully loaded""	
+3. The download of the selected files is started""
+4. The Downloads panel is opened.""	
+5. Show all downloads button and dropdown arrow are displayed""	
+6. """"Open Downloads Folder"""" option is shown and if some of the downloads are finished, the Clear Preview Panel option is displayed too.""	"
+172,20161125,webgl2,1,WebGL 2.0 particle demos from toji.github.io,* Have this tested on a machine with a dedicated Graphics card because WebGL 2 its demanding high gpu usage.,"1. Start Firefox.
+2. Visit the following [demo](http://toji.github.io/webgl2-particles/) page 
+3. Visit the following [demo](http://toji.github.io/webgl2-particles-2/) page and interract with it.","1. Firefox successfully starts.
+2. WebGL 2 is displayed and the animations plays as expected with no visible lags or visual glitches.
+3. WebGL 2 is displayed and the animations plays as expected with no visible lags or visual glitches."
+173,20161125,webgl2,2,WebGL 2.0 particle demos from ibiblio.org,* Have this tested on a machine with a dedicated Graphics card because WebGL 2 its demanding high gpu usage.,"1. Start Firefox.
+2. Visit the following [webpage](https://www.ibiblio.org/e-notes/Perc/contents.htm), select each demo and interract with them.
+3. Visit the following [demo](https://www.ibiblio.org/e-notes/webgl/gpu/flat_wave2.htm) and interract with it.
+4. Visit the following [demo](https://www.ibiblio.org/e-notes/webgl/gpu/big_wave2.htm) and interract with it.
+5. Visit the following [demo](https://www.ibiblio.org/e-notes/webgl/gpu/bounce.htm) and interract with it.
+6. Visit the following [demo](https://www.ibiblio.org/e-notes/webgl/gpu/lorenz_ft.htm) and interract with it.
+7. Visit the following [demo](https://www.ibiblio.org/e-notes/html5/MBRmodel2d2.html) and interract with it.","1. Firefox successfully starts.
+2. Each demo is displayed as it should and the animations plays as expected with no visible lags or visual glitches.
+3. The demo is displayed as it should and no visible lags or glitches are seen.
+4. The demo is displayed as it should and no visible lags or glitches are seen.
+5. The demo is displayed as it should and no visible lags or glitches are seen.
+6. The demo is displayed as it should and no visible lags or glitches are seen.
+7. The demo is displayed as it should and no visible lags or glitches are seen."
+174,20161125,webgl2,3,WebGL 2.0 particle demos from webglsamples.org,* Have this tested on a machine with a dedicated Graphics card because WebGL 2 its demanding high gpu usage.,"1. Start Firefox.
+2. Visit the following [webpage](http://webglsamples.org/WebGL2Samples/), select each demo and interract with them.","1. Firefox successfully starts.
+2. Each demo is displayed as it should and the animations plays as expected with no visible lags or visual glitches (note that gltf_load and texture_etc2_eac will not work)."
+175,20161125,flac support,1,FLAC support core functionality is intact on web sites with eligible content, ,"1. Spot-check the FLAC feature support by loading each audio file listed below:
+Sample 1: http://hpr.dogphilosophy.net/test/
+Sample 2: http://tools.woolyss.com/html5-audio-video-tester/?u=hpr.dogphilosophy.net/test/flac.flac
+
+Note: make sure you are selecting FLAC format each time you play a file.","1. Verify that all the core functionality associated to FLAC support works properly.
+Verify and pay extra attention to all available video options: toggle the play/pause buttons, change volume, use the contextual menu options, etc."
+176,20161125,flac support,2,User is able to play a FLAC sample file in a Private Window, ,"1. Launch Firefox in `New Private Window`.
+2. Open and playback FLAC [Sample 1](http://hpr.dogphilosophy.net/test/) and [Sample 2] (http://tools.woolyss.com/html5-audio-video-tester/?u=hpr.dogphilosophy.net/test/flac.flac) file.
+3. Try out all the available options: toggle the play/pause buttons, change volume, use the contextual menu options, etc.","1. Firefox is successfully launched.
+2. The FLAC `Sample 1` and `Sample 2` file is opened and played correctly in the new private window.
+3. The options available for this file format work as expected."
+177,20161125,flac support,3,User is able to play a FLAC sample file when current window is moved into New Window, ,"1. Launch Firefox.
+2. Open and playback FLAC [Sample 1](http://hpr.dogphilosophy.net/test/) file.
+3. Move current window into New Window.","1. Firefox is successfully launched.
+2. The FLAC `Sample 1` file is opened and played correctly.
+3. Try out all the available options: toggle the play/pause buttons, change volume, use the contextual menu options, etc."
+178,20161125,flac support,4,FLAC sample file is properly playing in a New Tab,,"1. Launch Firefox.
+
+2. Open and playback FLAC [Sample 1](http://hpr.dogphilosophy.net/test/) audio file.
+3. Open a `New Tab` and load FLAC [Sample 2] (http://tools.woolyss.com/html5-audio-video-tester/?u=hpr.dogphilosophy.net/test/flac.flac) audio file.","1. Firefox is successfully launched.
+2. The FLAC `Sample 1` file is opened and played correctly.
+3. The FLAC `Sample 2` file is opened and played correctly in the new tab."
+179,20161125,flac support,5,FLAC sample file is properly playing in more than one tab, ,"1. Launch Firefox.
+2. Load a few tabs (more than 4) and play FLAC [Sample 1](http://hpr.dogphilosophy.net/test/) audio file in each tab.","1. Firefox is successfully launched.
+2. The FLAC `Sample 1` file is open in each tab and is playing correctly."
+180,20161125,flac support,6,FLAC sample file is properly playing if tabs are switched, ,"1. Launch Firefox.
+2. Open and playback FLAC [Sample 1](http://hpr.dogphilosophy.net/test/) audio file.
+3. Open a few tabs and switch FLAC `Sample 1` audio file tab through those tabs.
+4. Try out all the available options: toggle the play/pause buttons, change volume, use the contextual menu options, etc.","1. Firefox is successfully launched.
+2. The FLAC `Sample 1` file is opened and played correctly in Firefox.
+3. The FLAC `Sample 1` is played correctly if tabs are switched.
+4. The options available for this file format work as expected."
+181,20161125,indicator for device permissions,1,Audio Pop-up,,"1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and select Audio. From the dropdown displayed select a recording device and press Share Selected Devices.
+2. Refresh the page from step1, selecting Audio and from ""Share Selected Device"" click on the dropdown button and select ""Always Share"". 
+3. Click on ""i"" from the address bar.
+4. Click on the microphone that is next to the address bar or on the ""i"".
+5. Click on ""i"" from the address bar.
+In the Control Center close the pop-up from the ""X"" near the Allow button.","1. In the address bar near the ""i"" a microphone icon appears.
+A pop-up appears ""Would you like to share your microphone with pople.mozilla.org?"".
+Microphone starts and in the address bar the ""i"" alternates with a red microphone.. 
+2. Your microphone is activated and starts. 
+In the address bar the ""i"" alternates with a red microphone.
+
+3. Clicking on the ""i"" will open the Control Center and the status for the microphone will be ""Allow"".
+4. The permissions pop-up is displayed.
+5. The microphone stops."
+182,20161125,indicator for device permissions,2,Video Pop-up,,"1. Go to https://webrtc.github.io/samples/src/content/getusermedia/gum/
+2. From ""Share Selected Device"" click on the dropdown button and select ""Always Share"". 
+3. Click on ""i"" from the address bar.
+4. Close the pop-up from the ""X"" near the Allow button. 
+5. Reload the page and from the pop-up choose ""Don't Share"".
+6. Reload the page https://webrtc.github.io/samples/src/content/getusermedia/gum/ and from the pop-up choose ""Never Share"".
+7. Click on the camera from step 6 or on the ""i"".
+8. Click on the ""X"" near the ""Block"", then reload the page.
+9. Reload the page https://webrtc.github.io/samples/src/content/getusermedia/gum/ and from the pop-up choose ""Not now"".
+10. Click on the camera icon near the ""i"" from the address bar.","1. In the address bar near the ""i"" a camera icon appears.
+A pop-up appears ""Would you like to share your camera with webrtc.github.io?"".
+To share the camera select the default camera device that is installed on your computer.
+2. Your camera is activated and starts to record/stream.
+In the address bar the ""i"" alternates with a red camera. 
+3. Under ""Permissions"" you can see a red camera icon and also a close button near Allow.
+4. The camera stops. 
+5. Your camera is not activated. 
+6. In the address bar near the ""i"" you see a camera that in a grey colour and with a stripe over it.
+7. Under the ""Permissions"" you have ""Use the camera"" and then ""Block"".
+8. Under the ""Permission"" you will see ""You have not granted this site any special permissions.""
+9. Camera won't start. 
+10. The permissions pop-up is displayed."
+183,20161125,indicator for device permissions,3,Video Indicator,,"1. Go to https://webrtc.github.io/samples/src/content/peerconnection/pc1/ click Start and share you devices.
+2. Click on ""Call"".
+3. Click on ""Hang Up"".
+4. Refresh the page and try to click on ""Start"".","1. In the address bar the ""i"" starts to alternate with a red camera icon. 
+2. Call starts and camera is capturing.
+3. Call ends and camera stops capturing. 
+4. Page is refreshed and you can click on ""Start"", camera starts capturing."
+184,20161125,indicator for device permissions,4,Changing Tab,,"1. Go to 
+https://webrtc.github.io/samples/src/content/peerconnection/pc1/
+ click ""Start"" and share your camera device.
+2. Open another tab, also please use the keyboard combination (CTRL + T) or (CMD + T)","1. Your devices can be shared and ""Start"" can be clicked. The ""i"" from the address bar starts to alternate with a red camera icon.
+2. The Fav icon from the first tab is replaced with an alternation between red microphone icon and Firefox logo."
+185,20161125,indicator for device permissions,5,Drag and drop a tab,,"1. Go to http://permission.site/ and click on the camera button and share the camera.
+2. Detach the camera tab to a new window and open the control center.","1. In control center you are notified that your camera is used. 
+2. In control center you are notified that your camera is used."
+186,20161125,indicator for device permissions,6,Screen sharing,"Go to about:config and write in the search field ""media.getusermedia.screensharing.allowed_domains"" and add betweens to commas this text *people.mozilla.org","1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and choose ""Screen"".
+2. Select a screen that you want to share and click ""Share Screen"".
+3. Click on ""Pause/Play"".
+4. Click on ""Snapshot"".
+5. Click on ""Stop Snapshot""
+6. Click on ""Stop""
+7. Refresh the page and select a screen that you want to share and click ""Share Screen"".
+8. In a new Tab open again the page from step 7 and share the same screen.","1. A pop-up requiring the screen to share appears.
+2. The screen that you choose to share appears. The ""i"" from the address bar starts to alternate with a red monitor icon.
+3. Screen sharing stops. 
+4. Snapshots starts. 
+5. Snapshot stops.
+6. Share screen stops and you are redirected to the page from step 1. 
+7. The screen that you choose to share appears. The ""i"" from the address bar starts to alternate with a red monitor icon.
+8. The screen that you choose to share appears. The ""i"" from the address bar starts to alternate with a red monitor icon. Under the ""Permissions"" you see only ""Share the Screen"" icon."
+187,20161125,indicator for device permissions,7,Window sharing,"Go to about:config and write in the search field ""media.getusermedia.screensharing.allowed_domains"" and add betweens to commas this text *people.mozilla.org","1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and choose ""Window"".
+2. Select a window that you want to share and click ""Share Selected Window""
+3. Click on ""Pause/Play""
+4. Click on ""Snapshot""
+5. Click on ""Stop Snapshot""
+6. Click on ""Stop""
+7. Refresh the page and select a window that you want to share and click ""Share Window"".
+8. In a new Tab open again the page from step 7 and share the same window.","1. A pop-up appears requiring to select a window to share.
+2. The window that you choose to share appears. 
+The ""i"" from the address bar starts to alternate with a red monitor icon.
+3. Window sharing stops. 
+4. Snapshots starts. 
+5. Snapshot stops.
+6. Share window stops and you are redirected to the page from step 1. 
+7. The window that you choose to share appears. The ""i"" from the address bar starts to alternate with a red window icon.
+8. The window that you choose to share appears. The ""i"" from the address bar starts to alternate with a red window icon. Under the ""Permissions"" you see only ""Share the Window"" icon."
+188,20161125,indicator for device permissions,8,Screen and Audio sharing,"Go to about:config and write in the search field ""media.getusermedia.screensharing.allowed_domains"" and add betweens to commas this text *people.mozilla.org","1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and choose ""Screen & Audio""
+2. Select a screen and a microphone that you want to share and click ""Share Selected Items""
+3. Click on ""Pause/Play""
+4. Click on ""Snapshot""
+5. Click on ""Stop Snapshot""
+6. Click on ""Stop""","1. A pop-up appears 
+2. The screen that you choose to share appears. 
+In the headphones you hear sounds from your microphone. 
+The ""i"" from the address bar starts to alternate with a red monitor icon.
+3. Screen and audio sharing stops. 
+4. Snapshots starts. 
+5. Snapshot stops.
+6. Screen and audio sharing stops and you are redirected to the page from step 1."
+189,20161125,indicator for device permissions,9,Window and Audio sharing,"Go to about:config and write in the search field ""media.getusermedia.screensharing.allowed_domains"" and add betweens to commas this text *people.mozilla.org","1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and choose ""Window & Audio""
+2. Select a window and a microphone that you want to share and click ""Share Selected Items""
+3. Click on ""Pause/Play""
+4. Click on ""Snapshot""
+5. Click on ""Stop Snapshot""
+6. Click on ""Stop""","1. A pop-up appears 
+2. The window that you choose to share appears. 
+In the headphones you hear sounds from your microphone. 
+The ""i"" from the address bar starts to alternate with a red monitor icon.
+3. Window and audio sharing stops. 
+4. Snapshots starts. 
+5. Snapshot stops.
+6. Window and audio sharing stops and you are redirected to the page from step 1."
+190,20161125,indicator for device permissions,10,Camera and Audio output,"Go to about:config and write in the search field ""media.getusermedia.screensharing.allowed_domains"" and add betweens to commas this text *people.mozilla.org","1. Go to 
+https://webrtc.github.io/samples/src/content/devices/multi/
+and click on ""Share selected devices""
+
+2. In the right side of you camera capture you have 2 sources from where you can select audio output.
+Select one by one this sources and in the meantime check is you can hear in the headphones what you are saying.","1. Your camera and microphone starts to work.
+
+2. You are able to hear what you are saying when the audio outputs are played."
+191,20161125,indicator for device permissions,11,Iframes,"Create an iframe and open the html in a tab:
+<iframe src=""https://people.mozilla.org/~fqueze2/webrtc/"" height=800></iframe>
+<iframe src=""https://people.mozilla.org/~fqueze2/webrtc/"" height=800></iframe>","1. In frame 1 click on Video and select ""Never Share"".
+2. In frame 2 click on Video.","1. Video is not shared.
+2. The camera is blocked and in control center a notification appears."
+192,20161125,indicator for device permissions,12,Device status propagates from one tab to another,,"1. Open https://people.mozilla.org/~fqueze2/webrtc/ in two tabs.
+2. In tab 1 click Audio and Video and select ""Share selected devices"". 
+3. In tab 2 click Audio and Video and select never share.
+Check tab 1 and see how audio and video icons appears in the address bar.","1. The site is open in the 2 tabs.
+2. Audio and Video are shared.
+3. Audio and Video are not shared. 
+In tab 1 video and audio should appear unblocked."
+193,20161125,indicator for device permissions,13,Red pulsing camera icon,Make sure e10s is enabled.,"1. Go to http://jsfiddle.net/srn9db4h/ 
+2. Click ""Share Selected Devices"".
+
+
+3. Refresh the page.","1. Observe grey camera icon in address bar and permission request.
+2. Observe pulsing red camera icon in address bar.
+3. Red pulsing camera icon disappears."
+194,20161125,indicator for device permissions,14,Audio Pop-up,Open Firefox in Private Window.,"1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and select Audio. From the dropdown displayed select a recording device and press Share Selected Devices.
+2. Refresh the page from step1, selecting Audio and from ""Share Selected Device"" click on the dropdown button and select ""Always Share"". 
+3. Click on ""i"" from the address bar.
+4. In the Control Center close the pop-up from the ""X"" near the Allow button. 
+5. Reload the page, choose Audio and from the pop-up choose ""Don't Share"".
+6. Reload the page, choose Audio and from the pop-up choose ""Never Share"".
+7. Click on the microphone that is next to the address bar or on the ""i"".
+8. In Control Center, click on the ""X"" near the ""Block"" and reload the page
+9. Reload the page, choose Audio and from the pop-up choose ""Not now"".
+10. Click on the microphone that is next to the address bar or on the ""i"".","1. In the address bar near the ""i"" a microphone icon appears.
+A pop-up appears ""Would you like to share your microphone with pople.mozilla.org?"".
+Microphone starts.
+
+2. Your microphone is activated and starts. 
+In the address bar the ""i"" alternates with a red microphone.
+
+3. Clicking on the ""i"" will open the Control Center and the status for the microphone will be ""Allow"".
+4. The microphones stops. 
+5. The microphone is not activated. 
+6. In the address bar near the ""i"" you see a microphone that in a grey colour and with a stripe over it.
+The microphone doesn't start.
+7. Under the ""Permissions"" you have ""Use the microphone"" and then ""Block"".
+8. Under the ""Permission"" you will see ""You have not granted this site any special permissions.""
+9. Microphone won't start. 
+10. The permissions pop-up is displayed."
+195,20161125,indicator for device permissions,15,Video Indicator,Open Firefox in Private Window.,"1. Go to https://webrtc.github.io/samples/src/content/peerconnection/pc1/ click Start and share you devices.
+2. Click on ""Call"".
+3. Click on ""Hang Up"".
+4. Refresh the page and try to click on ""Start"".","1. In the address bar the ""i"" starts to alternate with a red camera icon. 
+2. Call starts and camera is capturing.
+3. Call ends and camera stops capturing. 
+4. Page is refreshed and you can click on ""Start"", camera starts capturing."
+196,20161125,indicator for device permissions,16,Changing Tab,Open Firefox in Private Window.,"1. Go to https://webrtc.github.io/samples/src/content/getusermedia/gum/ share your camera device 
+2. Open another tab, also please use the keyboard combination (CTRL + T) or (CMD + T)","1. Your devices can be shared . The ""i"" from the address bar starts to alternate with a red camera icon.
+2. The Fav icon from the first tab is replaced with an alternation between red microphone icon and Firefox logo."

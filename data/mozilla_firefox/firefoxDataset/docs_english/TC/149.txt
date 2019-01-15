@@ -1,0 +1,23 @@
+TC Number: 149
+Test Day: 20161028
+Generic Title: zoom indicator
+Crt. Nr. 7
+Title: Zoom Level + Multi Tabs/Sites
+
+Preconditions:  
+Steps: 1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Press [Ctrl] & [+] buttons	
+4. Open a new tab and open the same site	
+5. Open a new tab and open a new site, e.g. amazon.com	
+Expected Result: 1. - Firefox is successfully launched
+    - Default zoom is 100%
+    - There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+    - There is no Zoom Indicator in the Location Bar
+3. - Page updates
+    - Zoom level is accurately increased
+    - Zoom Indicator appears in the Location Bar at 110%
+4. Zoom Indicator is displayed in the Location Bar at 110%
+5. - There is no Zoom Indicator in the Location Bar
+    - Zoom level is at its default value (100%)

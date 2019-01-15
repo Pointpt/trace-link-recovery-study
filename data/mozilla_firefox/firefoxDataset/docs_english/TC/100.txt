@@ -1,0 +1,17 @@
+TC Number: 100
+Test Day: 20160722
+Generic Title: context menu - full functional testing
+Crt. Nr. 26
+Title: The "save image as" context menu option opens the "save image" pop-up window.
+Preconditions:  
+Steps: 1. Launch Firefox.	
+2. Open a page that contains several images: e.g. on https://www.google.com/ and search a word in "images" tab.	
+3; Bring up the context menu by right-clicking an image from this page.	
+4. Click the "save image as" context menu option.	
+5. Verify if the image in question is saved in the proper location and with the proper name.	
+Expected Result: 1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. "- The ""save image"" pop-up window is opened.
+     - The user is able to manage his saving process."
+5. The image in question is successfully saved.

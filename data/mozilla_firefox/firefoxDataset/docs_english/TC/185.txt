@@ -1,0 +1,10 @@
+TC Number: 185
+Test Day: 20161125
+Generic Title: indicator for device permissions
+Crt. Nr. 5
+Title: Drag and drop a tab
+Preconditions: 
+Steps: 1. Go to http://permission.site/ and click on the camera button and share the camera.
+2. Detach the camera tab to a new window and open the control center.
+Expected Result: 1. In control center you are notified that your camera is used. 
+2. In control center you are notified that your camera is used.

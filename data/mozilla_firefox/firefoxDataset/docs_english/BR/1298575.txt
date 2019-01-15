@@ -1,0 +1,37 @@
+Bug Number: 1298575
+Summary: WebGL Compatibility - Pulpo Game has screen rendering issues and Web Browser Console Errors
+Platform: Unspecified
+Component: Untriaged
+Creation Time: 2016-08-27T05:49:26Z
+Whiteboard: 
+QA Whiteboard:
+First Comment Text: Created attachment 8785542
+PulpoDisplayProblem.png
+
+User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:48.0) Gecko/20100101 Firefox/48.0
+Build ID: 20160823121617
+
+Steps to reproduce:
+
+1. Launch Firefox and open the `Browser Console` from menu [≡] → select `Developer` → select `Browser Console`.
+2. Open the following WebGL animation - [Pulpo](http://dl.dropboxusercontent.com/u/6983010/wserv/gexp_pulpo/index.html).
+3. Use the mouse pointer to reduce the size of the web browser window to a significantly smaller size.  
+4. Use the settings available for this animation, e.g. change FOV, check/uncheck Pospo, etc.
+
+
+
+
+
+
+Actual results:
+
+1. After clicking numerous times on the FPS area in the top left corner of the game window, eventually the circling star permanently loses solidity. The game has to be restarted to restore it to its original form.
+2. There are page-thumbnail error messages reported in the web console Browser.
+3. When the Web Browser is resized to full page status, the game window stays at its original smaller size and there is a black area that fills up the remaining space. 
+
+
+Expected results:
+
+1. The WebGL animation is properly loaded and rendered.
+2. All the changes are seen accordingly and no errors are thrown in the Browser Console
+First Comment Creation Time: 2016-08-27T05:49:26Z

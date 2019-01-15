@@ -1,0 +1,15 @@
+TC Number: 143
+Test Day: 20161028
+Generic Title: zoom indicator
+Crt. Nr. 1
+Title: Default Zoom Level
+
+Preconditions:  
+Steps: 1. Launch Firefox with a clean profile	
+2. Verify there is nothing in the Location Bar related to zooming	
+3. Click the Menu [≡]	
+4. There are control buttons available for zooming [-] [%] [+]	
+Expected Result: 1. Firefox is successfully launched
+2. Location Bar displays URL information, there is no Zoom Indicator
+3. The Menu Panel successfully opens
+4. Control buttons for zooming appear under the Cut/Copy/Paste buttons

@@ -1,0 +1,18 @@
+Bug Number: 779465
+Summary: Delayed scrolling in PDFs
+Platform: All
+Component: Plug-ins
+Creation Time: 2012-08-01T12:15:56Z
+Whiteboard: 
+QA Whiteboard:
+First Comment Text: STR:
+1. Open 3 youtube videos
+2. Open http://www.irs.gov/pub/irs-pdf/f1040ez.pdf?portlet=3
+3. Scroll quickly the PDF with the mouse
+
+Actual results:
+Mouse scrolling is delayed (look at the scroll bar); sometimes youtube's sound is disturbed
+
+Expected results:
+Refreshed scrolling, continuous sound
+First Comment Creation Time: 2012-08-01T12:15:56Z

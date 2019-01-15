@@ -1,0 +1,26 @@
+Bug Number: 1294970
+Summary: narrator  voice is not clear to understand
+Platform: x86_64
+Component: Web Speech
+Creation Time: 2016-08-13T17:24:06Z
+Whiteboard: 
+QA Whiteboard:
+First Comment Text: User Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:48.0) Gecko/20100101 Firefox/48.0
+Build ID: 20160728203720
+
+Steps to reproduce:
+
+step 1:https://en.wikipedia.org/wiki/Main_Page
+step 2:Launch read view
+Step 3:Star the narration
+
+
+Actual results:
+
+The voice is Not clear to understand 
+
+
+Expected results:
+
+The voice must be understandable to reade
+First Comment Creation Time: 2016-08-13T17:24:06Z

@@ -1,0 +1,31 @@
+Bug Number: 542990
+Summary: search suggestion drop-down disappears at inconvenient times
+Platform: All
+Component: Search
+Creation Time: 2010-01-29T11:14:55Z
+Whiteboard: 
+QA Whiteboard:
+First Comment Text: User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB; rv:1.9.1.7) Gecko/20091221 Firefox/3.5.7 (.NET CLR 3.5.30729)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB; rv:1.9.1.7) Gecko/20091221 Firefox/3.5.7 (.NET CLR 3.5.30729)
+
+The search suggestion drop-down frequently disappears while I'm typing a phrase, even if the phrase I'm typing matches the top suggestion exactly.
+
+Let's say I'm searching for "search engines". Having typed "search e", the top suggestion is already "search engines". I notice this, and want to pick this suggestion.
+
+However, due to a mental delay my fingers are still typing, so I end up adding "ng", making the whole phrase "search eng". Most of the time this will work just fine, and the drop-down will still be there after I typed "ng".
+
+Occasionally though, the drop-down will disappear - and not reappear again regardless of how long I wait (unless I type more text).
+
+This is rather frustrating to the user because the drop-down disappears at the exact moment the user is about to actually use it.
+
+Reproducible: Sometimes
+
+
+
+
+I suspect that every time I type something a web request gets made, and if the results don't arrive quickly enough the box is removed.
+
+Suggestion: if the results don't arrive, and a drop-down had previously been shown, leave the (stale) drop-down open (and try to get the results again?), because it's less annoying.
+
+The fact that the box is being refreshed could be indicated somehow - e.g. the "search" icon to the right of the search box could be animated.
+First Comment Creation Time: 2010-01-29T11:14:55Z

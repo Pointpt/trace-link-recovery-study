@@ -1,0 +1,14 @@
+TC Number: 166
+Test Day: 20161028
+Generic Title: downloads dropmaker
+Crt. Nr. 13
+Title: Clear Download Preview Panel
+Preconditions:  
+Steps: 1. Launch Firefox with a clean profile	
+2. Start a download and wait for it to complete.	
+3. Click on the downloads button.	
+4. Click on panel dropmarker and click "Clear Preview Panel".	
+Expected Result: 1. Firefox is successfully launched"	
+2. Download is completed."	
+3. Downloads panel is opened."	
+4. Download Preview Panel is cleared."	
