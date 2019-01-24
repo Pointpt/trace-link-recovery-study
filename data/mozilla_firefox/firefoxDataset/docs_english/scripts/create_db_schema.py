@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('firefox_bugs.db')
+conn = sqlite3.connect('data.db')
 
 cursor = conn.cursor()
 
@@ -16,7 +16,9 @@ cursor.execute("""
                 first_comment TEXT NOT NULL,
                 first_comment_creation_time DATE NOT NULL
         );
+""")
 
+cursor.execute("""
         CREATE TABLE IF NOT EXISTS testcases (
                 id INTEGER NOT NULL PRIMARY KEY,
                 testday TEXT NOT NULL,
@@ -26,6 +28,13 @@ cursor.execute("""
                 preconditions TEXT NOT NULL,
                 steps TEXT NOT NULL,
                 expected_results TEXT NOT NULL
+        );   
+""")
+
+cursor.execute("""
+        CREATE TABLE IF NOT EXISTS links (
+                testcase_id INTEGER NOT NULL,
+                bug_id INTEGER NOT NULL
         );   
 """)
 
