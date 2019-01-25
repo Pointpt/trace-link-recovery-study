@@ -27,7 +27,7 @@ args = [INIT_DATE, END_DATE, PRODUCT, QUERY_FORMAT, LIMIT, QUERY_BASED_ON, J_TOP
 #    f.write(header)
 #    f.close()
     
-for offset_ in range(1450, 7000, LIMIT): # 0, 7000, 1000
+for offset_ in range(2100, 7000, LIMIT): # 0, 7000, 1000
     if len(args) < 8:
         args = args + [offset_]
     else:
