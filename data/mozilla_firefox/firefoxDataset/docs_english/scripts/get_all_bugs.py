@@ -3,7 +3,7 @@ import sqlite3
 import os
 
 INIT_DATE = "2016-06-06"
-END_DATE = "2016-12-31"
+END_DATE = "2018-12-31"
 PRODUCT = "firefox"
 QUERY_FORMAT = "advanced"
 QUERY_BASED_ON = ""
@@ -14,8 +14,8 @@ BASE_URL = "https://bugzilla.mozilla.org/rest/bug?chfieldfrom={}&chfieldto={}&pr
 BASE_URL_COMMENT = "https://bugzilla.mozilla.org/rest/bug/"
 BUGS_FILE_PATH = '/home/guilherme/anaconda3/envs/trace-link-recovery-study/data/mozilla_firefox/firefoxDataset/docs_english/BR_2/all_bugs.csv'
 
-header = "Bug_Number|Summary|Platform|Component|Creation_Time|Whiteboard|QA_Whiteboard|First_Comment_Text|First_Comment_Creation_Time\n"
-line = "{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}\n"
+header = "Bug_Number|Summary|Platform|Component|Version|Creation_Time|Whiteboard|QA_Whiteboard|First_Comment_Text|First_Comment_Creation_Time\n"
+line = "{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}\n"
 
 args = [INIT_DATE, END_DATE, PRODUCT, QUERY_FORMAT, LIMIT, QUERY_BASED_ON, J_TOP]
 
@@ -27,7 +27,7 @@ args = [INIT_DATE, END_DATE, PRODUCT, QUERY_FORMAT, LIMIT, QUERY_BASED_ON, J_TOP
 #    f.write(header)
 #    f.close()
     
-for offset_ in range(2100, 7000, LIMIT): # 0, 7000, 1000
+for offset_ in range(12550, 20000, LIMIT): # 0, 7000, 1000
     if len(args) < 8:
         args = args + [offset_]
     else:
@@ -52,6 +52,7 @@ for offset_ in range(2100, 7000, LIMIT): # 0, 7000, 1000
                 bug['summary'],
                 bug['platform'],
                 bug['component'],
+                bug['version'],
                 bug['creation_time'],
                 bug['whiteboard'],
                 bug['cf_qa_whiteboard'],

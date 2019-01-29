@@ -1168,7 +1168,7 @@ Goals
 3. The video in question is properly selected.
 4. The video starts playing automatically.
 5. The language is loaded properly."
-143,20161028,zoom indicator,1,"Default Zoom Level
+143,20161028 + 20161125 + 20170106,zoom indicator,1,"Default Zoom Level
 ", ,"1. Launch Firefox with a clean profile	
 2. Verify there is nothing in the Location Bar related to zooming	
 3. Click the Menu [≡]	
@@ -1176,7 +1176,7 @@ Goals
 2. Location Bar displays URL information, there is no Zoom Indicator
 3. The Menu Panel successfully opens
 4. Control buttons for zooming appear under the Cut/Copy/Paste buttons"
-144,20161028,zoom indicator,2,"Zoom Controls on Toolbar
+144,20161028 + 20161125 + 20170106,zoom indicator,2,"Zoom Controls on Toolbar
 ", ,"1. Launch Firefox with a clean profile	
 2. Verify there is nothing in the Location Bar related to zooming	
 3. Click the Menu [≡]	
@@ -1194,13 +1194,13 @@ Goals
 7. Location Bar displays URL Information, there is nothing related to a zoom
 8. - Zoom Controls are not in the toolbar
     - Default Zoom is 100%"
-145,20161028,zoom indicator,3,"Location Bar & No Zoom Indicator
+145,20161028 + 20161125 + 20170106,zoom indicator,3,"Location Bar & No Zoom Indicator
 ", ,"1. Launch Firefox with a clean profile	
 2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	","1. - Firefox is successfully launched
     - Default zoom is 100%""
 2. - The chosen page is properly displayed
     - There is no Zoom Indicator in the Location Bar"""
-146,20161028,zoom indicator,4,"Location Bar Displays Zoom Indicator
+146,20161028 + 20161125 + 20170106,zoom indicator,4,"Location Bar Displays Zoom Indicator
 ", ,"1. Launch Firefox with a clean profile	
 2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
 3. Press [Ctrl] & [+] buttons	","1. - Firefox is successfully launched
@@ -1211,7 +1211,7 @@ Goals
 3. - Page updates
     - The page zoom level increases
     - Zoom Indicator appears in the Location Bar - the first press of [+] = 110%"
-147,20161028,zoom indicator,5,"Zoom Indicator Animation
+147,20161028 + 20161125 + 20170106,zoom indicator,5,"Zoom Indicator Animation
 ", ,"1. Launch Firefox and verify if the Zoom Indicator appears in the Location Bar	
 2. - Press [Ctrl] & [+] buttons and verify the Zoom Indicator in the Location Bar as well as the page display are accurately reflecting the growth
     - Verify if the process is smooth without interruption or distortion to the page
@@ -1227,7 +1227,7 @@ Goals
 3. - Zoom Indicator value is accurately decreasing
     - Page display is accurately zooming out
     - There is no interruption/distortion"
-148,20161028,zoom indicator,6,"Zoom Indicator Hides
+148,20161028 + 20161125 + 20170106,zoom indicator,6,"Zoom Indicator Hides
 ", ,"1. Launch Firefox with a clean profile	
 2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
 3. Press [Ctrl] & [+] buttons	
@@ -1250,7 +1250,7 @@ Goals
 6. - Page updates
     - Zoom level is removed (default)
     - The Zoom Indicator is removed from the Location Bar"
-149,20161028,zoom indicator,7,"Zoom Level + Multi Tabs/Sites
+149,20161028 + 20161125 + 20170106,zoom indicator,7,"Zoom Level + Multi Tabs/Sites
 ", ,"1. Launch Firefox with a clean profile	
 2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
 3. Press [Ctrl] & [+] buttons	
@@ -1266,7 +1266,7 @@ Goals
 4. Zoom Indicator is displayed in the Location Bar at 110%
 5. - There is no Zoom Indicator in the Location Bar
     - Zoom level is at its default value (100%)"
-150,20161028,zoom indicator,8,"Zoom Level + Window State
+150,20161028 + 20161125 + 20170106,zoom indicator,8,"Zoom Level + Window State
 ", ,"1. Launch Firefox with a clean profile	
 2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
 3. Press [Ctrl] & [+] buttons	
@@ -1281,7 +1281,7 @@ Goals
 4. - The page Zoom Level is gradually increased
     - The Zoom Indicator reaches the 300% value
 5. The window remains readable: there is no distortion or interruption to the displayed page"
-151,20161028,zoom indicator,9,"Zoom Indicator & Menu [≡] - Zoom In [+]
+151,20161028 + 20161125 + 20170106,zoom indicator,9,"Zoom Indicator & Menu [≡] - Zoom In [+]
 ", ,"1. Launch Firefox with a clean profile	
 2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
 3. Click the Menu [≡]	
@@ -1294,7 +1294,7 @@ Goals
 4. - Door-hanger is removed
     - Zoom Indicator is displayed in the Location Bar at 110%
     - Page Zoom Level is increased"
-152,20161028,zoom indicator,10,"Zoom Indicator & Menu [≡] - Zoom Out [-]
+152,20161028 + 20161125 + 20170106,zoom indicator,10,"Zoom Indicator & Menu [≡] - Zoom Out [-]
 ",,"1. Launch Firefox with a clean profile	
 2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
 3. Click the Menu [≡]	
@@ -1307,7 +1307,7 @@ Goals
 4. - Door-hanger is removed
     - Zoom Indicator is displayed in the Location Bar at 90%
     - Page Zoom Level is decreased"
-153,20161028,zoom indicator,11,"Zoom Indicator & Menu [≡] - Reset Zoom Level [%]
+153,20161028 + 20161125 + 20170106,zoom indicator,11,"Zoom Indicator & Menu [≡] - Reset Zoom Level [%]
 ", ,"1. Launch Firefox with a clean profile	
 2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
 3. Click the Menu [≡]	
@@ -1562,12 +1562,12 @@ Goals
 4. The Downloads panel is opened.""	
 5. Show all downloads button and dropdown arrow are displayed""	
 6. """"Open Downloads Folder"""" option is shown and if some of the downloads are finished, the Clear Preview Panel option is displayed too.""	"
-172,20161125,webgl2,1,WebGL 2.0 particle demos from toji.github.io,* Have this tested on a machine with a dedicated Graphics card because WebGL 2 its demanding high gpu usage.,"1. Start Firefox.
+172,20161125 + 20170106,webgl2,1,WebGL 2.0 particle demos from toji.github.io,* Have this tested on a machine with a dedicated Graphics card because WebGL 2 its demanding high gpu usage.,"1. Start Firefox.
 2. Visit the following [demo](http://toji.github.io/webgl2-particles/) page 
 3. Visit the following [demo](http://toji.github.io/webgl2-particles-2/) page and interract with it.","1. Firefox successfully starts.
 2. WebGL 2 is displayed and the animations plays as expected with no visible lags or visual glitches.
 3. WebGL 2 is displayed and the animations plays as expected with no visible lags or visual glitches."
-173,20161125,webgl2,2,WebGL 2.0 particle demos from ibiblio.org,* Have this tested on a machine with a dedicated Graphics card because WebGL 2 its demanding high gpu usage.,"1. Start Firefox.
+173,20161125 + 20170106,webgl2,2,WebGL 2.0 particle demos from ibiblio.org,* Have this tested on a machine with a dedicated Graphics card because WebGL 2 its demanding high gpu usage.,"1. Start Firefox.
 2. Visit the following [webpage](https://www.ibiblio.org/e-notes/Perc/contents.htm), select each demo and interract with them.
 3. Visit the following [demo](https://www.ibiblio.org/e-notes/webgl/gpu/flat_wave2.htm) and interract with it.
 4. Visit the following [demo](https://www.ibiblio.org/e-notes/webgl/gpu/big_wave2.htm) and interract with it.
@@ -1580,7 +1580,7 @@ Goals
 5. The demo is displayed as it should and no visible lags or glitches are seen.
 6. The demo is displayed as it should and no visible lags or glitches are seen.
 7. The demo is displayed as it should and no visible lags or glitches are seen."
-174,20161125,webgl2,3,WebGL 2.0 particle demos from webglsamples.org,* Have this tested on a machine with a dedicated Graphics card because WebGL 2 its demanding high gpu usage.,"1. Start Firefox.
+174,20161125 + 20170106,webgl2,3,WebGL 2.0 particle demos from webglsamples.org,* Have this tested on a machine with a dedicated Graphics card because WebGL 2 its demanding high gpu usage.,"1. Start Firefox.
 2. Visit the following [webpage](http://webglsamples.org/WebGL2Samples/), select each demo and interract with them.","1. Firefox successfully starts.
 2. Each demo is displayed as it should and the animations plays as expected with no visible lags or visual glitches (note that gltf_load and texture_etc2_eac will not work)."
 175,20161125,flac support,1,FLAC support core functionality is intact on web sites with eligible content, ,"1. Spot-check the FLAC feature support by loading each audio file listed below:
@@ -1785,3 +1785,234 @@ The microphone doesn't start.
 196,20161125,indicator for device permissions,16,Changing Tab,Open Firefox in Private Window.,"1. Go to https://webrtc.github.io/samples/src/content/getusermedia/gum/ share your camera device 
 2. Open another tab, also please use the keyboard combination (CTRL + T) or (CMD + T)","1. Your devices can be shared . The ""i"" from the address bar starts to alternate with a red camera icon.
 2. The Fav icon from the first tab is replaced with an alternation between red microphone icon and Firefox logo."
+197,20170106,flash support,1,Web content that makes use of the Flash Player plug-in is being properly loaded and rendered,Make sure you have the latest flash version 24.0,"1. Launch Firefox and open the Browser Console from menu [≡] → select Developer → select Browser Console.
+2. Visit about:plugins and check for the version of Shockwave flash
+3. Browse through websites that use the Flash Player plug-in and look for rendering, functional and performance issues.","1. Firefox is successfully launched, The Browser Console is successfully enabled
+2. Version 24.0 of Flash is displayed in about:plugins
+3. There are no issues encountered and no errors thrown in the Browser Console while browsing through web applications that use the Flash Player plug-in."
+198,20170106,flash support,2,Facebook apps that make use of the Flash Player plug-in are being properly loaded and rendered,Make sure you have the latest flash version 24.0,"1. Launch Firefox and open the Browser Console from menu [≡] → select Developer → select Browser Console.
+2. Visit about:plugins and check for the version of Shockwave flash
+3. Browse the following Facebook apps that use the Flash Player plug-in and look for rendering, functional and performance issues:
+
+Slotomania
+https://apps.facebook.com/169545139744270
+
+Caesars Casino
+https://apps.facebook.com/275591942465870
+
+Bingo Blitz
+https://apps.facebook.com/108854979142742
+
+House of Fun
+https://apps.facebook.com/134672596609680
+
+Vegas Downtown Slots
+https://apps.facebook.com/997795446916691
+
+Poker Heat
+https://apps.facebook.com/582934101860851
+
+World Series of Poker
+https://apps.facebook.com/1375730929320387
+
+Farmville 2
+https://www.facebook.com/FarmVille2/app/450554864988641/","1. Firefox is successfully launched, The Browser Console is successfully enabled
+2. Version 24.0 of Flash is displayed in about:plugins
+3. There are no issues encountered and no errors thrown in the Browser Console while using these apps."
+199,20161125 + 20170106,zoom indicator,9,Location Bar Displays Zoom Indicator,,"1. Launch Firefox with a new profile
+2. Enter a valid URL in the Location Bar, Ex: en.wikipedia.org 
+3. Press [Ctrl] button and spin the mouse wheel upward once","1. - Firefox is successfully launched
+- Default zoom is 100%
+- There is no Zoom Indicator in the Location Bar
+2. - Page updates
+- There is no Zoom Indicator in the Location Bar
+3. - Page updates
+- The page zoom level increases
+- Zoom Indicator appears in the Location Bar - the first mouse wheel spin = 110%"
+200,20161125 + 20170106,zoom indicator,10,Zoom Indicator Animation,,"1. Launch Firefox and verify if the Zoom Indicator appears in the Location Bar
+
+2. - Press [Ctrl] button and spin the mouse wheel upward 
+- Verify the Zoom Indicator in the Location Bar as well as the page display are accurately reflecting the growth
+- Verify if the process is smooth without interruption or distortion to the page
+- Confirm that the Max Growth is 300% and the Max Decrease is 30%
+3. - Press [Ctrl] button and spin the mouse wheel downward 
+- Verify the Zoom Indicator in the Location Bar as well as the page display are accurately reflecting the shrinkage
+- Verify if the process is smooth without interruption or distortion to the page
+- Confirm that the Max Growth is 300% and the Max Decrease is 30%","1. - Firefox is successfully launched
+- Zoom Indicator is displayed with a value (if the last zoom level of the page had this value in a previous session)
+- There is no Zoom Indicator in the Location Bar (if that page was not open in a previous session or if the page was last time displayed at default zoom 100% in a previous session)
+2. - Zoom Indicator value is accurately increasing
+- Page display is accurately zooming in
+- There is no interruption/distortion
+3. - Zoom Indicator value is accurately decreasing
+- Page display is accurately zooming out
+- There is no interruption/distortion"
+201,20161125 + 20170106,zoom indicator,17,Zoom Indicator & View>Zoom>Zoom In,,"1. Launch Firefox with a clean profile
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org
+3. Go to Menu Bar, select View and hover over Zoom
+4. Click the Zoom In option 
+5. Click the Zoom Control button from the location bar","1. - Firefox is successfully launched
+- Default zoom is 100%
+- There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+- There is no Zoom Indicator in the Location Bar
+3. Zoom In, Zoom Out, Reset and Zoom Text Only options are displayed
+4. - The submenu is removed
+- Zoom Indicator is displayed in the Location Bar at 110%
+- The page Zoom Level is increased
+5. - Zoom Level returns to 100%
+- Zoom Indicator is removed from the Location Bar 
+- Page Zoom Level has a smooth transition"
+202,20161125 + 20170106,zoom indicator,18,Zoom Indicator & View>Zoom>Zoom Out,,"1. Launch Firefox with a clean profile
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org
+3. Go to Menu Bar->View->Zoom->Zoom Out","1. - Firefox is successfully launched
+- Default zoom is 100%
+- There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+- There is no Zoom Indicator in the Location Bar
+3. - Submenu is removed
+- Zoom Indicator is displayed in the Location Bar at 90%
+- Page Zoom Level is decreased"
+203,20161125 + 20170106,zoom indicator,19,Zoom Indicator & View>Zoom>Reset,,"1. Launch Firefox with a clean profile
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org
+
+3. Go to Menu Bar->View->Zoom->Zoom In
+4. Go to Menu Bar->View->Zoom->Reset","1. - Firefox is successfully launched
+- Default zoom is 100%
+- There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+- There is no Zoom Indicator in the Location Bar
+3. - The submenu is removed
+- Zoom Indicator is displayed in the Location Bar at 110%
+- The page Zoom Level is increased
+4. - The submenu is removed
+- The browser is reset to its original zoom value
+- The Zoom Indicator is removed from the Location Bar"
+204,20161125 + 20170106,zoom indicator,20,Zoom Indicator & View>Zoom>Zoom Text Only,,"1. Launch Firefox with a clean profile
+
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org
+
+3. Go to Menu Bar->View->Zoom->Zoom Text Only
+4. Click [Ctrl] & [+]
+5. Click [Ctrl] & [-] [-]
+6. Go to Menu Bar->View->Zoom->Reset","1. - Firefox is successfully launched
+- Default zoom is 100%
+- There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+- There is no Zoom Indicator in the Location Bar
+3. - Zoom Text Only gets selected
+- There is no Zoom Indicator in URL Bar
+4. - Zoom Indicator is displayed in the Location Bar at 110%
+- Text Zoom Level is increased
+5. - Zoom Indicator is displayed in the Location Bar at 90%
+- Text Zoom Level is decreased
+6. - The text size is reset to its original size and there is no zoom indicator in Location Bar 
+- Zoom Check Only is not unchecked (this is not automatically reset)"
+205,20161125 + 20170106,zoom indicator,21,Zoom level in a Private Window functions same as in non private window when applying keyboard keys to adjust the zoom level,,"1. Launch Firefox with a clean profile
+2. Open a Private Window 
+3. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org
+4. Press [Ctrl] & [+] buttons 
+5. Press [Ctrl] & [0] buttons 
+6. Ensure default value is 100% when clicking the Menu [≡] 
+7. Press [Ctrl] & [-] buttons 
+8. Press [Ctrl] & [0] buttons 
+9. Ensure default value is 100% when clicking the Menu [≡]","1. - Firefox is successfully launched
+- Default zoom is 100%
+- There is no Zoom Indicator in the Location Bar
+2. A new private window is successfully opened
+3. - The chosen page is properly displayed
+- There is no Zoom Indicator in the Location Bar
+4. - Zoom Indicator is displayed in the Location Bar at 110%
+- Page Zoom Level is increased
+5. Location Bar displays URL Information, there is nothing related to a zoom indication
+6. Zoom is 100%
+7. - Zoom Indicator is displayed in the Location Bar at 90%
+- Page Zoom Level is decreased
+8. Location Bar displays URL Information, there is nothing related to a zoom indication
+9. Zoom is 100%"
+206,20161125 + 20170106,zoom indicator,21,Zoom level in a Private Window functions same as in a non private window when applying the Firefox Menu Zoom Controls,,"1. Launch Firefox with a clean profile
+2. Open a new Private Window 
+3. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org
+4. Click the Menu [≡] 
+5. Click the Zoom Control [+] or [-] button and close the door-hanger","1. - Firefox is successfully launched
+- Default zoom is 100%
+- There is no Zoom Indicator in the Location Bar
+2. A new private window is successfully opened
+3. - The chosen page is properly displayed
+- There is no Zoom Indicator in the Location Bar
+4. The Menu Panel door-hanger is properly displayed
+
+5. - Door-hanger is removed
+- Zoom Indicator is displayed in the Location Bar at a percentage greater than or less than 100%
+- Page Zoom Level is increased or decreased respectively"
+207,20161125 + 20170106,zoom indicator,23,Zoom level in a Private Window functions same as in a non private window when applying the View Menu Options to adjust the zoom level,,"1. Launch Firefox with a clean profile
+2. Open a new Private Window
+3. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org
+
+4. Go to Menu Bar, select View and hover over Zoom
+5. Click the Zoom In option
+
+6. Click the Zoom Control button from the location bar
+
+7. Go to Menu Bar->View->Zoom->Zoom Out
+
+8. Click the Zoom Control button from the location bar
+9. Go to Menu Bar->View->Zoom->Zoom Text Only
+
+10. Click [Ctrl] & [+] 
+11. Click the Zoom Control button from the location bar
+12. Click [Ctrl] & [-] 
+13. Go to Menu Bar->View->Zoom->Reset","1. - Firefox is successfully launched
+- Default zoom is 100%
+- There is no Zoom Indicator in the Location Bar
+2. A new private window is successfully opened
+
+3. - The chosen page is properly displayed
+- There is no Zoom Indicator in the Location Bar
+4. Zoom In, Zoom Out, Reset and Zoom Text Only options are displayed
+
+5. - The submenu is removed
+- Zoom Indicator is displayed in the Location Bar at 110%
+- The page Zoom Level is increased
+6. - Zoom Level returns to 100%
+- Zoom Indicator is removed from the Location Bar
+- Page Zoom Level has a smooth transition
+7. - Submenu is removed
+- Zoom Indicator is displayed in the Location Bar at 90%
+- Page Zoom Level is decreased
+8. - Zoom Level returns to 100%
+- Zoom Indicator is removed from the Location Bar
+- Page Zoom Level has a smooth transition
+9. - Zoom Text Only gets selected
+- There is no Zoom Indicator in URL Bar
+10. - Zoom Indicator is displayed in the Location Bar at 110%
+- Text Zoom Level is increased
+11. - Zoom Level returns to 100%
+- Zoom Indicator is removed from the Location Bar
+- Text Zoom Level has a smooth transition
+12. - Zoom Indicator is displayed in the Location Bar at 90%
+- Text Zoom Level is decreased
+13. - The text size is reset to its original size and there is no zoom indicator in Location Bar
+- Zoom Check Only is not unchecked (this is not automatically reset)"
+208,20161125 + 20170106,zoom indicator,24,Zoom level in a Private Window functions same as in non private window when applying mouse wheel + keyboard keys to adjust the zoom level,,"1. Launch Firefox with a clean profile
+2. Enter a valid URL in the Location Bar e.g. en.wikipedia.org
+3. Press [Ctrl] button and spin the mouse wheel upward once
+4. Press [Ctrl] & [0] buttons
+5. Ensure default value is 100% when clicking the Menu [≡]
+6. Press [Ctrl] button and spin the mouse wheel downward once
+7. Press [Ctrl] & [0] buttons
+8. Ensure default value is 100% when clicking the Menu [≡]","1. - Firefox is successfully launched
+- Default zoom is 100%
+- There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+- There is no Zoom Indicator in the Location Bar
+3. - Zoom Indicator is displayed in the Location Bar at 110%
+- Page Zoom Level is increased
+4. - Location Bar displays URL information
+- The Zoom Indicator is removed from the Location Bar
+5. Zoom is 100%
+6. - Zoom Indicator is displayed in the Location Bar at 90%
+- Page Zoom Level is decreased
+7. - Location Bar displays URL information
+- The Zoom Indicator is removed from the Location Bar
+8. Zoom is 100%"
