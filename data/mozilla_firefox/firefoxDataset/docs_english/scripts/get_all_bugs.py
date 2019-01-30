@@ -12,7 +12,7 @@ LIMIT = 50
 
 BASE_URL = "https://bugzilla.mozilla.org/rest/bug?chfieldfrom={}&chfieldto={}&product={}&query_format={}&limit={}&query_based_on={}&j_top={}&offset={}"
 BASE_URL_COMMENT = "https://bugzilla.mozilla.org/rest/bug/"
-BUGS_FILE_PATH = '/home/guilherme/anaconda3/envs/trace-link-recovery-study/data/mozilla_firefox/firefoxDataset/docs_english/BR_2/all_bugs.csv'
+BUGS_FILE_PATH = '/home/guilherme/anaconda3/envs/trace-link-recovery-study/data/mozilla_firefox/firefoxDataset/docs_english/BR_2/all_bugs_p2.csv'
 
 header = "Bug_Number|Summary|Platform|Component|Version|Creation_Time|Whiteboard|QA_Whiteboard|First_Comment_Text|First_Comment_Creation_Time\n"
 line = "{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}\n"
@@ -22,12 +22,12 @@ args = [INIT_DATE, END_DATE, PRODUCT, QUERY_FORMAT, LIMIT, QUERY_BASED_ON, J_TOP
 #conn = sqlite3.connect('data.db')
 #cursor = conn.cursor()
 
-#if os.path.exists(BUGS_FILE_PATH):
-#    f = open(BUGS_FILE_PATH, 'w+')
-#    f.write(header)
-#    f.close()
+if not os.path.exists(BUGS_FILE_PATH):
+    f = open(BUGS_FILE_PATH, 'w+')
+    f.write(header)
+    f.close()
     
-for offset_ in range(34900, 38000, LIMIT): # 0, 7000, 1000
+for offset_ in range(37000, 37750, LIMIT): # 0, 7000, 1000
     if len(args) < 8:
         args = args + [offset_]
     else:
