@@ -1,4 +1,4 @@
-TC Number,Test Day,Gen. Title,Crt. Nr.,Title,Preconditions,Steps,Expected Result
+TC_Number,TestDay,Gen_Title,Crt_Nr,Title,Preconditions,Steps,Expected_Result
 1,20181221,"<notificationbox> 
 and
  <notification>
