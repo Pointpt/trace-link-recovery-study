@@ -1,0 +1,14 @@
+TC Number: 141
+Test Day: 20160930
+Generic Title: WebM EME support for Widevine
+Crt. Nr. 5
+Title: User is able to change resolution and bits/s while video is playing
+Preconditions:  
+Steps: 1. Start Firefox	
+2. Go to: http://goo.gl/0cVfha.	
+3. From drop-down Asset menu choose "Sintel 4k (multicodec, Widevine)".	
+4. Select "Info" and choose another resolution/bits: e.q 256x110, 81054 bits/s.	
+Expected Result: 1. Firefox started successfully."
+2. The web site is successfully loaded.
+3. The video in question is properly selected.
+4. The video resolution/bits is loaded properly.

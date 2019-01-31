@@ -1,0 +1,10 @@
+TC Number: 70
+Test Day: 20160722
+Generic Title: pdf viewer
+Crt. Nr. 5
+Title: Print a PDF file using pdf.js
+Preconditions:  
+Steps: 1. Press the printer icon or use the following key combination to print the PDF File: "Ctrl /Cmd+P". 	
+2. Try printing specific pages.	
+Expected Result: 1. All the print related options are working as expected for the PDF file.
+2. Specific pages are successfully printed.

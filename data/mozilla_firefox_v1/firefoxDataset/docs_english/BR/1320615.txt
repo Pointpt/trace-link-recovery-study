@@ -1,0 +1,30 @@
+Bug Number: 1320615
+Summary: 51beta 2(cannot start the call.error message:-getUserMedia() error: NotFoundError)
+Platform: x86_64
+Component: WebRTC: Audio/Video
+Creation Time: 2016-11-28T03:33:13Z
+Whiteboard: [testday-20161125]
+QA Whiteboard:
+First Comment Text: User Agent: Mozilla/5.0 (Windows NT 6.2; rv:51.0) Gecko/20100101 Firefox/51.0
+Build ID: 20161124073320
+
+Steps to reproduce:
+
+1. Go to https://webrtc.github.io/samples/src/content/peerconnection/pc1/ click Start and share you devices.
+2. Click on "Call".
+3. Click on "Hang Up".
+4. Refresh the page and try to click on "Start".
+
+
+Actual results:
+
+(cannot start the call.error message:-getUserMedia() error: NotFoundError)
+
+
+Expected results:
+
+1. In the address bar the "i" starts to alternate with a red camera icon. 
+2. Call starts and camera is capturing.
+3. Call ends and camera stops capturing. 
+4. Page is refreshed and you can click on "Start", camera starts capturing.
+First Comment Creation Time: 2016-11-28T03:33:13Z

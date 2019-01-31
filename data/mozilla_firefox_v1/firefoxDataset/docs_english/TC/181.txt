@@ -1,0 +1,21 @@
+TC Number: 181
+Test Day: 20161125
+Generic Title: indicator for device permissions
+Crt. Nr. 1
+Title: Audio Pop-up
+Preconditions: 
+Steps: 1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and select Audio. From the dropdown displayed select a recording device and press Share Selected Devices.
+2. Refresh the page from step1, selecting Audio and from "Share Selected Device" click on the dropdown button and select "Always Share". 
+3. Click on "i" from the address bar.
+4. Click on the microphone that is next to the address bar or on the "i".
+5. Click on "i" from the address bar.
+In the Control Center close the pop-up from the "X" near the Allow button.
+Expected Result: 1. In the address bar near the "i" a microphone icon appears.
+A pop-up appears "Would you like to share your microphone with pople.mozilla.org?".
+Microphone starts and in the address bar the "i" alternates with a red microphone.. 
+2. Your microphone is activated and starts. 
+In the address bar the "i" alternates with a red microphone.
+
+3. Clicking on the "i" will open the Control Center and the status for the microphone will be "Allow".
+4. The permissions pop-up is displayed.
+5. The microphone stops.

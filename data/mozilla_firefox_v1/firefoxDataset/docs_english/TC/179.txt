@@ -1,0 +1,10 @@
+TC Number: 179
+Test Day: 20161125
+Generic Title: flac support
+Crt. Nr. 5
+Title: FLAC sample file is properly playing in more than one tab
+Preconditions:  
+Steps: 1. Launch Firefox.
+2. Load a few tabs (more than 4) and play FLAC [Sample 1](http://hpr.dogphilosophy.net/test/) audio file in each tab.
+Expected Result: 1. Firefox is successfully launched.
+2. The FLAC `Sample 1` file is open in each tab and is playing correctly.

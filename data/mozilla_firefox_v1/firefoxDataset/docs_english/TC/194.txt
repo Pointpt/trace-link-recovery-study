@@ -1,0 +1,32 @@
+TC Number: 194
+Test Day: 20161125
+Generic Title: indicator for device permissions
+Crt. Nr. 14
+Title: Audio Pop-up
+Preconditions: Open Firefox in Private Window.
+Steps: 1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and select Audio. From the dropdown displayed select a recording device and press Share Selected Devices.
+2. Refresh the page from step1, selecting Audio and from "Share Selected Device" click on the dropdown button and select "Always Share". 
+3. Click on "i" from the address bar.
+4. In the Control Center close the pop-up from the "X" near the Allow button. 
+5. Reload the page, choose Audio and from the pop-up choose "Don't Share".
+6. Reload the page, choose Audio and from the pop-up choose "Never Share".
+7. Click on the microphone that is next to the address bar or on the "i".
+8. In Control Center, click on the "X" near the "Block" and reload the page
+9. Reload the page, choose Audio and from the pop-up choose "Not now".
+10. Click on the microphone that is next to the address bar or on the "i".
+Expected Result: 1. In the address bar near the "i" a microphone icon appears.
+A pop-up appears "Would you like to share your microphone with pople.mozilla.org?".
+Microphone starts.
+
+2. Your microphone is activated and starts. 
+In the address bar the "i" alternates with a red microphone.
+
+3. Clicking on the "i" will open the Control Center and the status for the microphone will be "Allow".
+4. The microphones stops. 
+5. The microphone is not activated. 
+6. In the address bar near the "i" you see a microphone that in a grey colour and with a stripe over it.
+The microphone doesn't start.
+7. Under the "Permissions" you have "Use the microphone" and then "Block".
+8. Under the "Permission" you will see "You have not granted this site any special permissions."
+9. Microphone won't start. 
+10. The permissions pop-up is displayed.

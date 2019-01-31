@@ -1,0 +1,17 @@
+TC Number: 111
+Test Day: 20160812
+Generic Title: text to speech on desktop
+Crt. Nr. 1
+Title: Speech synthesis correctly works on several demo pages
+
+
+
+Preconditions:  
+Steps: 1. Launch Firefox.	
+2. Open a demo page	
+3. Type some long text and click the "Speak" button. 	
+4. Try out all the available options: Volume, Rate, Pitch	
+Expected Result: 1. ...
+2. ...
+3. Speech synthesis correctly starts. 
+4. The options work as expected.

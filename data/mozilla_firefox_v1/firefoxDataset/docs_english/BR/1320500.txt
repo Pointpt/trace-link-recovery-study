@@ -1,0 +1,29 @@
+Bug Number: 1320500
+Summary: Some WebGL 2 samples don't work
+Platform: Unspecified
+Component: Canvas: WebGL
+Creation Time: 2016-11-26T19:23:25Z
+Whiteboard: [testday-20161125]
+QA Whiteboard:
+First Comment Text: User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:51.0) Gecko/20100101 Firefox/51.0
+Build ID: 20161124073320
+
+Steps to reproduce:
+
+1.Open the following URL 
+(http://webglsamples.org/WebGL2Samples/), select each demo and interract with them.
+2.Test every functions liste below.
+
+
+
+
+Actual results:
+
+Nothing is displayed in the display preview window for draw_primitive_restart function and transform feedback. 
+
+
+
+Expected results:
+
+It must be displayed with graphic animation and no visible lags or visual glitches.
+First Comment Creation Time: 2016-11-26T19:23:25Z

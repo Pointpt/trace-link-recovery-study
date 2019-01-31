@@ -1,0 +1,21 @@
+TC Number: 56
+Test Day: 20160603
+Generic Title: apz -     Scrolling using different devices (wired mouse, wireless mouse, trackpad/touchpad) - where available devices				
+Crt. Nr. 19
+Title: Scroll through a webpage which has been moved to a new window.
+
+Preconditions: - make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+- a Mac-compatible trackpad
+Steps: 1. Launch Firefox.        
+2. Open a webpage.	
+3. Move the tab to New Window.	
+4. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	
+5. Move the tab back into the initial window.	
+6. Scroll up and down using a wired mouse, a wireless mouse and the touchpad	
+Expected Result: 1. 
+2. 
+3.
+4. The scrolling is smooth, without any jerkiness or rendering issues.
+5.
+6. The scrolling is smooth, without any jerkiness or rendering issues.

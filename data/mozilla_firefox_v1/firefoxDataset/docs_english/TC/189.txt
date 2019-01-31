@@ -1,0 +1,20 @@
+TC Number: 189
+Test Day: 20161125
+Generic Title: indicator for device permissions
+Crt. Nr. 9
+Title: Window and Audio sharing
+Preconditions: Go to about:config and write in the search field "media.getusermedia.screensharing.allowed_domains" and add betweens to commas this text *people.mozilla.org
+Steps: 1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and choose "Window & Audio"
+2. Select a window and a microphone that you want to share and click "Share Selected Items"
+3. Click on "Pause/Play"
+4. Click on "Snapshot"
+5. Click on "Stop Snapshot"
+6. Click on "Stop"
+Expected Result: 1. A pop-up appears 
+2. The window that you choose to share appears. 
+In the headphones you hear sounds from your microphone. 
+The "i" from the address bar starts to alternate with a red monitor icon.
+3. Window and audio sharing stops. 
+4. Snapshots starts. 
+5. Snapshot stops.
+6. Window and audio sharing stops and you are redirected to the page from step 1.

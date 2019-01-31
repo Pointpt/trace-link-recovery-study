@@ -1,0 +1,14 @@
+TC Number: 38
+Test Day: 20160603 + 
+20160708
+Generic Title: apz - Async Scrolling
+Crt. Nr. 1
+Title: Scroll through a long web page
+Preconditions: - make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+Steps: 1. Launch Firefox.	
+2. Open: https://en.wikipedia.org/wiki/Facebook	
+3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	
+Expected Result: 1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues.

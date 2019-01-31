@@ -1,0 +1,19 @@
+TC Number: 40
+Test Day: 20160603 + 
+20160708
+Generic Title: apz - Async Scrolling
+Crt. Nr. 3
+Title: Scroll through a web page that contains videos
+
+Preconditions: - make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+Steps: 1. Launch Firefox.	
+2. Open: http://www.bbc.com/news/business-35349576	
+3. Scroll up and down using mouse wheel.	
+4. Open: https://gaming.youtube.com/watch?v=gCISR0T3grE	
+5. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	
+Expected Result: 1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues.
+4. 
+5. The scrolling is smooth, without any jerkiness or rendering issues.

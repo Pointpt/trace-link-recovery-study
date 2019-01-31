@@ -1,0 +1,12 @@
+TC Number: 125
+Test Day: 20160826
+Generic Title: exploratory testing
+Crt. Nr. 5
+Title: There are no rendering artifacts or crashes encountered while browsing popular websites providing canvas demos
+Preconditions:  
+Steps: 1. Access any of the following websites providing canvas demos: 
+  . MDN  :  https://developer.mozilla.org/en-US/demos/tag/tech:canvas/
+  . HTML5 Demos  : http://html5demos.com/canvas
+  . HTML5 Doctor : http://html5doctor.com/demos/video-canvas-magic/demo0.html
+  . Flash Canvas  : http://flashcanvas.net/example/demo
+Expected Result: 1. There are no rendering artifacts or crashes encountered while browsing popular websites providing canvas demos

@@ -1,0 +1,19 @@
+TC Number: 96
+Test Day: 20160722
+Generic Title: context menu - full functional testing
+Crt. Nr. 22
+Title: The "copy link location" context menu option transfers in the clipboard a copy of the link location (URL).
+Preconditions:  
+Steps: 1. Launch Firefox.	
+2. Open a random page: e.g. https://en.wikipedia.org/wiki/Main_Page.	
+3. Bring up the context menu by right-clicking a link from this page.	
+4. Click the "copy link location" context menu option. 	
+5. Access the awesomebar and paste the clipboard content and press [Enter].	
+6. Compare the page displayed with the one at which you are redirected when click directly on the link in question.	
+Expected Result: 1. The browser is successfully launched.
+2. The pages in question are successfully opened.
+3. The user is able to bring up the context menu through this action.
+4. The link is successfully copied.
+5. "- The link is pasted in the adress bar.
+     - The pasted link is accessed."
+6. These two pages are the same.

@@ -1,0 +1,15 @@
+TC Number: 190
+Test Day: 20161125
+Generic Title: indicator for device permissions
+Crt. Nr. 10
+Title: Camera and Audio output
+Preconditions: Go to about:config and write in the search field "media.getusermedia.screensharing.allowed_domains" and add betweens to commas this text *people.mozilla.org
+Steps: 1. Go to 
+https://webrtc.github.io/samples/src/content/devices/multi/
+and click on "Share selected devices"
+
+2. In the right side of you camera capture you have 2 sources from where you can select audio output.
+Select one by one this sources and in the meantime check is you can hear in the headphones what you are saying.
+Expected Result: 1. Your camera and microphone starts to work.
+
+2. You are able to hear what you are saying when the audio outputs are played.

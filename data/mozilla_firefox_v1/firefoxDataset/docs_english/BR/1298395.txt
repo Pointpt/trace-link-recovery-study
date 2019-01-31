@@ -1,0 +1,33 @@
+Bug Number: 1298395
+Summary: [testday-20160826] Monster Truck game Error
+Platform: x86_64
+Component: Graphics
+Creation Time: 2016-08-26T14:36:56Z
+Whiteboard:   [testday-20160826]
+QA Whiteboard:[testday-20160826]
+First Comment Text: Created attachment 8785314
+MonsterTruckErrorScreenshot.png
+
+User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:48.0) Gecko/20100101 Firefox/48.0
+Build ID: 20160823121617
+
+Steps to reproduce:
+
+1. Launch Firefox and open the `Browser Console` from menu [≡] → select `Developer` → select `Browser Console`.
+2. Play a few random games from [3dsitelinks.com] http://www.3dsitelinks.com/webgl-games/
+3. Select Monster Truck game 
+4 Try to play the game using the Up, Down, Left and Right Control Keys.
+ 
+
+
+Actual results:
+
+1. None of the Control Keys functioned
+2. Was not able to play this game
+
+
+Expected results:
+
+1. All the control keys should have worked
+2. Should have been able to play this game
+First Comment Creation Time: 2016-08-26T14:36:56Z

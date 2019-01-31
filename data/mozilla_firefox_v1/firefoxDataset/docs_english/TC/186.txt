@@ -1,0 +1,22 @@
+TC Number: 186
+Test Day: 20161125
+Generic Title: indicator for device permissions
+Crt. Nr. 6
+Title: Screen sharing
+Preconditions: Go to about:config and write in the search field "media.getusermedia.screensharing.allowed_domains" and add betweens to commas this text *people.mozilla.org
+Steps: 1. Go to https://people.mozilla.org/~fqueze2/webrtc/ and choose "Screen".
+2. Select a screen that you want to share and click "Share Screen".
+3. Click on "Pause/Play".
+4. Click on "Snapshot".
+5. Click on "Stop Snapshot"
+6. Click on "Stop"
+7. Refresh the page and select a screen that you want to share and click "Share Screen".
+8. In a new Tab open again the page from step 7 and share the same screen.
+Expected Result: 1. A pop-up requiring the screen to share appears.
+2. The screen that you choose to share appears. The "i" from the address bar starts to alternate with a red monitor icon.
+3. Screen sharing stops. 
+4. Snapshots starts. 
+5. Snapshot stops.
+6. Share screen stops and you are redirected to the page from step 1. 
+7. The screen that you choose to share appears. The "i" from the address bar starts to alternate with a red monitor icon.
+8. The screen that you choose to share appears. The "i" from the address bar starts to alternate with a red monitor icon. Under the "Permissions" you see only "Share the Screen" icon.

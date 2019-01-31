@@ -1,0 +1,12 @@
+Bug Number: 1320658
+Summary: Alternation between red microphone icon and a different logo (not Firefox logo) while changing tab
+Platform: x86_64
+Component: Site Identity and Permission Panels
+Creation Time: 2016-11-28T11:44:11Z
+Whiteboard: 
+QA Whiteboard:
+First Comment Text: Created attachment 8814857
+firefox.PNG
+
+Changing tab : Indicator for device permissions
+First Comment Creation Time: 2016-11-28T11:44:11Z

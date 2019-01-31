@@ -1,0 +1,10 @@
+TC Number: 19
+Test Day: 20160603 +
+20160624 
+Generic Title: new awesomebar tests - awesome bar icons left
+Crt. Nr. 7
+Title: URL Bar - Globe Icon
+Preconditions: 
+Steps: 1. Verify the Globe icon displays for Firefox 
+about pages (i.e. about:support)
+Expected Result: 1. The globe is correctly displayed.

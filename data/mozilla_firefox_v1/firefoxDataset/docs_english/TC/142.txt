@@ -1,0 +1,16 @@
+TC Number: 142
+Test Day: 20160930
+Generic Title: WebM EME support for Widevine
+Crt. Nr. 6
+Title: User is able to change language while video is playing
+Preconditions:  
+Steps: 1. Start Firefox.        
+2. Go to: http://goo.gl/0cVfha.        
+3. From drop-down Asset menu choose "Angel One (multicodec, multilingual, Widevine)".        
+4. Click "Load".        
+5. Select "Info" and choose another language from "Audio tracks": e.q language: de (subtitle).        
+Expected Result: 1. Firefox started successfully.
+2. The web site is successfully loaded.
+3. The video in question is properly selected.
+4. The video starts playing automatically.
+5. The language is loaded properly.

@@ -1,0 +1,20 @@
+TC Number: 11
+Test Day: 20181221
+Generic Title: update directory
+Crt. Nr. 6
+Title: Update directory is shared by multiple users
+Preconditions: NO current installed version of Firefox Beta/Nightly is installed (uninstall it, if present).
+Download the installer from: https://archive.mozilla.org/pub/firefox/candidates/65.0b3-candidates/build2/win64/en-US/ Firefox Setup 65.0b3.exe
+Leave the default installer settings intact and follow the instructions to install Firefox.
+Steps: 1. Sign in to windows desktop with user 1.
+2. Launch Firefox (older beta after Dec 10th, older nightly after Oct 25th)
+3. Update Firefox (hamburger menu >> help >> about nightly >> Restart to update Firefox )
+4. Sign off from windows desktop and log in with user 2.
+5. Go to "C:\ProgramData\Mozilla\updates\<hash>" and verify the latest updates log.
+6. Update Firefox if there is any updates available and verify the new update directory.
+Expected Result: 1. User 1 is signed in to windows desktop.
+2. Firefox opens.
+3. Firefox restarts.
+4. User 2 is logged in on windows desktop.
+5. User 2 is able to access log.
+6. User 2 can update Firefox and access update directory.

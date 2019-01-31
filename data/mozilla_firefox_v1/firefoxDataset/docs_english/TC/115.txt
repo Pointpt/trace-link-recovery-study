@@ -1,0 +1,18 @@
+TC Number: 115
+Test Day: 20160812
+Generic Title: text to speech in reader mode
+Crt. Nr. 3
+Title: Active animated state for the Narrate icon
+Preconditions: "media.webspeech.synth.enabled" is set to true
+Steps: 1. Launch Firefox.
+2. Open a page in Reader Mode.
+3. In the left toolbar, click the third icon from the top (the Narrate icon).
+4. Click on the "Play" button.
+5. Dismiss the "Narrate" pop-up. 
+6. Observe the Narrate icon
+Expected Result: 1. 
+2. 
+3. The "Narrate" pop-up is correctly displayed.
+4. Narrate correctly starts. 
+5. The narration doesn't stop. 
+6. An active animated state for the Narrate icon is displayed.

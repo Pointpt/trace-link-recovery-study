@@ -1,0 +1,12 @@
+TC Number: 184
+Test Day: 20161125
+Generic Title: indicator for device permissions
+Crt. Nr. 4
+Title: Changing Tab
+Preconditions: 
+Steps: 1. Go to 
+https://webrtc.github.io/samples/src/content/peerconnection/pc1/
+ click "Start" and share your camera device.
+2. Open another tab, also please use the keyboard combination (CTRL + T) or (CMD + T)
+Expected Result: 1. Your devices can be shared and "Start" can be clicked. The "i" from the address bar starts to alternate with a red camera icon.
+2. The Fav icon from the first tab is replaced with an alternation between red microphone icon and Firefox logo.

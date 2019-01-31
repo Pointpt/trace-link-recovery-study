@@ -1,0 +1,12 @@
+TC Number: 176
+Test Day: 20161125
+Generic Title: flac support
+Crt. Nr. 2
+Title: User is able to play a FLAC sample file in a Private Window
+Preconditions:  
+Steps: 1. Launch Firefox in `New Private Window`.
+2. Open and playback FLAC [Sample 1](http://hpr.dogphilosophy.net/test/) and [Sample 2] (http://tools.woolyss.com/html5-audio-video-tester/?u=hpr.dogphilosophy.net/test/flac.flac) file.
+3. Try out all the available options: toggle the play/pause buttons, change volume, use the contextual menu options, etc.
+Expected Result: 1. Firefox is successfully launched.
+2. The FLAC `Sample 1` and `Sample 2` file is opened and played correctly in the new private window.
+3. The options available for this file format work as expected.

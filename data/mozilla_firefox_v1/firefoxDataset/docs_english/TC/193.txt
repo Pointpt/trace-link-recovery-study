@@ -1,0 +1,14 @@
+TC Number: 193
+Test Day: 20161125
+Generic Title: indicator for device permissions
+Crt. Nr. 13
+Title: Red pulsing camera icon
+Preconditions: Make sure e10s is enabled.
+Steps: 1. Go to http://jsfiddle.net/srn9db4h/ 
+2. Click "Share Selected Devices".
+
+
+3. Refresh the page.
+Expected Result: 1. Observe grey camera icon in address bar and permission request.
+2. Observe pulsing red camera icon in address bar.
+3. Red pulsing camera icon disappears.

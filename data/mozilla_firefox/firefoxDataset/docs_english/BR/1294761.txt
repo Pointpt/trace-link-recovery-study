@@ -1,9 +1,0 @@
-Bug Number: 1294761
-Summary: Reader Mode Narrate - insert pauses between paragraphs
-Platform: All
-Component: Reader Mode
-Creation Time: 2016-08-12T16:42:30Z
-Whiteboard: [reader-mode-narrate]
-QA Whiteboard:
-First Comment Text: The narrate works. However, when s/he gets to the end of a paragraph there is not enough pause between paragraphs which makes it hard to feel and hear where the story is. I suggest no more then another full second pause in between paragraph so it sounds more natural.
-First Comment Creation Time: 2016-08-12T16:42:30Z

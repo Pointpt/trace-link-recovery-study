@@ -1,0 +1,24 @@
+TC Number: 158
+Test Day: 20161028
+Generic Title: downloads dropmaker
+Crt. Nr. 5
+Title: The downloads initiated from a private window are not leaked to the non-private window
+Preconditions:  
+Steps: 1. Launch Firefox.	
+2. Open the Download Library and select Downloads.	
+3. Clear all downloads.	
+4. Open a private window.	
+5. Open the Library and select Downloads again.	
+6. Perform 5 downloads of your choice and go to the Downloads category from the Library.	
+7. Try all the options from the context menu.	
+8. Perform one more download and close the private window.	
+9. In the non-private window, open the Downloads Panel and the Downloads category from the Library.	
+Expected Result: 1. Firefox is successfully launched."	
+2. The Library is successfully opened."	
+3. All downloads are cleared (if any)."	
+4. A new private window is opened."	
+5. The downloads category is brought to view and the following message is displayed in the tab: There are no downloads."	
+6. All the downloads are successful and displayed in the Downloads category."	
+7. Every contextual option works properly."	
+8. The private window is successfully closed."	
+9. There are no downloads displayed in either Downloads Panel or Downloads category."	

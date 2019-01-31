@@ -1,0 +1,13 @@
+TC Number: 109
+Test Day: 20160812
+Generic Title: windows 10 compatibility
+Crt. Nr. 5
+Title: Firefox can be pinned/unpinned from taskbar
+Preconditions: - make sure you have the latest Windows 10 version installed (Anniversary Update)
+- if you're not sure what version of Windows you have, run the following command in run: winver
+Steps: 1. Launch Firefox.	
+2. Pin Firefox to taskbar and close it.        	
+3. "Unpin Firefox from taskbar.	"	
+Expected Result: 1. ...
+2. Firefox is successfully pined to taskbar.
+3. Firefox is successfully unpined from taskbar.

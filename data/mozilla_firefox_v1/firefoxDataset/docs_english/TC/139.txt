@@ -1,0 +1,16 @@
+TC Number: 139
+Test Day: 20160930
+Generic Title: WebM EME support for Widevine
+Crt. Nr. 3
+Title: WebM EME is working as expected on Saka Player Demo in private window
+Preconditions:   
+Steps: 1. Start Firefox in private window.        
+2. Go to: http://goo.gl/0cVfha.        
+3. From drop-down Asset menu choose "Sintel 4k (multicodec, Widevine)".        
+4. Click "Load".        
+5. Try out all the available options: toggle the play/pause buttons, CC, change volume, enter/exit full screen mode, use the contextual menu options, etc.        
+Expected Result: 1. Firefox started successfully."
+2. The web site is successfully loaded."
+3. The video in question is properly selected."
+4. The video starts playing automatically."
+5. The options available for this video work as expected."

@@ -1,0 +1,23 @@
+TC Number: 128
+Test Day: 20160930
+Generic Title: PointerLock api
+Crt. Nr. 3
+Title: Exit PointerLock mode by changing focus to another application (ALT+TAB/CMD+TAB)
+Preconditions:  
+Steps: 1. Launch the latest Beta.        
+2. Navigate to this pointer lock demo        
+3. Click the canvas content to enter PointerLock mode and move your mouse        
+4. Change focus by using the keyboard shortcut ALT+TAB (Cmd +TAB on Mac OS X)        
+5. Using the keyboard shortcut, return back to the Beta window         
+6. Click to enter pointer lock again and then press the Esc key to exit        
+7. Navigate to another pointer lock demo         
+8. Repeat steps 2.3 -> 2.6 for the demo from the previous step        
+Expected Result: 1. Beta is properly opened
+2. Navigation is properly allowed
+3. "- The PointerLock API bar is displayed in the upper side of the browser stating the following message: """"mdn.gihub.io has control of your pointer. Press Esc to take back control.""""
+    - Your mouse will directly control the ball inside the canvas.
+4. Another opened application is focused and PointerLock mode is exited
+5. The demo from step 2 is back in focus and the PointerLock mode is exited
+6. The pointer is succesfully locked and then unlocked.
+7. Navigation is properly allowed
+8. Focus is changed, pointerLock is lost (after step 4) and entered and exited again (in step 6) 

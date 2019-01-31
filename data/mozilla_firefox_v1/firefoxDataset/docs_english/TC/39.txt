@@ -1,0 +1,23 @@
+TC Number: 39
+Test Day: 20160603 + 
+20160708
+Generic Title: apz - Async Scrolling
+Crt. Nr. 2
+Title: Scroll through a popular image website
+Preconditions: - make sure layers.async-pan-zoom.enabled is true in about:config
+- make sure browser.tabs.remote.autostart is true in about:config
+Steps: 1. Launch Firefox.	
+2. "Visit popular websites that display images:
+- https://instagram.com/
+- http://www.reddit.com/r/pics
+- http://imgur.com/
+- https://www.flickr.com/photos
+- https://images.google.com/?gws_rd=ssl
+- https://www.pinterest.com/
+- http://9gag.com/
+- http://www.boredpanda.com/
+- http://highqualityart.deviantart.com/gallery/"	
+3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	
+Expected Result: 1. 
+2.
+3. The scrolling is smooth, without any jerkiness or rendering issues.

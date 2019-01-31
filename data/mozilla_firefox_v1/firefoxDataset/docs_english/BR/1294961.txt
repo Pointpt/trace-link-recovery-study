@@ -1,0 +1,27 @@
+Bug Number: 1294961
+Summary: [testday-20160812] Firefox narrator button - Inconsistent BACK Button behaviour
+Platform: x86_64
+Component: Reader Mode
+Creation Time: 2016-08-13T13:21:00Z
+Whiteboard:  [testday-20160812]
+QA Whiteboard:[testday-20160812]
+First Comment Text: User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0
+Build ID: 20160623154057
+
+Steps to reproduce:
+
+1.1	Launch Firefox 49.0b3.
+1.2	Open a page in Reader Mode. 
+1.3	In the left toolbar, click the third icon from the top (the Narrate icon).
+1.4	Try out all the available options: Play/Stop, Forward, Back
+
+
+Actual results:
+
+The BACK button does not function consistently. If the BACK button is pressed multiple times it usually restarts at the beginning of the current paragraph, but it periodically restarts at the beginning of the previous paragraph.
+
+
+Expected results:
+
+The BACK button should always restart at the beginning of the current paragraph.
+First Comment Creation Time: 2016-08-13T13:21:00Z

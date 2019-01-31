@@ -1,9 +1,0 @@
-TC Number: 15
-Test Day: 20160603 +
-20160624 
-Generic Title: new awesomebar tests - awesome bar search
-Crt. Nr. 3
-Title: Search State - Favicons/Search Indicator
-Preconditions: 
-Steps: 1. Ensure Favicons for sites are displayed - Example W for Wiki is displayed	
-Expected Result: 1. Favicon or search indicator icon is displayed. Where there is no Favicon, the Search indicator is displayed (magnifier)

@@ -1,0 +1,35 @@
+Bug Number: 1316294
+Summary: Wrong square size in webgl2 demo
+Platform: All
+Component: Canvas: WebGL
+Creation Time: 2016-11-09T13:26:36Z
+Whiteboard: [gfx-noted]
+QA Whiteboard:[qe-webgl2]
+First Comment Text: [Affected versions]:
+- latest Developer Edition 51.0a2
+- latest Nightly 52.0a1
+
+[Affected platforms]:
+- Ubuntu 16.04 32bit/64bit
+
+[Steps to reproduce]:
+1. Start Firefox
+2. Visit demo https://www.ibiblio.org/e-notes/webgl/gpu/bounce.htm
+3. Click the Next button
+
+[Expected result]:
+- A 20x20px size square is displayed.
+
+[Actual result]:
+- 1x1 px size square is displayed.
+
+[Regression range]:
+- This is not a regression, it reproduces back to when webgl2 was enabled by default in Nightly (2016-04-25)
+
+[Additional notes]:
+- Here are two videos showing the behavior on Ubuntu and Windows:
+Ubuntu: https://dl.dropboxusercontent.com/u/109148197/webgl2%20square%20size.mp4
+Windows: https://dl.dropboxusercontent.com/u/109148197/webgl2%20square%20size%202.gif
+
+I did not uploaded them directly here because of the format used by the video from Ubuntu, sometimes it does not play for everyone (ran into this in the past).
+First Comment Creation Time: 2016-11-09T13:26:36Z

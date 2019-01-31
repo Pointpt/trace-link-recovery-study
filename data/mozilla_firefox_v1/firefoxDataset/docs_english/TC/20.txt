@@ -1,0 +1,11 @@
+TC Number: 20
+Test Day: 20160603 +
+20160624 
+Generic Title: new awesomebar tests - awesome bar icons left
+Crt. Nr. 8
+Title: URL Bar - Lock Icon: Secure Connection
+Preconditions: 
+Steps: 1. Navigate to a https site - i.e. https://www.facebook.com/        
+2. Click the lock icon.	
+Expected Result: 1. The lock icon is displayed for https sites
+2. The lock icon is displayed for https sites; the door hanger displays, there is an indication that this is a Secure Connection

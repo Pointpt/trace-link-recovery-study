@@ -1,0 +1,14 @@
+TC Number: 165
+Test Day: 20161028
+Generic Title: downloads dropmaker
+Crt. Nr. 12
+Title: Verify "Open Download folder" opens the folder in which Firefox is set to save its downloads
+Preconditions:  
+Steps: 1. Launch Firefox with a clean profile	
+2. Click on the downloads button.	
+3. Click on panel dropmarker and click "Open Download Folder".	
+4. Verify the opened folder from step 3 is the download folder set in FF: open Options/General and under Downloads section, check the path for "Save files to".	
+Expected Result: 1. Firefox is successfully launched"	
+2. Downloads panel is opened."	
+3. A folder is opened."	
+4. The path from ""Save files to"" should be the same as the location it was opened when ""Open Download Folder"" was opened for the panel dropmarker."	

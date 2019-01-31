@@ -1,0 +1,37 @@
+Bug Number: 1294711
+Summary: Text to speech narrator don't start from where that was stopped
+Platform: Unspecified
+Component: Reader Mode
+Creation Time: 2016-08-12T14:47:15Z
+Whiteboard: 
+QA Whiteboard:
+First Comment Text: Created attachment 8780544
+Screenshot from 2016-08-12 20-44-18.png
+
+User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0
+Build ID: 20160811031722
+
+Steps to reproduce:
+
+Open Firefox in a fresh profile
+
+Open any page in reader view mode  (for example, you can open this in reader view mode: https://en.wikipedia.org/wiki/Firefox)
+
+For better result scroll throw a big paragraph (as screenshot)
+
+Click to Narrate button then click to start button ▶
+
+Before completing narrate the whole paragraph hit the stop button ⏹
+
+Then click again to the start button ▶
+
+
+Actual results:
+
+The narrator start from next paragraph. It's doesn't complete the paragraph where it was stopped.
+
+
+Expected results:
+
+It should start from the exact point where it was stopped.
+First Comment Creation Time: 2016-08-12T14:47:15Z

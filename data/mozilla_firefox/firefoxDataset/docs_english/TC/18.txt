@@ -1,9 +1,0 @@
-TC Number: 18
-Test Day: 20160603 +
-20160624 
-Generic Title: new awesomebar tests - awesome bar search
-Crt. Nr. 6
-Title:         Overflow States                        
-Preconditions: 
-Steps: 1. Enter a very long string in the URL Bar	
-Expected Result: 1. When the string reaches the end of the URL dropdown, the text is truncated correctly

@@ -1,0 +1,15 @@
+TC Number: 14
+Test Day: 20160603 +
+20160624 
+Generic Title: new awesomebar tests - awesome bar search
+Crt. Nr. 2
+Title: Search State - Drop down
+Preconditions: 
+Steps: 1. Launch Firefox.	
+2. Enter "test" or characters to search for in the URL 	
+3. Ensure the characters entered are distinguished in the drop down	
+4. Ensure the URL is displayed for results - Example typing "cnn" in the search bar should display in the drop down list containing CNN and link that will take end-user to that site 	
+Expected Result: 1. Firefox launches without any issues.
+2. Drop down list appears
+3. Matching characters are distinguished
+4. If the site was already visited, the drop down contains full URL links where a match is available

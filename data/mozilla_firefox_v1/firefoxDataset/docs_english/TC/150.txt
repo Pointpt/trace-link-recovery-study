@@ -1,0 +1,22 @@
+TC Number: 150
+Test Day: 20161028
+Generic Title: zoom indicator
+Crt. Nr. 8
+Title: Zoom Level + Window State
+
+Preconditions:  
+Steps: 1. Launch Firefox with a clean profile	
+2. Enter a valid URL in the Location Bar, e.g. en.wikipedia.org	
+3. Press [Ctrl] & [+] buttons	
+4. Keep applying [Ctrl] & [+] until the maximum zoom of 300% is achieved	
+5. Minimize and then Maximize the window	
+Expected Result: 1. - Firefox is successfully launched
+    - Default zoom is 100%
+    - There is no Zoom Indicator in the Location Bar
+2. - The chosen page is properly displayed
+    - There is no Zoom Indicator in the Location Bar"
+3. - Zoom Indicator is displayed in the Location Bar at 110%
+    - The page Zoom Level is increased
+4. - The page Zoom Level is gradually increased
+    - The Zoom Indicator reaches the 300% value
+5. The window remains readable: there is no distortion or interruption to the displayed page

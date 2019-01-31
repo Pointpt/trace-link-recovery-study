@@ -1,0 +1,10 @@
+TC Number: 13
+Test Day: 20160603
+Generic Title: new awesomebar tests - awesome bar search
+Crt. Nr. 1
+Title: Default State
+Preconditions: 
+Steps: 1. Launch Firefox.	
+2. No AwesomeBar Entry
+Expected Result: 1. Firefox launches without any issues.
+2. URL displays  www.mozilla.org/en-US or end-user set Home Page

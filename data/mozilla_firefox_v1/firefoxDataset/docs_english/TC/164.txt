@@ -1,0 +1,19 @@
+TC Number: 164
+Test Day: 20161028
+Generic Title: downloads dropmaker
+Crt. Nr. 11
+Title: Verify the preference to enable/dissable Download Panel dropmarker
+
+Preconditions:  
+Steps: 1. Launch Firefox	
+2. In address bar type: "about:config" and after confirming, type "browser.download.showPanelDropmarker".	
+3. Set the preference to true.	
+4. Click the download icon of toolbar	
+5. Set the preference to false.	
+6. Click the download icon of toolbar	
+Expected Result: 1. 
+2. Preference exists in about:config."
+3. 
+4. Dropmarker exists on download panel"	
+5. 
+6. Dropmarker doesn't exist on download panel"	

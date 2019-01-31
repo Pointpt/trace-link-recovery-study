@@ -1,0 +1,8 @@
+TC Number: 69
+Test Day: 20160722
+Generic Title: pdf viewer
+Crt. Nr. 4
+Title: Enter Presentation Mode from a PDF file using pdf.js
+Preconditions:  
+Steps: 1. Click the "Presentation Mode" button to enter in full screen mode → allow the request to enter full screen → scroll through pages and use the options available in the context menu.	
+Expected Result: 1. The PDF file is successfully displayed in full screen. All the options available in the context menu work as expected.

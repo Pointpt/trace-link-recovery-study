@@ -1,0 +1,20 @@
+TC Number: 163
+Test Day: 20161028
+Generic Title: downloads dropmaker
+Crt. Nr. 10
+Title: All the contextual options available in the downloads panel work properly
+Preconditions:  
+Steps: 1. Launch Firefox with a clean profile	
+2. Go to: about:preferences#security in a new tab.	
+3. Uncheck Block dangerous and deceptive content.	
+4. Access the Safe browsing test page	
+5. Download all the items from Desktop Download Warning.	
+6. Check Block dangerous downloads again, but leave Warn me about unwanted... unchecked.	
+7. Download all the items from Desktop Download Warning.	
+Expected Result: 1. Firefox is successfully launched"	
+2. All checkboxes are checked by default for Block dangerous and deceptive content, Block dangerous downloads and Warn me about unwanted and uncommon software."	
+3. Block Dangerous downloads and Warn me about unwanted... are grayed out (disabled)."	
+4. The Safe Browsing test page is successfully loaded"	
+5. The downloads are no longer blocked."	
+6. The setting is successfully applied."	
+7. Only the downloads from #1 to #4 are blocked, #5 to #7 are allowed."	

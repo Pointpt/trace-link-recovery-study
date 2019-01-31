@@ -1,0 +1,16 @@
+TC Number: 133
+Test Day: 20160930
+Generic Title: PointerLock api
+Crt. Nr. 8
+Title: Check the PointerLock API warning bar with high contrast themes installed (not applicable on Mac OS X)
+Preconditions: - set a high contrast theme: 
+Windows: Go to Personalise> Themes> Theme Settings and activate a High Contrast Theme.
+Ubuntu: Install "gnome-control-center"- System settings-Appearance
+Steps: 1. Launch the latest Beta.	
+2. Navigate to this game	
+3. Click on the canvas and start playing the game	
+Expected Result: 1. Beta is properly opened
+2. Navigation is allowed
+3. - "The PointerLock API warning bar is properly displayed.
+    - The pointer is locked.
+    - There are no issues encountered while playing."

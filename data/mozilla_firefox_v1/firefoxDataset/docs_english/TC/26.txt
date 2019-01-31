@@ -1,0 +1,14 @@
+TC Number: 26
+Test Day: 20160603
+Generic Title: windows child mode - FIREFOX BASIC FUNCTIONALITY				
+WEBGL COMPATIBILITY				
+Crt. Nr. 1
+Title: Open and play WebGL games
+Preconditions: 1. You need Windows 10 x64 operating system
+2. Go to about:config and create the “security.family_safety.mode" pref (integer) and set it's value to 2.				
+Steps: 1. Launch Firefox and open the Browser Console, from Menu bar → Tools menu → select " Web Developer" → select "Browser Console".	
+2. Play a few random games from 3dsitelinks.com.	
+3. Perform any actions allowed, e.g. navigate through the game's menu/options, play the game, etc. Pay attention to any hangs or crashes that might occur and look for Browser Console errors as well.	
+Expected Result: 1. The Browser Console is enabled.
+2. 
+3. The user can play any WebGL game without encountering any rendering, functional or performance issues. 
