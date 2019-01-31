@@ -143,62 +143,50 @@ Users: Read/Execute
 SYSTEM: Full Control
 Creator: Full Control
 basically, we need it to also be writable to the Users group",
-13,20160603,new awesomebar tests - awesome bar search,1,Default State,,"1. Launch Firefox.	
+13,20160603 + 20160624 + 20161014,new awesomebar tests - awesome bar search,1,Default State,,"1. Launch Firefox.	
 2. No AwesomeBar Entry","1. Firefox launches without any issues.
 2. URL displays  www.mozilla.org/en-US or end-user set Home Page"
-14,"20160603 +
-20160624 ",new awesomebar tests - awesome bar search,2,Search State - Drop down,,"1. Launch Firefox.	
+14,20160603 + 20160624 + 20161014,new awesomebar tests - awesome bar search,2,Search State - Drop down,,"1. Launch Firefox.	
 2. Enter ""test"" or characters to search for in the URL 	
 3. Ensure the characters entered are distinguished in the drop down	
 4. Ensure the URL is displayed for results - Example typing ""cnn"" in the search bar should display in the drop down list containing CNN and link that will take end-user to that site 	","1. Firefox launches without any issues.
 2. Drop down list appears
 3. Matching characters are distinguished
 4. If the site was already visited, the drop down contains full URL links where a match is available"
-15,"20160603 +
-20160624 ",new awesomebar tests - awesome bar search,3,Search State - Favicons/Search Indicator,,1. Ensure Favicons for sites are displayed - Example W for Wiki is displayed	,"1. Favicon or search indicator icon is displayed. Where there is no Favicon, the Search indicator is displayed (magnifier)"
-16,"20160603 +
-20160624 ",new awesomebar tests - awesome bar search,4,Search State - Favorites ,,"1. Ensure the star appears if the drop down displays a result that is marked as a favorite	
+15,20160603 + 20160624 + 20161014,new awesomebar tests - awesome bar search,3,Search State - Favicons/Search Indicator,,1. Ensure Favicons for sites are displayed - Example W for Wiki is displayed	,"1. Favicon or search indicator icon is displayed. Where there is no Favicon, the Search indicator is displayed (magnifier)"
+16,20160603 + 20160624 + 20161014,new awesomebar tests - awesome bar search,4,Search State - Favorites ,,"1. Ensure the star appears if the drop down displays a result that is marked as a favorite	
 2. Ensure clicking the link for the favorite opens the appropriate site	","1. Search result has the star icon displayed
 2. The link is correctly opened."
-17,"20160603 +
-20160624 ",new awesomebar tests - awesome bar search,5,"Search State - Synced
+17,20160603 + 20160624 + 20161014,new awesomebar tests - awesome bar search,5,"Search State - Synced
 
 ",user has several tabs synced from other devices,"1. Ensure the tab icon appears if the drop down displays a result that is marked as a synced tab	
 2. Ensure the tab icon displays the name of the synced tab's device. 	
 3. Ensure clicking the Synced device link opens appropriately site.	","1. Tab icon is displayed
 2. Synced device link is displayed
 3. Synced device link opens the correct site."
-18,"20160603 +
-20160624 ",new awesomebar tests - awesome bar search,6,        Overflow States                        ,,1. Enter a very long string in the URL Bar	,"1. When the string reaches the end of the URL dropdown, the text is truncated correctly"
-19,"20160603 +
-20160624 ",new awesomebar tests - awesome bar icons left,7,URL Bar - Globe Icon,,"1. Verify the Globe icon displays for Firefox 
+18,20160603 + 20160624 + 20161014,new awesomebar tests - awesome bar search,6,        Overflow States                        ,,1. Enter a very long string in the URL Bar	,"1. When the string reaches the end of the URL dropdown, the text is truncated correctly"
+19,20160603 + 20160624 + 20161014,new awesomebar tests - awesome bar icons left,7,URL Bar - Globe Icon,,"1. Verify the Globe icon displays for Firefox 
 about pages (i.e. about:support)",1. The globe is correctly displayed.
-20,"20160603 +
-20160624 ",new awesomebar tests - awesome bar icons left,8,URL Bar - Lock Icon: Secure Connection,,"1. Navigate to a https site - i.e. https://www.facebook.com/        
+20,20160603 + 20160624 + 20161014,new awesomebar tests - awesome bar icons left,8,URL Bar - Lock Icon: Secure Connection,,"1. Navigate to a https site - i.e. https://www.facebook.com/        
 2. Click the lock icon.	","1. The lock icon is displayed for https sites
 2. The lock icon is displayed for https sites; the door hanger displays, there is an indication that this is a Secure Connection"
-21,"20160603 +
-20160624 ",new awesomebar tests - awesome bar icons left,9,URL Bar - Lock Icon: Not a Secure Connection,,"1. Navigate to an unsecure site (i.e. http://www.nytimes.com/)	
+21,20160603 + 20160624 + 20161014,new awesomebar tests - awesome bar icons left,9,URL Bar - Lock Icon: Not a Secure Connection,,"1. Navigate to an unsecure site (i.e. http://www.nytimes.com/)	
 2. Click the slash/lock.	","1. The slash/lock icon is displayed for the unsecure site
 2. The lock icon is displayed for https sites; the door hanger displays, there is indication that this is Not a Secure Connection"
-22,"20160603 +
-20160624 ",new awesomebar tests - awesome bar icons left,10,URL Bar - Information Icon,,"1. Access a main site such as Facebook, CNN or Youtube.	
+22,20160603 + 20160624,new awesomebar tests - awesome bar icons left,10,URL Bar - Information Icon,,"1. Access a main site such as Facebook, CNN or Youtube.	
 2. Click the information icon	","1. Information icon is displayed to the left of the URL Bar
 2. Doorhanger displays additional information about the site"
-23,"20160603 +
-20160624 ",new awesomebar tests - awesome bar icons right,11,URL Bar - History,,"1. ""Hover over the URL Bar and look if the drop down arrow is displayed
+23,20160603 + 20160624,new awesomebar tests - awesome bar icons right,11,URL Bar - History,,"1. ""Hover over the URL Bar and look if the drop down arrow is displayed
 (Not hidden on Mac)""	
 2. Click the arrow and verify the drop down list displays with History	","1. Arrow is available
 2. Drop down list displays showing History"
-24,"20160603 +
-20160624 ",new awesomebar tests - awesome bar icons right,12,URL Bar Reader View,,"1. ""Verify the Reader Mode icon is displayed in the URL Bar for 
+24,20160603 + 20160624,new awesomebar tests - awesome bar icons right,12,URL Bar Reader View,,"1. ""Verify the Reader Mode icon is displayed in the URL Bar for 
 sites with removable clutter
 http://www.subhub.com/blog/subscription-websites-top-subjects/""	
 2. Click on the Reader Mode icon	","1. The Reader Mode icon is also displayed for https sites
 2. User enters Reader Mode.
 "
-25,"20160603 +
-20160624 ",new awesomebar tests - awesome bar icons right,13,URL Bar - Reload Current Page,,"1. Navigate to any website and observe if the reload/revolving arow is displayed.	
+25,20160603 + 20160624,new awesomebar tests - awesome bar icons right,13,URL Bar - Reload Current Page,,"1. Navigate to any website and observe if the reload/revolving arow is displayed.	
 2. Click the revolving arrow.	","1. Reload icon is displayed
 2.The page is reloaded. "
 26,20160603,"windows child mode - FIREFOX BASIC FUNCTIONALITY				
@@ -279,15 +267,13 @@ WEBGL COMPATIBILITY				",3,Open and customize WebGL graphs,"1. You need Windows 
 2. The user is able to install any compatible add-ons from AMO.
 3. The user is able to install any compatible add-ons from AMO.
 4. There are no issues encountered while using these add-ons."
-38,"20160603 + 
-20160708",apz - Async Scrolling,1,Scroll through a long web page,"- make sure layers.async-pan-zoom.enabled is true in about:config
+38,20160603 + 20160708,apz - Async Scrolling,1,Scroll through a long web page,"- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open: https://en.wikipedia.org/wiki/Facebook	
 3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
 2.
 3. The scrolling is smooth, without any jerkiness or rendering issues."
-39,"20160603 + 
-20160708",apz - Async Scrolling,2,Scroll through a popular image website,"- make sure layers.async-pan-zoom.enabled is true in about:config
+39,20160603 + 20160708,apz - Async Scrolling,2,Scroll through a popular image website,"- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. ""Visit popular websites that display images:
 - https://instagram.com/
@@ -302,8 +288,7 @@ WEBGL COMPATIBILITY				",3,Open and customize WebGL graphs,"1. You need Windows 
 3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
 2.
 3. The scrolling is smooth, without any jerkiness or rendering issues."
-40,"20160603 + 
-20160708",apz - Async Scrolling,3,"Scroll through a web page that contains videos
+40,20160603 + 20160708,apz - Async Scrolling,3,"Scroll through a web page that contains videos
 ","- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open: http://www.bbc.com/news/business-35349576	
@@ -314,8 +299,7 @@ WEBGL COMPATIBILITY				",3,Open and customize WebGL graphs,"1. You need Windows 
 3. The scrolling is smooth, without any jerkiness or rendering issues.
 4. 
 5. The scrolling is smooth, without any jerkiness or rendering issues."
-41,"20160603 + 
-20160708",apz - Async Scrolling,4,"Scroll through a PDF document
+41,20160603 + 20160708,apz - Async Scrolling,4,"Scroll through a PDF document
 ","- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open a random *.pdf file.	
@@ -326,30 +310,26 @@ WEBGL COMPATIBILITY				",3,Open and customize WebGL graphs,"1. You need Windows 
 3. The scrolling is smooth, without any jerkiness or rendering issues.
 4. 
 5. There are no glitches or rendering issues while scrolling in Presentation Mode."
-42,"20160603 + 
-20160708",apz - Async Scrolling,5,Scroll through high-traffic sites,"- make sure layers.async-pan-zoom.enabled is true in about:config
+42,20160603 + 20160708,apz - Async Scrolling,5,Scroll through high-traffic sites,"- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open websites from Alexa's topsites ranking list.	
 3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
 2.
 3. The scrolling is smooth, without any jerkiness or rendering issues."
-43,"20160603 + 
-20160708",apz - Async Scrolling,6,Scroll through webpages while being in print-preview mode,"- make sure layers.async-pan-zoom.enabled is true in about:config
+43,20160603 + 20160708,apz - Async Scrolling,6,Scroll through webpages while being in print-preview mode,"- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open a webpage in print-preview mode.	
 3.  Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
 2.
 3. The scrolling is smooth, without any jerkiness or rendering issues."
-44,"20160603 + 
-20160708",apz - Async Scrolling,7,"Scroll through webpages while being in Reader Mode
+44,20160603 + 20160708,apz - Async Scrolling,7,"Scroll through webpages while being in Reader Mode
 ","- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open a webpage in reader mode.	
 3. Scroll up and down using mouse wheel, scroll bar, arrow keys, page up/down keys, space bar, ctrl + up/down keys.	","1. 
 2.
 3. The scrolling is smooth, without any jerkiness or rendering issues."
-45,"20160603 + 
-20160708",apz - Async Scrolling,8,Scroll through webpages and resize the window,"- make sure layers.async-pan-zoom.enabled is true in about:config
+45,20160603 + 20160708,apz - Async Scrolling,8,Scroll through webpages and resize the window,"- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open a webpage.	
 3. Resize the window.	
@@ -357,8 +337,7 @@ WEBGL COMPATIBILITY				",3,Open and customize WebGL graphs,"1. You need Windows 
 2.
 3.
 4. The scrolling is smooth, without any jerkiness or rendering issues."
-46,"20160603 + 
-20160708",apz - Async Scrolling,9,Scroll through a webpage which has been moved to a new window,"- make sure layers.async-pan-zoom.enabled is true in about:config
+46,20160603 + 20160708,apz - Async Scrolling,9,Scroll through a webpage which has been moved to a new window,"- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open a webpage.	
 3. Move the tab to New Window.	
@@ -370,8 +349,7 @@ WEBGL COMPATIBILITY				",3,Open and customize WebGL graphs,"1. You need Windows 
 4. The scrolling is smooth, without any jerkiness or rendering issues.
 5.
 6. The scrolling is smooth, without any jerkiness or rendering issues."
-47,"20160603 + 
-20160708",apz - Async Scrolling,10,"Scroll through a webpage while being in Fullscreen Mode
+47,20160603 + 20160708,apz - Async Scrolling,10,"Scroll through a webpage while being in Fullscreen Mode
 ","- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open a webpage.	
@@ -380,8 +358,7 @@ WEBGL COMPATIBILITY				",3,Open and customize WebGL graphs,"1. You need Windows 
 2.
 3.
 4. The scrolling is smooth, without any jerkiness or rendering issues."
-48,"20160603 + 
-20160708",apz - Async Scrolling,11,"Scroll through a web page while being zoomed in or out
+48,20160603 + 20160708,apz - Async Scrolling,11,"Scroll through a web page while being zoomed in or out
 ","- make sure layers.async-pan-zoom.enabled is true in about:config
 - make sure browser.tabs.remote.autostart is true in about:config","1. Launch Firefox.	
 2. Open a webpage.	
