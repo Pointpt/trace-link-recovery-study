@@ -27,8 +27,8 @@ class GenericModel(metaclass=ABCMeta):
     def recover_links(self, corpus, query, use_cases_names, bug_reports_names):
         pass
     
-    def _fillUp_traceLinksDf(self, use_cases_names, bug_reports_names, sim_matrix):
-        self.trace_links_df = pd.DataFrame(index = use_cases_names,
+    def _fillUp_traceLinksDf(self, test_cases_names, bug_reports_names, sim_matrix):
+        self.trace_links_df = pd.DataFrame(index = test_cases_names,
                                            columns = bug_reports_names,
                                            data = sim_matrix)
                     
