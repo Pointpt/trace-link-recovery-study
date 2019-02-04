@@ -21,8 +21,8 @@ class ModelEvaluator:
         self.set_evaluator_dump_path()
     
     def evaluate_model(self, verbose=False, file=None):
-        y_true = csr_matrix(self.oracle.values, dtype=int)
-        y_pred = csr_matrix(self.recovered_links.values, dtype=int)
+        y_true = csr_matrix(self.oracle.values, dtype='int8')
+        y_pred = csr_matrix(self.recovered_links.values, dtype='int8')
         
         p, r, f, sp = precision_recall_fscore_support(y_true, y_pred)
 
