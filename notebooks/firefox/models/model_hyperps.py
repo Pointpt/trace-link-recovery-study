@@ -28,3 +28,20 @@ class LDA_Model_Hyperp(Enum):
     LDA_MODEL_N_COMPONENTS = 'lda__lda_model__n_components'
     LDA_MODEL_RANDOM_STATE = 'lda__lda_model__random_state'
     TOKENIZER = 'lda__tokenizer'
+
+    
+class BM25_Model_Hyperp(Enum):
+    NAME = 'bm25__name'
+    TOP = 'bm25_top'
+    K = 'bm25__k'
+    B = 'bm25__b'
+    EPSILON = 'bm25__epsilon'
+    TOKENIZER = 'bm25__tokenizer'
+    SIM_MEASURE_MIN_THRESHOLD = 'bm25__sim_measure_min_threshold'
+
+    
+class WordVec_Model_Hyperp(Enum):
+    NAME = 'wordvec__name'
+    TOP = 'wordvec__top'
+    TOKENIZER = 'wordvec__tokenizer'
+    SIM_MEASURE_MIN_THRESHOLD = 'wordvec__sim_measure_min_threshold'
