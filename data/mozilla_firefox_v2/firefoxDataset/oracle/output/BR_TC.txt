@@ -1,0 +1,39 @@
+779465.txt: 38.txt 40.txt
+604710.txt: 14.txt
+1255261.txt: 115.txt 116.txt
+1294761.txt: 117.txt
+1294765.txt: 118.txt
+1294961.txt: 115.txt
+1294981.txt: 115.txt
+1294711.txt: 116.txt
+1294974.txt: 116.txt
+1294981.txt: 115.txt
+1294976.txt: 116.txt
+1294970.txt: 118.txt
+1294962.txt: 119.txt
+1298395.txt: 120.txt
+1298575.txt: 121.txt
+1288951.txt: 102.txt
+1285719.txt: 42.txt 40.txt
+1285534.txt: 39.txt
+542990.txt: 14.txt
+1298027.txt: 139.txt
+1307346.txt: 129.txt
+1313805.txt: 155.txt
+1320617.txt: 172.txt
+1320615.txt: 182.txt
+1316294.txt: 172.txt
+1320658.txt: 183.txt
+1320419.txt: 182.txt
+1320345.txt: 181.txt 183.txt
+1320500.txt: 182.txt
+1310247.txt: 182.txt
+1320485.txt: 182.txt
+1329292.txt: 172.txt 
+1329293.txt: 196.txt
+1329204.txt: 171.txt
+1328559.txt: 173.txt
+1329430.txt: 143.txt
+1329421.txt: 197.txt
+1329249.txt: 171.txt
+1168422.txt: 171.txt 172.txt 173.txt
