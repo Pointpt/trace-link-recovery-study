@@ -1,11 +1,13 @@
-BR,TC,Case,F_Version
-1329430,143,BR about Zoom Indicator | TC about Zoom Indicator,51 Branch
-1329421,197,BR about Flash Support | TC about Flash Support,51 Branch
-1329292,172,BR about WebGL2 | TC about WebGL2,51 Branch
-1294970,118,BR about Text to Speech in Reader Mode | TC about Text to Speech in Reader Mode,49 Branch
-1298575,121,BR about WebGL Compatibility | TC about WebGL Compatibility,49 Branch
-1313805,155,BR about Downloads Dropmaker | TC about Downloads Dropmaker,51 Branch
-1298395,120,BR about WebGL Compatibility | TC about WebGL Compatibility,49 Branch
-1320658,183,BR about Indicator for device permissions | TC about Indicator for device permissions,51 Branch
-1320345,181,BR about Indicator for device permissions | TC about Indicator for device permissions,51 Branch
-1329293,196,BR about Flash Support | TC about Flash Support,51 Branch
+BR,TC,Case,,,F_Version
+1329430,143,BR about Zoom Indicator | TC about Zoom Indicator,,,51 Branch
+1329421,197,BR about Flash Support | TC about Flash Support,,,51 Branch
+1329292,172,BR about WebGL2 | TC about WebGL2,,,51 Branch
+1294970,118,BR about Text to Speech in Reader Mode | TC about Text to Speech in Reader Mode,,,49 Branch
+1298575,121,BR about WebGL Compatibility | TC about WebGL Compatibility,,,49 Branch
+1313805,155,BR about Downloads Dropmaker | TC about Downloads Dropmaker,,,51 Branch
+1298395,120,BR about WebGL Compatibility | TC about WebGL Compatibility,,,49 Branch
+1320658,183,BR about Indicator for device permissions | TC about Indicator for device permissions,,,51 Branch
+1320345,181,BR about Indicator for device permissions | TC about Indicator for device permissions,,,51 Branch
+1329293,196,BR about Flash Support | TC about Flash Support,,,51 Branch
+1292356,136,BR about Web EME Support | TC about WebM EME Support,,,50 Branch
+786692,17,BR about Awesome Bar | TC about Awesome Bar,,,48 Branch
