@@ -143,6 +143,9 @@ class LDA(GenericModel):
     def save_sim_matrix(self):
         super().save_sim_matrix()
     
+    def save_trace_matrix(self):
+        super().save_trace_matrix()
+    
     def get_model_dump_path(self):
         return super().get_model_dump_path()
     

@@ -37,7 +37,10 @@ class GenericModel(metaclass=ABCMeta):
             self.trace_links_df[col] = [1 if x in nlargest_df[col].tolist() and x >= self.sim_measure_min_threshold[1] else 0 for x in self.trace_links_df[col]]
 
     def save_sim_matrix(self):
-        self._sim_matrix.to_csv('best_models_sim_matrix/{}.csv'.format(self.get_model_gen_name()))
+        self._sim_matrix.to_csv('models_sim_matrix/{}.csv'.format(self.get_model_gen_name()))
+    
+    def save_trace_matrix(self):
+        self.get_trace_links_df().to_csv('models_trace_matrix/{}.csv'.format(self.get_model_gen_name()))
     
     def get_name(self):
         return self.name
