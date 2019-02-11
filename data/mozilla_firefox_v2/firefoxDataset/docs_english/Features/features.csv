@@ -1,0 +1,155 @@
+Feature_ID,Firefox_Version,Firefox_Feature,Feature_Description,Reference
+1,48 Branch + 50 Branch,New Awesome Bar,"The Firefox address bar displays a page's web address (URL). 
+We call it the Awesome Bar because it remembers the pages you’ve 
+visited before and also allows you to search and navigate the web. 
+The more you use it, the better it gets.
+
+Just start typing in the address bar and the autocomplete drop-down will 
+show matching web pages from your browsing history, open tabs, sync'ed 
+web pages, as well as pages you've bookmarked or tagged. Matched terms 
+are highlighted, making the list of results easy to scan. Icons will indicate 
+whether a matching result is an open tab or a bookmark.",https://support.mozilla.org/en-US/kb/awesome-bar-search-firefox-bookmarks-history-tabs
+2,48 Branch,Windows Child Mode,"Child mode is a feature of Windows that allows a parent (administrator) to set up
+ a child account in order to monitor internet activity. It does so by using an SSL certificate
+ that allows the operating system to spy or “MiTM” the child’s connections. While this 
+helps the parent keep track of the child’s activity, it presents a fundamental problem 
+for the way Firefox works.
+
+Unlike other browsers, Firefox does not use the system’s 
+SSL certificates to verify connections, but instead, relies on its own certificate store. 
+Since this Microsoft certificate is not present here, Firefox will see these connections
+ as untrusted, and the user of the child account will not be able to view secure sites. 
+The solution is to import this Microsoft certificate only when Firefox detects that it is 
+running in child mode.",https://wiki.mozilla.org/QA/Windows_Child_Mode
+3,48 Branch,APZ - Async Scrolling,"The Async Pan/Zoom module (APZ) is a platform component that allows panning and 
+zooming to be performed asynchronously (on the compositor thread rather than the main thread).
+
+For zooming, this means that the APZ reacts to a pinch gesture immediately and instructs the 
+compositor to scale the already-rendered layers at whatever resolution they have been rendered
+ (so e.g. text becomes more blurry as you zoom in), and meanwhile sends a request to Gecko 
+to re-render the content at a new resolution (with sharp text and all).
+
+For panning, this means that the APZ asks Gecko to render a portion of a scrollable layer, 
+called the ""display port"", that's larger than the visible portion. It then reacts to a pan gesture 
+immediately, asking the compositor to render a different portion of the displayport (or, if the 
+displayport is not large enough to cover the new visible region, then nothing in the portions 
+it doesn't cover - this is called checkerboarding), and meanwhile sends a request to Gecko 
+to render a new displayport. (The displayport can also be used when zooming out causes 
+more content of a scrollable layer to be shown than before.)",https://wiki.mozilla.org/Platform/GFX/APZ
+4,49 Branch,Browser Customization,"Install and Customize Firefox Themes. 
+Customize Firefox Toolbar or restore it to default interface.",
+5,49 Branch,PDF Viewer,"Zoom in, Zoom out, Print or Save PDF Files.",
+6,49 Branch,Context Menu,"The Context Menu is the menu that appear when the user right-clicks the browser page. 
+
+The options that appear can be edited in the Firefox Browser.
+
+The following context menu options are tested for this feature: 
+. ""refresh"": reloads the page
+. ""bookmark this page"": bookmarks the current page
+. ""edit this bookmark"" button replaces ""bookmark this page"" context menu option on an already bookmarked page.
+. ""edit this bookmark"" context menu option opens ""edit this bookmark"" pop-up window.
+. The available context menu options are differentiated properly from the unavailable one.
+. ""back"" context menu option makes the current tab to go back one page.
+. ""forward"" context menu option makes the current tab to go forward one page.
+. ""save page as"" context menu option saves the current page.
+. ""select all"" context menu option selects the entire content of the page.
+. ""view page source"" context menu option displays the source code of the page.
+. ""view background image"" context menu option opens the background image of the page.
+. ""view page info"" context menu option opens the ""page info"" pop-up window.
+. ""inspect element"" context menu option opens the ""developer tools"" window.
+. ""copy"" context menu option transfers a copy of the selected field on the clipboard.
+. ""search [default search engine] for"" context menu option opens a google search for selected field.
+. ""view selection source"" context menu option displays the source code of the selection.
+. ""open link in a new tab"" context menu option opens the link in a new Firefox tab.
+. ""open link in a new window"" context menu option opens the link in a new Firefox window.
+. ""open link in a new private window"" context menu option opens the link in a new Firefox private window.
+. ""bookmark this link"" context menu option opens the ""new bookmark"" pop-up window.
+. ""save link as"" context menu option saves the current link.
+. ""copy link location"" context menu option transfers in the clipboard a copy of the link location (URL).
+. ""view image"" context menu option opens the image.
+. ""copy image"" context menu option transfers a copy of the image in the clipboard.
+. ""copy image location"" context menu option transfers in the clipboard a copy of the image location (URL).
+. ""save image as"" context menu option opens the ""save image"" pop-up window.
+. ""email image"" context menu option opens the default email client and inserts the image location (URL) in the body of a new email.
+. ""set as desktop background"" context menu option opens ""set desktop background"" window.
+. ""play"" context menu option starts playing back a paused video file.
+. ""pause"" context menu option stops rendering a playing video file.",https://www.paessler.com/manuals/paessler_site_inspector/contextmenuforfirefox
+7,49 Branch,Windows 10 Compatibility,". Users can browse through different sites, 
+. User's can switch between windows screen with Alt+Tab
+. Firefox can be dragged and dropped either on right or left side of the screen
+. Image's source URL can be dragged and dropped onto desktop
+. Firefox can be pinned/unpinned from taskbar
+. Firefox can Open new tab from taskbar",
+8,49 Branch,Text to Speech on Desktop,Extension of Firefox to read out loud the HTML page content using a synthetized voice.,
+9,49 Branch,Text to Speech in Reader Mode,Extension of Firefox to read out loud the content shown in the Reader Mode of a HTML page by the Firefox Browser.,
+10,49 Branch,WebGL Compatibility,"Feature of Firefox implemted based on WebGL library for the rendering of games, animations and graphs in the web browser.",https://pt.wikipedia.org/wiki/WebGL
+11,49 Branch,Video and Canvas Renderization,Feature of Firefox implemented for rendering of videos and canvas demos in the web browser.,
+12,50 Branch,Pointer Lock API,"The Pointer Lock API (formerly called Mouse Lock API) provides input methods based on 
+the movement of the mouse over time (i.e., deltas), not just the absolute position of the 
+mouse cursor in the viewport. It gives you access to raw mouse movement, locks the target 
+of mouse events to a single element, eliminates limits on how far mouse movement can go 
+in a single direction, and removes the cursor from view. It is ideal for first person 3D games, 
+for example.
+
+More than that, the API is useful for any applications that require significant mouse input to 
+control movements, rotate objects, and change entries, for example allowing users to control 
+the viewing angle simply by moving the mouse around without any button clicking. The buttons
+ are then freed up for other actions. Other examples include apps for viewing maps or satellite
+ imagery.
+
+Pointer lock lets you access mouse events even when the cursor goes past the boundary of 
+the browser or screen. For example, your users can continue to rotate or manipulate a 3D 
+model by moving the mouse without end. Without Pointer lock, the rotation or manipulation 
+stops the moment the pointer reaches the edge of the browser or screen. Game players can
+ now click buttons and swipe the mouse cursor back and forth without worrying about leaving
+ the game play area and accidentally clicking another application that would take mouse focus
+ away from the game.
+
+",https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API
+13,50 Branch,WebM EME support for Widevine,"Encrypted Media Extensions (EME) is a JavaScript API for playing DRMed video content in HTML. 
+A DRM component called a Content Decryption Module (CDM) decrypts, decodes, and displays 
+the video. A JavaScript program coordinates the process using the EME API to pass messages 
+between the CDM and a server that provides decryption keys and content.
+
+Hollywood studios require companies that license movies for streaming use DRM between the 
+streaming company and the end user. On the Web, this has traditionally been done by using the 
+Microsoft PlayReady DRM component inside the Silverlight plug-in or the Adobe Access DRM
+ component inside the Flash Player. As the Web platform gains more capabilities, general purpose 
+plug-ins like Silverlight or Flash can be phased out.
+
+The Widevine Media Optimizer is a browser plugin designed for the viewing of premium video content.
+The Widevine plugin is commonly used by premium content providers.",https://wiki.mozilla.org/QA/Webm_eme_support_widevine
+14,51 Branch,Zoom Indicator ,"The Zoom Indicator shows to the user the amount of zoom aplied to the web page. 
+The default value is 100%. This value can go up or dow, depending on the user needs.",https://wiki.mozilla.org/QA/Zoom_Indicator
+15,51 Branch,Downloads Dropmaker,"The download dropmaker displays the amount of downloads being made, the notifications
+ about the downloads and all the contextual options involving the downloads.",
+16,51 Branch,WebGL2,Incorporation of WebGL2 library to Firefox Browser to extend rendering capabilities.,
+17,51 Branch,FLAC support,"FLAC stands for Free Lossless Audio Codec, an audio format similar to MP3, but lossless, 
+meaning that audio is compressed in FLAC without any loss in quality. This is similar to how Zip works, 
+except with FLAC you will get much better compression because it is designed specifically for audio, and 
+you can play back compressed FLAC files in your favorite player (or your car or home stereo) just like 
+you would an MP3 file.
+
+FLAC stands out as the fastest and most widely supported lossless audio codec, and the only 
+one that at once is non-proprietary, is unencumbered by patents, has an open-source reference 
+implementation, has a well documented format and API, and has several other independent implementations.",https://wiki.mozilla.org/QA/FLAC_support
+18,51 Branch,Indicator for device permissions,"The indicator for device permissions displays notifications when the browser needs to access an 
+external device and this requires additional permissions. Devices like cameras and microphones 
+and screen sharing app use this feature to display notifications about these permissions.",
+19,51 Branch,Flash support,"The Adobe Flash Player is commonly used on the web for videos, animations, games, banner 
+ads, and ""utility"" functions not available in standard HTML+JS (like Gmail's file uploader and 
+GitHub's clipboard button).
+
+Mozilla is working on a number of projects to reduce the use of browser plugins like Flash.
+
+Plugins can be responsible for security bugs and instability, and can create a poor user experience 
+for Firefox users. Moving this functionality to open standards can help alleviate these problems across 
+many platforms.",https://wiki.mozilla.org/Flash
+20,65 Branch,<notificationbox> and <notification> changes,"The notificationbox element is used to display notifications above an element. Typically the
+ element will be a browser, but any element may be used. The notification element is used
+ for each notification, and will be created automatically for each item. Each notification will slide
+ in and out as needed. This element is used, for example, to implement the yellow information 
+bar in various Firefox windows.",https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/notificationbox
+21,65 Branch,Update Directory,"The Update Directory feature is implemented to facilitate the updating of the Firefox Browser version 
+to the latest one. Once a new version of Firefox is available, the user will be notified and the Update 
+Directory feature can be used to download the most recent version of Firefox automatically.",
