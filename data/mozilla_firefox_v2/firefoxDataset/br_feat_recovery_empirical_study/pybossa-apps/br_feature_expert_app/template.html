@@ -38,13 +38,10 @@
         font-size: 18px;
     }
 
-    #error,
     #success,
     #loading,
-    #error_no_classification,
     #taskcompleted,
-    #finish,
-    #error_i_dont_know {
+    #finish {
         position: absolute;
         width: 1100px;
         font-size: 20px;
@@ -93,25 +90,6 @@
                 <a class="btn btn-warning btn-answer" style="color: white" href="/project/category/thinking/">or, Check
                     other projects</a>
             </div>
-        </div>
-        <div id="error" class="alert alert-danger" style="display:none;">
-            <a class="close" onclick="closeAlerts()">×</a>
-            <strong>Error!</strong> The class hierarchy must be respected, and you must choose at least one of the
-            classes. Look at the <a id="tutorial_link" href="\project\b_bug_taxonomy\tutorial"
-                style="color:yellow">Tutorial</a>
-            if you need help or contact the administrators.
-        </div>
-        <div id="error_no_classification" class="alert alert-danger" style="display:none;">
-            <a class="close" onclick="closeAlerts()">×</a>
-            <strong>Error!</strong> You marked one of the classes of the taxonomy. Are you sure you don`t know?
-            <strong>Please
-                make sure all the classes are unmarked to answer the option 'No Classification'</strong>.
-        </div>
-        <div id="error_i_dont_know" class="alert alert-danger" style="display:none;">
-            <a class="close" onclick="closeAlerts()">×</a>
-            <strong>Error!</strong> Please choose one of the options shown when clicking the button 'I Don't Know' and
-            make
-            sure that all classes are unmarked ("-----").</strong>.
         </div>
     </div>
     <!-- End Success and Error Messages for the user -->
@@ -166,7 +144,7 @@
                 <label>
                     <span>More Info About Bug:</span>
                 </label>
-                <a href="#" id="bug_link" style="font-size: 22px; color: brown;"> Link to Bugzilla</a>
+                <a href="#" id="bug_link" style="font-size: 22px; color: brown;"> Check Bug Report in Bugzilla</a>
             </div>
             <div class="form-row">
                 <label>
@@ -655,81 +633,42 @@
         console.log("Feature Infos Populated");
     }
 
-    function checkAnswers(task, answers) {
-        if (answers[0] == EMPTY_OPT_TEXT || answers[1] == EMPTY_OPT_TEXT || answers[2] == EMPTY_OPT_TEXT) {
-            return false;
+    function cleanPreviousAnswer() {
+        for(var i = 0; i < FIELDS_NAMES.length; i++) {
+            $("#" + FIELDS_NAMES[i]).removeAttr("checked");
         }
-
-        var classFirstLevelIndex = answers[0].split("-")[0];
-        var classSecondLevelIndex = answers[1].split("-")[0];
-        var classThirdLevelIndex = answers[2].split("-")[0];
-
-        var classSecondLevelContent = answers[1].split("-")[1];
-        var classThirdLevelContent = answers[2].split("-")[1];
-
-        console.log("=====");
-        console.log("classFirstLevelIndex: " + classFirstLevelIndex);
-        console.log("classSecondLevelIndex: " + classSecondLevelIndex);
-        console.log("classThirdLevelIndex: " + classThirdLevelIndex);
-        console.log("=====");
-
-        if (classFirstLevelIndex != "" && classSecondLevelContent == NIL_OPT_TEXT & classThirdLevelContent == NIL_OPT_TEXT)  // xxxxx -> NIL -> NIL
-        {
-            return true;
-        }
-        else if (classFirstLevelIndex != "" && classSecondLevelIndex != "" && classThirdLevelContent == NIL_OPT_TEXT)  // xxxxxx -> xxxxxx -> NIL
-        {
-            if (classSecondLevelIndex.substring(0, 1) == classFirstLevelIndex) {
-                return true;
-            }
-        }
-        else if (classFirstLevelIndex != "" && classSecondLevelIndex != "" && classThirdLevelIndex != "") { // xxxxxx -> xxxxxx -> xxxxxx
-
-            if (classThirdLevelIndex.substring(0, 2) == classSecondLevelIndex &&
-                classSecondLevelIndex.substring(0, 1) == classFirstLevelIndex) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    function checkAnswersValidity(answer) {
-        return answer[0] == EMPTY_OPT_TEXT &&
-            answer[1] == EMPTY_OPT_TEXT &&
-            answer[2] == EMPTY_OPT_TEXT;
     }
 
     function getAnswers() {
-        var level1 = $("#tax_classes1").find(":selected").val();
-        var level2 = $("#tax_classes2").find(":selected").val();
-        var level3 = $("#tax_classes3").find(":selected").val();
-        return [level1, level2, level3];
+        answers = {}
+        for(var i = 0; i < FIELDS_NAMES.length; i++) {
+            if($( '#' + FIELDS_NAMES[i] ).is( ':checked' )) {
+                answers[FIELDS_NAMES[i]] = 1;
+            }
+            else {
+                answers[FIELDS_NAMES[i]] = 0;
+            }
+        }
+        return answers;
     }
 
-    // format answer of task. The parameters no_classification and other
-    // are of type boolean
-    function getFormatedAnswer(task, no_classification = false, i_dont_know = false, i_dont_know_just = "") {
+    function getFormatedAnswer(task) {
         var answers = getAnswers();
         return {
             'bug_id': task.info.bug_id,
-            'project_name': task.info.project,
-            'tax_name': task.info.taxonomy.name,
-            'classes': {
-                'lvl_1': answers[0],
-                'lvl_2': answers[1],
-                'lvl_3': answers[2]
-            },
-            'no_classification': no_classification,
-            'i_dont_know': i_dont_know,
-            'i_dont_know_just': i_dont_know_just
+            'links': answers
         }
     }
+
+    function closeAlerts() {
+            $("#loading").hide();
+            $("#success").hide();
+        }
 
     pybossa.taskLoaded(function (task, deferred) {
         if (!$.isEmptyObject(task)) {
             populateBugInfo(task);
-            //cleanPreviousTaxInfo();
+            cleanPreviousAnswer();
             populateFeaturesInfos(task);
 
             deferred.resolve(task);
@@ -746,19 +685,13 @@
             $('#task-id').html(task.id);
 
             $('#submitAnswer').off('click').on('click', function (evt) {
-                if (checkAnswers(task, getAnswers())) {
-                    console.log("answer ok");
-                    pybossa.saveTask(task.id, getFormatedAnswer(task)).done(function () {
-                        deferred.resolve();
-                    });
-                    closeAlerts();
+                pybossa.saveTask(task.id, getFormatedAnswer(task)).done(function () {
+                    deferred.resolve();
+                });
+                closeAlerts();
 
-                    $("#success").show();
-                    $("#success").fadeOut(5000);
-                }
-                else {
-                    $("#error").show();
-                }
+                $("#success").show();
+                $("#success").fadeOut(5000);
             });
 
             $("#loading").hide();
