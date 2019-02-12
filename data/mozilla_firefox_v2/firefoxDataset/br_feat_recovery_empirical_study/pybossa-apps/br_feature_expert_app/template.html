@@ -1,665 +1,632 @@
 <style>
-        #taxonomy_name,
-        #bug_id,
-        #project,
-        #product_component,
-        #assigned_to,
-        #created_at {
-            height: 30px;
-            width: 100%;
-            text-indent: 10px;
-            font-size: 18px;
-        }
-    
-        #class_description,
-        #description {
-            height: 100px;
-            width: 100%;
-            text-indent: 10px;
-            resize: none;
-            font-size: 18px;
-        }
-    
-        #bug_link,
-        #tutorial_link,
+    #taxonomy_name,
+    #bug_id,
+    #project,
+    #product_component,
+    #assigned_to,
+    #created_at {
+        height: 30px;
+        width: 100%;
+        text-indent: 10px;
+        font-size: 18px;
+    }
+
+    #class_description,
+    #description {
+        height: 100px;
+        width: 100%;
+        text-indent: 10px;
+        resize: none;
+        font-size: 18px;
+    }
+
+    #bug_link,
+    #tutorial_link,
         {
-            font-size: 22px;
-            color: brown;
-        }
-    
-        .tax_class {
-            height: 30px;
-            width: 100%;
-            text-indent: 10px;
-            font-size: 18px;
-        }
-    
-        option, .modal-body {
-            font-size: 18px;
-        }
-    
-        #error, #success, #loading,
-        #error_no_classification , #taskcompleted,
-        #finish, #error_i_dont_know {
-            position: absolute;
-            width: 1100px;
-            font-size: 20px;
-            margin: auto;
-            text-align: center;
-        }
-    
-        #modalReason {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-top: -50px;
-            margin-left: -50px;
-        }
-    
-    </style>
-    
-    <div class="row">
-        <!-- Success and Error Messages for the user -->
-        <div class="col-lg" style="height:10px;">
-            <div id="success" class="alert alert-success" style="display:none; background-color: rgb(3, 212, 31)">
-                <a class="close" onclick="closeAlerts()">×</a>
-                <strong id="i18n_welldone">Well done!</strong>
-                <span id="i18n_welldone_text">Your answer has been saved</span>
-            </div>
-            <div id="loading" class="alert alert-info" style="display:none;">
-                <a class="close" onclick="closeAlerts()">×</a>
-                <span id="i18n_loading_next_task">Loading next task...</span>
-            </div>
-            <div id="taskcompleted" class="alert alert-info" style="display:none;">
-                <strong id="i18n_task_completed">The task has been completed!</strong>
-                <span id="i18n_thanks">Thanks a lot!</span>
-            </div>
-            <div id="finish" class="alert alert-success" style="display:none;">
-                <strong id="i18n_congratulations">Congratulations!</strong>
-                <span id="i18n_congratulations_text">You have participated in all available tasks!</span>
-                <br/>
-                <div class="alert-actions">
-                    <a class="btn btn-info btn-answer" style="color: white" href="/">Go back</a>
-                    <a class="btn btn-warning btn-answer" style="color: white" href="/project/category/thinking/">or, Check other projects</a>
-                </div>
-            </div>
-            <div id="error" class="alert alert-danger" style="display:none;">
-                <a class="close" onclick="closeAlerts()">×</a>
-                <strong>Error!</strong> The class hierarchy must be respected, and you must choose at least one of the
-                classes. Look at the <a id="tutorial_link" href="\project\b_bug_taxonomy\tutorial" style="color:yellow">Tutorial</a> if you need help or contact the administrators.
-            </div>
-            <div id="error_no_classification" class="alert alert-danger" style="display:none;">
-                <a class="close" onclick="closeAlerts()">×</a>
-                <strong>Error!</strong> You marked one of the classes of the taxonomy. Are you sure you don`t know? <strong>Please
-                    make sure all the classes are unmarked to answer the option 'No Classification'</strong>.
-            </div>
-            <div id="error_i_dont_know" class="alert alert-danger" style="display:none;">
-                <a class="close" onclick="closeAlerts()">×</a>
-                <strong>Error!</strong> Please choose one of the options shown when clicking the button 'I Don't Know' and make
-                        sure that all classes are unmarked ("-----").</strong>.
+        font-size: 22px;
+        color: brown;
+    }
+
+    .tax_class {
+        height: 30px;
+        width: 100%;
+        text-indent: 10px;
+        font-size: 18px;
+    }
+
+    option,
+    .modal-body {
+        font-size: 18px;
+    }
+
+    #error,
+    #success,
+    #loading,
+    #error_no_classification,
+    #taskcompleted,
+    #finish,
+    #error_i_dont_know {
+        position: absolute;
+        width: 1100px;
+        font-size: 20px;
+        margin: auto;
+        text-align: center;
+    }
+
+    #modalReason {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+    }
+
+
+    /** -----------------------------------------------*/
+
+    #doubt_icon {
+        color:#fff;
+        background-color:#feb22a;
+        width:12px;
+        height:12px;
+        display:inline-block;
+        border-radius:100%;
+        font-size:10px;
+        text-align:center;
+        text-decoration:none;
+        -webkit-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+        -moz-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+        box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    }
+</style>
+
+<div class="row">
+    <!-- Success and Error Messages for the user -->
+    <div class="col-lg" style="height:10px;">
+        <div id="success" class="alert alert-success" style="display:none; background-color: rgb(3, 212, 31)">
+            <a class="close" onclick="closeAlerts()">×</a>
+            <strong id="i18n_welldone">Well done!</strong>
+            <span id="i18n_welldone_text">Your answer has been saved</span>
+        </div>
+        <div id="loading" class="alert alert-info" style="display:none;">
+            <a class="close" onclick="closeAlerts()">×</a>
+            <span id="i18n_loading_next_task">Loading next task...</span>
+        </div>
+        <div id="taskcompleted" class="alert alert-info" style="display:none;">
+            <strong id="i18n_task_completed">The task has been completed!</strong>
+            <span id="i18n_thanks">Thanks a lot!</span>
+        </div>
+        <div id="finish" class="alert alert-success" style="display:none;">
+            <strong id="i18n_congratulations">Congratulations!</strong>
+            <span id="i18n_congratulations_text">You have participated in all available tasks!</span>
+            <br />
+            <div class="alert-actions">
+                <a class="btn btn-info btn-answer" style="color: white" href="/">Go back</a>
+                <a class="btn btn-warning btn-answer" style="color: white" href="/project/category/thinking/">or, Check
+                    other projects</a>
             </div>
         </div>
-        <!-- End Success and Error Messages for the user -->
+        <div id="error" class="alert alert-danger" style="display:none;">
+            <a class="close" onclick="closeAlerts()">×</a>
+            <strong>Error!</strong> The class hierarchy must be respected, and you must choose at least one of the
+            classes. Look at the <a id="tutorial_link" href="\project\b_bug_taxonomy\tutorial"
+                style="color:yellow">Tutorial</a>
+            if you need help or contact the administrators.
+        </div>
+        <div id="error_no_classification" class="alert alert-danger" style="display:none;">
+            <a class="close" onclick="closeAlerts()">×</a>
+            <strong>Error!</strong> You marked one of the classes of the taxonomy. Are you sure you don`t know?
+            <strong>Please
+                make sure all the classes are unmarked to answer the option 'No Classification'</strong>.
+        </div>
+        <div id="error_i_dont_know" class="alert alert-danger" style="display:none;">
+            <a class="close" onclick="closeAlerts()">×</a>
+            <strong>Error!</strong> Please choose one of the options shown when clicking the button 'I Don't Know' and
+            make
+            sure that all classes are unmarked ("-----").</strong>.
+        </div>
     </div>
-    <!-- End of Row -->
-    
-    <!--
+    <!-- End Success and Error Messages for the user -->
+</div>
+<!-- End of Row -->
+
+<!--
         Task DOM for loading the Flickr Images
         It uses the class="skeleton" to identify the elements that belong to the
         task.
     -->
-    <div class="row skeleton">
-        <!-- Start Skeleton Row-->
-        <h1 id="question">
-            <span id="i18n_question">What class in this taxonomy best describes the UI-related bug?</span>
-        </h1>
-    
-        <!-- Bug description -->
-        <div class="col-md-6">
-            <div class="bug-description">
-                <h2 align="center">UI-related bug</h2>
-                <br>
-                <div class="form-row">
-                    <label>
-                        <span>Bug Id</span>
-                    </label>
-                    <input type="text" id="bug_id" readonly>
-                </div>
-                <br>
-                <div class="form-row">
-                    <label>
-                        <span>Project</span>
-                    </label>
-                    <input type="text" id="project" readonly>
-                </div>
-                <br>
-                <div class="form-row">
-                    <label>
-                        <span>Product/Component</span>
-                    </label>
-                    <input type="text" id="product_component" readonly>
-                </div>
-                <br>
-                <div class="form-row">
-                    <label>
-                        <span>Bug Description</span>
-                    </label>
-                    <textarea id="description" rows="5" cols="50" readonly></textarea>
-                </div>
-                <br>
-                <div class="form-row">
-                    <label>
-                        <span>More Info About Bug:</span>
-                    </label>
-                    <a href="#" id="bug_link" style="font-size: 22px; color: brown;"> Link to Bugzilla</a>
-                </div>
-                <div class="form-row">
-                    <label>
-                        <span>Tutorial:</span>
-                    </label>
-                    <a href="/project/b_bug_taxonomy/tutorial" id="tutorial_link" style="font-size: 22px; color: brown;"> Take a Look in the Tutorial</a>
-                </div>
+<div class="row skeleton">
+    <!-- Start Skeleton Row-->
+    <h1 id="question">
+        <span id="i18n_question">What is Firefox feature associated with this Bug Report?</span>
+    </h1>
+
+    <!-- Bug description -->
+    <div class="col-md-6">
+        <div class="bug-description">
+            <h2 align="center">Bug Report</h2>
+            <br>
+            <div class="form-row">
+                <label>
+                    <span>Bug Id</span>
+                </label>
+                <input type="text" id="bug_id" readonly>
             </div>
-    
             <br>
             <br>
-    
-            <!-- Feedback items for the user -->
-            <p>
-                <span id="i18n_working_task">You are working now on task:</span>
-                <span id="task-id" class="label label-warning">#</span>
-            </p>
-            <p>
-                <span id="i18n_tasks_completed">You have completed:</span>
-                <span id="done" class="label label-info"></span>
-                <span id="i18n_tasks_from">tasks from</span>
-    
-                <!-- Progress bar for the user -->
-                <span id="total" class="label label-info"></span>
-            </p>
-            <div class="progress progress-striped">
-                <div id="progress" rel="tooltip" title="#" class="progress-bar" style="width: 0%;" role="progressbar"></div>
+            <div class="form-row">
+                <label>
+                    <span>Bug Summary</span>
+                </label>
+                <textarea id="bug_summary" rows="2" cols="60" readonly></textarea>
+            </div>
+            <br>
+            <div class="form-row">
+                <label>
+                    <span>Bug Reporter Comment</span>
+                </label>
+                <textarea id="bug_first_comment" rows="7" cols="60" readonly></textarea>
+            </div>
+            <br>
+            <div class="form-row">
+                <label>
+                    <span>More Info About Bug:</span>
+                </label>
+                <a href="#" id="bug_link" style="font-size: 22px; color: brown;"> Link to Bugzilla</a>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Tutorial:</span>
+                </label>
+                <a href="/project/br_feature_expert_app/tutorial" id="tutorial_link"
+                    style="font-size: 22px; color: brown;">
+                    Take a Look in the Tutorial</a>
             </div>
         </div>
-    
-        <!-- taxonomy description -->
-        <div class="col-md-6 ">
-            <!-- Start of Question and Submission DIV (column) -->
-            <h2 align="center">Taxonomy Class Description</h2>
-            <br>
-            <div class="col" align="left">
-                <div id="taxonomy-description">
-                    <div class="form-row">
-                        <label>
-                            <span>Taxonomy Name</span>
-                        </label>
-                        <input type="text" id="taxonomy_name" readonly>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <label>
-                            <span>Class Description</span>
-                        </label>
-                        <textarea id="class_description" rows="5" cols="50" readonly></textarea>
-                    </div>
-                </div>
-                <br>
-            </div>
-    
-            <div class="col" align="left">
-                <div class="form-row">
-                    <p>
-                        <span><strong>First Level Class</strong></span>
-                    </p>
-                    <select id="tax_classes1" class="tax_class" size="1"></select>
-                    <br>
-                    <br>
-                    <p>
-                        <span><strong>Second Level Class</strong></span>
-                    </p>
-                    <select id="tax_classes2" class="tax_class" size="1" disabled></select>
-                    <br>
-                    <br>
-                    <p>
-                        <span><strong>Third Level Class</strong></span>
-                    </p>
-                    <select id="tax_classes3" class="tax_class" size="1" disabled></select>
-                    <br>
-                    <br>
-                </div>
-            </div>
-    
-            <br>
-    
-            <div id="answer">
-                <!-- Start DIV for the submission buttons -->
-                <button id="submitAnswer" class="btn btn-info btn-answer" value='Submit'>
-                    <i class="fa fa-arrow-right"></i>
-                    <span>Submit Classification</span>
-                </button>
-                <button id="noClassification" class="btn btn-danger btn-answer" value='NoClassification'>
-                    <i class="fa fa-exclamation"></i>
-                    <span>No Classification</span>
-                </button>
-                <button id="iDontKnow" class="btn btn-warning btn-answer" value='NotKnown'>
-                    <i class="fa fa-question-circle"></i>
-                    <span>I don't know</span>
-                </button>
-            </div>
-            <!-- End of DIV for the submission buttons -->    
+
+        <br>
+        <br>
+
+        <!-- Feedback items for the user -->
+        <p>
+            <span id="i18n_working_task">You are working now on task:</span>
+            <span id="task-id" class="label label-warning">#</span>
+        </p>
+        <p>
+            <span id="i18n_tasks_completed">You have completed:</span>
+            <span id="done" class="label label-info"></span>
+            <span id="i18n_tasks_from">tasks from</span>
+
+            <!-- Progress bar for the user -->
+            <span id="total" class="label label-info"></span>
+        </p>
+        <div class="progress progress-striped">
+            <div id="progress" rel="tooltip" title="#" class="progress-bar" style="width: 0%;" role="progressbar"></div>
         </div>
     </div>
-    
-    <div id="modalReason" class="modal" tabindex="-1" role="dialog" style="display: none;">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Why Don`t You Know?</h3>
-                </div>
-                <div class="modal-body">
-                    <div id="reasonOptions" class="content">
-                        <input type="radio" name="radAnswer" value="I don`t understand the bug description.">  I don`t understand the bug description.<br>
-                        <input type="radio" name="radAnswer" value="The bug description isn`t available.">  The bug description isn`t available.<br>
-                        <input id="optionOther" type="radio" name="radAnswer" value="Other">  Other<br><br>
-                        <textarea id="justification" style="display: none; width: 90%;"></textarea><br>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="reasonOk" class="btn btn-primary">OK</button>
-                    <button type="button" id="reasonCancel" class="btn btn-secondary" data-dismiss="modal" onclick="closeModalReason()">Close</button>
-                </div>
+
+    <!-- taxonomy description -->
+    <div class="col-md-6 ">
+        <!-- Start of Question and Submission DIV (column) -->
+        <h2 align="center">Firefox Feature</h2>
+        <br>
+
+        <div class="col-md-8" align="left">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="new_awesome_bar">
+                    <span>New Awesome Bar</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('new_awesome_bar')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="windows_child_mode">
+                    <span>Windows Child Mode</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('windows_child_mode')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="apz_async_scrolling">
+                    <span>APZ - Async Scrolling</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('apz_async_scrolling')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="browser_customization">
+                    <span>Browser Customization</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('browser_customization')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="pdf_viewer">
+                    <span>PDF Viewer</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('pdf_viewer')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="context_menu">
+                    <span>Context Menu</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('context_menu')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="w10_comp">
+                    <span>Windows 10 Compatibility</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('w10_comp')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="tts_in_desktop">
+                    <span>Text to Speech on Desktop</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('tts_in_desktop')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="tts_in_rm">
+                    <span>Text to Speech in Reader Mode</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('tts_in_rm')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="webgl_comp">
+                    <span>WebGL Compatibility</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('webgl_comp')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="video_and_canvas_render">
+                    <span>Video and Canvas Renderization</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('video_and_canvas_render')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="pointer_lock_api">
+                    <span>Pointer Lock API</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('pointer_lock_api')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="webm_eme">
+                    <span>WebM EME support for Widevine</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('webm_eme')">?</a>
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label><input type="checkbox" id="zoom_indicator">
+                    <span>Zoom Indicator</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('zoom_indicator')">?</a>
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="downloads_dropmaker">
+                    <span>Downloads Dropmaker</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('downloads_dropmaker')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="webgl2">
+                    <span>WebGL2</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('webgl2')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="flac_support">
+                    <span>FLAC support</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('flac_support')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="indicator_device_perm">
+                    <span>Indicator for device permissions</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('indicator_device_perm')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="flash_support">
+                    <span>Flash support</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('flash_support')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="notificationbox">
+                    <span>Notificationbox and Notification Changes</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('notificationbox')">?</a>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="update_directory">
+                    <span>Update Directory</span>
+                    <a id="doubt_icon" onclick="show_feature_desc('update_directory')">?</a>
+                </label>
             </div>
         </div>
     </div>
-    
-    <script>
-    
-        var MAX_NUM_OF_CLASS_LEVELS = 3;
-        var NUM_MODAL_REASON_OPTIONS = 3;
-        var EMPTY_OPT_TEXT = "-----";
-        var NIL_OPT_TEXT = "NIL";
-        
-    
-        $("#tax_classes1").change(function () {
-            var selected = $("#tax_classes1").find(":selected");
-            $('#class_description').val(function (_) {
-                return selected.data("description");
-            });
-    
-            $("#tax_classes2").prop("disabled", false);
-            $("#tax_classes2 option").each(function () {
-                var selectedFirstLevelClassIndex = $("#tax_classes1 option:selected").val().split("-")[0].substring(0, 1);
-    
-                var opt = $(this);
-                var optFirstLevelIndex = opt.val().split("-")[0].substring(0, 1);
-    
-                if (selectedFirstLevelClassIndex === optFirstLevelIndex) {
-                    $(this).removeAttr("hidden");
-                }
-                else {
-                    if ($(this).val() != EMPTY_OPT_TEXT) {
-                        $(this).attr("hidden", "hidden");
-                    }
-                }
-            });
-    
-        }).trigger('change');
-    
-        $("#tax_classes2").change(function () {
-            var selected = $("#tax_classes2").find(":selected");
-            $('#class_description').val(function (_) {
-                return selected.data("description");
-            });
-    
-            $("#tax_classes3").prop("disabled", false);
-            $("#tax_classes3 option").each(function () {
-                var selectedSecondLevelClassIndex = $("#tax_classes2 option:selected").val().split("-")[0].substring(0, 2);
-    
-                var opt = $(this);
-                var optSecondLevelIndex = opt.val().split("-")[0].substring(0, 2);
-    
-                if (selectedSecondLevelClassIndex === optSecondLevelIndex) {
-                    $(this).removeAttr("hidden");
-                }
-                else {
-                    if ($(this).val() != EMPTY_OPT_TEXT) {
-                        $(this).attr("hidden", "hidden");
-                    }
-                }
-            });
-    
-        }).trigger('change');
-    
-        $("#tax_classes3").change(function () {
-            var selected = $("#tax_classes3").find(":selected");
-            $('#class_description').val(function (_) {
-                return selected.data("description");
-            });
-    
-            $("#tax_classes4").prop("disabled", false);
-            $("#tax_classes4 option").each(function () {
-                var selectedThirdLevelClassIndex = $("#tax_classes3 option:selected").val().split("-")[0].substring(0, 3);
-    
-                var opt = $(this);
-                var optThirdLevelIndex = opt.val().split("-")[0].substring(0, 3);
-    
-                if (selectedThirdLevelClassIndex === optThirdLevelIndex) {
-                    $(this).removeAttr("hidden");
-                }
-                else {
-                    if ($(this).val() != EMPTY_OPT_TEXT) {
-                        $(this).attr("hidden", "hidden");
-                    }
-                }
-            });
-    
-        }).trigger('change');
-    
-        $("#reasonOptions").change(function () {
-            if($("#optionOther").prop("checked"))
-            {
-                $("#justification").show();
-            }
-            else {
-                $("#justification").hide();
-            }
+
+    <br>
+    <br>
+
+    <div id="answer" align='center'>
+        <!-- Start DIV for the submission buttons -->
+        <button id="submitAnswer" class="btn btn-info btn-answer" value='Submit'>
+            <i class="fa fa-arrow-right"></i>
+            <span>Submit</span>
+        </button>
+    </div>
+    <!-- End of DIV for the submission buttons -->
+</div>
+</div>
+
+<div id="features_desc" class="modal" tabindex="-1" role="dialog" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Feature Details</h3>
+                <h5>Feature Name: <label id="feat_name"></label></h5>
+            </div>
+            <div class="modal-body">
+                <textarea id="feat_desc" style="display: none; width: 90%;"></textarea><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="reasonCancel" class="btn btn-secondary" data-dismiss="modal"
+                    onclick="closeModalReason()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    FIELDS_NAMES = ['update_directory', 'notificationbox',
+                    'flash_support', 'indicator_device_perm', 
+                    'flac_support', 'webgl2', 'downloads_dropmaker',
+                    'zoom_indicator', 'webm_eme', 'pointer_lock_api',
+                    'video_and_canvas_render', 'webgl_comp',
+                    'tts_in_rm', 'tts_in_desktop', 'w10_comp', 
+                    'context_menu', 'pdf_viewer', 'browser_customization',
+                    'apz_async_scrolling', 'windows_child_mode',
+                    'new_awesome_bar']
+
+    function show_feature_desc(id_feature) {
+        $("#features_desc").show();
+    }
+
+    function closeModalReason() {
+        $("#feat_desc").hide();
+        $("#features_desc").hide();
+    }
+
+    // remove pybossa notification (allow anonymous 
+    // user without disturbing him
+    $(document).ready(function () {
+        $("#pybossa-notification").remove();
+    })
+
+    // bug_link click action --> opens bugzilla in new tab
+    $(document).on('click', '#bug_link', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+
+    // open tutorial in new tab
+    $(document).on('click', '#tutorial_link', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+
+
+    function loadUserProgress() {
+        pybossa.userProgress('br_feature_expert_app').done(function (data) {
+            var pct = Math.round((data.done * 100) / data.total);
+            $("#progress").css("width", pct.toString() + "%");
+            $("#progress").attr("title", pct.toString() + "% completed!");
+            $("#progress").tooltip({ 'placement': 'left' });
+            $("#total").text(data.total);
+            $("#done").text(data.done);
         });
-    
-        // remove pybossa notification (allow anonymous 
-        // user without disturbing him
-        $(document).ready(function(){
-            $("#pybossa-notification").remove();
-        })
-    
-        // bug_link click action --> opens bugzilla in new tab
-        $(document).on('click', '#bug_link', function (e) {
-            e.preventDefault();
-            var url = $(this).attr('href');
-            window.open(url, '_blank');
-        });
-    
-        // open tutorial in new tab
-        $(document).on('click', '#tutorial_link', function (e) {
-            e.preventDefault();
-            var url = $(this).attr('href');
-            window.open(url, '_blank');
-        });
-       
-        $("#iDontKnow").on("click", function() {
-            console.log("answer I dont know");
-            if(checkAnswersValidity(getAnswers()))
-            {
-                $("#modalReason").show();
-            }
-            else {
-                $("#error_i_dont_know").show();
-            }
-        });
-    
-        function closeModalReason() {
-            $(`input[name="radAnswer"]`).prop("checked", false);
-            $("#justification").val("");
-            $("#justification").hide();
-            $("#modalReason").hide();
-        }
-    
-        function closeAlerts() {
-            $("#error").hide();
-            $("#error_no_classification").hide();
-            $("#error_i_dont_know").hide();
-            $("#loading").hide();
-            $("#success").hide();
-        }
-    
-        function loadUserProgress() {
-            pybossa.userProgress('b_bug_taxonomy').done(function (data) {
-                var pct = Math.round((data.done * 100) / data.total);
-                $("#progress").css("width", pct.toString() + "%");
-                $("#progress").attr("title", pct.toString() + "% completed!");
-                $("#progress").tooltip({ 'placement': 'left' });
-                $("#total").text(data.total);
-                $("#done").text(data.done);
+    }
+
+    function cleanPreviousTaxInfo() {
+        for (i = 1; i <= MAX_NUM_OF_CLASS_LEVELS; i++) {
+            $(`#tax_classes${i} option`).each(function () {
+                $(this).remove();
             });
         }
-    
-        function cleanPreviousTaxInfo() {
-            for (i = 1; i <= MAX_NUM_OF_CLASS_LEVELS; i++) {
-                $(`#tax_classes${i} option`).each(function () {
-                    $(this).remove();
-                });
-            }
-        }
-    
-        function populateTaxInfo(task) {
-            $('#taxonomy_name').attr("value", task.info.taxonomy.name);
-            $("#class_description").val("");
-    
-            var level1ClassesArray = task.info.taxonomy.classes;
-            for (i = 0; i < level1ClassesArray.length; i++) {
-                var optIndexLevel1 = (i + 1).toString();
-    
-                var select = document.getElementById("tax_classes1");
-                var option = document.createElement("option");
-                option.text = optIndexLevel1 + "-" + level1ClassesArray[i].name;
-                option.setAttribute("data-description", task.info.taxonomy.classes[i].description);
-                select.add(option);
-    
-                var level2ClassesArray = level1ClassesArray[i].classes;
-                if (typeof level2ClassesArray != "undefined") {
-                    for (j = 0; j < level2ClassesArray.length; j++) {
-                        var optIndexLevel2 = (j + 1).toString();
-    
-                        var select2 = document.getElementById("tax_classes2");
-                        var option2 = document.createElement("option");
-                        option2.text = optIndexLevel1 + optIndexLevel2 + "-" + level2ClassesArray[j].name;
-                        option2.setAttribute("data-description", task.info.taxonomy.classes[i].classes[j].description);
-                        option2.hidden = true;
-                        select2.add(option2);
-    
-                        var level3ClassesArray = level2ClassesArray[j].classes;
-                        if (typeof level3ClassesArray != "undefined") {
-                            for (k = 0; k < level3ClassesArray.length; k++) {
-                                var optIndexLevel3 = (k + 1).toString();
-    
-                                var select3 = document.getElementById("tax_classes3");
-                                var option3 = document.createElement("option");
-                                option3.setAttribute("data-description", task.info.taxonomy.classes[i].classes[j].classes[k].description);
-                                option3.hidden = true;
-                                option3.text = optIndexLevel1 + optIndexLevel2 + optIndexLevel3 + "-" + level3ClassesArray[k].name;
-                                select3.add(option3);
-                            }
+    }
+
+    function populateFeaturesInfo(task) {
+        $('#taxonomy_name').attr("value", task.info.taxonomy.name);
+        $("#class_description").val("");
+
+        var level1ClassesArray = task.info.taxonomy.classes;
+        for (i = 0; i < level1ClassesArray.length; i++) {
+            var optIndexLevel1 = (i + 1).toString();
+
+            var select = document.getElementById("tax_classes1");
+            var option = document.createElement("option");
+            option.text = optIndexLevel1 + "-" + level1ClassesArray[i].name;
+            option.setAttribute("data-description", task.info.taxonomy.classes[i].description);
+            select.add(option);
+
+            var level2ClassesArray = level1ClassesArray[i].classes;
+            if (typeof level2ClassesArray != "undefined") {
+                for (j = 0; j < level2ClassesArray.length; j++) {
+                    var optIndexLevel2 = (j + 1).toString();
+
+                    var select2 = document.getElementById("tax_classes2");
+                    var option2 = document.createElement("option");
+                    option2.text = optIndexLevel1 + optIndexLevel2 + "-" + level2ClassesArray[j].name;
+                    option2.setAttribute("data-description", task.info.taxonomy.classes[i].classes[j].description);
+                    option2.hidden = true;
+                    select2.add(option2);
+
+                    var level3ClassesArray = level2ClassesArray[j].classes;
+                    if (typeof level3ClassesArray != "undefined") {
+                        for (k = 0; k < level3ClassesArray.length; k++) {
+                            var optIndexLevel3 = (k + 1).toString();
+
+                            var select3 = document.getElementById("tax_classes3");
+                            var option3 = document.createElement("option");
+                            option3.setAttribute("data-description", task.info.taxonomy.classes[i].classes[j].classes[k].description);
+                            option3.hidden = true;
+                            option3.text = optIndexLevel1 + optIndexLevel2 + optIndexLevel3 + "-" + level3ClassesArray[k].name;
+                            select3.add(option3);
                         }
                     }
                 }
             }
-    
-            addEmptyOptions();
         }
-    
-        function addEmptyOptions() {
-            for (var i = 1; i <= MAX_NUM_OF_CLASS_LEVELS; i++) {
-                var sel = document.getElementById("tax_classes" + i);
-                var emptyOption = document.createElement("option");
-                emptyOption.text = EMPTY_OPT_TEXT;
-                emptyOption.selected = true;
-                sel.add(emptyOption);
-            }
-        }
-    
-        function populateBugInfo(task) {
-            $('#bug_id').attr("value", task.info.bug_id);
-            $("#project").attr("value", task.info.project);
-            $('#product_component').attr("value", task.info.product_component);
-            $("#bug_link").attr("href", task.info.bug_link);
-            $('#description').val(function (_) {
-                return task.info.description;
-            });
-        }
-    
-        function checkAnswers(task, answers) {
-            if (answers[0] == EMPTY_OPT_TEXT || answers[1] == EMPTY_OPT_TEXT || answers[2] == EMPTY_OPT_TEXT) {
-                return false;
-            }
-            
-            var classFirstLevelIndex = answers[0].split("-")[0];
-            var classSecondLevelIndex = answers[1].split("-")[0];
-            var classThirdLevelIndex = answers[2].split("-")[0];
-    
-            var classSecondLevelContent = answers[1].split("-")[1];
-            var classThirdLevelContent = answers[2].split("-")[1];
-    
-            console.log("=====");
-            console.log("classFirstLevelIndex: " + classFirstLevelIndex);
-            console.log("classSecondLevelIndex: " + classSecondLevelIndex);
-            console.log("classThirdLevelIndex: " + classThirdLevelIndex);
-            console.log("=====");
-    
-            if (classFirstLevelIndex != "" && classSecondLevelContent == NIL_OPT_TEXT & classThirdLevelContent == NIL_OPT_TEXT)  // xxxxx -> NIL -> NIL
-            {
-                return true;
-            }
-            else if (classFirstLevelIndex != "" && classSecondLevelIndex != "" && classThirdLevelContent == NIL_OPT_TEXT)  // xxxxxx -> xxxxxx -> NIL
-            {
-                if (classSecondLevelIndex.substring(0, 1) == classFirstLevelIndex) {
-                    return true;
-                }
-            }
-            else if (classFirstLevelIndex != "" && classSecondLevelIndex != "" && classThirdLevelIndex != "") { // xxxxxx -> xxxxxx -> xxxxxx
-    
-                if (classThirdLevelIndex.substring(0, 2) == classSecondLevelIndex &&
-                    classSecondLevelIndex.substring(0, 1) == classFirstLevelIndex) {
-                    return true;
-                }
-            }
-    
+
+        addEmptyOptions();
+    }
+
+    function populateBugInfo(task) {
+        $('#bug_id').attr("value", task.info.bug_id);
+        $("#project").attr("value", task.info.project);
+        $('#product_component').attr("value", task.info.product_component);
+        $("#bug_link").attr("href", task.info.bug_link);
+        $('#description').val(function (_) {
+            return task.info.description;
+        });
+    }
+
+    function checkAnswers(task, answers) {
+        if (answers[0] == EMPTY_OPT_TEXT || answers[1] == EMPTY_OPT_TEXT || answers[2] == EMPTY_OPT_TEXT) {
             return false;
         }
-    
-        function checkAnswersValidity(answer) {
-            return answer[0] == EMPTY_OPT_TEXT &&
-                   answer[1] == EMPTY_OPT_TEXT &&
-                   answer[2] == EMPTY_OPT_TEXT;
-        }
-    
-        function getAnswers()
+
+        var classFirstLevelIndex = answers[0].split("-")[0];
+        var classSecondLevelIndex = answers[1].split("-")[0];
+        var classThirdLevelIndex = answers[2].split("-")[0];
+
+        var classSecondLevelContent = answers[1].split("-")[1];
+        var classThirdLevelContent = answers[2].split("-")[1];
+
+        console.log("=====");
+        console.log("classFirstLevelIndex: " + classFirstLevelIndex);
+        console.log("classSecondLevelIndex: " + classSecondLevelIndex);
+        console.log("classThirdLevelIndex: " + classThirdLevelIndex);
+        console.log("=====");
+
+        if (classFirstLevelIndex != "" && classSecondLevelContent == NIL_OPT_TEXT & classThirdLevelContent == NIL_OPT_TEXT)  // xxxxx -> NIL -> NIL
         {
-            var level1 = $("#tax_classes1").find(":selected").val();
-            var level2 = $("#tax_classes2").find(":selected").val();
-            var level3 = $("#tax_classes3").find(":selected").val();
-            return [level1, level2, level3];
+            return true;
         }
-    
-        // format answer of task. The parameters no_classification and other
-        // are of type boolean
-        function getFormatedAnswer(task, no_classification=false, i_dont_know=false, i_dont_know_just="")
+        else if (classFirstLevelIndex != "" && classSecondLevelIndex != "" && classThirdLevelContent == NIL_OPT_TEXT)  // xxxxxx -> xxxxxx -> NIL
         {
-            var answers = getAnswers();
-            return {
-                'bug_id' : task.info.bug_id,
-                'project_name' : task.info.project,
-                'tax_name' : task.info.taxonomy.name,
-                'classes' : {
-                    'lvl_1' : answers[0],
-                    'lvl_2' : answers[1],
-                    'lvl_3' : answers[2]
-                },
-                'no_classification' : no_classification,
-                'i_dont_know' : i_dont_know,
-                'i_dont_know_just' : i_dont_know_just
+            if (classSecondLevelIndex.substring(0, 1) == classFirstLevelIndex) {
+                return true;
             }
         }
-    
-        pybossa.taskLoaded(function (task, deferred) {
-            if (!$.isEmptyObject(task)) {
-                populateBugInfo(task);
-                cleanPreviousTaxInfo();
-                populateTaxInfo(task);
-    
-                deferred.resolve(task);
+        else if (classFirstLevelIndex != "" && classSecondLevelIndex != "" && classThirdLevelIndex != "") { // xxxxxx -> xxxxxx -> xxxxxx
+
+            if (classThirdLevelIndex.substring(0, 2) == classSecondLevelIndex &&
+                classSecondLevelIndex.substring(0, 1) == classFirstLevelIndex) {
+                return true;
             }
-            else {
-                deferred.resolve(task);
-            }
-        });
-    
-        pybossa.presentTask(function (task, deferred) {
-            if (!$.isEmptyObject(task)) {
-                loadUserProgress();
-    
-                $('#task-id').html(task.id);
-    
-                $('#submitAnswer').off('click').on('click', function (evt) {
-                    if (checkAnswers(task, getAnswers())) {
-                        console.log("answer ok");
-                        pybossa.saveTask(task.id, getFormatedAnswer(task)).done(function () {
-                            deferred.resolve();
-                        });
-                        closeAlerts();
-    
-                        $("#success").show();
-                        $("#success").fadeOut(5000);
-                    }
-                    else {
-                        $("#error").show();
-                    }
-                });
-    
-                $('#noClassification').off('click').on('click', function (evt) {
-                    console.log("answer no classification");
-    
-                    if(checkAnswersValidity(getAnswers()))
-                    {
-                        pybossa.saveTask(task.id, getFormatedAnswer(task, true)).done(function () {
-                            deferred.resolve();
-                        });
-                        closeAlerts();
-    
-                        $("#success").show();
-                        $("#success").fadeOut(5000);
-                    }
-                    else {
-                        $("#error_no_classification").show();
-                    }
-                });
-    
-                $('#reasonOk').off('click').on('click', function (evt) {
-                    var opt = $("input[name=radAnswer]:checked").val();
-                    if(opt == "" || opt == undefined) {
-                        $("#error_i_dont_know").show();
-                    }
-                    else {
-                        if(opt == "Other") {
-                            console.log({"IDontKnow": opt });
-                            var just = "Other - " + $("#justification").val();
-                            console.log("just: " + just);
-                            pybossa.saveTask(task.id, getFormatedAnswer(task, false, true, just)).done(function () {
-                                deferred.resolve();
-                            });
-                        }
-                        else {
-                            console.log({"IDontKnow": opt });
-                            pybossa.saveTask(task.id, getFormatedAnswer(task, false, true, opt)).done(function () {
-                                deferred.resolve();
-                            });
-                        }
-                        
-                        closeModalReason();
-                        closeAlerts();
-                        
-                        $("#success").show();
-                        $("#success").fadeOut(5000);
-                    }
-                });
-    
-                $("#loading").hide();
-            }
-            else {
-                $(".skeleton").hide();
-                $("#loading").hide();
-                $("#finish").fadeIn(500);
-            }
-        });
-    
-        pybossa.run('br_feature_expert_app');
-    
-    </script>
+        }
+
+        return false;
+    }
+
+    function checkAnswersValidity(answer) {
+        return answer[0] == EMPTY_OPT_TEXT &&
+            answer[1] == EMPTY_OPT_TEXT &&
+            answer[2] == EMPTY_OPT_TEXT;
+    }
+
+    function getAnswers() {
+        var level1 = $("#tax_classes1").find(":selected").val();
+        var level2 = $("#tax_classes2").find(":selected").val();
+        var level3 = $("#tax_classes3").find(":selected").val();
+        return [level1, level2, level3];
+    }
+
+    // format answer of task. The parameters no_classification and other
+    // are of type boolean
+    function getFormatedAnswer(task, no_classification = false, i_dont_know = false, i_dont_know_just = "") {
+        var answers = getAnswers();
+        return {
+            'bug_id': task.info.bug_id,
+            'project_name': task.info.project,
+            'tax_name': task.info.taxonomy.name,
+            'classes': {
+                'lvl_1': answers[0],
+                'lvl_2': answers[1],
+                'lvl_3': answers[2]
+            },
+            'no_classification': no_classification,
+            'i_dont_know': i_dont_know,
+            'i_dont_know_just': i_dont_know_just
+        }
+    }
+
+    pybossa.taskLoaded(function (task, deferred) {
+        if (!$.isEmptyObject(task)) {
+            populateBugInfo(task);
+            //cleanPreviousTaxInfo();
+            populateFeaturesInfos(task);
+
+            deferred.resolve(task);
+        }
+        else {
+            deferred.resolve(task);
+        }
+    });
+
+    pybossa.presentTask(function (task, deferred) {
+        if (!$.isEmptyObject(task)) {
+            loadUserProgress();
+
+            $('#task-id').html(task.id);
+
+            $('#submitAnswer').off('click').on('click', function (evt) {
+                if (checkAnswers(task, getAnswers())) {
+                    console.log("answer ok");
+                    pybossa.saveTask(task.id, getFormatedAnswer(task)).done(function () {
+                        deferred.resolve();
+                    });
+                    closeAlerts();
+
+                    $("#success").show();
+                    $("#success").fadeOut(5000);
+                }
+                else {
+                    $("#error").show();
+                }
+            });
+
+            $("#loading").hide();
+        }
+        else {
+            $(".skeleton").hide();
+            $("#loading").hide();
+            $("#finish").fadeIn(500);
+        }
+    });
+
+    pybossa.run('br_feature_expert_app');
+
+</script>
