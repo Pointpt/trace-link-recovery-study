@@ -153,6 +153,12 @@
                 <input type="text" id="bug_id" readonly>
             </div>
             <br>
+            <div class="form-row">
+                <label>
+                    <span>Bug Product</span>
+                </label>
+                <input type="text" id="bug_product" readonly>
+            </div>
             <br>
             <div class="form-row">
                 <label>
@@ -388,7 +394,7 @@
                 <textarea id="feat_desc" style="display: none; width: 90%;"></textarea><br>
             </div>
             <div class="modal-footer">
-                <button type="button" id="reasonCancel" class="btn btn-secondary" data-dismiss="modal"
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
                     onclick="closeModalReason()">Close</button>
             </div>
         </div>
@@ -504,11 +510,13 @@
 
     function populateBugInfo(task) {
         $('#bug_id').attr("value", task.info.bug_id);
-        $("#project").attr("value", task.info.project);
-        $('#product_component').attr("value", task.info.product_component);
+        $("#bug_product").attr("value", task.info.bug_product);
         $("#bug_link").attr("href", task.info.bug_link);
-        $('#description').val(function (_) {
-            return task.info.description;
+        $('#bug_first_comment').val(function (_) {
+            return task.info.bug_first_comment;
+        });
+        $('#bug_summary').val(function (_) {
+            return task.info.bug_summary;
         });
     }
 
