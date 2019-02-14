@@ -1,6 +1,6 @@
 <style>
     #bug_id,
-    #bug_product {
+    #bug_f_version {
         height: 40px;
         width: 100%;
         text-indent: 10px;
@@ -12,6 +12,7 @@
         width: 100%;
         text-indent: 10px;
         font-size: 14px;
+        text-align: justify;
     }
 
     #bug_first_comment {
@@ -19,6 +20,7 @@
         width: 100%;
         text-indent: 10px;
         font-size: 14px;
+        text-align: justify;
     }
 
     #bug_link,
@@ -31,6 +33,8 @@
     .feat_desc, .feat_name {
         text-indent: 10px;
         font-size: 14px;
+        width: 90%;
+        text-align: justify;
     }
 
     option,
@@ -104,7 +108,7 @@
 <div class="row skeleton">
     <!-- Start Skeleton Row-->
     <h1 id="question">
-        <span id="i18n_question">What is Firefox feature associated with this Bug Report?</span>
+        <span id="i18n_question">What Firefox feature is related/associated with this Bug Report?</span>
     </h1>
 
     <!-- Bug description -->
@@ -121,9 +125,9 @@
             <br>
             <div class="form-row">
                 <label>
-                    <span>Bug Product</span>
+                    <span>Firefox Version</span>
                 </label>
-                <input type="text" id="bug_product" readonly>
+                <input type="text" id="bug_f_version" readonly>
             </div>
             <br>
             <div class="form-row">
@@ -183,102 +187,102 @@
         <h2 align="center">Firefox Feature</h2>
         <br>
 
-        <div class="col-md-8" align="left">
+        <div class="col-md-12" align="left">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="new_awesome_bar">
-                    <span>New Awesome Bar</span>
+                    <span>48 Branch & 50 Branch - New Awesome Bar</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('new_awesome_bar')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="windows_child_mode">
-                    <span>Windows Child Mode</span>
+                    <span>48 Branch - Windows Child Mode</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('windows_child_mode')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="apz_async_scrolling">
-                    <span>APZ - Async Scrolling</span>
+                    <span>48 Branch - APZ - Async Scrolling</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('apz_async_scrolling')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="browser_customization">
-                    <span>Browser Customization</span>
+                    <span>49 Branch - Browser Customization</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('browser_customization')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="pdf_viewer">
-                    <span>PDF Viewer</span>
+                    <span>49 Branch - PDF Viewer</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('pdf_viewer')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="context_menu">
-                    <span>Context Menu</span>
+                    <span>49 Branch - Context Menu</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('context_menu')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="w10_comp">
-                    <span>Windows 10 Compatibility</span>
+                    <span>49 Branch - Windows 10 Compatibility</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('w10_comp')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="tts_in_desktop">
-                    <span>Text to Speech on Desktop</span>
+                    <span>49 Branch - Text to Speech on Desktop</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('tts_in_desktop')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="tts_in_rm">
-                    <span>Text to Speech in Reader Mode</span>
+                    <span>49 Branch - Text to Speech in Reader Mode</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('tts_in_rm')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="webgl_comp">
-                    <span>WebGL Compatibility</span>
+                    <span>49 Branch - WebGL Compatibility</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('webgl_comp')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="video_and_canvas_render">
-                    <span>Video and Canvas Renderization</span>
+                    <span>49 Branch - Video and Canvas Renderization</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('video_and_canvas_render')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="pointer_lock_api">
-                    <span>Pointer Lock API</span>
+                    <span>50 Branch - Pointer Lock API</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('pointer_lock_api')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="webm_eme">
-                    <span>WebM EME support for Widevine</span>
+                    <span>50 Branch - WebM EME support for Widevine</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('webm_eme')">?</a>
             </div>
 
             <div class="checkbox">
                 <label><input type="checkbox" id="zoom_indicator">
-                    <span>Zoom Indicator</span>
+                    <span>51 Branch - Zoom Indicator</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('zoom_indicator')">?</a>
             </div>
@@ -286,49 +290,49 @@
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="downloads_dropmaker">
-                    <span>Downloads Dropmaker</span>
+                    <span>51 Branch - Downloads Dropmaker</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('downloads_dropmaker')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="webgl2">
-                    <span>WebGL2</span>
+                    <span>51 Branch - WebGL2</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('webgl2')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="flac_support">
-                    <span>FLAC support</span>
+                    <span>51 Branch - FLAC support</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('flac_support')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="indicator_device_perm">
-                    <span>Indicator for device permissions</span>
+                    <span>51 Branch - Indicator for device permissions</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('indicator_device_perm')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="flash_support">
-                    <span>Flash support</span>
+                    <span>51 Branch - Flash support</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('flash_support')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="notificationbox">
-                    <span>Notificationbox and Notification Changes</span>
+                    <span>65 Branch - Notificationbox and Notification Changes</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('notificationbox')">?</a>
             </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="update_directory">
-                    <span>Update Directory</span>
+                    <span>65 Branch - Update Directory</span>
                 </label>
                 <a id="doubt_icon" onclick="show_feature_desc('update_directory')">?</a>
             </div>
@@ -379,27 +383,27 @@
                 </h5>
             </div>
             <div class="modal-body">
-                <textarea class="feat_desc" id="feat_desc_new_awesome_bar" style="display: none; width: 90%;" rows="10" readonly></textarea>                
-                <textarea class="feat_desc" id="feat_desc_windows_child_mode" style="display: none; width: 90%;"  rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_apz_async_scrolling" style="display: none; width: 90%;"  rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_browser_customization" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_pdf_viewer" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_context_menu" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_w10_comp" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_tts_in_desktop" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_tts_in_rm" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_webgl_comp" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_video_and_canvas_render" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_pointer_lock_api" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_webm_eme" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_zoom_indicator" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_downloads_dropmaker" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_webgl2" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_flac_support" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_indicator_device_perm" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_flash_support" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_notificationbox" style="display: none; width: 90%;" rows="10" readonly></textarea>
-                <textarea class="feat_desc" id="feat_desc_update_directory" style="display: none; width: 90%;" rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_new_awesome_bar" style="display: none; " rows="10" readonly></textarea>                
+                <textarea class="feat_desc" id="feat_desc_windows_child_mode" style="display: none; "  rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_apz_async_scrolling" style="display: none; "  rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_browser_customization" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_pdf_viewer" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_context_menu" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_w10_comp" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_tts_in_desktop" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_tts_in_rm" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_webgl_comp" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_video_and_canvas_render" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_pointer_lock_api" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_webm_eme" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_zoom_indicator" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_downloads_dropmaker" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_webgl2" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_flac_support" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_indicator_device_perm" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_flash_support" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_notificationbox" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_update_directory" style="display: none; " rows="10" readonly></textarea>
 
                 <label>Reference:
                     <a id="feat_ref_new_awesome_bar" style="display:none"></a>
@@ -612,6 +616,7 @@
     function populateBugInfo(task) {
         $('#bug_id').attr("value", task.info.bug_id);
         $("#bug_product").attr("value", task.info.bug_product);
+        $("#bug_f_version").attr("value", task.info.bug_f_version);
         $("#bug_link").attr("href", task.info.bug_link);
         $('#bug_first_comment').val(function (_) {
             return task.info.bug_first_comment;

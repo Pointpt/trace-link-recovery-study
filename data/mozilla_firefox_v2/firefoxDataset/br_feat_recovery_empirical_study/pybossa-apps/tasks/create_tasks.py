@@ -68,8 +68,8 @@ with open(TASKS_FILE_PATH, 'a+') as tasks_file:
                 "bug_id" : bug['Bug_Number'],
                 "bug_summary": bug['Summary'],
                 "bug_first_comment": bug['First_Comment_Text'],
-                "bug_product": bug['Product'],
                 "bug_link": BUGZILLA_URL.format(bug['Bug_Number']),
+                "bug_f_version" : bug['Version'],
                 "features" : get_feats()
             })
     
