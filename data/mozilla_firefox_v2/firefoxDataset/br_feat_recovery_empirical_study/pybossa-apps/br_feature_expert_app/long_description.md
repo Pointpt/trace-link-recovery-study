@@ -1,26 +1,13 @@
 
-Taxonomy is the science of classification of things. A good taxonomy must be able to classify the elements it is supposed to arrange in the best way possible, so one can extract the maximum of information about each element with the less amount of effort possible.
+Welcome! First of all, thank you for agreeing into participate of our study.
 
-Taxonomies can be used in many knowledge fields, for example, in biology studies:
+The purpose of this study is to indicate the relationship or association that may exist between a **feature** of the well know internet browser Mozilla Firefox and a given **bug report**.
 
-![Taxonomy in Biology](https://farm2.staticflickr.com/1785/28014146437_348ddb410c_c.jpg)
+In this application, created exclusively for this empirical study, you will be presented with a bug report, collected from the [Bugzilla](http://bugzilla.mozilla.org), the Mozilla's bug tracking system, and a list of features developed and tested in the versions 48 to 51 of the Mozilla Firefox.
 
-[Example of Taxonomy in Biology](http://image.apexwallpapers.com/wiki/taxonomy-keywording-in-nature.html)
+Detailed descriptions and external links of each listed feature are provided for you. Also, you can access the original description of the bug report at Bugzilla through a provided link to it, so you can have additional information to guess about the **_possible_** relationship between the two artifacts.
 
-As we can see, the taxonomy above have eight different levels of classification, so you can categorize living things into eight different levels of precision. And have some idea about your dog or cat species. We do want something similar, but in another context.
-
-* * *
-
-In this project we are interested in the classification of software bug reports and issues related to user interface components of opensource projects. So we collected some bug reports from projects like Eclipse, Firefox Mozilla and LibreOffice, but given the large amount of work we need some help. And we counting with you :-). Don't give up yet, a [tutorial](tutorial) is available so you can better understand the problem.
-
-**Best Bug Taxonomy Project** is an experiment to collect data and allow us to calculate the efficacy of user interface-related bug taxonomies available in the literature and one taxonomy proposed by us.
-
-Based on your answer and the answers of others volunteers, we will be able to determine the best taxonomy available. Besides the fun and entertainment answering and collaborating with our project, you will be compensated with a better tool support for software engineering activities in the resolution of bugs in the future and quality improved softwares entering the market.
-
-***
-
-So, what are you waiting? 
-### [Start Contributing!](tutorial#consentTerm)
+## [Start Contributing!](tutorial#consentTerm)
 
 
 

@@ -10,7 +10,7 @@ brs_versions = ['48 Branch', '49 Branch', '50 Branch', '51 Branch']
 brs_status = ['NEW','RESOLVED','VERIFIED','REOPENED','ASSIGNED']
 brs_priority = ['P1', 'P2', 'P3']
 brs_resolutions = ['FIXED']
-brs_severities = ['major', 'normal', 'blocker', 'critical','enhancement']
+brs_severities = ['major', 'normal', 'blocker', 'critical']
 brs_isconfirmed = [True]
 selected_bugs = bugreports_final[(bugreports_final.Version.isin(brs_versions)) &
                                  (bugreports_final.Status.isin(brs_status)) &

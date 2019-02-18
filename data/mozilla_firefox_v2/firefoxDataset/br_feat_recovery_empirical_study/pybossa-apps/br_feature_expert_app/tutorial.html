@@ -2,145 +2,77 @@
 
 <style>
     p, li { font-size: 20px; text-justify: inter-word; text-align: justify;}
+
+    #doubt_icon {
+        color:#fff;
+        background-color:#feb22a;
+        width:12px;
+        height:12px;
+        display:inline-block;
+        border-radius:100%;
+        font-size:10px;
+        text-align:center;
+        text-decoration:none;
+        -webkit-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+        -moz-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+        box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    }
 </style>
 
 <div class="row">
     <div class="col-md-12" align="center">
         <div id="modal" style="width: 50%; height: 60%;">
             <div class="modal-header">
-                <h3>Best Bug Taxonomy Tutorial</h3>
+                <h3>Bug Report Feature - Expert Version</h3>
             </div>
-            <div id="-1" class="modal-body" style="text-align: justify; text-justify: inter-word;">
+
+            <div id="consent_term" class="modal-body" style="text-align: justify; text-justify: inter-word;">
                 <h4>Consent Term</h4>
                 <p class="consent_p">
-                    This is a <strong>consent term</strong> that shows how you can help in the classification of user interface related bugs.
-                    By accepting this term, you agree in participating of this experiment, but you can give up at any time you want
-                    without any prejudice against you. The data provided by you to this experiment are only used for academic purposes. 
-                    No information about you will be released. Your privacy is guaranteed.
-                    You can request a copy of your answers at any time, sending an email to <i>guilherme</i> at <i>copin dot ufcg dot edu dot br</i>.
-                    Thank you in advance for your participation and have fun.
-                </p>
-                <p class="consent_p">
-                    Clicking the <strong>Accept Terms</strong> button you will have a tutorial about how you can contribute.
-                </p>
-            </div>
-            <div id="0" class="modal-body" hidden>
-                <p>Hi, welcome to the tutorial of this project. Below we show a screenshot of the application, explaining
-                    the different parts of it.
-                </p>
-                <img src="https://farm1.staticflickr.com/900/42904535231_c3a0116035_b.jpg">
-                <br>
-                <p>
-                    <img src="https://farm1.staticflickr.com/896/28069367897_84bf4c3836_t.jpg">
-                    - General information about the user interface related bug, like Bug ID, Project, Product/Component and Bug Description.
-                </p>
-                <p>
-                    <img src="https://farm1.staticflickr.com/883/28069367797_3f66b1c005_t.jpg">
-                    - More information about the bug in Bugzilla bugtracking tool. A link back to this tutorial.
-                </p>
-                <p>
-                    <img src="https://farm2.staticflickr.com/1790/29065571988_05dfc832da_t.jpg">
-                    - Keep track of the amount of tasks completed in the project. <strong>You don`t need
-                    to complete all the tasks alone :-), there are other people contributing with
-                    the project too</strong>.
-                </p>
-                <p>
-                    <img src="https://farm2.staticflickr.com/1762/28069367757_62e55970c8_t.jpg">
-                    - General information about the bug taxonomy. Here you can see the taxonomy name and the description of the 
-                    class you have selected as most representative of the bug.
-                </p>
-                <p>
-                    <img src="https://farm2.staticflickr.com/1765/28069367677_54c0227b9a_t.jpg">
-                    - Here you can select the classes that may represent the bug in the taxonomy. Every taxonomy have some level of class hierarchy.
-                </p>
-                <p>
-                    <img src="https://farm2.staticflickr.com/1791/42219758924_2229f06a70_t.jpg">
-                    - You have three different types of answers:
-                    <ul>
-                        <li>
-                            <button class="btn btn-info btn-answer">
-                                <i class="fa fa-arrow-right"></i>
-                                <span>Submit Classification</span>
-                            </button><br>
-                            <p style="text-indent: 40px;">
-                                    You did find a classification at any level to the bug into the taxonomy. <strong>Please pay attention
-                                to the classes indexes</strong>, that appear on the left side of the name: they indicate the hierarchy of the classes, so 
-                                for example, a second level class with index <strong>31-SCND_LVL_CLASS_NAME</strong> cannot appear under a first level 
-                                class with index <strong>2-FRST_LVL_CLASS_NAME</strong>. Neither, for example, a third level class with index 
-                                <strong>212-THD_LVL_CLASS_NAME</strong> can appear under a second level class with index <strong>22-SCND_LVL_CLASS_NAME</strong>. 
-                                The application will alert you when something like that happen.
-                            </p>
-                            <p style="text-indent: 40px;">
-                                Note that the amount of digits of the class index is correspondent to its level: 
-                                <ul style="text-align: left">
-                                    <li>1 digit  -> first  level class</li>
-                                    <li>2 digits -> second level class</li>
-                                    <li>3 digits -> third  level class</li>
-                                </ul>
-                            </p>
-                        </li>
-                        <li>
-                            <button class="btn btn-danger btn-answer">
-                                <i class="fa fa-exclamation"></i>
-                                <span>No Classification</span>
-                            </button><br>
-                            <p style="text-indent: 40px;">
-                                    You did not identify one class that may fit the bug into the taxonomy <strong>Please be sure you really 
-                                did not find one before choose this option.</strong> Don`t worry to much in understand the bug, if you didn`t
-                                understand it after 1 minute, <strong>don`t waste your time with it</strong>.
-                            </p>
-                        </li>
-                        <li>
-                            <button class="btn btn-warning btn-answer">
-                                <i class="fa fa-question-circle"></i>
-                                <span>I don`t know</span>
-                            </button><br>
-                            <p style="text-indent: 40px;">
-                                    You did not understand the bug description and so you are not able to 
-                                classify it or there is a problem in the bug description. <strong>Please take a 
-                                look at the Bugzilla link provided before choose this option.</strong>
-                            </p>
-                        </li>
-                    </ul>
+                    This is a <strong>consent term</strong> that shows how the information provided by you will be
+                    used by us. By accepting this term, you agree in participating of this study, but you can give up at any
+                    time you want without any prejudice against you. The data provided by you to this study are only used for
+                    academic purposes. No information about you will be released. The information that may identify you will not be
+                    used, once our study do not target the volunteers like you and their personal informations, but the results of the
+                    cognitive tasks during the study. Your privacy is guaranteed. You can request a copy of your answers at any
+                    time, sending an email to <i>guilherme</i> at <i>copin</i> dot <i>ufcg</i> dot <i>edu</i> dot <i>br</i>. Thank you in
+                    advance for your participation and have fun.
                 </p>
             </div>
-            <div id="1" class="modal-body" hidden>
-                <p>
-                    Below we show a bug taxonomy, detailing the classes and levels.
+            <div id="tutorial" class="modal-body" hidden>
+                <p>Hi, welcome to the tutorial of this project. Below we explain how you can contribute.
                 </p>
-                <img src="https://farm2.staticflickr.com/1763/42008611205_d7ab00c3a4_h.jpg">                  
-                <p>
-                    The application is really simple. All you have to do is to identify into the taxonomy the bug classes
-                    considering the different levels of them, as shown above.
-                </p>
-                <p>
-                    Observe that the class 1-GUI is correspondent to the 1-Class in the schema, as pointed out by
-                    the <img src="https://farm2.staticflickr.com/1774/29069700688_b8ee1ffcbc_t.jpg"> baloon, and the class 11-Components and Views is correspondent to the 11-Class in the schema, as 
-                    pointed out by the <img src="https://farm2.staticflickr.com/1781/29069700668_d60f8e7263_t.jpg"> baloon, and so on.
+                <p>On the left side of your screen appear the bug report and the most relevant data about it, which
+                    you must consider on your task. Your task consists in read the bug description (<strong>bug summary</strong> field)
+                    and the steps to reproduce it (<strong>bug reporter comment</strong> field) and to mark on the right side of your screen,
+                    the Mozilla Firefox's features you think exists an association or relation with it.
                 </p>
                 <p>
-                    Note that there is an order that must be preserved in the classes indexes, so the class hierarchy is not broken
-                    at any time. The application will alert you in the case you try to submit one invalid classification.
+                    You will find next to each feature a question mark <a id="doubt_icon">?</a> that you can click and read the detailed
+                    description of that feature and a link to additional information that you can need to understand the feature.
                 </p>
                 <p>
-                    Note also that if didn't find a complete path into the taxonomy in the three levels, <strong>you must complete the path
-                    with NIL options (class nodes) </strong>, so we can keep track of your choices. Empty answers ("-----") within a 
-                    classification will not be accepted. The application will alert you in the case you try to submit one invalid classification.
+                    <strong>Important topic</strong>: We consider that a bug report is associated with a given feature if there is some metion to
+                    that feature in the bug summary or in the reporter comment. Or if you think after read the feature description, that the relationship
+                    may exist. This is not an exact science, and right answers may not exist for some relationships so we need your cognitive skills
+                    to determine it.
                 </p>
+                <p><strong>Important topic 2</strong>: <i>A bug report may be associated with more than one feature at the same time. Mark all the related features if it is the case.</i></p>
                 <p>
-                    That is it. Thanks again for your help and have fun!
+                    Below the bug reporter comment you have a link to the bug report with a better text formatting.
                 </p>
             </div>
+
             <div class="modal-footer">
-                <a id="acceptBtn" href="#" onclick="showStep('next')" class="btn btn-success">Accept Terms</a>
-                <a id="prevBtn" href="#" onclick="showStep('prev')" class="btn btn-primary" style="display: none;">Previous</a>
-                <a id="nextBtn" href="#" onclick="showStep('next')" class="btn btn-success" style="display: none;">Next</a>
-                <a id="startContrib" href="../br_feature_expert_app/newtask" class="btn btn-info" style="display:none">
-                    <i class="fa fa-thumbs-o-up"></i> Be a Volunteer!</a>
+                <a id="acceptBtn" href="../br_feature_expert_app/newtask" class="btn btn-success"
+                    style="display: none;">Accept Terms</a>
+                <a id="okBtn" href="../br_feature_expert_app/newtask" class="btn btn-success"
+                    style="display: none;">Ok</a>
             </div>
         </div>
     </div>
 </div>
+
 
 <script>
     // hiding 'Start Contributing' button
@@ -148,50 +80,19 @@
         $("#start").remove();
     });
 
-    var step = -1;
-    function showStep(action) {
-        if (action == 'next') {
-            step = step + 1;
-        }
+    var current_url = window.location.href;
+    if(current_url.includes("#consentTerm")) {
+        $("#consent_term").show();
+        $("#tutorial").hide();
+        
+        $("#acceptBtn").show();
+        $("#okBtn").hide();
+    }
+    else if(current_url.includes("#tutorial")) {
+        $("#consent_term").hide();
+        $("#tutorial").show();
 
-        if (action == 'prev') {
-            step = step - 1;
-        }
-
-        if(step == -1) {
-            $("#-1").show();
-            $("#0").hide();
-            $("#1").hide();
-
-            $("#prevBtn").hide();
-            $("#acceptBtn").show();
-            $("#nextBtn").hide();
-            $("#startContrib").hide();
-        }
-        else if (step == 0) {
-            $("#-1").hide();
-            $("#0").show();
-            $("#1").hide();
-
-            $("#prevBtn").hide();
-            $("#acceptBtn").hide();
-            $("#nextBtn").show();
-            $("#startContrib").hide();
-        }
-        else if (step == 1) {
-            $("#-1").hide();
-            $("#0").hide();
-            $("#1").show();
-
-            $("#prevBtn").show();
-            $("#acceptBtn").hide();
-            $("#nextBtn").hide();
-            $("#startContrib").show();
-        }
-    }   
-
-    $("#-1").show();
-    $("#0").hide();
-    $("#1").hide();
-    
+        $("#acceptBtn").hide();
+        $("#okBtn").show();
+    }
 </script>
