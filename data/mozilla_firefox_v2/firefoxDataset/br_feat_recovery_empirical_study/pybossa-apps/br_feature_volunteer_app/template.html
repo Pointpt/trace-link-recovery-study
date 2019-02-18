@@ -1,0 +1,706 @@
+<style>
+    #bug_id,
+    #bug_f_version {
+        height: 40px;
+        width: 100%;
+        text-indent: 10px;
+        font-size: 14px;
+    }
+    
+    #bug_summary {
+        height: 70px;
+        width: 100%;
+        text-indent: 10px;
+        font-size: 14px;
+        text-align: justify;
+    }
+
+    #bug_first_comment {
+        height: 100px;
+        width: 100%;
+        text-indent: 10px;
+        font-size: 14px;
+        text-align: justify;
+    }
+
+    #bug_link,
+    #tutorial_link,
+        {
+        font-size: 14px;
+        color: brown;
+    }
+
+    .feat_desc, .feat_name {
+        text-indent: 10px;
+        font-size: 14px;
+        width: 90%;
+        text-align: justify;
+    }
+
+    option,
+    .modal-body {
+        font-size: 18px;
+    }
+
+    #success,
+    #loading,
+    #taskcompleted,
+    #finish {
+        position: absolute;
+        width: 1100px;
+        font-size: 20px;
+        margin: auto;
+        text-align: center;
+    }
+
+    #doubt_icon {
+        color:#fff;
+        background-color:#feb22a;
+        width:12px;
+        height:12px;
+        display:inline-block;
+        border-radius:100%;
+        font-size:10px;
+        text-align:center;
+        text-decoration:none;
+        -webkit-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+        -moz-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+        box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    }
+</style>
+
+<div class="row">
+    <!-- Success and Error Messages for the user -->
+    <div class="col-lg" style="height:10px;">
+        <div id="success" class="alert alert-success" style="display:none; background-color: rgb(3, 212, 31)">
+            <a class="close" onclick="closeAlerts()">×</a>
+            <strong id="i18n_welldone">Well done!</strong>
+            <span id="i18n_welldone_text">Your answer has been saved</span>
+        </div>
+        <div id="loading" class="alert alert-info" style="display:none;">
+            <a class="close" onclick="closeAlerts()">×</a>
+            <span id="i18n_loading_next_task">Loading next task...</span>
+        </div>
+        <div id="taskcompleted" class="alert alert-info" style="display:none;">
+            <strong id="i18n_task_completed">The task has been completed!</strong>
+            <span id="i18n_thanks">Thanks a lot!</span>
+        </div>
+        <div id="finish" class="alert alert-success" style="display:none;">
+            <strong id="i18n_congratulations">Congratulations!</strong>
+            <span id="i18n_congratulations_text">You have participated in all available tasks!</span>
+            <br />
+            <div class="alert-actions">
+                <a class="btn btn-info btn-answer" style="color: white" href="/">Go back</a>
+                <a class="btn btn-warning btn-answer" style="color: white" href="/project/category/thinking/">or, Check
+                    other projects</a>
+            </div>
+        </div>
+    </div>
+    <!-- End Success and Error Messages for the user -->
+</div>
+<!-- End of Row -->
+
+<!--
+        Task DOM for loading the Flickr Images
+        It uses the class="skeleton" to identify the elements that belong to the
+        task.
+    -->
+<div class="row skeleton">
+    <!-- Start Skeleton Row-->
+    <h1 id="question">
+        <span id="i18n_question">What Firefox feature is related/associated with this Bug Report?</span>
+    </h1>
+
+    <!-- Bug description -->
+    <div class="col-md-6">
+        <div class="bug-description">
+            <h2 align="center">Bug Report</h2>
+            <br>
+            <div class="form-row">
+                <label>
+                    <span>Bug Id</span>
+                </label>
+                <input type="text" id="bug_id" readonly>
+            </div>
+            <br>
+            <div class="form-row">
+                <label>
+                    <span>Firefox Version</span>
+                </label>
+                <input type="text" id="bug_f_version" readonly>
+            </div>
+            <br>
+            <div class="form-row">
+                <label>
+                    <span>Bug Summary</span>
+                </label>
+                <textarea id="bug_summary" rows="2" cols="60" readonly></textarea>
+            </div>
+            <br>
+            <div class="form-row">
+                <label>
+                    <span>Bug Reporter Comment</span>
+                </label>
+                <textarea id="bug_first_comment" rows="7" cols="60" readonly></textarea>
+            </div>
+            <br>
+            <div class="form-row">
+                <label>
+                    <span>More Info About Bug:</span>
+                </label>
+                <a href="#" id="bug_link" style="font-size: 22px; color: brown;"> Check Bug Report in Bugzilla</a>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Tutorial:</span>
+                </label>
+                <a href="/project/br_feature_volunteer_app/tutorial#tutorial" id="tutorial_link"
+                    style="font-size: 22px; color: brown;">
+                    Take a Look in the Tutorial</a>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- Feedback items for the user -->
+        <p>
+            <span id="i18n_working_task">You are working now on task:</span>
+            <span id="task-id" class="label label-warning">#</span>
+        </p>
+        <p>
+            <span id="i18n_tasks_completed">You have completed:</span>
+            <span id="done" class="label label-info"></span>
+            <span id="i18n_tasks_from">tasks from</span>
+
+            <!-- Progress bar for the user -->
+            <span id="total" class="label label-info"></span>
+        </p>
+        <div class="progress progress-striped">
+            <div id="progress" rel="tooltip" title="#" class="progress-bar" style="width: 0%;" role="progressbar"></div>
+        </div>
+    </div>
+
+    <!-- feature description -->
+    <div class="col-md-6 ">
+        <!-- Start of Question and Submission DIV (column) -->
+        <h2 align="center">Firefox Feature</h2>
+        <br>
+
+        <div class="col-md-12" align="left">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="new_awesome_bar">
+                    <span>48 Branch & 50 Branch - New Awesome Bar</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('new_awesome_bar')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="windows_child_mode">
+                    <span>48 Branch - Windows Child Mode</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('windows_child_mode')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="apz_async_scrolling">
+                    <span>48 Branch - APZ - Async Scrolling</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('apz_async_scrolling')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="browser_customization">
+                    <span>49 Branch - Browser Customization</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('browser_customization')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="pdf_viewer">
+                    <span>49 Branch - PDF Viewer</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('pdf_viewer')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="context_menu">
+                    <span>49 Branch - Context Menu</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('context_menu')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="w10_comp">
+                    <span>49 Branch - Windows 10 Compatibility</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('w10_comp')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="tts_in_desktop">
+                    <span>49 Branch - Text to Speech on Desktop</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('tts_in_desktop')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="tts_in_rm">
+                    <span>49 Branch - Text to Speech in Reader Mode</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('tts_in_rm')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="webgl_comp">
+                    <span>49 Branch - WebGL Compatibility</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('webgl_comp')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="video_and_canvas_render">
+                    <span>49 Branch - Video and Canvas Renderization</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('video_and_canvas_render')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="pointer_lock_api">
+                    <span>50 Branch - Pointer Lock API</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('pointer_lock_api')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="webm_eme">
+                    <span>50 Branch - WebM EME support for Widevine</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('webm_eme')">?</a>
+            </div>
+
+            <div class="checkbox">
+                <label><input type="checkbox" id="zoom_indicator">
+                    <span>51 Branch - Zoom Indicator</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('zoom_indicator')">?</a>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="downloads_dropmaker">
+                    <span>51 Branch - Downloads Dropmaker</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('downloads_dropmaker')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="webgl2">
+                    <span>51 Branch - WebGL2</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('webgl2')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="flac_support">
+                    <span>51 Branch - FLAC support</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('flac_support')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="indicator_device_perm">
+                    <span>51 Branch - Indicator for device permissions</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('indicator_device_perm')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="flash_support">
+                    <span>51 Branch - Flash support</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('flash_support')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="notificationbox">
+                    <span>65 Branch - Notificationbox and Notification Changes</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('notificationbox')">?</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="update_directory">
+                    <span>65 Branch - Update Directory</span>
+                </label>
+                <a id="doubt_icon" onclick="show_feature_desc('update_directory')">?</a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div id="answer" align='center'>
+        <!-- Start DIV for the submission buttons -->
+        <button id="submitAnswer" class="btn btn-info btn-answer" value='Submit'>
+            <i class="fa fa-arrow-right"></i>
+            <span>Submit</span>
+        </button>
+    </div>
+    <!-- End of DIV for the submission buttons -->
+</div>
+</div>
+
+<div id="features_desc_modal" class="modal" tabindex="-1" role="dialog" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Feature Details</h3>
+                <h5 class="feat_name">Feature Name:
+                    <label id="feat_name_new_awesome_bar" style="display:none"></label>
+                    <label id="feat_name_windows_child_mode" style="display:none"></label>
+                    <label id="feat_name_apz_async_scrolling" style="display:none"></label>
+                    <label id="feat_name_browser_customization" style="display:none"></label>
+                    <label id="feat_name_pdf_viewer" style="display:none"></label>
+                    <label id="feat_name_context_menu" style="display:none"></label>
+                    <label id="feat_name_w10_comp" style="display:none"></label>
+                    <label id="feat_name_tts_in_desktop" style="display:none"></label>
+                    <label id="feat_name_tts_in_rm" style="display:none"></label>
+                    <label id="feat_name_webgl_comp" style="display:none"></label>
+                    <label id="feat_name_video_and_canvas_render" style="display:none"></label>
+                    <label id="feat_name_pointer_lock_api" style="display:none"></label>
+                    <label id="feat_name_webm_eme" style="display:none"></label>
+                    <label id="feat_name_zoom_indicator" style="display:none"></label>
+                    <label id="feat_name_downloads_dropmaker" style="display:none"></label>
+                    <label id="feat_name_webgl2" style="display:none"></label>
+                    <label id="feat_name_flac_support" style="display:none"></label>
+                    <label id="feat_name_indicator_device_perm" style="display:none"></label>
+                    <label id="feat_name_flash_support" style="display:none"></label>
+                    <label id="feat_name_notificationbox" style="display:none"></label>
+                    <label id="feat_name_update_directory" style="display:none"></label>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <textarea class="feat_desc" id="feat_desc_new_awesome_bar" style="display: none; " rows="10" readonly></textarea>                
+                <textarea class="feat_desc" id="feat_desc_windows_child_mode" style="display: none; "  rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_apz_async_scrolling" style="display: none; "  rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_browser_customization" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_pdf_viewer" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_context_menu" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_w10_comp" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_tts_in_desktop" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_tts_in_rm" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_webgl_comp" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_video_and_canvas_render" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_pointer_lock_api" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_webm_eme" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_zoom_indicator" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_downloads_dropmaker" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_webgl2" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_flac_support" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_indicator_device_perm" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_flash_support" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_notificationbox" style="display: none; " rows="10" readonly></textarea>
+                <textarea class="feat_desc" id="feat_desc_update_directory" style="display: none; " rows="10" readonly></textarea>
+
+                <label>Reference:
+                    <a id="feat_ref_new_awesome_bar" style="display:none"></a>
+                    <a id="feat_ref_windows_child_mode" style="display:none"></a>
+                    <a id="feat_ref_apz_async_scrolling" style="display:none"></a>
+                    <a id="feat_ref_browser_customization" style="display:none"></a>
+                    <a id="feat_ref_pdf_viewer" style="display:none"></a>
+                    <a id="feat_ref_context_menu" style="display:none"></a>
+                    <a id="feat_ref_w10_comp" style="display:none"></a>
+                    <a id="feat_ref_tts_in_desktop" style="display:none"></a>
+                    <a id="feat_ref_tts_in_rm" style="display:none"></a>
+                    <a id="feat_ref_webgl_comp" style="display:none"></a>
+                    <a id="feat_ref_video_and_canvas_render" style="display:none"></a>
+                    <a id="feat_ref_pointer_lock_api" style="display:none"></a>
+                    <a id="feat_ref_webm_eme" style="display:none"></a>
+                    <a id="feat_ref_zoom_indicator" style="display:none"></a>
+                    <a id="feat_ref_downloads_dropmaker" style="display:none"></a>
+                    <a id="feat_ref_webgl2" style="display:none"></a>
+                    <a id="feat_ref_flac_support" style="display:none"></a>
+                    <a id="feat_ref_indicator_device_perm" style="display:none"></a>
+                    <a id="feat_ref_flash_support" style="display:none"></a>
+                    <a id="feat_ref_notificationbox" style="display:none"></a>
+                    <a id="feat_ref_update_directory" style="display:none"></a>
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    onclick="close_feature_desc_modal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    FIELDS_NAMES = ['update_directory', 'notificationbox',
+                    'flash_support', 'indicator_device_perm', 
+                    'flac_support', 'webgl2', 'downloads_dropmaker',
+                    'zoom_indicator', 'webm_eme', 'pointer_lock_api',
+                    'video_and_canvas_render', 'webgl_comp',
+                    'tts_in_rm', 'tts_in_desktop', 'w10_comp', 
+                    'context_menu', 'pdf_viewer', 'browser_customization',
+                    'apz_async_scrolling', 'windows_child_mode',
+                    'new_awesome_bar']
+
+    // remove pybossa notification (allow anonymous 
+    // user without disturbing him
+    $(document).ready(function () {
+        $("#pybossa-notification").remove();
+    })
+
+    // bug_link click action --> opens bugzilla in new tab
+    $(document).on('click', '#bug_link', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+
+    // feature_reference click action --> opens link in new tab
+    $(document).on('click', '#feat_ref_new_awesome_bar', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_windows_child_mode', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_apz_async_scrolling', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_browser_customization', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_pdf_viewer', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_context_menu', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_w10_comp', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_tts_in_desktop', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_tts_in_rm', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_webgl_comp', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_video_and_canvas_render', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_pointer_lock_api', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_webm_eme', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_zoom_indicator', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_downloads_dropmaker', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_webgl2', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_flac_support', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_indicator_device_perm', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_flash_support', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_notificationbox', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+    $(document).on('click', '#feat_ref_update_directory', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_blank');
+    });
+
+    function loadUserProgress() {
+        pybossa.userProgress('br_feature_volunteer_app').done(function (data) {
+            var pct = Math.round((data.done * 100) / data.total);
+            $("#progress").css("width", pct.toString() + "%");
+            $("#progress").attr("title", pct.toString() + "% completed!");
+            $("#progress").tooltip({ 'placement': 'left' });
+            $("#total").text(data.total);
+            $("#done").text(data.done);
+        });
+    }
+
+    function _get_feature(task, feature_id) {
+        for(var i = 0; i < task.info.features.length; i++) {
+            if(task.info.features[i].feature_id == feature_id) {
+                return task.info.features[i];
+            }
+        }
+    }
+
+    function show_feature_desc(feature_id) {
+        $("#features_desc_modal").show();
+        $("#feat_name_" + feature_id).show();
+        $("#feat_desc_" + feature_id).show();
+        $("#feat_ref_" + feature_id).show();
+        console.log("Show Feature: " + feature_id);
+    }
+
+    function close_feature_desc_modal() {
+        for(var i = 0; i < FIELDS_NAMES.length; i++) {
+            $("#feat_name_" + FIELDS_NAMES[i]).hide();
+            $("#feat_desc_" + FIELDS_NAMES[i]).hide();
+            $("#feat_ref_" + FIELDS_NAMES[i]).hide();
+        }
+        $("#features_desc_modal").hide();
+        console.log("Feature Names and Descriptions Modal Closed");
+    }
+
+    function populateBugInfo(task) {
+        $('#bug_id').attr("value", task.info.bug_id);
+        $("#bug_product").attr("value", task.info.bug_product);
+        $("#bug_f_version").attr("value", task.info.bug_f_version);
+        $("#bug_link").attr("href", task.info.bug_link);
+        $('#bug_first_comment').val(function (_) {
+            return task.info.bug_first_comment;
+        });
+        $('#bug_summary').val(function (_) {
+            return task.info.bug_summary;
+        });
+        console.log("Bug Report Infos Populated");
+    }
+
+    function populateFeaturesInfos(task) {
+        for(var i = 0; i < FIELDS_NAMES.length; i++){
+            ft = _get_feature(task, FIELDS_NAMES[i]);
+            $("#feat_name_" + FIELDS_NAMES[i]).text(ft['feature_name']);
+            $("#feat_desc_" + FIELDS_NAMES[i]).val(ft['feature_description']);
+            $("#feat_ref_" + FIELDS_NAMES[i]).attr("href", ft['feature_reference']);
+            $("#feat_ref_" + FIELDS_NAMES[i]).text("Link to Reference of Feature");
+        }
+        console.log("Feature Infos Populated");
+    }
+
+    function cleanPreviousAnswer() {
+        for(var i = 0; i < FIELDS_NAMES.length; i++) {
+            $("#" + FIELDS_NAMES[i]).removeAttr("checked");
+        }
+    }
+
+    function getAnswers() {
+        answers = {}
+        for(var i = 0; i < FIELDS_NAMES.length; i++) {
+            if($( '#' + FIELDS_NAMES[i] ).is( ':checked' )) {
+                answers[FIELDS_NAMES[i]] = 1;
+            }
+            else {
+                answers[FIELDS_NAMES[i]] = 0;
+            }
+        }
+        return answers;
+    }
+
+    function getFormatedAnswer(task) {
+        var answers = getAnswers();
+        return {
+            'bug_id': task.info.bug_id,
+            'links': answers
+        }
+    }
+
+    function closeAlerts() {
+            $("#loading").hide();
+            $("#success").hide();
+        }
+
+    pybossa.taskLoaded(function (task, deferred) {
+        if (!$.isEmptyObject(task)) {
+            populateBugInfo(task);
+            cleanPreviousAnswer();
+            populateFeaturesInfos(task);
+
+            deferred.resolve(task);
+        }
+        else {
+            deferred.resolve(task);
+        }
+    });
+
+    pybossa.presentTask(function (task, deferred) {
+        if (!$.isEmptyObject(task)) {
+            loadUserProgress();
+
+            $('#task-id').html(task.id);
+
+            $('#submitAnswer').off('click').on('click', function (evt) {
+                pybossa.saveTask(task.id, getFormatedAnswer(task)).done(function () {
+                    deferred.resolve();
+                });
+                closeAlerts();
+
+                $("#success").show();
+                $("#success").fadeOut(5000);
+            });
+
+            $("#loading").hide();
+        }
+        else {
+            $(".skeleton").hide();
+            $("#loading").hide();
+            $("#finish").fadeIn(500);
+        }
+    });
+
+    pybossa.run('br_feature_volunteer_app');
+
+</script>

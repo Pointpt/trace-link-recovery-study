@@ -1,10 +1,6 @@
 import csv
 import requests
-#import sys
 import os
-
-#reload(sys)  # Reload does the trick!
-#sys.setdefaultencoding('UTF8')
 
 PYB_PROJECT_ID = 2
 
@@ -29,7 +25,7 @@ csv_line = "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15
 
 header = csv_line.format(*FIELDS)
 
-BR_2_FEATURE_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix.csv'
+BR_2_FEATURE_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix_expert.csv'
 
 if os.path.exists(BR_2_FEATURE_FILE_PATH):
     os.remove(BR_2_FEATURE_FILE_PATH)
