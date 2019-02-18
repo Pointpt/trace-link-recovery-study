@@ -7,7 +7,7 @@ bugreports_final = pd.read_csv('~/anaconda3/envs/trace-link-recovery-study/data/
 print(bugreports_final.shape)
 
 brs_versions = ['48 Branch', '49 Branch', '50 Branch', '51 Branch']
-brs_status = ['NEW','RESOLVED','VERIFIED','REOPENED','ASSIGNED']
+brs_status = ['RESOLVED','VERIFIED']
 brs_priority = ['P1', 'P2', 'P3']
 brs_resolutions = ['FIXED']
 brs_severities = ['major', 'normal', 'blocker', 'critical']

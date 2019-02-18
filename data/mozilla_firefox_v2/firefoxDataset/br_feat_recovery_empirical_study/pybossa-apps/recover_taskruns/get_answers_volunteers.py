@@ -6,8 +6,8 @@ PYB_PROJECT_ID = 7
 
 taskruns_url = "http://localhost:5000/api/taskrun?project_id={0}".format(PYB_PROJECT_ID)
 
-FIRST_TASK_ID = 1349
-LAST_TASK_ID = 1441
+FIRST_TASK_ID = 1628
+LAST_TASK_ID = 1720
 RANGE_TASK_IDS = range(FIRST_TASK_ID, LAST_TASK_ID+1, 1)
 
 FIELDS = ['bug_number',

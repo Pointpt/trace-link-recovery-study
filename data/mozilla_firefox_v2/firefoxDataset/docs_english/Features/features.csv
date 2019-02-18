@@ -6,7 +6,7 @@ Just start typing in the address bar and the autocomplete drop-down will show ma
 
 Unlike other browsers, Firefox does not use the system’s SSL certificates to verify connections, but instead, relies on its own certificate store. Since this Microsoft certificate is not present here, Firefox will see these connections as untrusted, and the user of the child account will not be able to view secure sites. The solution is to import this Microsoft certificate only when Firefox detects that it is running in child mode.
 
-The Windows Child Mode also includes Bookmarks and History control, Add-Ons control, WebGL Compatibility (based on WebGL library for graphic/image renderization) and PDF files compatibility (read, save/download, print, navigate).",https://wiki.mozilla.org/QA/Windows_Child_Mode
+The Windows Child Mode compatibility feature also includes modifications on Bookmarks and History control, Add-Ons control, WebGL Compatibility (based on WebGL library for graphic/image renderization) and PDF files compatibility (read, save/download, print, navigate).",https://wiki.mozilla.org/QA/Windows_Child_Mode
 3,48 Branch,APZ - Async Scrolling,"The Async Pan/Zoom module (APZ) is a platform component that allows panning and zooming to be performed asynchronously (on the compositor thread rather than the main thread).
 
 For zooming, this means that the APZ reacts to a pinch gesture immediately and instructs the compositor to scale the already-rendered layers at whatever resolution they have been rendered (so e.g. text becomes more blurry as you zoom in), and meanwhile sends a request to Gecko to re-render the content at a new resolution (with sharp text and all).
@@ -71,7 +71,7 @@ Pointer lock lets you access mouse events even when the cursor goes past the bou
 
 Hollywood studios require companies that license movies for streaming use DRM between the streaming company and the end user. On the Web, this has traditionally been done by using the Microsoft PlayReady DRM component inside the Silverlight plug-in or the Adobe Access DRM component inside the Flash Player. As the Web platform gains more capabilities, general purpose plug-ins like Silverlight or Flash can be phased out.
 
-The Widevine Media Optimizer is a browser plugin designed for the viewing of premium video content. The Widevine plugin is commonly used by premium content providers.",https://wiki.mozilla.org/QA/Webm_eme_support_widevine
+The Widevine Media Optimizer is a browser plugin designed for the viewing of premium video content. The Widevine plugin is commonly used by premium content providers.",https://support.mozilla.org/en-US/kb/enable-drm?as=u&utm_source=inproduct
 14,51 Branch,Zoom Indicator ,"The Zoom Indicator shows to the user the amount of zoom aplied to the web page. The default value is 100%. This value can go up or dow, depending on the user needs.",https://wiki.mozilla.org/QA/Zoom_Indicator
 15,51 Branch,Downloads Dropmaker,"The download dropmaker displays the amount of downloads being made, the notifications about the downloads and all the contextual options involving the downloads. ",https://mikeconley.ca/blog/2013/04/02/downloading-stuff-in-firefox-its-better-now/
 16,51 Branch,WebGL2,Incorporation of WebGL2 library to Firefox Browser to extend rendering capabilities.,https://hacks.mozilla.org/2017/01/webgl-2-lands-in-firefox/
