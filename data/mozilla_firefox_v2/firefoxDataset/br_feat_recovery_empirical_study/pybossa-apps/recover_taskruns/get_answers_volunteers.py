@@ -11,15 +11,27 @@ LAST_TASK_ID = 1720
 RANGE_TASK_IDS = range(FIRST_TASK_ID, LAST_TASK_ID+1, 1)
 
 FIELDS = ['bug_number',
-            'update_directory', 'notificationbox',
-            'flash_support', 'indicator_device_perm', 
-            'flac_support', 'webgl2', 'downloads_dropmaker',
-            'zoom_indicator', 'webm_eme', 'pointer_lock_api',
-            'video_and_canvas_render', 'webgl_comp',
-            'tts_in_rm', 'tts_in_desktop', 'w10_comp', 
-            'context_menu', 'pdf_viewer', 'browser_customization',
-            'apz_async_scrolling', 'windows_child_mode',
-            'new_awesome_bar']
+            'new_awesome_bar',
+            'windows_child_mode',
+            'apz_async_scrolling',
+            'browser_customization',
+            'pdf_viewer',
+            'context_menu',
+            'w10_comp', 
+            'tts_in_desktop', 
+            'tts_in_rm', 
+            'webgl_comp',
+            'video_and_canvas_render', 
+            'pointer_lock_api',
+            'webm_eme', 
+            'zoom_indicator',
+            'downloads_dropmaker',
+            'webgl2', 
+            'flac_support', 
+            'indicator_device_perm',
+            'flash_support',  
+            'notificationbox',          
+            'update_directory']
 
 csv_line = "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21}" + "\n"
 

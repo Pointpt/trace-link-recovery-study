@@ -11,15 +11,27 @@ LAST_TASK_ID = 1813
 RANGE_TASK_IDS = range(FIRST_TASK_ID, LAST_TASK_ID+1, 1)
 
 FIELDS = ['bug_number',
-            'update_directory', 'notificationbox',
-            'flash_support', 'indicator_device_perm', 
-            'flac_support', 'webgl2', 'downloads_dropmaker',
-            'zoom_indicator', 'webm_eme', 'pointer_lock_api',
-            'video_and_canvas_render', 'webgl_comp',
-            'tts_in_rm', 'tts_in_desktop', 'w10_comp', 
-            'context_menu', 'pdf_viewer', 'browser_customization',
-            'apz_async_scrolling', 'windows_child_mode',
-            'new_awesome_bar']
+            'new_awesome_bar',
+            'windows_child_mode',
+            'apz_async_scrolling',
+            'browser_customization',
+            'pdf_viewer',
+            'context_menu',
+            'w10_comp', 
+            'tts_in_desktop', 
+            'tts_in_rm', 
+            'webgl_comp',
+            'video_and_canvas_render', 
+            'pointer_lock_api',
+            'webm_eme', 
+            'zoom_indicator',
+            'downloads_dropmaker',
+            'webgl2', 
+            'flac_support', 
+            'indicator_device_perm',
+            'flash_support',  
+            'notificationbox',          
+            'update_directory']
 
 csv_line = "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21}" + "\n"
 
@@ -41,7 +53,33 @@ with open(BR_2_FEATURE_FILE_PATH, 'a') as br_2_feature_file:
         print("Task Id: " + str(task_id))
 
         for tr in taskruns_json:
-            br_2_feature_file.write(csv_line.format(
+            if tr['info']['bug_id'] == 1353831:
+                br_2_feature_file.write(csv_line.format(
+                                            tr['info']['bug_id'],
+                                            tr['info']['links']['new_awesome_bar'],
+                                            tr['info']['links']['windows_child_mode'],
+                                            tr['info']['links']['apz_async_scrolling'],
+                                            1,  # FIXING ERROR MADE BY EXPERT IN PYBOSSA DURING ANSWERING PROCESS!!!
+                                            tr['info']['links']['pdf_viewer'],
+                                            tr['info']['links']['context_menu'],
+                                            tr['info']['links']['w10_comp'],
+                                            tr["info"]['links']['tts_in_desktop'],
+                                            tr['info']['links']['tts_in_rm'],
+                                            tr['info']['links']['webgl_comp'],
+                                            tr['info']['links']['video_and_canvas_render'],
+                                            tr["info"]['links']['pointer_lock_api'],
+                                            tr['info']['links']['webm_eme'],
+                                            tr['info']['links']['zoom_indicator'],
+                                            tr['info']['links']['downloads_dropmaker'],
+                                            tr["info"]['links']['webgl2'],
+                                            tr["info"]['links']['flac_support'],
+                                            tr["info"]['links']['indicator_device_perm'],
+                                            tr["info"]['links']['flash_support'],
+                                            tr["info"]['links']['notificationbox'],
+                                            tr["info"]['links']['update_directory'])
+                                    )
+            else:
+                br_2_feature_file.write(csv_line.format(
                                         tr['info']['bug_id'],
                                         tr['info']['links']['new_awesome_bar'],
                                         tr['info']['links']['windows_child_mode'],
