@@ -9,6 +9,8 @@ from enum import Enum
 from models.generic_model import GenericModel
 from models.model_hyperps import WordVec_Model_Hyperp
 
+from utils import tokenizers as tok
+
 
 class SimilarityMeasure(Enum):
     COSINE = 'cosine'

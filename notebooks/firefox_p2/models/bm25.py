@@ -8,6 +8,8 @@ from enum import Enum
 from models.generic_model import GenericModel
 from models.model_hyperps import BM25_Model_Hyperp
 
+from utils import tokenizers as tok
+
 """
 params_dict = {
     'bm25__k' : 1.2,

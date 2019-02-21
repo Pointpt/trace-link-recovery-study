@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics import precision_recall_fscore_support, pairwise_distances, pairwise
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.preprocessing import normalize
