@@ -4,7 +4,7 @@ import os
 
 PYB_PROJECT_ID = 7
 
-taskruns_url = "http://localhost:5000/api/taskrun?project_id={0}".format(PYB_PROJECT_ID)
+taskruns_url = "http://localhost:8081/api/taskrun?project_id={0}".format(PYB_PROJECT_ID)
 
 FIRST_TASK_ID = 1628
 LAST_TASK_ID = 1720
