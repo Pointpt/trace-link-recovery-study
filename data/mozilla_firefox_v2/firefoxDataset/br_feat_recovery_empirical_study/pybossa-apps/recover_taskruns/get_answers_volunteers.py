@@ -37,6 +37,7 @@ csv_line = "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15
 
 header = csv_line.format(*FIELDS)
 
+# file with the answers for each task
 BR_2_FEATURE_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix_volunteers.csv'
 
 if os.path.exists(BR_2_FEATURE_FILE_PATH):
@@ -76,5 +77,4 @@ with open(BR_2_FEATURE_FILE_PATH, 'a') as br_2_feature_file:
                                         tr["info"]['links']['flash_support'],
                                         tr["info"]['links']['notificationbox'],
                                         tr["info"]['links']['update_directory'])
-                                )
-                                    
+                                )                                      
