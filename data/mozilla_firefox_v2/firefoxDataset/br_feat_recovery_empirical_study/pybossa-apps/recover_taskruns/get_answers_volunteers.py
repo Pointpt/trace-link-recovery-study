@@ -39,12 +39,11 @@ header = csv_line.format(*FIELDS)
 
 # tasks with rerunned (two or more taskruns)
 TASK_IDS = [
-    1639, 1640, 1641, 1642, 1654, 1655, 1656, 1657, 1668, 1669, 1681, 1682, 1683, 1684, 1685, 1686, 1687, 1688, 1689, 1690]
+    1639, 1640, 1641, 1642, 1654, 1655, 1656, 1657, 1668, 1669, 1681, 1682, 1683, 1684, 1685, 1686, 1687, 1688, 1689, 1690, 1691, 1692]
 
 # taskruns to ignore
 IGNORED_TASKRUNS = [
-    154,  155,  156,  157,  169,  170,  171,  172,  183,  184,  196,  197,  198,  199,  200,  201, 202,  203,  204,  206
-]
+    154,  155,  156,  157,  169,  170,  171,  172,  183,  184,  196,  197,  198,  199,  200,  201,  202,  203,  204,  206,  241,  242]
 
 # file with the answers for each task
 BR_2_FEATURE_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix_volunteers.csv'
