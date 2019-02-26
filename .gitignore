@@ -87,3 +87,5 @@ data/mozilla_firefox/firefoxDataset/new_data/
 notebooks/firefox/models_sim_matrix/
 
 notebooks/firefox/models_trace_matrix/
+
+\.Rhistory

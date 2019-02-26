@@ -37,6 +37,15 @@ csv_line = "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15
 
 header = csv_line.format(*FIELDS)
 
+# tasks with rerunned (two or more taskruns)
+TASK_IDS = [
+    1639, 1640, 1641, 1642, 1654, 1655, 1656, 1657, 1668, 1669, 1681, 1682, 1683, 1684, 1685, 1686, 1687, 1688, 1689, 1690]
+
+# taskruns to ignore
+IGNORED_TASKRUNS = [
+    154,  155,  156,  157,  169,  170,  171,  172,  183,  184,  196,  197,  198,  199,  200,  201, 202,  203,  204,  206
+]
+
 # file with the answers for each task
 BR_2_FEATURE_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix_volunteers.csv'
 
@@ -54,27 +63,28 @@ with open(BR_2_FEATURE_FILE_PATH, 'a') as br_2_feature_file:
         print("Task Id: " + str(task_id))
 
         for tr in taskruns_json:
-            br_2_feature_file.write(csv_line.format(
-                                        tr['info']['bug_id'],
-                                        tr['info']['links']['new_awesome_bar'],
-                                        tr['info']['links']['windows_child_mode'],
-                                        tr['info']['links']['apz_async_scrolling'],
-                                        tr['info']['links']['browser_customization'],
-                                        tr['info']['links']['pdf_viewer'],
-                                        tr['info']['links']['context_menu'],
-                                        tr['info']['links']['w10_comp'],
-                                        tr["info"]['links']['tts_in_desktop'],
-                                        tr['info']['links']['tts_in_rm'],
-                                        tr['info']['links']['webgl_comp'],
-                                        tr['info']['links']['video_and_canvas_render'],
-                                        tr["info"]['links']['pointer_lock_api'],
-                                        tr['info']['links']['webm_eme'],
-                                        tr['info']['links']['zoom_indicator'],
-                                        tr['info']['links']['downloads_dropmaker'],
-                                        tr["info"]['links']['webgl2'],
-                                        tr["info"]['links']['flac_support'],
-                                        tr["info"]['links']['indicator_device_perm'],
-                                        tr["info"]['links']['flash_support'],
-                                        tr["info"]['links']['notificationbox'],
-                                        tr["info"]['links']['update_directory'])
-                                )                                      
+            if tr['id'] not in IGNORED_TASKRUNS:
+                br_2_feature_file.write(csv_line.format(
+                                            tr['info']['bug_id'],
+                                            tr['info']['links']['new_awesome_bar'],
+                                            tr['info']['links']['windows_child_mode'],
+                                            tr['info']['links']['apz_async_scrolling'],
+                                            tr['info']['links']['browser_customization'],
+                                            tr['info']['links']['pdf_viewer'],
+                                            tr['info']['links']['context_menu'],
+                                            tr['info']['links']['w10_comp'],
+                                            tr["info"]['links']['tts_in_desktop'],
+                                            tr['info']['links']['tts_in_rm'],
+                                            tr['info']['links']['webgl_comp'],
+                                            tr['info']['links']['video_and_canvas_render'],
+                                            tr["info"]['links']['pointer_lock_api'],
+                                            tr['info']['links']['webm_eme'],
+                                            tr['info']['links']['zoom_indicator'],
+                                            tr['info']['links']['downloads_dropmaker'],
+                                            tr["info"]['links']['webgl2'],
+                                            tr["info"]['links']['flac_support'],
+                                            tr["info"]['links']['indicator_device_perm'],
+                                            tr["info"]['links']['flash_support'],
+                                            tr["info"]['links']['notificationbox'],
+                                            tr["info"]['links']['update_directory'])
+                                    )                                      
