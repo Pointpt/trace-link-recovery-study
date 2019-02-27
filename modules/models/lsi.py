@@ -9,8 +9,8 @@ from sklearn.preprocessing import Normalizer, normalize
 
 from enum import Enum
 
-from models.generic_model import GenericModel
-from models.model_hyperps import LSI_Model_Hyperp
+from modules.models.generic_model import GenericModel
+from modules.models.model_hyperps import LSI_Model_Hyperp
 
 
 

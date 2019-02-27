@@ -6,10 +6,10 @@ from sklearn.pipeline import Pipeline
 
 from enum import Enum
 
-from models.generic_model import GenericModel
-from models.model_hyperps import WordVec_Model_Hyperp
+from modules.models.generic_model import GenericModel
+from modules.models.model_hyperps import WordVec_Model_Hyperp
 
-from utils import tokenizers as tok
+from modules.utils import tokenizers as tok
 
 
 class SimilarityMeasure(Enum):

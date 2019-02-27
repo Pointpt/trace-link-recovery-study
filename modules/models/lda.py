@@ -10,8 +10,8 @@ from scipy.stats import entropy
 
 from enum import Enum
 
-from models.generic_model import GenericModel
-from models.model_hyperps import LDA_Model_Hyperp
+from modules.models.generic_model import GenericModel
+from modules.models.model_hyperps import LDA_Model_Hyperp
 
 
 class SimilarityMeasureName(Enum):

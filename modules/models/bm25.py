@@ -5,10 +5,10 @@ from gensim.summarization.bm25 import BM25
 
 from enum import Enum
 
-from models.generic_model import GenericModel
-from models.model_hyperps import BM25_Model_Hyperp
+from modules.models.generic_model import GenericModel
+from modules.models.model_hyperps import BM25_Model_Hyperp
 
-from utils import tokenizers as tok
+from modules.utils import tokenizers as tok
 
 """
 params_dict = {
