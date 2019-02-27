@@ -9,7 +9,13 @@ def read_trace_df():
     oracle_df.set_index('tc_name', inplace=True, drop=True)
     print('Oracle.shape: {}'.format(oracle_df.shape))
     return oracle_df
-    
+
+def read_feat_br_trace_df():
+    feat_br_trace_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/feat_br_matrix_emp_study.csv')
+    feat_br_trace_df.set_index('feat_name', inplace=True)
+    print('Feat_BR_Trace.shape: {}'.format(feat_br_trace_df.shape))
+    return feat_br_trace_df
+
 def read_testcases_df():
     testcases_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_english/TC/testcases_final.csv')
     print('TestCases.shape: {}'.format(testcases_df.shape))
