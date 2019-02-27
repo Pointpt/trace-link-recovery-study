@@ -36,28 +36,13 @@ TASKS_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_
 #    os.remove(TASKS_FILE_PATH)
 #    print("Tasks File Removed")
 
-FIREFOX_FEATS = ['new_awesome_bar',
-                 'windows_child_mode',
-                 'apz_async_scrolling',
-                 'browser_customization',
-                 'pdf_viewer',
-                 'context_menu',
-                 'w10_comp',
-                 'tts_in_desktop',
-                 'tts_in_rm', 'webgl_comp', 'video_and_canvas_render',
-                 'pointer_lock_api', 'webm_eme', 'zoom_indicator',
-                 'downloads_dropmaker', 'webgl2', 'flac_support',
-                 'indicator_device_perm', 'flash_support',  
-                 'notificationbox',
-                 'update_directory']
-
 def get_feats():
     feats = []
     features = pd.read_csv('~/anaconda3/envs/trace-link-recovery-study/data/mozilla_firefox_v2/firefoxDataset/docs_english/Features/features.csv')
     features.fillna("", inplace=True)
     for idx, f in features.iterrows():
         feats.append({
-            "feature_id" : FIREFOX_FEATS[idx],
+            "feature_id" : f['Feature_Shortname'],
             "feature_name": f['Firefox_Feature'],
             "feature_description" : f['Feature_Description'],
             "feature_reference": f['Reference']
