@@ -19,3 +19,25 @@ def read_bugreports_df():
     bugreports_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_english/BR/selected_bugreports_final.csv')
     print('BugReports.shape: {}'.format(bugreports_df.shape))
     return bugreports_df
+
+def read_features_df():
+    features_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_english/Features/features_final.csv')
+    print('Features.shape: {}'.format(features_df.shape))
+    return features_df
+
+def read_orig_features_df():
+    orig_features_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_english/Features/features.csv')
+    print('OrigFeatures.shape: {}'.format(orig_features_df.shape))
+    return orig_features_df
+
+def read_expert_matrix_df():
+    expert_matrix = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix_expert.csv')
+    expert_matrix.set_index('bug_number', inplace=True)
+    print('Expert Matrix shape: {}'.format(expert_matrix.shape))
+    return expert_matrix
+
+def read_volunteers_matrix_df():
+    volunteers_matrix = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix_volunteers.csv')
+    volunteers_matrix.set_index('bug_number', inplace=True)
+    print('Volunteers Matrix shape: {}'.format(volunteers_matrix.shape))
+    return volunteers_matrix
