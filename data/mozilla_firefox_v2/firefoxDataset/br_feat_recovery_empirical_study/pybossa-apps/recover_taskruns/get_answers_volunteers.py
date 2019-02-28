@@ -46,7 +46,7 @@ IGNORED_TASKRUNS = [
     154,  155,  156,  157,  169,  170,  171,  172,  183,  184,  196,  197,  198,  199,  200,  201,  202,  203,  204,  206,  241,  242,  253]
 
 # file with the answers for each task
-BR_2_FEATURE_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix_volunteers.csv'
+BR_2_FEATURE_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/feat_br/br_2_feature_matrix_volunteers.csv'
 
 if os.path.exists(BR_2_FEATURE_FILE_PATH):
     os.remove(BR_2_FEATURE_FILE_PATH)

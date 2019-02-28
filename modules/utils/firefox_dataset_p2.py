@@ -4,19 +4,54 @@ import pandas as pd
 
 BASE_PATH = '/home/guilherme/anaconda3/envs/trace-link-recovery-study'
 
-# ORACLES ----------------
+# TC_BR ORACLES --------------------------
 
-def read_trace_df():
-    oracle_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/trace_matrix_final_emp_study.csv')
+def read_oracle_expert_volunteers_df():
+    oracle_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/tc_br/oracle_expert_volunteers.csv')
     oracle_df.set_index('tc_name', inplace=True, drop=True)
-    print('Oracle.shape: {}'.format(oracle_df.shape))
+    print('OracleExpertVolunteers.shape: {}'.format(oracle_df.shape))
     return oracle_df
 
-def read_feat_br_trace_df():
-    feat_br_trace_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/feat_br_matrix_emp_study.csv')
+def read_oracle_expert_df():
+    oracle_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/tc_br/oracle_expert.csv')
+    oracle_df.set_index('tc_name', inplace=True, drop=True)
+    print('OracleExpert.shape: {}'.format(oracle_df.shape))
+    return oracle_df
+
+def read_oracle_volunteers_df():
+    oracle_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/tc_br/oracle_volunteers.csv')
+    oracle_df.set_index('tc_name', inplace=True, drop=True)
+    print('OracleVolunteers.shape: {}'.format(oracle_df.shape))
+    return oracle_df
+
+
+# FEAT_BR ORACLES ------------------------
+
+def read_feat_br_expert_volunteers_df():
+    feat_br_trace_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/feat_br/br_2_feature_matrix_expert_volunteers.csv')
     feat_br_trace_df.set_index('feat_name', inplace=True)
-    print('Feat_BR_Trace.shape: {}'.format(feat_br_trace_df.shape))
+    print('Expert and Volunteers Matrix.shape: {}'.format(feat_br_trace_df.shape))
     return feat_br_trace_df
+
+def read_feat_br_expert_df():
+    expert_matrix = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/feat_br/br_2_feature_matrix_expert.csv')
+    expert_matrix.set_index('bug_number', inplace=True)
+    print('Expert Matrix shape: {}'.format(expert_matrix.shape))
+    return expert_matrix
+
+def read_feat_br_volunteers_df():
+    volunteers_matrix = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/feat_br/br_2_feature_matrix_volunteers.csv')
+    volunteers_matrix.set_index('bug_number', inplace=True)
+    print('Volunteers Matrix shape: {}'.format(volunteers_matrix.shape))
+    return volunteers_matrix
+
+
+# AUXILIARY DATAFRAME WITH TRACELINKS BETWEEN BUG REPORTS AND FEATURES
+
+def read_aux_df():
+    aux_df = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/oracle/output/firefox_v2/aux_data/aux_df.csv')
+    print('AuxDf.shape: {}'.format(aux_df.shape))
+    return aux_df
 
 
 # DATASETS: TESTCASES, BUGREPORTS, FEATURES (FORMATTED) -----------
@@ -50,16 +85,3 @@ def read_orig_bugreports_df():
     return orig_bugreports_df
 
 
-# EXPERT AND VOLUNTEERS TRACE MATRICES ---------------
-
-def read_expert_matrix_df():
-    expert_matrix = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix_expert.csv')
-    expert_matrix.set_index('bug_number', inplace=True)
-    print('Expert Matrix shape: {}'.format(expert_matrix.shape))
-    return expert_matrix
-
-def read_volunteers_matrix_df():
-    volunteers_matrix = pd.read_csv(BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/br_2_feature_matrix_volunteers.csv')
-    volunteers_matrix.set_index('bug_number', inplace=True)
-    print('Volunteers Matrix shape: {}'.format(volunteers_matrix.shape))
-    return volunteers_matrix
