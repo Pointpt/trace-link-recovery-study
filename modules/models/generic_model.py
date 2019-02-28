@@ -1,5 +1,6 @@
 import pandas as pd
 from abc import ABCMeta, abstractmethod
+import math
 
 class GenericModel(metaclass=ABCMeta):
     def __init__(self):
@@ -31,9 +32,9 @@ class GenericModel(metaclass=ABCMeta):
         self.trace_links_df = pd.DataFrame(index = test_cases_names,
                                            columns = bug_reports_names,
                                            data = sim_matrix)
-                    
+        top_n = round(self.top/100 * len(self.trace_links_df))
         for col in self.trace_links_df.columns:
-            nlargest_df = self.trace_links_df.nlargest(n = self.top, columns=col, keep='first')    
+            nlargest_df = self.trace_links_df.nlargest(n = top_n, columns=col, keep='first')    
             self.trace_links_df[col] = [1 if x in nlargest_df[col].tolist() and x >= self.sim_measure_min_threshold[1] else 0 for x in self.trace_links_df[col]]
 
     def save_sim_matrix(self):
