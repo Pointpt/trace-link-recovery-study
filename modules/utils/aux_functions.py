@@ -80,4 +80,5 @@ def print_report_top_3_and_5_v3(results_df, metric):
         
 def highlight_df(df):
     cm = sns.light_palette("green", as_cmap=True)
-    return df.style.background_gradient(cmap=cm)   
+    return df.style.background_gradient(cmap=cm)  
+
