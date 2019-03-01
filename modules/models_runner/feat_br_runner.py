@@ -37,7 +37,7 @@ class Feat_BR_Runner:
     def run_lsi_model(self):
         lsi_hyperp = {
             LSI_Model_Hyperp.SIM_MEASURE_MIN_THRESHOLD.value : ('cosine' , .80),
-            LSI_Model_Hyperp.TOP.value : 10,
+            LSI_Model_Hyperp.TOP.value : 100,
             LSI_Model_Hyperp.SVD_MODEL_N_COMPONENTS.value: 100,
             LSI_Model_Hyperp.VECTORIZER_NGRAM_RANGE.value: (1,1),
             LSI_Model_Hyperp.VECTORIZER.value : TfidfVectorizer(stop_words='english', use_idf=True, smooth_idf=True),

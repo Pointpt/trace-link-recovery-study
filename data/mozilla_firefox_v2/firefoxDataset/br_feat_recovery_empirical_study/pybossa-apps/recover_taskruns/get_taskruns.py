@@ -19,10 +19,11 @@ FIELDS_TASKRUNS = ['bug_id',
     'link',
     'timeout',
     'project_id',
-    'id']
+    'id',
+    'answers']
 
 
-csv_line_taskruns = "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}" + "\n"
+csv_line_taskruns = "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}" + "\n"
 
 header_taskruns = csv_line_taskruns.format(*FIELDS_TASKRUNS)
 
@@ -42,6 +43,7 @@ with open(TASKRUNS_FILE_PATH, 'a') as taskruns_file:
         print("Task Id: " + str(task_id))
 
         for tr in taskruns_json:
+            answers = " ".join([str(ans[1]) for ans in tr['info']['links'].items()])
             taskruns_file.write(csv_line_taskruns.format(
                                         tr['info']['bug_id'],
                                         tr['user_id'],
@@ -52,6 +54,7 @@ with open(TASKRUNS_FILE_PATH, 'a') as taskruns_file:
                                         tr['link'],
                                         tr['timeout'],
                                         tr['project_id'],
-                                        tr['id'])
+                                        tr['id'],
+                                        answers)
                                 )
                                         
