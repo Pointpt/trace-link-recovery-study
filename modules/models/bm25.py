@@ -63,22 +63,22 @@ class BM_25(GenericModel):
         #tokenizer_params = {key.split('__')[2]:kwargs[key] for key,val in kwargs.items() if '__tokenizer__' in key}
         #self.tokenizer.set_params(**tokenizer_params)
         
-    def recover_links(self, corpus, query, use_cases_names, bug_reports_names):
+    def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
         bm25 = BM25([self.tokenizer.__call__(doc) for doc in corpus])
         average_idf = sum(map(lambda k: float(bm25.idf[k]), bm25.idf.keys())) / len(bm25.idf.keys())
         query = [self.tokenizer.__call__(doc) for doc in query]
         
-        self._sim_matrix = pd.DataFrame(index = use_cases_names, 
+        self._sim_matrix = pd.DataFrame(index = test_cases_names, 
                                            columns = bug_reports_names,
-                                           data=np.zeros(shape=(len(use_cases_names), len(bug_reports_names)),dtype='float64'))
+                                           data=np.zeros(shape=(len(test_cases_names), len(bug_reports_names)),dtype='float64'))
         
         for bug_id, bug_desc in zip(bug_reports_names, query):
             scores = bm25.get_scores(bug_desc, average_idf=average_idf)
-            for uc_id, sc in zip(use_cases_names, scores):
-                self._sim_matrix.at[uc_id, bug_id] = sc
+            for tc_id, sc in zip(test_cases_names, scores):
+                self._sim_matrix.at[tc_id, bug_id] = sc
         
-        self._sim_matrix = pd.DataFrame(self._sim_matrix, index=use_cases_names, columns=bug_reports_names)
-        super()._fillUp_traceLinksDf(use_cases_names, bug_reports_names, self._sim_matrix)
+        self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
+        super()._fillUp_traceLinksDf(test_cases_names, bug_reports_names, self._sim_matrix)
         
     def model_setup(self):
         return {"Setup" : 

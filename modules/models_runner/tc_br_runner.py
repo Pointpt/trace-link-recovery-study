@@ -37,7 +37,7 @@ class TC_BR_Runner:
     def run_lsi_model(self):
         lsi_hyperp = {
             LSI_Model_Hyperp.SIM_MEASURE_MIN_THRESHOLD.value : ('cosine' , .80),
-            LSI_Model_Hyperp.TOP.value : 100,
+            LSI_Model_Hyperp.TOP.value : 15,
             LSI_Model_Hyperp.SVD_MODEL_N_COMPONENTS.value: 100,
             LSI_Model_Hyperp.VECTORIZER_NGRAM_RANGE.value: (1,1),
             LSI_Model_Hyperp.VECTORIZER.value : TfidfVectorizer(stop_words='english', use_idf=True, smooth_idf=True),
@@ -56,7 +56,7 @@ class TC_BR_Runner:
     
     def run_lda_model(self):
         lda_hyperp = {
-            LDA_Model_Hyperp.TOP.value : 100,
+            LDA_Model_Hyperp.TOP.value : 15,
             LDA_Model_Hyperp.SIM_MEASURE_MIN_THRESHOLD.value : ('cosine',.75),
             LDA_Model_Hyperp.LDA_MODEL_N_COMPONENTS.value: 20,
             LDA_Model_Hyperp.LDA_MODEL_RANDOM_STATE.value : 2,
@@ -77,7 +77,7 @@ class TC_BR_Runner:
     
     def run_bm25_model(self):
         bm25_hyperp = {
-            BM25_Model_Hyperp.TOP.value : 100,
+            BM25_Model_Hyperp.TOP.value : 15,
             BM25_Model_Hyperp.SIM_MEASURE_MIN_THRESHOLD.value : ('-', 0.0),
             BM25_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer()
         }
@@ -95,12 +95,12 @@ class TC_BR_Runner:
     def run_word2vec_model(self):
         wv_hyperp = {
             WordVec_Model_Hyperp.SIM_MEASURE_MIN_THRESHOLD.value : ('cosine', .80),
-            WordVec_Model_Hyperp.TOP.value : 100,
+            WordVec_Model_Hyperp.TOP.value : 15,
             WordVec_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer()
         }
 
         wv_model = WordVec_BasedModel(**wv_hyperp)
-        wv_model.set_name('WordVec_Model_AllData')
+        wv_model.set_name('WordVec_Model_TC_BR')
         wv_model.recover_links(self.corpus, self.query, self.test_cases_names, self.bug_reports_names)
 
         print("\nModel Evaluation -------------------------------------------")

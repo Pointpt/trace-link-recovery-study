@@ -21,6 +21,7 @@ class FilePath(Enum):
     FEAT_BR_EXPERT_VOLUNTEERS = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_volunteers.csv'
     FEAT_BR_EXPERT = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert.csv'
     FEAT_BR_VOLUNTEERS = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers.csv'
+    FEAT_BR_VOLUNTEERS_2 = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers_2.csv'
     
     TESTCASES = TESTCASES_M_PATH + 'testcases_final.csv'
     BUGREPORTS = BUGREPORTS_M_PATH + 'selected_bugreports_final.csv'
@@ -88,8 +89,15 @@ class Feat_BR_Oracles:
         return expert_matrix
 
     def read_feat_br_volunteers_df():
-        volunteers_matrix = pd.read_csv(FilePath.FEAT_BR_VOLUNTEERS.value)
-        volunteers_matrix.set_index('bug_number', inplace=True)
+        volunteers_matrix_1 = pd.read_csv(FilePath.FEAT_BR_VOLUNTEERS.value)
+        volunteers_matrix_1.set_index('bug_number', inplace=True)
+        print('Volunteers Matrix 1 shape: {}'.format(volunteers_matrix_1.shape))
+        
+        volunteers_matrix_2 = pd.read_csv(FilePath.FEAT_BR_VOLUNTEERS_2.value)
+        volunteers_matrix_2.set_index('bug_number', inplace=True)
+        print('Volunteers Matrix 2 shape: {}'.format(volunteers_matrix_2.shape))
+               
+        volunteers_matrix =  pd.concat([volunteers_matrix_1, volunteers_matrix_2])
         print('Volunteers Matrix shape: {}'.format(volunteers_matrix.shape))
         return volunteers_matrix
 
