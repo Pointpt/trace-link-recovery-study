@@ -1,6 +1,7 @@
 from itertools import product
 import pickle
 import seaborn as sns
+import numpy as np
 
 def generate_params_comb_list(**kwargs):
     list_params = []
@@ -80,5 +81,12 @@ def print_report_top_3_and_5_v3(results_df, metric):
         
 def highlight_df(df):
     cm = sns.light_palette("green", as_cmap=True)
-    return df.style.background_gradient(cmap=cm)  
+    return df.style.background_gradient(cmap=cm) 
+
+
+def calculate_sparsity(X):
+    non_zero = np.count_nonzero(X)
+    total_val = np.product(X.shape)
+    sparsity = (total_val - non_zero) / total_val
+    return sparsity
 
