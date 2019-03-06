@@ -2,6 +2,8 @@ from itertools import product
 import pickle
 import seaborn as sns
 import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
 
 def generate_params_comb_list(**kwargs):
     list_params = []
@@ -90,3 +92,51 @@ def calculate_sparsity(X):
     sparsity = (total_val - non_zero) / total_val
     return sparsity
 
+
+def compile_results(results_dict):
+    results = pd.DataFrame(columns=['model','precision','recall','fscore'])
+    
+    results['model'] = [results_dict['lsi_model'].get_name(), 
+                        results_dict['lda_model'].get_name(), 
+                        results_dict['bm25_model'].get_name(), 
+                        results_dict['w2v_model'].get_name()]
+
+    results['precision'] = [results_dict['lsi_eval'].get_mean_precision(), 
+                            results_dict['lda_eval'].get_mean_precision(), 
+                            results_dict['bm25_eval'].get_mean_precision(), 
+                            results_dict['w2v_eval'].get_mean_precision()]
+
+    results['recall'] = [results_dict['lsi_eval'].get_mean_recall(),
+                         results_dict['lda_eval'].get_mean_recall(),
+                         results_dict['bm25_eval'].get_mean_recall(),
+                         results_dict['w2v_eval'].get_mean_recall()]
+
+    results['fscore'] = [results_dict['lsi_eval'].get_mean_fscore(),
+                         results_dict['lda_eval'].get_mean_fscore(),
+                         results_dict['bm25_eval'].get_mean_fscore(),
+                         results_dict['w2v_eval'].get_mean_fscore()]
+
+    results['precision_perc'] = results.precision.apply(lambda x : 100 * x)
+    results['recall_perc'] = results.recall.apply(lambda x : 100 * x)
+    results['fscore_perc'] = results.fscore.apply(lambda x : 100 * x)
+    
+    return results
+
+
+def plot_results(results_df, title):
+    f, (ax1,ax2,ax3) = plt.subplots(1,3, figsize=(20,5))
+    f.suptitle(title)
+
+    model_names = [m.split('_')[0] for m in results_df.model.values]
+
+    ax1.set_title('Percentual Precision')
+    ax1.bar(model_names, results_df.precision_perc, color='blue')
+    ax1.set(xlabel='model', ylabel='precision')
+
+    ax2.set_title('Percentual Recall')
+    ax2.bar(model_names, results_df.recall_perc, color='red')
+    ax2.set(xlabel='model', ylabel='recall')
+
+    ax3.set_title('Percentual FScore')
+    ax3.bar(model_names, results_df.fscore_perc, color='green')
+    ax3.set(xlabel='model', ylabel='fscore')
