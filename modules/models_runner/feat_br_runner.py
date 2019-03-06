@@ -61,7 +61,7 @@ class Feat_BR_Models_Hyperp:
         }
 
 class Feat_BR_Runner:
-    def __init__(self):
+    def __init__(self, oracle):
         self.features_df = fd.Datasets.read_features_df()
         self.bug_reports_df = fd.Datasets.read_selected_bugreports_df()
 
@@ -71,10 +71,9 @@ class Feat_BR_Runner:
         self.features_names = self.features_df.feat_name
         self.bug_reports_names = self.bug_reports_df.br_name
 
-        self.orc = fd.Feat_BR_Oracles.read_feat_br_expert_volunteers_intersec_df().T
-
-
-    def run_lsi_model(self, lsi_hyperp=None):
+        self.orc = oracle
+        
+    def run_lsi_model(self, lsi_hyperp=None, verbose=False):
         if lsi_hyperp == None:
             lsi_hyperp = Feat_BR_Models_Hyperp.get_lsi_model_hyperp()
 
@@ -84,11 +83,11 @@ class Feat_BR_Runner:
 
         print("\nModel Evaluation -------------------------------------------")
         evaluator = m_eval.ModelEvaluator(self.orc, lsi_model)
-        evaluator.evaluate_model(verbose=True)
+        evaluator.evaluate_model(verbose=verbose)
         
         return (lsi_model, evaluator)
     
-    def run_lda_model(self, lda_hyperp=None):
+    def run_lda_model(self, lda_hyperp=None, verbose=False):
         if lda_hyperp == None:
             lda_hyperp = Feat_BR_Models_Hyperp.get_lda_model_hyperp()
 
@@ -98,11 +97,11 @@ class Feat_BR_Runner:
 
         print("\nModel Evaluation -------------------------------------------")
         evaluator = m_eval.ModelEvaluator(self.orc, lda_model)
-        evaluator.evaluate_model(verbose=True)
+        evaluator.evaluate_model(verbose=verbose)
         
         return (lda_model, evaluator)
     
-    def run_bm25_model(self, bm25_hyperp=None):
+    def run_bm25_model(self, bm25_hyperp=None, verbose=False):
         if bm25_hyperp == None:
             bm25_hyperp = Feat_BR_Models_Hyperp.get_bm25_model_hyperp()
         bm25_hyperp = {
@@ -117,11 +116,11 @@ class Feat_BR_Runner:
 
         print("\nModel Evaluation -------------------------------------------")
         evaluator = m_eval.ModelEvaluator(self.orc, bm25_model)
-        evaluator.evaluate_model(verbose=True)
+        evaluator.evaluate_model(verbose=verbose)
         
         return (bm25_model, evaluator)
     
-    def run_word2vec_model(self, wv_hyperp=None):
+    def run_word2vec_model(self, wv_hyperp=None, verbose=False):
         if wv_hyperp == None:
             wv_hyperp = Feat_BR_Models_Hyperp.get_w2v_hyperp()
 
@@ -131,6 +130,6 @@ class Feat_BR_Runner:
 
         print("\nModel Evaluation -------------------------------------------")
         evaluator = m_eval.ModelEvaluator(self.orc, wv_model)
-        evaluator.evaluate_model(verbose=True)
+        evaluator.evaluate_model(verbose=verbose)
         
         return (wv_model, evaluator)
