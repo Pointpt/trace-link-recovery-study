@@ -111,6 +111,7 @@ class Feat_BR_Oracles:
     def read_feat_br_expert_df():
         expert_matrix = pd.read_csv(FilePath.FEAT_BR_EXPERT.value)
         expert_matrix.set_index('bug_number', inplace=True)
+        expert_matrix.sort_index(inplace=True)
         print('Expert Matrix shape: {}'.format(expert_matrix.shape))
         return expert_matrix
 
@@ -124,6 +125,7 @@ class Feat_BR_Oracles:
         #print('Volunteers Matrix 2 shape: {}'.format(volunteers_matrix_2.shape))
                
         volunteers_matrix =  pd.concat([volunteers_matrix_1, volunteers_matrix_2])
+        volunteers_matrix.sort_index(inplace=True)
         print('Volunteers Matrix shape: {}'.format(volunteers_matrix.shape))
         return volunteers_matrix
 
@@ -132,13 +134,14 @@ class Feat_BR_Oracles:
     def read_br_2_features_matrix_final_df():
         br_2_feat_matrix = pd.read_csv(FilePath.FEAT_BR_MATRIX_FINAL.value, dtype=object)
         br_2_feat_matrix.set_index('Bug_Number', inplace=True)
+        br_2_feat_matrix.sort_index(inplace=True)
         br_2_feat_matrix.fillna("", inplace=True)
         br_2_feat_matrix.drop(columns='Unnamed: 0', inplace=True)
         print('BR_2_Features Matrix Final.shape: {}'.format(br_2_feat_matrix.shape))
         return br_2_feat_matrix
 
     def write_br_2_features_matrix_final_df(br_2_feat_matrix):
-        br_2_feat_matrix.to_csv(FilePath.FEAT_BR_MATRIX_FINAL.value, dtype=object)
+        br_2_feat_matrix.to_csv(FilePath.FEAT_BR_MATRIX_FINAL.value)
         print('BR_2_Features Matrix Final.shape: {}'.format(br_2_feat_matrix.shape))
 
     

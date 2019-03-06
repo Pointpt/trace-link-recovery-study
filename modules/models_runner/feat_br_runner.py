@@ -63,7 +63,7 @@ class Feat_BR_Models_Hyperp:
 class Feat_BR_Runner:
     def __init__(self):
         self.features_df = fd.Datasets.read_features_df()
-        self.bug_reports_df = fd.Datasets.read_selected_bug_reports_2_df()
+        self.bug_reports_df = fd.Datasets.read_selected_bugreports_df()
 
         self.corpus = self.features_df.feat_desc
         self.query = self.bug_reports_df.br_desc
@@ -71,7 +71,7 @@ class Feat_BR_Runner:
         self.features_names = self.features_df.feat_name
         self.bug_reports_names = self.bug_reports_df.br_name
 
-        self.orc = fd.Feat_BR_Oracles.read_feat_br_expert_volunteers_df()
+        self.orc = fd.Feat_BR_Oracles.read_feat_br_expert_volunteers_intersec_df().T
 
 
     def run_lsi_model(self, lsi_hyperp=None):

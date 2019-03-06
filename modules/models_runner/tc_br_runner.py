@@ -23,7 +23,7 @@ from modules.models.model_hyperps import WordVec_Model_Hyperp
 class TC_BR_Runner:
     def __init__(self):
         self.test_cases_df = fd.Datasets.read_testcases_df()
-        self.bug_reports_df = fd.Datasets.read_selected_bug_reports_2_df()
+        self.bug_reports_df = fd.Datasets.read_selected_bugreports_df()
         
         self.corpus = self.test_cases_df.tc_desc
         self.query = self.bug_reports_df.br_desc
@@ -31,7 +31,7 @@ class TC_BR_Runner:
         self.test_cases_names = self.test_cases_df.tc_name
         self.bug_reports_names = self.bug_reports_df.br_name
 
-        self.orc = fd.Tc_BR_Oracles.read_oracle_expert_volunteers_df()
+        self.orc = fd.Tc_BR_Oracles.read_oracle_expert_volunteers_intersec_df()
 
 
     def run_lsi_model(self):
