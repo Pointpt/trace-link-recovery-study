@@ -140,3 +140,11 @@ def plot_results(results_df, title):
     ax3.set_title('Percentual FScore')
     ax3.bar(model_names, results_df.fscore_perc, color='green')
     ax3.set(xlabel='model', ylabel='fscore')
+
+
+def shift_answers_of_taskruns(taskruns):
+    new_answers = list(taskruns.answers.values)
+    new_answers = [new_answers[-1]] + new_answers
+    del new_answers[-1]
+    taskruns['new_answers'] = new_answers
+    return taskruns

@@ -49,7 +49,7 @@ csv_line_taskruns = "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}" + "\n"
 header_taskruns = csv_line_taskruns.format(*FIELDS_TASKRUNS)
 
 # file with general info about each task
-TASKRUNS_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/br_feat_recovery_empirical_study/pybossa-apps/recover_taskruns/taskruns_volunteers_2.csv'
+TASKRUNS_FILE_PATH = 'mozilla_firefox_v2/firefoxDataset/docs_english/taskruns/taskruns_volunteers_2.csv'
 
 if os.path.exists(TASKRUNS_FILE_PATH):
     os.remove(TASKRUNS_FILE_PATH)

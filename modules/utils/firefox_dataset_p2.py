@@ -12,6 +12,7 @@ BUGREPORTS_M_PATH = BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_en
 TESTCASES_M_PATH = BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_english/TC/'
 FEATURES_M_PATH = BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_english/Features/'
 
+TASKRUNS_M_PATH = BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_english/taskruns/'
 
 class FilePath(Enum):
     #ORACLE_EXPERT_VOLUNTEERS = TC_X_BR_M_PATH + 'oracle_expert_volunteers.csv'
@@ -35,6 +36,11 @@ class FilePath(Enum):
 
     ORIG_FEATURES = FEATURES_M_PATH + 'features.csv'
     ORIG_BUGREPORTS = BUGREPORTS_M_PATH + 'bugreports_final.csv'
+    
+    EXPERT_TASKRUNS = TASKRUNS_M_PATH + 'taskruns_expert_2.csv'
+    VOLUNTEERS_TASKRUNS_1 = TASKRUNS_M_PATH + 'taskruns_volunteers.csv'
+    VOLUNTEERS_TASKRUNS_2 = TASKRUNS_M_PATH + 'taskruns_volunteers_2.csv'
+    AUX_2_TASKRUNS = TASKRUNS_M_PATH + 'taskruns_aux_2.csv'
 
     
 # TC_BR ORACLES --------------------------
@@ -193,3 +199,26 @@ class OrigDatasets:
         return orig_bugreports_df
 
 
+# TASKRUNS: EXPERT AND VOLUNTEERS TASKRUNS ------------------
+
+class TaskRuns:
+    def read_expert_taskruns_df():
+        taskruns = pd.read_csv(FilePath.EXPERT_TASKRUNS.value)
+        taskruns.sort_values(by='bug_id', inplace=True)
+        print('TaskRuns shape: {}'.format(taskruns.shape))
+        return taskruns
+    
+    def read_volunteers_taskruns_df():
+        taskruns_1 = pd.read_csv(FilePath.VOLUNTEERS_TASKRUNS_1.value)
+        taskruns_2 = pd.read_csv(FilePath.EXPERT_TASKRUNS.value)
+        #print('TaskRuns_1 shape: {}'.format(taskruns_1.shape))
+        #print('TaskRuns_2 shape: {}'.format(taskruns_2.shape))
+        taskruns = pd.concat([taskruns_1, taskruns_2])
+        taskruns.sort_values(by='bug_id', inplace=True)
+        print('TaskRuns shape: {}'.format(taskruns.shape))
+        return taskruns
+    
+    def read_aux2_taskruns_df():
+        taskruns = pd.read_csv(FilePath.AUX_2_TASKRUNS.value)
+        taskruns.sort_values(by='bug_id', inplace=True)
+        return taskruns
