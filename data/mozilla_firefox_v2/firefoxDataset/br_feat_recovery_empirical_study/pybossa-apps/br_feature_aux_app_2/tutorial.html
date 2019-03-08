@@ -1,0 +1,102 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+    p, li { font-size: 20px; text-justify: inter-word; text-align: justify;}
+
+    #doubt_icon {
+        color:#fff;
+        background-color:#feb22a;
+        width:12px;
+        height:12px;
+        display:inline-block;
+        border-radius:100%;
+        font-size:10px;
+        text-align:center;
+        text-decoration:none;
+        -webkit-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+        -moz-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+        box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12" align="center">
+        <div id="modal" style="width: 50%; height: 60%;">
+            <div class="modal-header">
+                <h3>Bug Report Feature - Auxiliary Version</h3>
+            </div>
+
+            <div id="consent_term" class="modal-body" style="text-align: justify; text-justify: inter-word;">
+                <h4>Consent Term</h4>
+                <p class="consent_p">
+                    This is a <strong>consent term</strong> that shows how the information provided by you will be
+                    used by us. By accepting this term, you agree in to be a volunteer in this study, but you can give up at any
+                    time you want without any prejudice against you. The data provided by you to this study are only used for
+                    academic purposes. No information about you will be released. The information that may identify you will not be
+                    used, once our study does not target the volunteers like you and their personal information, but the results of the
+                    cognitive tasks during the study. Your privacy is guaranteed. You can request a copy of your answers at any
+                    time, sending an email to <i>guilherme</i> at <i>copin</i> dot <i>ufcg</i> dot <i>edu</i> dot <i>br</i>. Thank you in
+                    advance for your participation and have fun.
+                </p>
+            </div>
+            <div id="tutorial" class="modal-body" hidden>
+                <p>Hi, welcome to the tutorial of this project. Below we explain how you can contribute.</p>
+
+                <p>
+                    On the left side of your screen appear the <strong style="color:red">bug report</strong> and the most relevant data about it, which you
+                    must consider on your task. Your task consists in reading the bug title (<strong>bug summary</strong> field) and the detailed
+                    description (<strong>bug reporter comment</strong> field) and to mark on the right side of your screen
+                    the Mozilla Firefox's <strong style="color:red">features</strong> you think exists an association or relationship with it.
+                </p>
+                <p>
+                    You will find next to each feature a question mark <a id="doubt_icon">?</a> that you can click and read the detailed
+                    description of that feature and a link to additional information that you may need to understand the feature. Please pay
+                    attention to the feature's complete description, once it may contain <strong>many software components</strong> involved and one of them
+                    is the one that creates the relationship with the bug report.
+                </p>
+                <p>
+                    <strong>Important topic</strong>: We consider that a bug report is associated with a given feature if there is some mention to
+                    that feature in the bug summary or in the bug reporter comment. Or if you think, after reading the feature description, that the relationship
+                    may exist. This is not an exact science, and right answers may not exist for some relationships so we need your cognitive skills
+                    to determine it. <strong style="color:red"><i>Any feature that may be impacted by the bug report or is cited into its description should be considered as
+                    related or associated to it even if the feature belongs to another version than the one pointed out in the bug report.</i></strong>
+                </p>
+                <p><strong>Important topic 2</strong>: <i>A bug report also may be associated with more than one feature at the same time. Mark all the related features if it is the case.</i></p>
+                <p>
+                    Below the bug reporter comment, you have a link to the bug report with a better text formatting in the Bugzilla platform.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <a id="acceptBtn" href="../br_feature_aux_app_2/newtask" class="btn btn-success"
+                    style="display: none;">Accept Terms</a>
+                <a id="okBtn" href="../br_feature_aux_app_2/newtask" class="btn btn-success"
+                    style="display: none;">Ok</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // hiding 'Start Contributing' button
+    $(document).ready(function(){ 
+        $("#start").remove();
+    });
+
+    var current_url = window.location.href;
+    if(current_url.includes("#consentTerm")) {
+        $("#consent_term").show();
+        $("#tutorial").hide();
+        
+        $("#acceptBtn").show();
+        $("#okBtn").hide();
+    }
+    else if(current_url.includes("#tutorial")) {
+        $("#consent_term").hide();
+        $("#tutorial").show();
+
+        $("#acceptBtn").hide();
+        $("#okBtn").show();
+    }
+</script>

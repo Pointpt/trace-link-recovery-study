@@ -23,7 +23,8 @@ class FilePath(Enum):
     #FEAT_BR_EXPERT_VOLUNTEERS = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_volunteers.csv'
     FEAT_BR_EXPERT_VOLUNTEERS_UNION = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_volunteers_union.csv'
     FEAT_BR_EXPERT_VOLUNTEERS_INTERSEC = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_volunteers_intersec.csv'
-    FEAT_BR_EXPERT = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert.csv'
+    FEAT_BR_EXPERT = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_2_2.csv'
+    FEAT_BR_VOL = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers_2_2.csv'
     FEAT_BR_VOLUNTEERS = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers.csv'
     FEAT_BR_VOLUNTEERS_2 = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers_2.csv'
     FEAT_BR_MATRIX_FINAL = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_final.csv'
@@ -128,7 +129,12 @@ class Feat_BR_Oracles:
         volunteers_matrix.sort_index(inplace=True)
         print('Volunteers Matrix shape: {}'.format(volunteers_matrix.shape))
         return volunteers_matrix
-
+    
+    def read_feat_br_volunteers_df_2():
+        vol_matrix = pd.read_csv(FilePath.FEAT_BR_VOL.value)
+        vol_matrix.set_index('bug_number', inplace=True)
+        print('Volunteers Matrix shape: {}'.format(vol_matrix.shape))
+        return vol_matrix
     
     ## selected_bug_reports_2 with the related features after the empirical study
     def read_br_2_features_matrix_final_df():

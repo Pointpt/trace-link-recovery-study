@@ -1,0 +1,6 @@
+{
+    "name": "Bug Report Feature - Auxiliary Version 2",
+    "short_name": "br_feature_aux_app_2",
+    "description": "Auxiliary App for Empirical Study to Recover Bug Report Features",
+    "question": "What Firefox feature is related/associated with this Bug Report?"
+}
