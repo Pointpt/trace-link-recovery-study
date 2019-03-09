@@ -62,5 +62,5 @@ class Br_Feat_Oracle_Creator:
                 feat_name = feat_br_matrix.columns[i]
                 feat_br_matrix.at[row.bug_id, feat_name] = int(ans[i])
 
-        fd.Feat_BR_Oracles.write_feat_br_volunteers_df_2(feat_br_matrix)
+        fd.Feat_BR_Oracles.write_feat_br_volunteers_df(feat_br_matrix)
         

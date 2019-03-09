@@ -25,10 +25,7 @@ class FilePath(Enum):
     
     FEAT_BR_EXPERT = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert.csv'
     FEAT_BR_EXPERT_2 = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_2.csv'
-    FEAT_BR_VOL = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers_2.csv'
-    
-    #FEAT_BR_VOLUNTEERS = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers.csv'
-    #FEAT_BR_VOLUNTEERS_2 = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers_2.csv'
+    FEAT_BR_VOLUNTEERS = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers.csv'
     
     FEAT_BR_MATRIX_FINAL = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_final.csv'
     
@@ -142,32 +139,16 @@ class Feat_BR_Oracles:
         feat_br_expert_matrix.to_csv(FilePath.FEAT_BR_EXPERT.value, index=True)
         print('Feat_BR Expert Matrix shape: {}'.format(feat_br_expert_matrix.shape))
         
-    
-    """
+       
     def read_feat_br_volunteers_df():
-        volunteers_matrix_1 = pd.read_csv(FilePath.FEAT_BR_VOLUNTEERS.value)
-        volunteers_matrix_1.set_index('bug_number', inplace=True)
-        #print('Volunteers Matrix 1 shape: {}'.format(volunteers_matrix_1.shape))
-        
-        volunteers_matrix_2 = pd.read_csv(FilePath.FEAT_BR_VOLUNTEERS_2.value)
-        volunteers_matrix_2.set_index('bug_number', inplace=True)
-        #print('Volunteers Matrix 2 shape: {}'.format(volunteers_matrix_2.shape))
-               
-        volunteers_matrix =  pd.concat([volunteers_matrix_1, volunteers_matrix_2])
-        volunteers_matrix.sort_index(inplace=True)
-        print('Volunteers Matrix shape: {}'.format(volunteers_matrix.shape))
-        return volunteers_matrix
-    """
-    
-    def read_feat_br_volunteers_df_2():
-        vol_matrix = pd.read_csv(FilePath.FEAT_BR_VOL.value)
+        vol_matrix = pd.read_csv(FilePath.FEAT_BR_VOLUNTEERS.value)
         vol_matrix.set_index('bug_number', inplace=True)
         vol_matrix.sort_index(inplace=True)
         print('Feat_BR Volunteers Matrix shape: {}'.format(vol_matrix.shape))
         return vol_matrix
     
-    def write_feat_br_volunteers_df_2(feat_br_volunteers_matrix):
-        feat_br_volunteers_matrix.to_csv(FilePath.FEAT_BR_VOL.value, index=True)
+    def write_feat_br_volunteers_df(feat_br_volunteers_matrix):
+        feat_br_volunteers_matrix.to_csv(FilePath.FEAT_BR_VOLUNTEERS.value, index=True)
         print('Feat_BR Volunteers Matrix shape: {}'.format(feat_br_volunteers_matrix.shape))
     
     
