@@ -5,6 +5,8 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
+from sklearn.metrics import cohen_kappa_score
+
 def generate_params_comb_list(**kwargs):
     list_params = []
     for key, values in kwargs.items():

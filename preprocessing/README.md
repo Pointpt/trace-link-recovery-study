@@ -13,7 +13,9 @@
  - Feat_BR_volunteers_expert_intersec
  
 * feat_br_orc_v2_gen: generation of feat_br oracles from expert and volunteers answers of empirical study
- 
+
+* feat_br_orc_v2_comp: comparison of answers given in pybossa expert apps versions 1 and 2
+
 * tc_br_orc_v1: generation of tc_br oracles usinig automatized approach
 
 * tc_br_orc_v2_ana: analysis of tc_br oracles generated

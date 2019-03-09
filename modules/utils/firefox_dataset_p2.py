@@ -22,10 +22,14 @@ class FilePath(Enum):
     
     FEAT_BR_EXPERT_VOLUNTEERS_UNION = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_volunteers_union.csv'
     FEAT_BR_EXPERT_VOLUNTEERS_INTERSEC = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_volunteers_intersec.csv'
-    FEAT_BR_EXPERT = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_2_2.csv'
-    FEAT_BR_VOL = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers_2_2.csv'
+    
+    FEAT_BR_EXPERT = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert.csv'
+    FEAT_BR_EXPERT_2 = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_expert_2.csv'
+    FEAT_BR_VOL = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers_2.csv'
+    
     #FEAT_BR_VOLUNTEERS = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers.csv'
     #FEAT_BR_VOLUNTEERS_2 = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_volunteers_2.csv'
+    
     FEAT_BR_MATRIX_FINAL = FEAT_X_BR_M_PATH + 'br_2_feature_matrix_final.csv'
     
     TESTCASES = TESTCASES_M_PATH + 'testcases_final.csv'
@@ -35,7 +39,8 @@ class FilePath(Enum):
     ORIG_FEATURES = FEATURES_M_PATH + 'features.csv'
     ORIG_BUGREPORTS = BUGREPORTS_M_PATH + 'bugreports_final.csv'
     
-    EXPERT_TASKRUNS = TASKRUNS_M_PATH + 'taskruns_expert_2.csv'
+    EXPERT_TASKRUNS = TASKRUNS_M_PATH + 'taskruns_expert.csv'
+    EXPERT_TASKRUNS_2 = TASKRUNS_M_PATH + 'taskruns_expert_2.csv'
     VOLUNTEERS_TASKRUNS_1 = TASKRUNS_M_PATH + 'taskruns_volunteers.csv'
     VOLUNTEERS_TASKRUNS_2 = TASKRUNS_M_PATH + 'taskruns_volunteers_2.csv'
     AUX_2_TASKRUNS = TASKRUNS_M_PATH + 'taskruns_aux_2.csv'
@@ -113,16 +118,30 @@ class Feat_BR_Oracles:
         print('Feat_BR Expert and Volunteers Matrix INTERSEC.shape: {}'.format(feat_br_expert_volunteers_matrix.shape))
         
 
+    def read_feat_br_expert_2_df():
+        expert_matrix = pd.read_csv(FilePath.FEAT_BR_EXPERT_2.value)
+        expert_matrix.set_index('bug_number', inplace=True)
+        expert_matrix.sort_index(inplace=True)
+        print('Feat_BR Expert 2 Matrix shape: {}'.format(expert_matrix.shape))
+        return expert_matrix
+    
+    def write_feat_br_expert_2_df(feat_br_expert_matrix):
+        feat_br_expert_matrix.to_csv(FilePath.FEAT_BR_EXPERT_2.value, index=True)
+        print('Feat_BR Expert 2 Matrix shape: {}'.format(feat_br_expert_matrix.shape))
+    
+    
+    #### TESTS PURPOSES ------------------
     def read_feat_br_expert_df():
         expert_matrix = pd.read_csv(FilePath.FEAT_BR_EXPERT.value)
         expert_matrix.set_index('bug_number', inplace=True)
         expert_matrix.sort_index(inplace=True)
         print('Feat_BR Expert Matrix shape: {}'.format(expert_matrix.shape))
         return expert_matrix
-    
+    #### TESTS PURPOSES ------------------
     def write_feat_br_expert_df(feat_br_expert_matrix):
         feat_br_expert_matrix.to_csv(FilePath.FEAT_BR_EXPERT.value, index=True)
         print('Feat_BR Expert Matrix shape: {}'.format(feat_br_expert_matrix.shape))
+        
     
     """
     def read_feat_br_volunteers_df():
@@ -218,6 +237,12 @@ class TaskRuns:
         print('TaskRuns shape: {}'.format(taskruns.shape))
         return taskruns
     
+    def read_expert_taskruns_2_df():
+        taskruns = pd.read_csv(FilePath.EXPERT_TASKRUNS_2.value)
+        taskruns.sort_values(by='bug_id', inplace=True)
+        print('TaskRuns shape: {}'.format(taskruns.shape))
+        return taskruns
+    
     def read_volunteers_taskruns_1_df():
         taskruns_1 = pd.read_csv(FilePath.VOLUNTEERS_TASKRUNS_1.value)
         print('TaskRuns_1 shape: {}'.format(taskruns_1.shape))
@@ -228,10 +253,8 @@ class TaskRuns:
         print('TaskRuns_2 shape: {}'.format(taskruns_2.shape))
         return taskruns_2
     
-        
-        return taskruns
-    
     def read_aux2_taskruns_df():
         taskruns = pd.read_csv(FilePath.AUX_2_TASKRUNS.value)
         taskruns.sort_values(by='bug_id', inplace=True)
         return taskruns
+    
