@@ -127,14 +127,13 @@ class Feat_BR_Oracles:
         print('Feat_BR Expert 2 Matrix shape: {}'.format(feat_br_expert_matrix.shape))
     
     
-    #### TESTS PURPOSES ------------------
     def read_feat_br_expert_df():
         expert_matrix = pd.read_csv(FilePath.FEAT_BR_EXPERT.value)
         expert_matrix.set_index('bug_number', inplace=True)
         expert_matrix.sort_index(inplace=True)
         print('Feat_BR Expert Matrix shape: {}'.format(expert_matrix.shape))
         return expert_matrix
-    #### TESTS PURPOSES ------------------
+    
     def write_feat_br_expert_df(feat_br_expert_matrix):
         feat_br_expert_matrix.to_csv(FilePath.FEAT_BR_EXPERT.value, index=True)
         print('Feat_BR Expert Matrix shape: {}'.format(feat_br_expert_matrix.shape))

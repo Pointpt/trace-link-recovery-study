@@ -27,7 +27,6 @@ class Br_Feat_Oracle_Creator:
         
         return feat_br_matrix
     
-    ## TESTS PURPOSES -------------
     def create_br_feat_expert_matrix(self, expert_taskruns):
         feat_br_matrix = self.__create_exp_feat_br_matrix(expert_taskruns)
         fd.Feat_BR_Oracles.write_feat_br_expert_df(feat_br_matrix)
