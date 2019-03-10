@@ -15,8 +15,7 @@ class LSI_Model_Hyperp(Enum):
     
 class LDA_Model_Hyperp(Enum):
     NAME = 'lda__name'
-    TOP = 'lda__top_value'
-    SIM_MEASURE_MIN_THRESHOLD = 'lda__sim_measure_min_threshold'
+    SIMILARITY_MEASURE = 'lda__similarity_measure'
     VECTORIZER = 'lda__vectorizer'
     VECTORIZER_STOP_WORDS = 'lda__vectorizer__stop_words'
     VECTORIZER_TOKENIZER = 'lda__vectorizer__tokenizer'
@@ -31,16 +30,13 @@ class LDA_Model_Hyperp(Enum):
     
 class BM25_Model_Hyperp(Enum):
     NAME = 'bm25__name'
-    TOP = 'bm25_top'
     K = 'bm25__k'
     B = 'bm25__b'
     EPSILON = 'bm25__epsilon'
     TOKENIZER = 'bm25__tokenizer'
-    SIM_MEASURE_MIN_THRESHOLD = 'bm25__sim_measure_min_threshold'
-
+    
     
 class WordVec_Model_Hyperp(Enum):
     NAME = 'wordvec__name'
-    TOP = 'wordvec__top'
     TOKENIZER = 'wordvec__tokenizer'
-    SIM_MEASURE_MIN_THRESHOLD = 'wordvec__sim_measure_min_threshold'
+    

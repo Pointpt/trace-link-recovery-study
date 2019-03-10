@@ -11,8 +11,15 @@ class Br_Feat_Oracle_Creator:
         self.bugreports = bugreports
         self.features = features
     
+    def __shift_taskruns_answers(self, taskruns):
+        new_answers = list(taskruns.answers.values)
+        new_answers = [new_answers[-1]] + new_answers
+        del new_answers[-1]
+        taskruns['new_answers'] = new_answers
+        return taskruns
+    
     def __create_exp_feat_br_matrix(self, expert_taskruns):
-        taskruns_expert = aux_functions.shift_taskruns_answers(expert_taskruns)
+        taskruns_expert = self.__shift_taskruns_answers(expert_taskruns)
         taskruns_expert.sort_values(by='bug_id', inplace=True)
 
         feat_br_matrix = pd.DataFrame(columns=self.features.feat_name.values, 
@@ -42,8 +49,8 @@ class Br_Feat_Oracle_Creator:
                     197,  198,  199,  200,  201,  202,  203,  204,  206,  241,  242,  
                     253,  264,  265,  266,  267,  268,  269,  270]
         
-        taskruns_volunteers_1 = aux_functions.shift_taskruns_answers(taskruns_volunteers_1)
-        taskruns_volunteers_2 = aux_functions.shift_taskruns_answers(taskruns_volunteers_2)
+        taskruns_volunteers_1 = self.__shift_taskruns_answers(taskruns_volunteers_1)
+        taskruns_volunteers_2 = self.__shift_taskruns_answers(taskruns_volunteers_2)
         
         taskruns = pd.concat([taskruns_volunteers_1, taskruns_volunteers_2])
         taskruns.sort_values(by='bug_id', inplace=True)
