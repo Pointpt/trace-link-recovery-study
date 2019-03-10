@@ -39,17 +39,9 @@ class BM_25(GenericModel):
     
     def set_model_gen_name(self, gen_name):
         super().set_model_gen_name(gen_name)
-    
-    def set_top(self, top):
-        super().set_top(top)
-    
-    def set_sim_measure_min_threshold(self, threshold):
-        super().set_sim_measure_min_threshold(threshold)
-    
+        
     def set_basic_params(self, **kwargs):
         self.set_name('BM25' if BM25_Model_Hyperp.NAME.value not in kwargs.keys() else kwargs[BM25_Model_Hyperp.NAME.value])
-        self.set_top(3 if BM25_Model_Hyperp.TOP.value not in kwargs.keys() else kwargs[BM25_Model_Hyperp.TOP.value])
-        self.set_sim_measure_min_threshold(('', 0.0) if BM25_Model_Hyperp.SIM_MEASURE_MIN_THRESHOLD.value not in kwargs.keys() else kwargs[BM25_Model_Hyperp.SIM_MEASURE_MIN_THRESHOLD.value])
         self.set_model_gen_name('bm25')
         
         self.k = 1.2 if BM25_Model_Hyperp.K.value not in kwargs.keys() else kwargs[BM25_Model_Hyperp.K.value]
@@ -78,14 +70,11 @@ class BM_25(GenericModel):
                 self._sim_matrix.at[tc_id, bug_id] = sc
         
         self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
-        super()._fillUp_traceLinksDf(test_cases_names, bug_reports_names, self._sim_matrix)
         
     def model_setup(self):
         return {"Setup" : 
                   [
                       {"Name" : self.get_name()},
-                      {"Top Value" : self.get_top_value()},
-                      {"Sim Measure Min Threshold" : self.get_sim_measure_min_threshold()},
                       {"K" : self.k},
                       {"B" : self.b},
                       {"Epsilon" : self.epsilon},
@@ -98,12 +87,6 @@ class BM_25(GenericModel):
     
     def get_model_gen_name(self):
         return super().get_model_gen_name()
-    
-    def get_top_value(self):
-        return super().get_top_value()
-    
-    def get_sim_measure_min_threshold(self):
-        return super().get_sim_measure_min_threshold()
     
     def get_sim_matrix(self):
         return super().get_sim_matrix()

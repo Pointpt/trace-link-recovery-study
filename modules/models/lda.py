@@ -8,18 +8,15 @@ from sklearn.preprocessing import normalize
 
 from scipy.stats import entropy
 
-from enum import Enum
-
 from modules.models.generic_model import GenericModel
 from modules.models.model_hyperps import LDA_Model_Hyperp
 
+from modules.utils import similarity_measures as sm
 
-class SimilarityMeasureName(Enum):
-    JSD = 'jsd'
 
 class SimilarityMeasure:
     def __init__(self):
-        self.name = SimilarityMeasureName.JSD
+        self.name = sm.SimilarityMeasure.JSD
     
     # static method
     def jsd(p, q):
@@ -35,8 +32,7 @@ class SimilarityMeasure:
 """
 params_dict = {
     'lda__name' : 'LDA',
-    'lda__top_value' : 3,
-    'lda__sim_measure_min_threshold' : ('cosine',.9),
+    'lda__similarity_measure' : SimilarityMeasure.COSINE,
     'lda__vectorizer' : TfidfVectorizer(),
     'lda__vectorizer__stop_words' : 'english',
     'lda__vectorizer__tokenizer' : Tokenizer(),
@@ -54,9 +50,10 @@ class LDA(GenericModel):
         
         self.vectorizer = None
         self.lda_model = LatentDirichletAllocation(n_jobs=-1)
-        
+               
         super().__init__()
         
+        self.similarity_measure = None
         self.set_basic_params(**kwargs)
         
         self.set_vectorizer(**kwargs)
@@ -68,18 +65,14 @@ class LDA(GenericModel):
     def set_model_gen_name(self, gen_name):
         super().set_model_gen_name(gen_name)
     
-    def set_top(self, top):
-        super().set_top(top)
-    
-    def set_sim_measure_min_threshold(self, threshold):
-        super().set_sim_measure_min_threshold(threshold)
-    
     def set_basic_params(self, **kwargs):
         self.set_name('LDA' if LDA_Model_Hyperp.NAME.value not in kwargs.keys() else kwargs[LDA_Model_Hyperp.NAME.value])
-        self.set_sim_measure_min_threshold((SimilarityMeasureName.JSD.value, .3) if LDA_Model_Hyperp.SIM_MEASURE_MIN_THRESHOLD.value not in kwargs.keys() else kwargs[LDA_Model_Hyperp.SIM_MEASURE_MIN_THRESHOLD.value]       )
-        self.set_top(3 if LDA_Model_Hyperp.TOP.value not in kwargs.keys() else kwargs[LDA_Model_Hyperp.TOP.value])
         self.set_model_gen_name('lda')
-        
+        self.set_similarity_measure(sm.SimilarityMeasure.COSINE)
+    
+    def set_similarity_measure(self, sim_measure):
+        self.similarity_measure = sim_measure
+    
     def set_vectorizer(self, **kwargs):
         self.vectorizer = TfidfVectorizer(stop_words='english',
                                              use_idf=True, 
@@ -98,15 +91,15 @@ class LDA(GenericModel):
         out_1 = self.lda_model.fit_transform(self._corpus_matrix)
         out_2 = self.lda_model.transform(self._query_vector)
         
-        metric = self.sim_measure_min_threshold[0]
-        if metric == 'cosine':
+        metric = self.similarity_measure
+        if metric == sm.SimilarityMeasure.COSINE:
             self._sim_matrix = pairwise.cosine_similarity(X=out_1, Y=out_2)
-        elif metric == 'jsd':
+        elif metric == sm.SimilarityMeasure.JSD:
             self._sim_matrix = pairwise_distances(X=out_1, Y=out_2, metric=SimilarityMeasure.jsd)
         
         self._sim_matrix = pd.DataFrame(data=self._sim_matrix, index=use_cases_names, columns=bug_reports_names)
-        super()._fillUp_traceLinksDf(use_cases_names, bug_reports_names, self._sim_matrix)
-                   
+
+        
     def model_setup(self):
         return {"Setup" : 
                   [
@@ -126,11 +119,8 @@ class LDA(GenericModel):
     def get_model_gen_name(self):
         return super().get_model_gen_name()
     
-    def get_top_value(self):
-        return super().get_top_value()
-    
-    def get_sim_measure_min_threshold(self):
-        return super().get_sim_measure_min_threshold()
+    def get_similarity_measure(self):
+        return self.similarity_measure()
     
     def get_sim_matrix(self):
         return super().get_sim_matrix()

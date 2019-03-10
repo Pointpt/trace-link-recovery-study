@@ -3,6 +3,7 @@ import pickle
 import seaborn as sns
 import numpy as np
 import pandas as pd
+import math
 from matplotlib import pyplot as plt
 
 from sklearn.metrics import cohen_kappa_score
@@ -96,13 +97,13 @@ def calculate_sparsity(X):
 
 
 def compile_results(results_dict):
-    results = pd.DataFrame(columns=['model','precision','recall','fscore'])
+    results = pd.DataFrame(columns=['model','ref_name','precision','recall','fscore'])
     
     results['model'] = [results_dict['lsi_model'].get_name(), 
                         results_dict['lda_model'].get_name(), 
                         results_dict['bm25_model'].get_name(), 
                         results_dict['w2v_model'].get_name()]
-
+    
     results['precision'] = [results_dict['lsi_eval'].get_mean_precision(), 
                             results_dict['lda_eval'].get_mean_precision(), 
                             results_dict['bm25_eval'].get_mean_precision(), 
@@ -118,9 +119,9 @@ def compile_results(results_dict):
                          results_dict['bm25_eval'].get_mean_fscore(),
                          results_dict['w2v_eval'].get_mean_fscore()]
 
-    results['precision_perc'] = results.precision.apply(lambda x : 100 * x)
-    results['recall_perc'] = results.recall.apply(lambda x : 100 * x)
-    results['fscore_perc'] = results.fscore.apply(lambda x : 100 * x)
+    results['precision_perc'] = results.precision.apply(lambda x : round(100 * x,2))
+    results['recall_perc'] = results.recall.apply(lambda x : round(100 * x,2))
+    results['fscore_perc'] = results.fscore.apply(lambda x : round(100 * x,2))
     
     return results
 

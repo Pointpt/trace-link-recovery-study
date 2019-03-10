@@ -4,13 +4,13 @@ from scipy.sparse import csr_matrix
 from sklearn.metrics import precision_recall_fscore_support
 import pprint
 import pickle
+import math
 
 class ModelEvaluator:
     def __init__(self, oracle, model):
         self.model = model
         self.oracle = oracle
-        self.recovered_links = model.trace_links_df
-        
+                
         self.evaluator_dump_path = None
         
         self.eval_df = pd.DataFrame(columns=['precision','recall','fscore','support'])
@@ -20,9 +20,25 @@ class ModelEvaluator:
         
         self.set_evaluator_dump_path()
     
-    def evaluate_model(self, verbose=False, file=None):
+        
+    def __fillUp_traceLinksDf(self, top_n, sim_threshold):
+        trace_links_df = pd.DataFrame(index = self.model.get_sim_matrix().index,
+                                      columns = self.model.get_sim_matrix().columns,
+                                      data = self.model.get_sim_matrix().values)
+        
+        for col in trace_links_df.columns:
+            nlargest_df = trace_links_df.nlargest(n = top_n, columns=col, keep='first')    
+            trace_links_df[col] = [1 if x in nlargest_df[col].tolist() and x >= sim_threshold[1] else 0 for x in trace_links_df[col]]
+
+        return trace_links_df
+    
+    def evaluate_model(self, verbose=False, file=None, top_value=None, sim_threshold=None, ref_name=""):
+        print("\n {} Evaluation - {}".format(self.model.get_name(), ref_name))
+        
+        recovered_links = self.__fillUp_traceLinksDf(top_n=top_value, sim_threshold=sim_threshold)
+        
         y_true = csr_matrix(self.oracle.values, dtype='int8')
-        y_pred = csr_matrix(self.recovered_links.values, dtype='int8')
+        y_pred = csr_matrix(recovered_links.values, dtype='int8')
         
         p, r, f, sp = precision_recall_fscore_support(y_true, y_pred)
 
@@ -40,13 +56,10 @@ class ModelEvaluator:
         
         if verbose:
             self.print_report(file)
-    
-    #def check_best_model(self, best_pre, best_rec, best_fs, best_md):
-    #    if best_rec <= self.get_mean_recall():
-    #        if best_pre <= self.get_mean_precision():
-    #            return (self.get_mean_precision(), self.get_mean_recall(), self.get_mean_fscore(), self.get_model())
-    #    return (best_pre, best_rec, best_fs, best_md)
-    
+        
+        return (ref_name, round(self.mean_precision,2), round(self.mean_recall,2), round(self.mean_fscore,2))
+            
+       
     def print_report(self, file=None):
         dic = self.model.model_setup()
         dic['Measures'] = {}

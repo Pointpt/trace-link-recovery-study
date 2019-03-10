@@ -2,8 +2,7 @@ from enum import Enum
 
 class LSI_Model_Hyperp(Enum):
     NAME = 'lsi__name'
-    TOP = 'lsi__top'
-    SIM_MEASURE_MIN_THRESHOLD = 'lsi__sim_measure_min_threshold'
+    SIMILARITY_MEASURE = 'lsi__similarity_measure'
     VECTORIZER = 'lsi__vectorizer'
     VECTORIZER_STOP_WORDS = 'lsi__vectorizer__stop_words'
     VECTORIZER_TOKENIZER = 'lsi__vectorizer__tokenizer'
