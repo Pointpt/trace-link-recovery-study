@@ -160,14 +160,7 @@ class LSI(GenericModel):
     def get_sim_matrix(self):
         return super().get_sim_matrix()
         
-    def get_trace_links_df(self):
-        return super().get_trace_links_df()
-    
     def save_sim_matrix(self):
         super().save_sim_matrix()
     
-    def save_trace_matrix(self):
-        super().save_trace_matrix()
     
-    def get_model_dump_path(self):
-        return super().get_model_dump_path()

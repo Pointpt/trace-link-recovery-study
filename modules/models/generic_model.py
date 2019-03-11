@@ -21,18 +21,12 @@ class GenericModel(metaclass=ABCMeta):
     
     def save_sim_matrix(self):
         self._sim_matrix.to_csv('models_sim_matrix/{}.csv'.format(self.get_model_gen_name()))
-    
-    def save_trace_matrix(self):
-        self.get_trace_links_df().to_csv('models_trace_matrix/{}.csv'.format(self.get_model_gen_name()))
-    
+        
     def get_name(self):
         return self.name
     
     def get_sim_matrix(self):
         return self._sim_matrix   
-    
-    def get_model_dump_path(self):
-        return 'dumps/{}/model/{}.p'.format(self.get_model_gen_name(), self.get_name())
                                 
     def get_model_gen_name(self):
         return self.model_gen_name
