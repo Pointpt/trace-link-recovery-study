@@ -21,7 +21,8 @@ class Br_Feat_Oracle_Creator:
     def __create_exp_feat_br_matrix(self, expert_taskruns):
         taskruns_expert = self.__shift_taskruns_answers(expert_taskruns)
         taskruns_expert.sort_values(by='bug_id', inplace=True)
-
+        taskruns_expert = taskruns_expert[(taskruns_expert.bug_id != 1181835) & (taskruns_expert.bug_id != 1315514)] # drop taskrun lost during empirical study
+        
         feat_br_matrix = pd.DataFrame(columns=self.features.feat_name.values, 
                             index=self.bugreports.Bug_Number)
         feat_br_matrix.index.names = ['bug_number']
@@ -49,11 +50,13 @@ class Br_Feat_Oracle_Creator:
                     197,  198,  199,  200,  201,  202,  203,  204,  206,  241,  242,  
                     253,  264,  265,  266,  267,  268,  269,  270]
         
-        taskruns_volunteers_1 = self.__shift_taskruns_answers(taskruns_volunteers_1)
-        taskruns_volunteers_2 = self.__shift_taskruns_answers(taskruns_volunteers_2)
-        
+        taskruns_volunteers_1 = self.__shift_taskruns_answers(taskruns_volunteers_1) 
+        taskruns_volunteers_2 = self.__shift_taskruns_answers(taskruns_volunteers_2) 
+                
         taskruns = pd.concat([taskruns_volunteers_1, taskruns_volunteers_2])
         taskruns.sort_values(by='bug_id', inplace=True)
+        
+        taskruns = taskruns[(taskruns.bug_id != 1181835) & (taskruns.bug_id != 1315514)] # drop taskrun lost during empirical study
         
         not_ignored_taskruns = [t_id for t_id in taskruns.id.values if t_id not in ignored_taskruns]
         taskruns = taskruns[taskruns.id.isin(not_ignored_taskruns)]
