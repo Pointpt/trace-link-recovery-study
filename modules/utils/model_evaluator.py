@@ -108,6 +108,7 @@ class ModelEvaluator:
         ax1.set(xlabel='model', ylabel='precision')
         ax1.set_xticks([0.6, 2.6, 4.6, 6.6])
         ax1.set_xticklabels(model_names)
+        #ax1.set_ylim([0,100])
         ax1.legend(['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0'], loc='upper right')
         ax1.grid()
 
@@ -119,6 +120,7 @@ class ModelEvaluator:
         ax2.set(xlabel='model', ylabel='recall')
         ax2.set_xticks([0.6, 2.6, 4.6, 6.6])
         ax2.set_xticklabels(model_names)
+        #ax2.set_ylim([0,100])
         ax2.legend(['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0'], loc='upper left')
         ax2.grid()
 
@@ -130,6 +132,7 @@ class ModelEvaluator:
         ax3.set(xlabel='model', ylabel='fscore')
         ax3.set_xticks([0.6, 2.6, 4.6, 6.6])
         ax3.set_xticklabels(model_names)
+        #ax3.set_ylim([0,100])
         ax3.legend(['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0'], loc='upper right')
         ax3.grid()
 

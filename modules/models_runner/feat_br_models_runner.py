@@ -7,7 +7,6 @@ from modules.utils import plots
 from modules.utils import firefox_dataset_p2 as fd
 from modules.utils import tokenizers as tok
 from modules.utils import aux_functions
-from modules.utils import model_evaluator as m_eval
 
 from modules.models.lda import LDA
 from modules.models.lsi import LSI
