@@ -12,13 +12,16 @@ from modules.utils import similarity_measures as sm
 
 class ModelEvaluator:
     def __init__(self, oracle):
-        self.oracle = pd.DataFrame(index=oracle.index, columns=['BR_{}_SRC'.format(br_num) for br_num in oracle.columns], data=oracle.values)
+        self.oracle = oracle
         self.trace_links_df = None
         self.evals = pd.DataFrame(columns=['model','ref_name','perc_precision','perc_recall','perc_fscore'])
     
     
     def get_trace_links_df(self):
         return self.trace_links_df
+    
+    def get_oracle_df(self):
+        return self.oracle
     
     def __fillUp_traceLinksDf(self, model, top_n, sim_threshold):
         trace_links_df = pd.DataFrame(index = model.get_sim_matrix().index,

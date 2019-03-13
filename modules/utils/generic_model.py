@@ -4,7 +4,6 @@ from abc import ABCMeta, abstractmethod
 class GenericModel(metaclass=ABCMeta):
     def __init__(self):
         self.name = None
-        self.trace_links_df = None
         self.model_gen_name = None    
     
     def set_name(self, name):
@@ -17,29 +16,14 @@ class GenericModel(metaclass=ABCMeta):
     def recover_links(self, corpus, query, use_cases_names, bug_reports_names):
         pass
     
-    def _fillUp_traceLinksDf(self, test_cases_names, bug_reports_names, sim_matrix):
-        self.trace_links_df = pd.DataFrame(index = test_cases_names,
-                                           columns = bug_reports_names,
-                                           data = sim_matrix)
-                    
-        for col in self.trace_links_df.columns:
-            nlargest_df = self.trace_links_df.nlargest(n = self.top, columns=col, keep='first')    
-            self.trace_links_df[col] = [1 if x in nlargest_df[col].tolist() and x >= self.sim_measure_min_threshold[1] else 0 for x in self.trace_links_df[col]]
-
     def save_sim_matrix(self):
         self._sim_matrix.to_csv('models_sim_matrix/{}.csv'.format(self.get_model_gen_name()))
-    
-    def save_trace_matrix(self):
-        self.trace_links_df.to_csv('models_trace_matrix/{}.csv'.format(self.get_model_gen_name()))
-    
+       
     def get_name(self):
         return self.name
         
     def get_sim_matrix(self):
         return self._sim_matrix
-    
-    def get_trace_links_df(self):
-        return self.trace_links_df
                                 
     def get_model_gen_name(self):
         return self.model_gen_name

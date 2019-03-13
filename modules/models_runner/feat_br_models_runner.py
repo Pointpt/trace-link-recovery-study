@@ -52,16 +52,33 @@ class Feat_BR_Models_Hyperp:
         }
 
 class Feat_BR_Models_Runner:
-    def __init__(self):
-        self.features_df = fd.Datasets.read_features_df()
-        self.bug_reports_df = fd.Datasets.read_selected_bugreports_df()
-
+    def __init__(self, features=None, bugreports=None):
+        self.features_df = None
+        self.bug_reports_df = None
+        self.corpus = None
+        self.query = None
+        self.features_names = None
+        self.bug_reports_names = None
+        
+        self.set_basic_params(features, bugreports)
+    
+    def set_basic_params(self, features, bugreports):
+        if features == None:
+            self.features_df = fd.Datasets.read_features_df()
+        else:
+            self.features_df = features
+            
+        if bugreports == None:
+            self.bug_reports_df = fd.Datasets.read_selected_bugreports_df()
+        else:
+            self.bug_reports_df = bugreports
+        
         self.corpus = self.features_df.feat_desc
         self.query = self.bug_reports_df.br_desc
 
         self.features_names = self.features_df.feat_name
-        self.bug_reports_names = self.bug_reports_df.br_name
-        
+        self.bug_reports_names = self.bug_reports_df.Bug_Number
+    
     def run_lsi_model(self, lsi_hyperp=None):
         print("Running LSI model -----")
         
