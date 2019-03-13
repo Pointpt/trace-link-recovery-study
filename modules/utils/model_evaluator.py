@@ -12,10 +12,14 @@ from modules.utils import similarity_measures as sm
 
 class ModelEvaluator:
     def __init__(self, oracle):
-        self.oracle = oracle
+        self.oracle = pd.DataFrame(index=oracle.index, columns=['BR_{}_SRC'.format(br_num) for br_num in oracle.columns], data=oracle.values)
+        self.trace_links_df = None
         self.evals = pd.DataFrame(columns=['model','ref_name','perc_precision','perc_recall','perc_fscore'])
     
-        
+    
+    def get_trace_links_df(self):
+        return self.trace_links_df
+    
     def __fillUp_traceLinksDf(self, model, top_n, sim_threshold):
         trace_links_df = pd.DataFrame(index = model.get_sim_matrix().index,
                                       columns = model.get_sim_matrix().columns,
@@ -30,10 +34,10 @@ class ModelEvaluator:
     def evaluate_model(self, verbose=False, file=None, model=None, top_value=None, sim_threshold=None, ref_name=""):
         #print("\n {} Evaluation - {}".format(model.get_name(), ref_name))
         
-        recovered_links = self.__fillUp_traceLinksDf(model=model, top_n=top_value, sim_threshold=sim_threshold)
+        self.trace_links_df = self.__fillUp_traceLinksDf(model=model, top_n=top_value, sim_threshold=sim_threshold)
         
         y_true = csr_matrix(self.oracle.values, dtype='int8')
-        y_pred = csr_matrix(recovered_links.values, dtype='int8')
+        y_pred = csr_matrix(self.trace_links_df.values, dtype='int8')
         
         p, r, f, sp = precision_recall_fscore_support(y_true, y_pred)
 

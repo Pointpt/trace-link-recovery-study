@@ -155,7 +155,7 @@ class LSI(GenericModel):
         return super().get_model_gen_name()
     
     def get_similarity_measure(self):
-        return self.similarity_measure()
+        return self.similarity_measure
     
     def get_sim_matrix(self):
         return super().get_sim_matrix()
