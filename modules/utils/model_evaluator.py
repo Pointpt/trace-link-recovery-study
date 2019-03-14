@@ -63,7 +63,7 @@ class ModelEvaluator:
         
         return {'model':model.get_model_gen_name(), 'ref_name':ref_name, 'perc_precision':round(mean_precision,4)*100, 
                 'perc_recall':round(mean_recall,4)*100, 'perc_fscore':round(mean_fscore,4)*100,
-                'trace_links_df' : self.trace_links_df}
+                'trace_links_df' : self.trace_links_df, 'top':top_value, 'sim_threshold':sim_threshold}
     
     
     def run_evaluator(self, verbose=False, file=None, model=None, top_values=[1,3,5,10], sim_thresholds=[(sm.SimilarityMeasure.COSINE, 0.0)]):        
