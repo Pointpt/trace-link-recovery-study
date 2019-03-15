@@ -1,92 +1,92 @@
-,Bug_Number,Features_IDs_exp_m,Features_IDs_vol_m,Features_IDs_exp_vol_union_m,Features_IDs_exp_vol_intersec_m
-1,1248267,6,6,6,6
-2,1248268,,4,4,
-3,1257087,,,,
-4,1264988,1,1,1,1
-5,1267480,,,,
-6,1267501,3,,3,
-7,1269348,,,,
-8,1269485,3,,3,
-9,1270274,,,,
-10,1270983,6,6,6,6
-11,1271607,,1,1,
-12,1276120,1,1,1,1
-13,1277937,1,20,1 20,
-14,1278388,,1,1,
-15,1279140,1,4 7,1 4 7,
-16,1279143,1,1,1,1
-17,1279864,1,1,1,1
-18,1281190,20,20,20,20
-19,1281493,,,,
-20,1282759,,,,
-21,1283542,,,,
-22,1285041,,,,
-23,1285328,,,,
-24,1287384,15,15,15,15
-25,1287687,,3,3,
-26,1287748,4,15,4 15,
-27,1287823,15,,15,
-28,1289240,1,6,1 6,
-29,1289832,6,,6,
-30,1290424,1,18,1 18,
-31,1291770,,1,1,
-32,1292566,15,15 20,15 20,15
-33,1292573,15,15,15,15
-34,1293308,1,1,1,1
-35,1294733,1,1,1,1
-36,1294887,1,1,1,1
-37,1295502,,3 10 16 17 19,3 10 16 17 19,
-38,1296322,18,18 20,18 20,18
-39,1296366,1,1,1,1
-40,1296861,18,18,18,18
-41,1297336,18,1,1 18,
-42,1297374,1,1,1,1
-43,1297686,,15 20,15 20,
-44,1297976,1 8 9,1,1 8 9,1
-45,1299458,1 6,6,1 6,6
-46,1300738,21,7 21,7 21,21
-47,1301056,5 15,5,5 15,5
-48,1301421,1,1,1,1
-49,1301784,1,4,1 4,
-50,1302468,,21,21,
-51,1303339,,6 7,6 7,
-52,1305195,4 14,14,4 14,14
-53,1305676,,20,20,
-54,1305737,20,1,1 20,
-55,1306639,1,6,1 6,
-56,1309856,,1,1,
-57,1311998,1,1,1,1
-58,1312018,1,10,1 10,
-59,1313290,,4,4,
-60,1313778,4 6,1,1 4 6,
-61,1313969,1,6,1 6,
-62,1314643,1,9 12 15,1 9 12 15,
-64,1316126,,14 17,14 17,
-65,1318903,4,4,4,4
-66,1319119,,1,1,
-67,1319433,,,,
-68,1319919,,20,20,
-69,1320557,,20,20,
-70,1323211,,,,
-71,1325902,,,,
-72,1328913,,1,1,
-73,1330745,6,,6,
-74,1334844,1,1,1,1
-75,1335538,,8 9 11 17 18,8 9 11 17 18,
-76,1335992,1,1,1,1
-77,1336227,,4,4,
-78,1337682,1,1,1,1
-79,1339497,1,1,1,1
-80,1343256,,,,
-81,1344446,,4,4,
-82,1345687,1 18,18,1 18,18
-83,1352539,1,1,1,1
-84,1353831,1,1 4,1 4,1
-85,1357085,,,,
-86,1357458,1 4,1 4 9 15 18 20,1 4 9 15 18 20,1 4
-87,1365887,1,1 5 6 8 10 11 14 16,1 5 6 8 10 11 14 16,1
-88,1408361,20,1 20,1 20,20
-89,1430603,,18 21,18 21,
-90,1432915,15,1 15,1 15,15
-91,1449700,,4,4,
-92,1451475,,1 4 20,1 4 20,
+,Bug_Number,bug_title,Features_IDs_exp_m,Features_IDs_vol_m,Features_IDs_exp_vol_union_m,Features_IDs_exp_vol_intersec_m
+1,1248267,"Right click on bookmark item of ""Recently Bookmarked"" should show regular places context menu",6,6,6,6
+2,1248268,"Unable to disable ""Recently bookmarked""",,4,4,
+3,1257087,Middle mouse click on history item would not open,,,,
+4,1264988,Scrollbar appears for a moment in the new Awesomebar Resultlist,1,1,1,1
+5,1267480,Intermittent browser/components/preferences/in-content/tests/browser_security.jsThis test exceeded the timeout threshold. It should be rewritten or split up.,,,,
+6,1267501,New Private Browsing start-page overflows off the *left side of the window* (making content unscrollable) for small window sizes,3,,3,
+7,1269348,Show last sync date tooltip on Synced Tabs sidebar device names,,,,
+8,1269485,"New Private Browsing start-page has white/gray-text-on-white-background, in overflowed area off the right side of the window",3,,3,
+9,1270274,"Intermittent browser_share.jsuncaught exception - Error: operation not possible on dead CPOW atTest timed outFound a tabSocialUI is not enabled - Got true, expected false",,,,
+10,1270983,Intermittent browser_contextmenu.jsTest timed outFound a tab after previous test timed out: subtst_contextmenu.html -,6,6,6,6
+11,1271607,The new window's size is modified if the last closed window had pinned tabs,,1,1,
+12,1276120,Autocomplete suggestions just don't go away after Win+Down,1,1,1,1
+13,1277937,https has an underline instead of a strikethrough when mixed active content is loaded,1,20,1 20,
+14,1278388,Permafailing on the change to firefox50: browser_permissions_urlFieldHidden.jsuncaught exception - Error: Expected one argument at showNotificationExceptions@content.js:136:5,,1,1,
+15,1279140,awesomebar displaying incorrect text UI for containers,1,4 7,1 4 7,
+16,1279143,"color indicator missing when ""File -> New Container Tab"" without any windows opened",1,1,1,1
+17,1279864,The new location bar autocomplete drop down menu starting from 48 has serious performance issue and often blocks user's <Enter> input,1,1,1,1
+18,1281190,Keep collecting telemetry for Permissions Notifications until version 55,20,20,20,20
+19,1281493,"Identity popup sometimes doesn't display EV/DV site identity above ""Secure connection"" label",,,,
+20,1282759,Support whole word search for find in page,,,,
+21,1283542,Automigration from Chrome is broken,,,,
+22,1285041,Investigate Chrome profile migration importing history when chrome is running,,,,
+23,1285328,"Hitting Escape or the X on the ""Restart Firefox"" dialog when enabling ""Never remember history"" is treated as a confirmation",,,,
+24,1287384,Incorrect alignment of Summary section in Downloads panel,15,15,15,15
+25,1287687,Syncs happen every 90 seconds when stale device records exist.,,3,3,
+26,1287748,"Syncing away from lwtheme updates internal state / add-on manager UI, but not the actual browser",4,15,4 15,
+27,1287823,[Linux] Dragging & dropping a download from the downloads panel on desktop saves a txt file,15,,15,
+28,1289240,"Services.search.getDefaultEngines() empty, search engine reset triggered when using a language pack",1,6,1 6,
+29,1289832,Open Link in New *Current Container* missing from context menu when opening about:newtab thumbnails,6,,6,
+30,1290424,"Mouse-over (hover) on a dropdown suggestion (search, URL) causes the hovered-over item to be deleted on 'delete'-press",1,18,1 18,
+31,1291770,"[HiDPI] Globe icon is too small, ends up being scaled up",,1,1,
+32,1292566,"The ""open"" button in the subview for temporarily blocked downloads should not ask for confirmation",15,15 20,15 20,15
+33,1292573,Broken keyboard interaction with the subview in the Downloads Panel,15,15,15,15
+34,1293308,System font setting respected by location bar but ignored by location bar's autocomplete drop-down list,1,1,1,1
+35,1294733,Awesomebar search buttons show auto completed text not user input,1,1,1,1
+36,1294887,Middle clicking search results does not open a new tab,1,1,1,1
+37,1295502,"2.1 - 4.09% tart  / tresize / tsvgx  (linux64, windows7-32, windows8-64) regression on push 6af49d08884d76de44efd9387bbe340921652364 (Fri Aug 12 2016)",,3 10 16 17 19,3 10 16 17 19,
+38,1296322,X button is vertically misaligned on the permission dropdown,18,18 20,18 20,18
+39,1296366,"Ctrl+Click awesomebar entry with ""Switch to Tab"" doesn't open new tab",1,1,1,1
+40,1296861,[control center] Don't hardcode colors for the permission status and permission removal button,18,18,18,18
+41,1297336,Device permission gone from the permission dropdown after detaching the tab to a new window,18,1,1 18,
+42,1297374,"[One-off searches] When changing the default search engine from Awesomebar, the icon of the new default engine is replaced by the icon of the old default engine",1,1,1,1
+43,1297686,"When multiple desktop files support the same protocol scheme, only one of them is listed",,15 20,15 20,
+44,1297976,[One-off searches] Screen reader does not read the one-offs searches buttons,1 8 9,1,1 8 9,1
+45,1299458,Telemetry data from Search bar is not properly collected when searching in new tab from context menu,1 6,6,1 6,6
+46,1300738,Firefox post update corrupts Windows 10 user profiles when using registry protection software,21,7 21,7 21,21
+47,1301056,"[e10s] Link with target=""_blank""  to download a file leaves a about:blank window/tab open after the download",5 15,5,5 15,5
+48,1301421,browser.fixup.dns_first_for_single_words prevents location bar search suggestions even when there's more than one token and/or the first token is not a single word,1,1,1,1
+49,1301784,Pref-off Search Reset UI for 50 beta,1,4,1 4,
+50,1302468,Firefox Beta reports channel as 'release' when build is RC due to use of Services.appinfo.defaultUpdateChannel,,21,21,
+51,1303339,The animated sharing icons of the control center panel never go to full opacity,,6 7,6 7,
+52,1305195,"In private browsing mode, zoom level indicator is unreadable when dark developer edition theme is in use",4 14,14,4 14,14
+53,1305676,In some circumstances passive mixed content indicator will override active mixed content indicator,,20,20,
+54,1305737,Change notification displayed when an incoming tab can't determine the device name it came from,20,1,1 20,
+55,1306639,Searching in locationbar by typing something and pressing enter is not accounted in telemetry.,1,6,1 6,
+56,1309856,Fix bookmarks twisty direction in RTL locales on Mac OS X,,1,1,
+57,1311998,[One-off searches] Right click on a result from Awesomebar closes the dropdown,1,1,1,1
+58,1312018,Keyword search is always performed in lowercase,1,10,1 10,
+59,1313290,Use browser specific message manager in `SocialShare.sharePage`,,4,4,
+60,1313778,"[Intermittent] Install Ecosia, Firebug, Theme Font & Size Changer",4 6,1,1 4 6,
+61,1313969,"[Follow-up] Ctrl+Click awesomebar entry with ""Switch to Tab"" doesn't open new tab",1,6,1 6,
+62,1314643,[One-off searches] Changing the default search engine from Search bar does not work first time,1,9 12 15,1 9 12 15,
+64,1316126,`_endRemoveTab` can get stuck in an infinite loop,,14 17,14 17,
+65,1318903,"[Windows 7 and below] Fullscreen window controls not shown with dark themes, close button has broken ""red square"" hover state",4,4,4,4
+66,1319119,Turn on Insecure Password Warning in Firefox Release,,1,1,
+67,1319433,Devices differ in Synced Tab and Send to Device menus,,,,
+68,1319919,Refine Insecure Password Warning style,,20,20,
+69,1320557,"No security information displayed for a specific website, using a specific Firefox profile",,20,20,
+70,1323211,Change Sync datatype label from Tabs to Open tabs,,,,
+71,1325902,Increase visibility of container highlight on tabs,,,,
+72,1328913,Pref-off Search Reset UI for beta and release,,1,1,
+73,1330745,"When privacy.userContext.longPressBehavior is set to 1, it's impossible to open a default container tab from the + button.",6,,6,
+74,1334844,"Address bar uses most recently entered URL, not URL in bar, after using CTRL+ENTER",1,1,1,1
+75,1335538,Request volume to profile.accounts.firefox.com has doubled starting in Firefox 51,,8 9 11 17 18,8 9 11 17 18,
+76,1335992,Search with default search engine stops working,1,1,1,1
+77,1336227,Show a blank window as soon as possible after start-up (pref'd off),,4,4,
+78,1337682,using ctrl / shift + enter seems to save the URL to a hidden clipboard that populates when hitting enter (hard to describe).,1,1,1,1
+79,1339497,firefox tries to load incorrect url if urlbar autocomplete suggests first-two-letters-duplicated hosts when input url contains % encoded components,1,1,1,1
+80,1343256,Bookmark keywords disappear from one bookmark when adding a keyword to another bookmark,,,,
+81,1344446,tab bar scroll buttons are too narrow for touchscreen use,,4,4,
+82,1345687,[Regression] Clicking on audioVideoButton / sharing-icon don't work when typed on urlbar,1 18,18,1 18,18
+83,1352539,Move defaultenginename pref setting into list.json,1,1,1,1
+84,1353831,OneOff block in search bar doesn't update text if Customize was opened at least once,1,1 4,1 4,1
+85,1357085,Confirm your account pref screen should no longer redirect to Sync prefs,,,,
+86,1357458,After Customization - typed text in the Awesome bar doesn't correspond with the text from One-Off-Searches bar,1 4,1 4 9 15 18 20,1 4 9 15 18 20,1 4
+87,1365887,Can't open resource:///modules/ from the location bar,1,1 5 6 8 10 11 14 16,1 5 6 8 10 11 14 16,1
+88,1408361,Received tab is truncated prematurely in notification,20,1 20,1 20,20
+89,1430603,Restrict BROWSER_*_DEFAULT probes to parent-process only,,18 21,18 21,
+90,1432915,Do not write the kMDItemWhereFroms xattr metadata for files downloaded in Private Browsing mode,15,1 15,1 15,15
+91,1449700,refactor addTab/moveTabTo,,4,4,
+92,1451475,Renew scalar browser.engagement.restored_pinned_tabs_count,,1 4 20,1 4 20,

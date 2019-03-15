@@ -142,7 +142,7 @@ class ModelEvaluator:
         results_t10 = results[results.top == 10.0]
         results_t21 = results[results.top == 21.0]
         
-        f,(ax1,ax2,ax3,ax4,ax5) = plt.subplots(1,5,figsize=(20,5))
+        f,(ax1,ax2,ax3,ax4,ax5) = plt.subplots(1,5,figsize=(25,5))
         f.suptitle(title)
 
         ax1.set_title('TOP 1')
