@@ -135,7 +135,7 @@ class ModelEvaluator:
         ax3.legend(['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0'], loc='upper right')
         ax3.grid()
 
-    def plot_evaluations_2(self, title, results):
+    def plot_evaluations_2(self, title, results, output_file):
         f,axes = plt.subplots(1,int(len(results)/10),figsize=(25,5))
         f.suptitle(title)
         
@@ -153,43 +153,5 @@ class ModelEvaluator:
             ax.set_ylabel('metric value (%)')
             ax.legend(['Precision','Recall','FScore'])
             ax.grid()
-
-        #ax2.set_title('TOP 3')
-        #ax2.plot(results_t3.sim_threshold, results_t3.perc_precision, color='green')
-        #ax2.plot(results_t3.sim_threshold, results_t3.perc_recall, color='blue')
-        #ax2.plot(results_t3.sim_threshold, results_t3.perc_fscore, color='red' )
-        #ax2.set_ylim([0,100])
-        #ax2.set_xlabel('similarity threshold')
-        #ax2.set_ylabel('metric value (%)')
-        #ax2.legend(['Precision','Recall','FScore'])
-        #ax2.grid()
-#
-        #ax3.set_title('TOP 5')
-        #ax3.plot(results_t5.sim_threshold, results_t5.perc_precision, color='green')
-        #ax3.plot(results_t5.sim_threshold, results_t5.perc_recall, color='blue')
-        #ax3.plot(results_t5.sim_threshold, results_t5.perc_fscore, color='red' )
-        #ax3.set_ylim([0,100])
-        #ax3.set_xlabel('similarity threshold')
-        #ax3.set_ylabel('metric value (%)')
-        #ax3.legend(['Precision','Recall','FScore'])
-        #ax3.grid()
-#
-        #ax4.set_title('TOP 10')
-        #ax4.plot(results_t10.sim_threshold, results_t10.perc_precision, color='green')
-        #ax4.plot(results_t10.sim_threshold, results_t10.perc_recall, color='blue')
-        #ax4.plot(results_t10.sim_threshold, results_t10.perc_fscore, color='red' )
-        #ax4.set_ylim([0,100])
-        #ax4.set_xlabel('similarity threshold')
-        #ax4.set_ylabel('metric value (%)')
-        #ax4.legend(['Precision','Recall','FScore'])
-        #ax4.grid()
-        #
-        #ax5.set_title('TOP 21')
-        #ax5.plot(results_t21.sim_threshold, results_t21.perc_precision, color='green')
-        #ax5.plot(results_t21.sim_threshold, results_t21.perc_recall, color='blue')
-        #ax5.plot(results_t21.sim_threshold, results_t21.perc_fscore, color='red' )
-        #ax5.set_ylim([0,100])
-        #ax5.set_xlabel('similarity threshold')
-        #ax5.set_ylabel('metric value (%)')
-        #ax5.legend(['Precision','Recall','FScore'])
-        #ax5.grid()
+        
+        plt.savefig('/home/guilherme/anaconda3/envs/trace-link-recovery-study/data/mozilla_firefox_v2/firefoxDataset/output_plots/' + output_file + '.pdf', bbox_inches='tight')
