@@ -29,7 +29,7 @@ class Br_Feat_Oracle_Creator:
         
         for idx,row in taskruns_expert.iterrows():
             ans = row.new_answers.split(" ")
-            for i in range(len(ans)):
+            for i in range(len(ans)-2): # -2 ==> dropped features from branch 65
                 feat_name = feat_br_matrix.columns[i]
                 feat_br_matrix.at[row.bug_id, feat_name] = int(ans[i])
         
@@ -67,7 +67,7 @@ class Br_Feat_Oracle_Creator:
 
         for idx,row in taskruns.iterrows():
             ans = row.new_answers.split(" ")
-            for i in range(len(ans)):
+            for i in range(len(ans)-2):   # -2 ==> dropped features from branch 65
                 feat_name = feat_br_matrix.columns[i]
                 feat_br_matrix.at[row.bug_id, feat_name] = int(ans[i])
 

@@ -85,7 +85,7 @@ class ModelEvaluator:
         plt.show()
     
     
-    def plot_evaluations_1(self, evals_df, title):
+    def plot_evaluations_1(self, evals_df, title):        
         results = evals_df
 
         start_pos, width = 0.25, 0.25
@@ -94,48 +94,28 @@ class ModelEvaluator:
         pos_3 = list([start_pos+2*width, start_pos+2+2*width, start_pos+4+2*width, start_pos+6+2*width]) 
         pos_4 = list([start_pos+3*width, start_pos+2+3*width, start_pos+4+3*width, start_pos+6+3*width])                
 
-        f, (ax1,ax2,ax3) = plt.subplots(3,1, figsize=(20,15))
+        f, axes = plt.subplots(3,1, figsize=(20,15))
         f.suptitle(title)
 
         model_names = [m.upper() for m in results.model.unique()]
+        titles = ['Percentual Precision','Percentual Recall','Percentual FScore']
+        legends = ['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0']
+        
+        for i,ax in enumerate(axes):
+            ax.set_title(titles[i])
+            ax.bar(pos_1, width=width, height=results[results.model == 'lsi'].perc_precision.values, color='black')
+            ax.bar(pos_2, width=width, height=results[results.model == 'lda'].perc_precision.values, color='darkgray')
+            ax.bar(pos_3, width=width, height=results[results.model == 'bm25'].perc_precision.values, color='lightgray')
+            ax.bar(pos_4, width=width, height=results[results.model == 'wordvector'].perc_precision.values, color='silver')
+            ax.set(xlabel='model', ylabel='precision')
+            ax.set_xticks([0.6, 2.6, 4.6, 6.6])
+            ax.set_xticklabels(model_names)
+            ax.set_ylim([0,100])
+            ax.legend(legends, loc='upper right')
+            ax.grid()
 
-        ax1.set_title('Percentual Precision')
-        ax1.bar(pos_1, width=width, height=results[results.model == 'lsi'].perc_precision.values, color='blue')
-        ax1.bar(pos_2, width=width, height=results[results.model == 'lda'].perc_precision.values, color='red')
-        ax1.bar(pos_3, width=width, height=results[results.model == 'bm25'].perc_precision.values, color='green')
-        ax1.bar(pos_4, width=width, height=results[results.model == 'wordvector'].perc_precision.values, color='orange')
-        ax1.set(xlabel='model', ylabel='precision')
-        ax1.set_xticks([0.6, 2.6, 4.6, 6.6])
-        ax1.set_xticklabels(model_names)
-        ax1.set_ylim([0,100])
-        ax1.legend(['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0'], loc='upper right')
-        ax1.grid()
-
-        ax2.set_title('Percentual Recall')
-        ax2.bar(pos_1, width=width, height=results[results.model == 'lsi'].perc_recall, color='blue')
-        ax2.bar(pos_2, width=width, height=results[results.model == 'lda'].perc_recall, color='red')
-        ax2.bar(pos_3, width=width, height=results[results.model == 'bm25'].perc_recall, color='green')
-        ax2.bar(pos_4, width=width, height=results[results.model == 'wordvector'].perc_recall, color='orange')
-        ax2.set(xlabel='model', ylabel='recall')
-        ax2.set_xticks([0.6, 2.6, 4.6, 6.6])
-        ax2.set_xticklabels(model_names)
-        ax2.set_ylim([0,100])
-        ax2.legend(['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0'], loc='upper left')
-        ax2.grid()
-
-        ax3.set_title('Percentual FScore')
-        ax3.bar(pos_1, width=width, height=results[results.model == 'lsi'].perc_fscore, color='blue')
-        ax3.bar(pos_2, width=width, height=results[results.model == 'lda'].perc_fscore, color='red')
-        ax3.bar(pos_3, width=width, height=results[results.model == 'bm25'].perc_fscore, color='green')
-        ax3.bar(pos_4, width=width, height=results[results.model == 'wordvector'].perc_fscore, color='orange')
-        ax3.set(xlabel='model', ylabel='fscore')
-        ax3.set_xticks([0.6, 2.6, 4.6, 6.6])
-        ax3.set_xticklabels(model_names)
-        ax3.set_ylim([0,100])
-        ax3.legend(['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0'], loc='upper right')
-        ax3.grid()
-
-    def plot_evaluations_2(self, title, results, output_file):
+            
+    def plot_evaluations_2(self, title, results, output_file=""):        
         f,axes = plt.subplots(1,int(len(results)/10),figsize=(25,5))
         f.suptitle(title)
         
@@ -145,13 +125,15 @@ class ModelEvaluator:
         for i,ax in enumerate(axes):
             results_2 = results[results.top == top_values[i]]
             ax.set_title(top_names[i])
-            ax.plot(results_2.sim_threshold, results_2.perc_precision, color='green')
-            ax.plot(results_2.sim_threshold, results_2.perc_recall, color='blue')
-            ax.plot(results_2.sim_threshold, results_2.perc_fscore, color='red')
+            ax.plot(results_2.sim_threshold, results_2.perc_precision, marker='o', linestyle='dashed', color='black')
+            ax.plot(results_2.sim_threshold, results_2.perc_recall, marker='v', linestyle='dashed', color='gray')
+            ax.plot(results_2.sim_threshold, results_2.perc_fscore, marker='^', linestyle='dashed', color='darkgray')
             ax.set_ylim([0,100])
             ax.set_xlabel('similarity threshold')
             ax.set_ylabel('metric value (%)')
             ax.legend(['Precision','Recall','FScore'])
             ax.grid()
         
-        plt.savefig('/home/guilherme/anaconda3/envs/trace-link-recovery-study/data/mozilla_firefox_v2/firefoxDataset/output_plots/' + output_file + '.pdf', bbox_inches='tight')
+        if output_file != "":
+            path = '/home/guilherme/Dropbox/Aplicativos/Overleaf/Analysis of Traceability between Bug Report and Test Cases: A Case Study/imgs/'
+            plt.savefig(path + output_file + '.eps', format='eps', bbox_inches='tight', dpi=1200, pad_inches=.3)

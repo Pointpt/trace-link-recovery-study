@@ -84,8 +84,8 @@ def print_report_top_3_and_5_v3(results_df, metric):
         evalu_top.evaluate_model(verbose=True)
         print("------------------------------------------------------------------")
         
-def highlight_df(df):
-    cm = sns.light_palette("green", as_cmap=True)
+def highlight_df(df, palete="green"):
+    cm = sns.light_palette(palete, as_cmap=True)
     return df.style.background_gradient(cmap=cm) 
 
 

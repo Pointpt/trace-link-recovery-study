@@ -171,6 +171,7 @@ class Feat_BR_Oracles:
 class Datasets:
     def read_testcases_df():
         testcases_df = pd.read_csv(FilePath.TESTCASES.value)
+        testcases_df = testcases_df[(testcases_df.Feature_ID != 20) & (testcases_df.Feature_ID != 21)] # drop testcases from branch 65
         print('TestCases.shape: {}'.format(testcases_df.shape))
         return testcases_df
 
@@ -187,6 +188,7 @@ class Datasets:
 
     def read_features_df():
         features_df = pd.read_csv(FilePath.FEATURES.value)
+        features_df = features_df[(features_df.Feature_Number != 20) & (features_df.Feature_Number != 21)] # drop features from branch 65
         print('Features.shape: {}'.format(features_df.shape))
         return features_df
 

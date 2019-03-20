@@ -11,12 +11,12 @@
 10,1270983,Intermittent browser_contextmenu.jsTest timed outFound a tab after previous test timed out: subtst_contextmenu.html -,6,6,6,6
 11,1271607,The new window's size is modified if the last closed window had pinned tabs,,1,1,
 12,1276120,Autocomplete suggestions just don't go away after Win+Down,1,1,1,1
-13,1277937,https has an underline instead of a strikethrough when mixed active content is loaded,1,20,1 20,
+13,1277937,https has an underline instead of a strikethrough when mixed active content is loaded,1,,1,
 14,1278388,Permafailing on the change to firefox50: browser_permissions_urlFieldHidden.jsuncaught exception - Error: Expected one argument at showNotificationExceptions@content.js:136:5,,1,1,
 15,1279140,awesomebar displaying incorrect text UI for containers,1,4 7,1 4 7,
 16,1279143,"color indicator missing when ""File -> New Container Tab"" without any windows opened",1,1,1,1
 17,1279864,The new location bar autocomplete drop down menu starting from 48 has serious performance issue and often blocks user's <Enter> input,1,1,1,1
-18,1281190,Keep collecting telemetry for Permissions Notifications until version 55,20,20,20,20
+18,1281190,Keep collecting telemetry for Permissions Notifications until version 55,,,,
 19,1281493,"Identity popup sometimes doesn't display EV/DV site identity above ""Secure connection"" label",,,,
 20,1282759,Support whole word search for find in page,,,,
 21,1283542,Automigration from Chrome is broken,,,,
@@ -30,29 +30,29 @@
 29,1289832,Open Link in New *Current Container* missing from context menu when opening about:newtab thumbnails,6,,6,
 30,1290424,"Mouse-over (hover) on a dropdown suggestion (search, URL) causes the hovered-over item to be deleted on 'delete'-press",1,18,1 18,
 31,1291770,"[HiDPI] Globe icon is too small, ends up being scaled up",,1,1,
-32,1292566,"The ""open"" button in the subview for temporarily blocked downloads should not ask for confirmation",15,15 20,15 20,15
+32,1292566,"The ""open"" button in the subview for temporarily blocked downloads should not ask for confirmation",15,15,15,15
 33,1292573,Broken keyboard interaction with the subview in the Downloads Panel,15,15,15,15
 34,1293308,System font setting respected by location bar but ignored by location bar's autocomplete drop-down list,1,1,1,1
 35,1294733,Awesomebar search buttons show auto completed text not user input,1,1,1,1
 36,1294887,Middle clicking search results does not open a new tab,1,1,1,1
 37,1295502,"2.1 - 4.09% tart  / tresize / tsvgx  (linux64, windows7-32, windows8-64) regression on push 6af49d08884d76de44efd9387bbe340921652364 (Fri Aug 12 2016)",,3 10 16 17 19,3 10 16 17 19,
-38,1296322,X button is vertically misaligned on the permission dropdown,18,18 20,18 20,18
+38,1296322,X button is vertically misaligned on the permission dropdown,18,18,18,18
 39,1296366,"Ctrl+Click awesomebar entry with ""Switch to Tab"" doesn't open new tab",1,1,1,1
 40,1296861,[control center] Don't hardcode colors for the permission status and permission removal button,18,18,18,18
 41,1297336,Device permission gone from the permission dropdown after detaching the tab to a new window,18,1,1 18,
 42,1297374,"[One-off searches] When changing the default search engine from Awesomebar, the icon of the new default engine is replaced by the icon of the old default engine",1,1,1,1
-43,1297686,"When multiple desktop files support the same protocol scheme, only one of them is listed",,15 20,15 20,
+43,1297686,"When multiple desktop files support the same protocol scheme, only one of them is listed",,15,15,
 44,1297976,[One-off searches] Screen reader does not read the one-offs searches buttons,1 8 9,1,1 8 9,1
 45,1299458,Telemetry data from Search bar is not properly collected when searching in new tab from context menu,1 6,6,1 6,6
-46,1300738,Firefox post update corrupts Windows 10 user profiles when using registry protection software,21,7 21,7 21,21
+46,1300738,Firefox post update corrupts Windows 10 user profiles when using registry protection software,,7,7,
 47,1301056,"[e10s] Link with target=""_blank""  to download a file leaves a about:blank window/tab open after the download",5 15,5,5 15,5
 48,1301421,browser.fixup.dns_first_for_single_words prevents location bar search suggestions even when there's more than one token and/or the first token is not a single word,1,1,1,1
 49,1301784,Pref-off Search Reset UI for 50 beta,1,4,1 4,
-50,1302468,Firefox Beta reports channel as 'release' when build is RC due to use of Services.appinfo.defaultUpdateChannel,,21,21,
+50,1302468,Firefox Beta reports channel as 'release' when build is RC due to use of Services.appinfo.defaultUpdateChannel,,,,
 51,1303339,The animated sharing icons of the control center panel never go to full opacity,,6 7,6 7,
 52,1305195,"In private browsing mode, zoom level indicator is unreadable when dark developer edition theme is in use",4 14,14,4 14,14
-53,1305676,In some circumstances passive mixed content indicator will override active mixed content indicator,,20,20,
-54,1305737,Change notification displayed when an incoming tab can't determine the device name it came from,20,1,1 20,
+53,1305676,In some circumstances passive mixed content indicator will override active mixed content indicator,,,,
+54,1305737,Change notification displayed when an incoming tab can't determine the device name it came from,,1,1,
 55,1306639,Searching in locationbar by typing something and pressing enter is not accounted in telemetry.,1,6,1 6,
 56,1309856,Fix bookmarks twisty direction in RTL locales on Mac OS X,,1,1,
 57,1311998,[One-off searches] Right click on a result from Awesomebar closes the dropdown,1,1,1,1
@@ -65,8 +65,8 @@
 65,1318903,"[Windows 7 and below] Fullscreen window controls not shown with dark themes, close button has broken ""red square"" hover state",4,4,4,4
 66,1319119,Turn on Insecure Password Warning in Firefox Release,,1,1,
 67,1319433,Devices differ in Synced Tab and Send to Device menus,,,,
-68,1319919,Refine Insecure Password Warning style,,20,20,
-69,1320557,"No security information displayed for a specific website, using a specific Firefox profile",,20,20,
+68,1319919,Refine Insecure Password Warning style,,,,
+69,1320557,"No security information displayed for a specific website, using a specific Firefox profile",,,,
 70,1323211,Change Sync datatype label from Tabs to Open tabs,,,,
 71,1325902,Increase visibility of container highlight on tabs,,,,
 72,1328913,Pref-off Search Reset UI for beta and release,,1,1,
@@ -83,10 +83,10 @@
 83,1352539,Move defaultenginename pref setting into list.json,1,1,1,1
 84,1353831,OneOff block in search bar doesn't update text if Customize was opened at least once,1,1 4,1 4,1
 85,1357085,Confirm your account pref screen should no longer redirect to Sync prefs,,,,
-86,1357458,After Customization - typed text in the Awesome bar doesn't correspond with the text from One-Off-Searches bar,1 4,1 4 9 15 18 20,1 4 9 15 18 20,1 4
+86,1357458,After Customization - typed text in the Awesome bar doesn't correspond with the text from One-Off-Searches bar,1 4,1 4 9 15 18,1 4 9 15 18,1 4
 87,1365887,Can't open resource:///modules/ from the location bar,1,1 5 6 8 10 11 14 16,1 5 6 8 10 11 14 16,1
-88,1408361,Received tab is truncated prematurely in notification,20,1 20,1 20,20
-89,1430603,Restrict BROWSER_*_DEFAULT probes to parent-process only,,18 21,18 21,
+88,1408361,Received tab is truncated prematurely in notification,,1,1,
+89,1430603,Restrict BROWSER_*_DEFAULT probes to parent-process only,,18,18,
 90,1432915,Do not write the kMDItemWhereFroms xattr metadata for files downloaded in Private Browsing mode,15,1 15,1 15,15
 91,1449700,refactor addTab/moveTabTo,,4,4,
-92,1451475,Renew scalar browser.engagement.restored_pinned_tabs_count,,1 4 20,1 4 20,
+92,1451475,Renew scalar browser.engagement.restored_pinned_tabs_count,,1 4,1 4,
