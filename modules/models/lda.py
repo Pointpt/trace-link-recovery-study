@@ -68,7 +68,7 @@ class LDA(GenericModel):
     def set_basic_params(self, **kwargs):
         self.set_name('LDA' if LDA_Model_Hyperp.NAME.value not in kwargs.keys() else kwargs[LDA_Model_Hyperp.NAME.value])
         self.set_model_gen_name('lda')
-        self.set_similarity_measure(sm.SimilarityMeasure.COSINE)
+        self.set_similarity_measure(sm.SimilarityMeasure.COSINE if LDA_Model_Hyperp.SIMILARITY_MEASURE.value not in kwargs.keys() else kwargs[LDA_Model_Hyperp.SIMILARITY_MEASURE.value])
     
     def set_similarity_measure(self, sim_measure):
         self.similarity_measure = sim_measure
@@ -96,6 +96,8 @@ class LDA(GenericModel):
             self._sim_matrix = pairwise.cosine_similarity(X=out_1, Y=out_2)
         elif metric == sm.SimilarityMeasure.JSD:
             self._sim_matrix = pairwise_distances(X=out_1, Y=out_2, metric=SimilarityMeasure.jsd)
+        elif metric == sm.SimilarityMeasure.EUCLIDIAN_DISTANCE:
+            self._sim_matrix = pairwise_distances(X=out_1, Y=out_2, metric='euclidean')
         
         self._sim_matrix = pd.DataFrame(data=self._sim_matrix, index=use_cases_names, columns=bug_reports_names)
 

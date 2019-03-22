@@ -8,3 +8,4 @@ class SimilarityMeasure(Enum):
     
     # LDA ------------
     JSD = 'jsd'
+    EUCLIDIAN_DISTANCE = 'euclidean_distance'
