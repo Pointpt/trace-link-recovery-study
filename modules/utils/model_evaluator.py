@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import pprint
 import pickle
 import math
@@ -84,7 +85,8 @@ class ModelEvaluator:
         plt.title("Precision vs Recall Plot - " + self.model.get_name())
         plt.show()
     
-    
+    # plot precision, recall and fscore plot for varied values of tops
+    # and similarity threshold fixed in 0.0 for each model
     def plot_evaluations_1(self, evals_df, title):        
         results = evals_df
 
@@ -94,27 +96,71 @@ class ModelEvaluator:
         pos_3 = list([start_pos+2*width, start_pos+2+2*width, start_pos+4+2*width, start_pos+6+2*width]) 
         pos_4 = list([start_pos+3*width, start_pos+2+3*width, start_pos+4+3*width, start_pos+6+3*width])                
 
-        f, axes = plt.subplots(3,1, figsize=(20,15))
+        f, axes = plt.subplots(3,1, figsize=(24,15))
         f.suptitle(title)
 
         model_names = [m.upper() for m in results.model.unique()]
         titles = ['Percentual Precision','Percentual Recall','Percentual FScore']
         legends = ['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0']
-        
+        labels = ['precision', 'recall', 'fscore']
+        col = ""
         for i,ax in enumerate(axes):
+            if i == 0:
+                col = 'perc_precision'
+            elif i == 1:
+                col = 'perc_recall'
+            elif i == 2:
+                col = 'perc_fscore'
+                
             ax.set_title(titles[i])
-            ax.bar(pos_1, width=width, height=results[results.model == 'lsi'].perc_precision.values, color='black')
-            ax.bar(pos_2, width=width, height=results[results.model == 'lda'].perc_precision.values, color='darkgray')
-            ax.bar(pos_3, width=width, height=results[results.model == 'bm25'].perc_precision.values, color='lightgray')
-            ax.bar(pos_4, width=width, height=results[results.model == 'wordvector'].perc_precision.values, color='silver')
-            ax.set(xlabel='model', ylabel='precision')
+            ax.bar(pos_1, width=width, height=results[results.model == 'lsi'][col].values, color='black')
+            ax.bar(pos_2, width=width, height=results[results.model == 'lda'][col].values, color='darkgray')
+            ax.bar(pos_3, width=width, height=results[results.model == 'bm25'][col].values, color='lightgray')
+            ax.bar(pos_4, width=width, height=results[results.model == 'wordvector'][col].values, color='silver')
+            ax.set(xlabel='model', ylabel=labels[i])
             ax.set_xticks([0.6, 2.6, 4.6, 6.6])
             ax.set_xticklabels(model_names)
             ax.set_ylim([0,100])
             ax.legend(legends, loc='upper right')
             ax.grid()
+    
+    # plot mean precision, recall and fscore of each model
+    # based on evaluations made with varied top values and
+    # similarity thresholds
+    def plot_evaluations_3(self, evals_df, title):
+        results = evals_df
 
-            
+        start_pos, width = 0.25, 0.25
+        pos_1 = list([start_pos,         start_pos+2,         start_pos+4,         start_pos+6]) 
+        pos_2 = list([start_pos+width,   start_pos+2+width,   start_pos+4+width,   start_pos+6+width]) 
+        pos_3 = list([start_pos+2*width, start_pos+2+2*width, start_pos+4+2*width, start_pos+6+2*width])               
+
+        positions = [pos_1, pos_2, pos_3]
+
+        f, ax = plt.subplots(1,1, figsize=(20,5))
+        f.suptitle(title)
+
+        model_names = [m.upper() for m in results.model.unique()]
+
+        legends = ['Percentual Precision','Percentual Recall','Percentual FScore']
+
+        heights_1 = [np.mean(results[results.model == m.lower()]['perc_precision'].values) for m in model_names]
+        heights_2 = [np.mean(results[results.model == m.lower()]['perc_recall'].values) for m in model_names]
+        heights_3 = [np.mean(results[results.model == m.lower()]['perc_fscore'].values) for m in model_names]
+
+        ax.bar(pos_1, width=width, height=heights_1, color='black')
+        ax.bar(pos_2, width=width, height=heights_2, color='darkgray')
+        ax.bar(pos_3, width=width, height=heights_3, color='lightgray')
+
+        ax.set(xlabel='Model', ylabel='Mean Metric Value')
+        ax.set_xticks([0.6, 2.6, 4.6, 6.6])
+        ax.set_xticklabels(model_names)
+        ax.set_ylim([0,100])
+        ax.legend(legends, loc='upper right')
+        ax.grid()
+    
+    # plot precision, recall and fscore for a single model, varying
+    # similarity thresholds range(0.0, 0.9) and the top values (1,3,5)
     def plot_evaluations_2(self, title, results, output_file=""):        
         f,axes = plt.subplots(1,int(len(results)/10),figsize=(25,5))
         f.suptitle(title)
@@ -135,5 +181,5 @@ class ModelEvaluator:
             ax.grid()
         
         if output_file != "":
-            path = '/home/guilherme/Dropbox/Aplicativos/Overleaf/Analysis of Traceability between Bug Report and Test Cases: A Case Study/imgs/'
+            path = '/home/guilherme/Dropbox/Aplicativos/Overleaf/ESEM 2019 Paper/imgs/'
             plt.savefig(path + output_file + '.eps', format='eps', bbox_inches='tight', dpi=1200, pad_inches=.3)
