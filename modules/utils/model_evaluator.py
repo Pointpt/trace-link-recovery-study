@@ -129,15 +129,15 @@ class ModelEvaluator:
     # similarity thresholds
     def plot_evaluations_3(self, evals_df, title):
         results = evals_df
-
+        
         start_pos, width = 0.25, 0.25
-        pos_1 = list([start_pos,         start_pos+2,         start_pos+4,         start_pos+6]) 
-        pos_2 = list([start_pos+width,   start_pos+2+width,   start_pos+4+width,   start_pos+6+width]) 
-        pos_3 = list([start_pos+2*width, start_pos+2+2*width, start_pos+4+2*width, start_pos+6+2*width])               
+        pos_1 = list([start_pos,         start_pos+1,         start_pos+2,         start_pos+3])    # precisions
+        pos_2 = list([start_pos+width,   start_pos+1+width,   start_pos+2+width,   start_pos+3+width])   # recalls
+        pos_3 = list([start_pos+2*width, start_pos+1+2*width, start_pos+2+2*width, start_pos+3+2*width])  # fscores      
 
         positions = [pos_1, pos_2, pos_3]
 
-        f, ax = plt.subplots(1,1, figsize=(20,5))
+        f, ax = plt.subplots(1,1, figsize=(10,5))
         f.suptitle(title)
 
         model_names = [m.upper() for m in results.model.unique()]
@@ -148,16 +148,23 @@ class ModelEvaluator:
         heights_2 = [np.mean(results[results.model == m.lower()]['perc_recall'].values) for m in model_names]
         heights_3 = [np.mean(results[results.model == m.lower()]['perc_fscore'].values) for m in model_names]
 
+        labels = [[(pos_1[i], heights_1[i] + .3, str(heights_1[i])) for i in range(4)],
+                  [(pos_2[i], heights_2[i] + .3, str(heights_2[i])) for i in range(4)],
+                  [(pos_3[i], heights_3[i] + .3, str(heights_3[i])) for i in range(4)]]
+        
         ax.bar(pos_1, width=width, height=heights_1, color='black')
         ax.bar(pos_2, width=width, height=heights_2, color='darkgray')
         ax.bar(pos_3, width=width, height=heights_3, color='lightgray')
 
+        for idx,(x,y,label) in labels:
+            ax.text(x=x, y=y, s=label, ha='center', va='bottom')
+        
         ax.set(xlabel='Model', ylabel='Mean Metric Value')
-        ax.set_xticks([0.6, 2.6, 4.6, 6.6])
+        ax.set_xticks([0.6, 1.6, 2.6, 3.6])
         ax.set_xticklabels(model_names)
         ax.set_ylim([0,100])
         ax.legend(legends, loc='upper right')
-        ax.grid()
+        
     
     # plot precision, recall and fscore for a single model, varying
     # similarity thresholds range(0.0, 0.9) and the top values (1,3,5)
