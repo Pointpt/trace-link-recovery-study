@@ -148,19 +148,20 @@ class ModelEvaluator:
         heights_2 = [np.mean(results[results.model == m.lower()]['perc_recall'].values) for m in model_names]
         heights_3 = [np.mean(results[results.model == m.lower()]['perc_fscore'].values) for m in model_names]
 
-        labels = [[(pos_1[i], heights_1[i] + .3, str(heights_1[i])) for i in range(4)],
-                  [(pos_2[i], heights_2[i] + .3, str(heights_2[i])) for i in range(4)],
-                  [(pos_3[i], heights_3[i] + .3, str(heights_3[i])) for i in range(4)]]
+        labels = [[(pos_1[i], heights_1[i] + .3, str(round(heights_1[i],1)) + '%') for i in range(4)],
+                  [(pos_2[i], heights_2[i] + .3, str(round(heights_2[i],1)) + '%') for i in range(4)],
+                  [(pos_3[i], heights_3[i] + .3, str(round(heights_3[i],1)) + '%') for i in range(4)]]
         
         ax.bar(pos_1, width=width, height=heights_1, color='black')
         ax.bar(pos_2, width=width, height=heights_2, color='darkgray')
         ax.bar(pos_3, width=width, height=heights_3, color='lightgray')
 
-        for idx,(x,y,label) in labels:
-            ax.text(x=x, y=y, s=label, ha='center', va='bottom')
+        for l in labels:
+            for x,y,label in l:
+                ax.text(x=x, y=y, s=label, ha='center', va='bottom', color='black')
         
-        ax.set(xlabel='Model', ylabel='Mean Metric Value')
-        ax.set_xticks([0.6, 1.6, 2.6, 3.6])
+        ax.set(xlabel='Model', ylabel='Mean Metric Value (%)')
+        ax.set_xticks([0.5, 1.5, 2.5, 3.5])
         ax.set_xticklabels(model_names)
         ax.set_ylim([0,100])
         ax.legend(legends, loc='upper right')
@@ -190,3 +191,32 @@ class ModelEvaluator:
         if output_file != "":
             path = '/home/guilherme/Dropbox/Aplicativos/Overleaf/ESEM 2019 Paper/imgs/'
             plt.savefig(path + output_file + '.eps', format='eps', bbox_inches='tight', dpi=1200, pad_inches=.3)
+            
+    # plot precision x recall graphs for each model in a figure with 4 axes
+    def plot_evaluations_4(self, results):
+        f,axes = plt.subplots(1,4, figsize=(20,5))
+        models_names = ['lsi', 'lda', 'bm25', 'wordvector']
+        line_styles = ['go--', 'bo--', 'ro--', 'yo--']
+        
+        for i,ax in enumerate(axes):
+            ax.plot(results[results.model == models_names[i]].perc_recall, results[results.model == models_names[i]].perc_precision, line_styles[i])
+            ax.set_xlabel('recall')
+            ax.set_ylabel('precision')
+            ax.set_title(models_names[i].upper() + ' Evaluation')
+            ax.set_ylim(0,100)
+
+    # plot precision x recall graph in a single figure for all the models
+    def plot_evaluations_5(self, results):
+        f,ax = plt.subplots(1,1, figsize=(10,5))
+        models_names = ['lsi', 'lda', 'bm25', 'wordvector']
+        line_styles = ['go--', 'bo--', 'ro--', 'yo--']
+
+        for i in range(4):
+            results_subset = results[results.model == models_names[i]]
+            results_subset.sort_values('perc_recall', inplace=True)
+            ax.plot(results_subset.perc_recall, results_subset.perc_precision, line_styles[i])
+            ax.set_xlabel('recall')
+            ax.set_ylabel('precision')
+            ax.set_title('All Techniques Evaluation')
+            ax.set_ylim(0,100)
+            ax.legend(['LSI','LDA','BM25','WordVector'])
