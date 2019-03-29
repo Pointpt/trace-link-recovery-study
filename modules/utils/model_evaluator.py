@@ -73,18 +73,7 @@ class ModelEvaluator:
                                                              ref_name=ref_name), ignore_index=True)
         return evals
     
-        
-    def plot_precision_vs_recall(self):
-        plt.figure(figsize=(6,6))
-        plt.plot(self.eval_df.recall, self.eval_df.precision, 'ro', label='Precision vs Recall')
-
-        plt.ylabel('Precision')
-        plt.xlabel('Recall')
-
-        plt.axis([0, 1.1, 0, 1.1])
-        plt.title("Precision vs Recall Plot - " + self.model.get_name())
-        plt.show()
-    
+           
     # plot precision, recall and fscore plot for varied values of tops
     # and similarity threshold fixed in 0.0 for each model
     def plot_evaluations_1(self, evals_df, title):        
@@ -199,7 +188,9 @@ class ModelEvaluator:
         line_styles = ['go--', 'bo--', 'ro--', 'yo--']
         
         for i,ax in enumerate(axes):
-            ax.plot(results[results.model == models_names[i]].perc_recall, results[results.model == models_names[i]].perc_precision, line_styles[i])
+            results_subset = results[results.model == models_names[i]]
+            results_subset.sort_values('perc_recall', inplace=True)
+            ax.plot(results_subset.perc_recall, results_subset.perc_precision, line_styles[i])
             ax.set_xlabel('recall')
             ax.set_ylabel('precision')
             ax.set_title(models_names[i].upper() + ' Evaluation')
