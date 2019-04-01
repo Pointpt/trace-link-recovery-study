@@ -200,7 +200,9 @@ class ModelEvaluator:
     def plot_evaluations_5(self, results):
         f,ax = plt.subplots(1,1, figsize=(10,5))
         models_names = ['lsi', 'lda', 'bm25', 'wordvector']
-        line_styles = ['go--', 'bo--', 'ro--', 'yo--']
+        #line_styles = ['v--', '^--', 'o--', '>--']
+        #colors = ['black', 'black', 'black', 'black']
+        line_styles = ['go--', 'ro--', 'bo--', 'yo--']
 
         for i in range(4):
             results_subset = results[results.model == models_names[i]]
