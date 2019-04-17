@@ -96,3 +96,29 @@ def calculate_sparsity(X):
     return sparsity
 
 
+# get true positives list compared to an oracle
+def get_true_positives(oracle_df, output_df):
+    true_positives = []
+    for idx,row in output_df.iterrows():
+        for col in output_df.columns:
+            if row[col] == 1 and oracle_df.at[idx, col] == 1:
+                true_positives.append((idx,col))
+    return true_positives
+
+# get false positives list compared to an oracle
+def get_false_positives(oracle_df, output_df):
+    false_positives = []
+    for idx,row in output_df.iterrows():
+        for col in output_df.columns:
+            if row[col] == 1 and oracle_df.at[idx, col] == 0:
+                false_positives.append((idx,col))
+    return false_positives
+
+# get false negative list compared to an oracle
+def get_false_negatives(oracle_df, output_df):
+    false_negatives = []
+    for idx,row in output_df.iterrows():
+        for col in output_df.columns:
+            if row[col] == 0 and oracle_df.at[idx, col] == 1:
+                false_negatives.append((idx,col))
+    return false_negatives
