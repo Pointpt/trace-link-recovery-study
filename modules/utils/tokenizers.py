@@ -14,8 +14,8 @@ class GenericTokenizer(object):
         self.stopwords = nltk.corpus.stopwords.words('english')
     def __call__(self, doc):
         tokens = [self.stemmer.stem(token) for token in nltk.word_tokenize(doc)]
-        #return [token.lower() for token in tokens if token.isalpha() and token not in self.stopwords and len(token) > 1]
-        return [token.lower() for token in tokens if token not in self.stopwords]
+        return [token.lower() for token in tokens if token.isalpha() and token not in self.stopwords and len(token) > 1]
+        #return [token.lower() for token in tokens if token not in self.stopwords]
         
 class WordNetBased_LemmaTokenizer(GenericTokenizer):
     def __init__(self):

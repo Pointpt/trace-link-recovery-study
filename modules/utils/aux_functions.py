@@ -5,6 +5,8 @@ import numpy as np
 import pandas as pd
 import math
 from matplotlib import pyplot as plt
+from PIL import Image
+from wordcloud import WordCloud
 
 from sklearn.metrics import cohen_kappa_score
 
@@ -132,3 +134,66 @@ def get_trace_links_df(evaluations_df, model, perc_precision="", perc_recall="")
     elif perc_recall != "":
         df = evaluations_df[(evaluations_df.model == model) & (evaluations_df.perc_recall == perc_recall)]
         return df.iloc[-1,:].trace_links_df
+
+
+# function to create word clouds with the tokens of features and bug reports
+# associated with the results of a specific model
+def create_wordcloud_feat_bt(model_exc_set, bugreports, features, wc_feat_title, wc_br_title):
+    feat_texts = ""
+    brs_texts = ""
+    for feat,br in model_exc_set:
+        aux_text_1 = " ".join(features[features.Feature_Shortname == feat].tokens.values[0])
+        aux_text_2 = " ".join(bugreports[bugreports.Bug_Number == br].tokens.values[0])
+        feat_texts = feat_texts + " " + aux_text_1
+        brs_texts = brs_texts + " " + aux_text_2
+    
+    wordcloud_feats = WordCloud(max_font_size=50, max_words=20, background_color="white").generate(feat_texts)
+    plt.figure()
+    plt.imshow(wordcloud_feats, interpolation="bilinear")
+    plt.axis("off")
+    plt.title(wc_feat_title)
+    plt.show()
+    
+    wordcloud_brs = WordCloud(max_font_size=50, max_words=20, background_color="white").generate(brs_texts)
+    plt.figure()
+    plt.imshow(wordcloud_brs, interpolation="bilinear")
+    plt.axis("off")
+    plt.title(wc_br_title)
+    plt.show()
+
+    
+# function to create word clouds with the tokens of test cases and bug reports
+# associated with the results of a specific model
+def create_wordcloud_tc_br(model_exc_set, bugreports, testcases, wc_tc_title, wc_br_title):
+    tcs_texts = ""
+    brs_texts = ""
+    for tc,br in model_exc_set:
+        aux_text_1 = " ".join(testcases[testcases.tc_name == tc].tokens.values[0])
+        aux_text_2 = " ".join(bugreports[bugreports.br_name == br].tokens.values[0])
+        tcs_texts = tcs_texts + " " + aux_text_1
+        brs_texts = brs_texts + " " + aux_text_2
+    
+    wordcloud_feats = WordCloud(max_font_size=50, max_words=20, background_color="white").generate(tcs_texts)
+    plt.figure()
+    plt.imshow(wordcloud_feats, interpolation="bilinear")
+    plt.axis("off")
+    plt.title(wc_tc_title)
+    plt.show()
+    
+    wordcloud_brs = WordCloud(max_font_size=50, max_words=20, background_color="white").generate(brs_texts)
+    plt.figure()
+    plt.imshow(wordcloud_brs, interpolation="bilinear")
+    plt.axis("off")
+    plt.title(wc_br_title)
+    plt.show()
+    
+# function to detail the features of testcases and the summary of bug reports
+# associated with a exclusive set of results of a specific model
+def detail_features_tc_br(exc_set, testcases, bugreports):
+    pd.set_option('max_colwidth', 400)
+    df = pd.DataFrame(columns=['tc','tc_feat','br','br_summary'])
+    df['tc'] = [tc for tc,br in exc_set]
+    df['tc_feat'] = [testcases[testcases.tc_name == tc].Firefox_Feature.values[0] for tc,br in exc_set]
+    df['br'] = [br for tc,br in exc_set]
+    df['br_summary'] = [bugreports[bugreports.br_name == br].Summary.values[0] for tc,br in exc_set]
+    display(df)
