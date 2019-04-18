@@ -122,3 +122,13 @@ def get_false_negatives(oracle_df, output_df):
             if row[col] == 0 and oracle_df.at[idx, col] == 1:
                 false_negatives.append((idx,col))
     return set(false_negatives)
+
+# function to reuturn the trace_link_matrix associated with a specified precision value or recall value
+# for a specific model
+def get_trace_links_df(evaluations_df, model, perc_precision="", perc_recall=""):
+    if perc_precision != "":
+        df = evaluations_df[(evaluations_df.model == model) & (evaluations_df.perc_precision == perc_precision)]
+        return df.iloc[-1,:].trace_links_df
+    elif perc_recall != "":
+        df = evaluations_df[(evaluations_df.model == model) & (evaluations_df.perc_recall == perc_recall)]
+        return df.iloc[-1,:].trace_links_df
