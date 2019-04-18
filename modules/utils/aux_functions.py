@@ -138,7 +138,7 @@ def get_trace_links_df(evaluations_df, model, perc_precision="", perc_recall="")
 
 # function to create word clouds with the tokens of features and bug reports
 # associated with the results of a specific model
-def create_wordcloud_feat_bt(model_exc_set, bugreports, features, wc_feat_title, wc_br_title):
+def create_wordcloud_feat_br(model_exc_set, bugreports, features, wc_feat_title, wc_br_title):
     feat_texts = ""
     brs_texts = ""
     for feat,br in model_exc_set:
