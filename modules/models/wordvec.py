@@ -61,21 +61,21 @@ class WordVec_BasedModel(GenericModel):
         return self._recover_links_cosine(corpus, query, test_cases_names, bug_reports_names)
     
     def _recover_links_cosine(self, corpus, query, test_cases_names, bug_reports_names):
-        list_corpus_tokens = [self.tokenizer.__call__(doc) for doc in corpus]
-        list_query_tokens = [self.tokenizer.__call__(doc) for doc in query]
+        #list_corpus_tokens = [self.tokenizer.__call__(doc) for doc in corpus]
+        #list_query_tokens = [self.tokenizer.__call__(doc) for doc in query]
         
-        corpus = [' '.join(tok_list) for tok_list in list_corpus_tokens]
-        query = [' '.join(tok_list) for tok_list in list_query_tokens]
+        #corpus = [' '.join(tok_list) for tok_list in list_corpus_tokens]
+        #query = [' '.join(tok_list) for tok_list in list_query_tokens]
         
         self._sim_matrix = pd.DataFrame(index = test_cases_names, 
                                            columns = bug_reports_names,
                                            data=np.zeros(shape=(len(test_cases_names), len(bug_reports_names)),dtype='float64'))
         
         for bug_id, bug_desc in zip(bug_reports_names, query):
-            for uc_id, uc_desc in zip(test_cases_names, corpus):
+            for tc_id, tc_desc in zip(test_cases_names, corpus):
                 doc1 = self._nlp_model(bug_desc)
-                doc2 = self._nlp_model(uc_desc)
-                self._sim_matrix.at[uc_id, bug_id] = doc1.similarity(doc2)  # cosine similarity is default
+                doc2 = self._nlp_model(tc_desc)
+                self._sim_matrix.at[tc_id, bug_id] = doc1.similarity(doc2)  # cosine similarity is default
         
         self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)      
     
