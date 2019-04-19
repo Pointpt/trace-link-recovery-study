@@ -197,3 +197,15 @@ def detail_features_tc_br(exc_set, testcases, bugreports):
     df['br'] = [br for tc,br in exc_set]
     df['br_summary'] = [bugreports[bugreports.br_name == br].Summary.values[0] for tc,br in exc_set]
     display(df)
+
+    
+# function to details the features related to bug reports and the summary of these bug reports
+# associated with a exclusive set of results of a specific model
+def detail_features_br(exc_set, features, bugreports):
+    pd.set_option('max_colwidth', 400)
+    df = pd.DataFrame(columns=['feat','feat_desc','br','br_summary'])
+    df['feat'] = [feat for feat,br in exc_set]
+    df['feat_desc'] = [features[features.Feature_Shortname == feat].Feature_Description.values[0] for feat,br in exc_set]
+    df['br'] = [br for feat,br in exc_set]
+    df['br_summary'] = [bugreports[bugreports.Bug_Number == br].Summary.values[0] for feat,br in exc_set]
+    display(df)

@@ -13,42 +13,41 @@ from modules.models.lsi import LSI
 from modules.models.bm25 import BM_25
 from modules.models.wordvec import WordVec_BasedModel
 
-from modules.models.model_hyperps import LDA_Model_Hyperp
-from modules.models.model_hyperps import LSI_Model_Hyperp
-from modules.models.model_hyperps import BM25_Model_Hyperp
-from modules.models.model_hyperps import WordVec_Model_Hyperp
+import modules.models.model_hyperps as mh
 
 class Feat_BR_Models_Hyperp:
     
     @staticmethod
     def get_lsi_model_hyperp():
         return {
-            LSI_Model_Hyperp.SVD_MODEL_N_COMPONENTS.value: 100,
-            LSI_Model_Hyperp.VECTORIZER_NGRAM_RANGE.value: (1,1),
-            LSI_Model_Hyperp.VECTORIZER.value : TfidfVectorizer(stop_words='english', use_idf=True, smooth_idf=True),
-            LSI_Model_Hyperp.VECTORIZER_TOKENIZER.value : tok.WordNetBased_LemmaTokenizer()
+            mh.LSI_Model_Hyperp.SVD_MODEL_N_COMPONENTS.value: 20,
+            mh.LSI_Model_Hyperp.VECTORIZER_NGRAM_RANGE.value: (1,1),
+            mh.LSI_Model_Hyperp.VECTORIZER_MAX_FEATURES.value: 400,
+            mh.LSI_Model_Hyperp.VECTORIZER.value : TfidfVectorizer(stop_words='english', use_idf=True, smooth_idf=True),
+            mh.LSI_Model_Hyperp.VECTORIZER_TOKENIZER.value : tok.WordNetBased_LemmaTokenizer()
         }
     
     @staticmethod
     def get_lda_model_hyperp():
         return {
-            LDA_Model_Hyperp.LDA_MODEL_N_COMPONENTS.value: 50,
-            LDA_Model_Hyperp.LDA_MODEL_RANDOM_STATE.value : 2,
-            LDA_Model_Hyperp.VECTORIZER_NGRAM_RANGE.value: (1,1),
-            LDA_Model_Hyperp.VECTORIZER.value : TfidfVectorizer(stop_words='english', use_idf=True, smooth_idf=True),
-            LDA_Model_Hyperp.VECTORIZER_TOKENIZER.value : tok.PorterStemmerBased_Tokenizer()
+            mh.LDA_Model_Hyperp.LDA_MODEL_N_COMPONENTS.value: 20,
+            mh.LDA_Model_Hyperp.LDA_MODEL_RANDOM_STATE.value : 2,
+            mh.LDA_Model_Hyperp.VECTORIZER_NGRAM_RANGE.value: (1,1),
+            mh.LDA_Model_Hyperp.VECTORIZER_MAX_FEATURES.value: 200,
+            mh.LDA_Model_Hyperp.VECTORIZER.value : TfidfVectorizer(stop_words='english', use_idf=True, smooth_idf=True),
+            mh.LDA_Model_Hyperp.VECTORIZER_TOKENIZER.value : tok.PorterStemmerBased_Tokenizer()
         }
     
     @staticmethod
     def get_bm25_model_hyperp():
         return {
-            BM25_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer()
+            mh.BM25_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer()
         }
     
     @staticmethod
     def get_w2v_hyperp():
         return {
-            WordVec_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer()
+            mh.WordVec_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer()
         }
 
 class Feat_BR_Models_Runner:

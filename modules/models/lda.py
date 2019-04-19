@@ -142,4 +142,12 @@ class LDA(GenericModel):
     def get_vectorizer_type(self):
         return type(self.vectorizer)
     
+    def print_topics(self):
+        feature_names = self.vectorizer.get_feature_names()
+        n_top_words = 20
 
+        for topic_idx, topic in enumerate(self.lda_model.components_):
+            message = "Topic #%d: " % topic_idx
+            message += " ".join([feature_names[i]
+                                 for i in topic.argsort()[:-n_top_words - 1:-1]])
+            print(message)
