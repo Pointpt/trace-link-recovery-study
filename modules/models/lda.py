@@ -144,7 +144,7 @@ class LDA(GenericModel):
     
     def print_topics(self):
         feature_names = self.vectorizer.get_feature_names()
-        n_top_words = 20
+        n_top_words = 10
 
         for topic_idx, topic in enumerate(self.lda_model.components_):
             message = "Topic #%d: " % topic_idx
