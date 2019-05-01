@@ -202,14 +202,14 @@ class ModelEvaluator:
         models_names = ['lsi', 'lda', 'bm25', 'wordvector']
         #line_styles = ['v--', '^--', 'o--', '>--']
         #colors = ['black', 'black', 'black', 'black']
-        line_styles = ['go--', 'ro--', 'bo--', 'yo--']
+        line_styles = ['g^--', 'rv--', 'bo--', 'k+--']
 
         for i in range(4):
             results_subset = results[results.model == models_names[i]]
             results_subset.sort_values('perc_recall', inplace=True)
-            ax.plot(results_subset.perc_recall, results_subset.perc_precision, line_styles[i])
+            ax.plot(results_subset.perc_recall, results_subset.perc_precision, line_styles[i], linewidth=1.5)
             ax.set_xlabel('recall')
             ax.set_ylabel('precision')
-            ax.set_title('All Techniques Evaluation')
+            #ax.set_title('All Techniques Evaluation')
             ax.set_ylim(0,100)
             ax.legend(['LSI','LDA','BM25','WordVector'])
