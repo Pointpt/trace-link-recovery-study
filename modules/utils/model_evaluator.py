@@ -185,12 +185,12 @@ class ModelEvaluator:
     def plot_evaluations_4(self, results):
         f,axes = plt.subplots(1,4, figsize=(20,5))
         models_names = ['lsi', 'lda', 'bm25', 'wordvector']
-        line_styles = ['go--', 'bo--', 'ro--', 'yo--']
+        line_styles = ['go--', 'bo--', 'ro--', 'k+--']
         
         for i,ax in enumerate(axes):
             results_subset = results[results.model == models_names[i]]
             results_subset.sort_values('perc_recall', inplace=True)
-            ax.plot(results_subset.perc_recall, results_subset.perc_precision, line_styles[i])
+            ax.plot(results_subset.perc_recall, results_subset.perc_precision, line_styles[i], linewidth=1.5)
             ax.set_xlabel('recall')
             ax.set_ylabel('precision')
             ax.set_title(models_names[i].upper() + ' Evaluation')

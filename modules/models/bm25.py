@@ -10,6 +10,8 @@ from modules.models.model_hyperps import BM25_Model_Hyperp
 
 from modules.utils import tokenizers as tok
 
+from sklearn.preprocessing import MinMaxScaler
+
 """
 params_dict = {
     'bm25__k' : 1.2,
@@ -69,7 +71,9 @@ class BM_25(GenericModel):
             for tc_id, sc in zip(test_cases_names, scores):
                 self._sim_matrix.at[tc_id, bug_id] = sc
         
+        self._sim_matrix =  MinMaxScaler().fit_transform(self._sim_matrix)
         self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
+        
         
     def model_setup(self):
         return {"Setup" : 
