@@ -195,6 +195,7 @@ class ModelEvaluator:
             ax.set_ylabel('precision')
             ax.set_title(models_names[i].upper() + ' Evaluation')
             ax.set_ylim(0,100)
+            ax.set_xlim(0,60)
 
     # plot precision x recall graph in a single figure for all the models
     def plot_evaluations_5(self, results):
