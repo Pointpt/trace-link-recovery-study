@@ -83,14 +83,14 @@ class ModelEvaluator:
         pos_1 = list([start_pos,         start_pos+2,         start_pos+4,         start_pos+6]) 
         pos_2 = list([start_pos+width,   start_pos+2+width,   start_pos+4+width,   start_pos+6+width]) 
         pos_3 = list([start_pos+2*width, start_pos+2+2*width, start_pos+4+2*width, start_pos+6+2*width]) 
-        pos_4 = list([start_pos+3*width, start_pos+2+3*width, start_pos+4+3*width, start_pos+6+3*width])                
+        #pos_4 = list([start_pos+3*width, start_pos+2+3*width, start_pos+4+3*width, start_pos+6+3*width])                
 
         f, axes = plt.subplots(3,1, figsize=(24,15))
         f.suptitle(title)
 
         model_names = [m.upper() for m in results.model.unique()]
         titles = ['Percentual Precision','Percentual Recall','Percentual FScore']
-        legends = ['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0', 'TOP 10 - COS 0.0']
+        legends = ['TOP 1 - COS 0.0', 'TOP 3 - COS 0.0', 'TOP 5 - COS 0.0']
         labels = ['precision', 'recall', 'fscore']
         col = ""
         for i,ax in enumerate(axes):
@@ -105,9 +105,9 @@ class ModelEvaluator:
             ax.bar(pos_1, width=width, height=results[results.model == 'lsi'][col].values, color='black')
             ax.bar(pos_2, width=width, height=results[results.model == 'lda'][col].values, color='darkgray')
             ax.bar(pos_3, width=width, height=results[results.model == 'bm25'][col].values, color='lightgray')
-            ax.bar(pos_4, width=width, height=results[results.model == 'wordvector'][col].values, color='silver')
+            #ax.bar(pos_4, width=width, height=results[results.model == 'wordvector'][col].values, color='silver')
             ax.set(xlabel='model', ylabel=labels[i])
-            ax.set_xticks([0.6, 2.6, 4.6, 6.6])
+            ax.set_xticks([0.6, 2.6, 4.6])
             ax.set_xticklabels(model_names)
             ax.set_ylim([0,100])
             ax.legend(legends, loc='upper right')
