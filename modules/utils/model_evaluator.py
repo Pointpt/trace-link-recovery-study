@@ -10,6 +10,7 @@ from scipy.sparse import csr_matrix
 from sklearn.metrics import precision_score, recall_score, f1_score
 
 from modules.utils import similarity_measures as sm
+from modules.utils import aux_functions
 
 class ModelEvaluator:
     def __init__(self, oracle):
@@ -34,28 +35,42 @@ class ModelEvaluator:
                        
         eval_df = pd.DataFrame(columns=['precision','recall','fscore'],
                               index=self.oracle.columns)
-        eval_df['precision'] = [precision_score(y_true=self.oracle[col],y_pred=trace_links_df[col]) for col in self.oracle.columns]
-        eval_df['recall'] = [recall_score(y_true=self.oracle[col],y_pred=trace_links_df[col]) for col in self.oracle.columns]
-        eval_df['fscore'] = [f1_score(y_true=self.oracle[col],y_pred=trace_links_df[col]) for col in self.oracle.columns]
-        eval_df.index.name = 'Bug_Number'
-        eval_df.index = eval_df.index.astype(str)       
         
-        mean_precision = eval_df.precision.mean()
-        mean_recall = eval_df.recall.mean()
-        mean_fscore = eval_df.fscore.mean()
+        #eval_df['precision'] = [precision_score(y_true=self.oracle[col],y_pred=trace_links_df[col]) for col in self.oracle.columns]
+        #eval_df['recall'] = [recall_score(y_true=self.oracle[col],y_pred=trace_links_df[col]) for col in self.oracle.columns]
+        #eval_df['fscore'] = [f1_score(y_true=self.oracle[col],y_pred=trace_links_df[col]) for col in self.oracle.columns]
+        #eval_df.index.name = 'Bug_Number'
+        #eval_df.index = eval_df.index.astype(str)       
+        
+        #mean_precision = eval_df.precision.mean()
+        #mean_recall = eval_df.recall.mean()
+        #mean_fscore = eval_df.fscore.mean()
+        
+        tp = len(aux_functions.get_true_positives( oracle_df = self.oracle, output_df = trace_links_df))
+        fp = len(aux_functions.get_false_positives(oracle_df = self.oracle, output_df = trace_links_df))
+        fn = len(aux_functions.get_false_negatives(oracle_df = self.oracle, output_df = trace_links_df))
+        
+        mean_precision = tp / (tp + fp)
+        mean_recall = tp / (tp + fn)
+        
+        mean_fscore = None
+        if mean_precision == 0 and mean_recall == 0:
+            mean_fscore = 0
+        else:
+            mean_fscore = 2 * mean_precision * mean_recall / (mean_precision + mean_recall)
         
         if verbose:
             self.print_report(file)
         
-        return {'model':model.get_model_gen_name(), 
-                'ref_name':ref_name, 
+        return {'model': model.get_model_gen_name(), 
+                'ref_name': ref_name, 
                 'perc_precision': round(mean_precision,4)*100, 
                 'perc_recall': round(mean_recall,4)*100,
                 'perc_fscore': round(mean_fscore,4)*100,
                 'trace_links_df' : trace_links_df, 
-                'top':top_value, 
-                'sim_threshold':sim_threshold,
-                'eval_df':eval_df}
+                'top': top_value, 
+                'sim_threshold': sim_threshold,
+                'eval_df': eval_df}
     
     
     def run_evaluator(self, verbose=False, file=None, models=None, top_values=[1,3,5,10], sim_thresholds=[(sm.SimilarityMeasure.COSINE, 0.0)]):               
@@ -162,8 +177,8 @@ class ModelEvaluator:
         f,axes = plt.subplots(1,int(len(results)/10),figsize=(25,5))
         f.suptitle(title)
         
-        top_values = [1.0, 3.0, 5.0, 10.0, 21.0]
-        top_names = ['TOP {}'.format(a) for a in [1,3,5,10,21]]
+        top_values = [1.0, 3.0, 5.0, 10.0, 19.0]
+        top_names = ['TOP {}'.format(a) for a in [1,3,5,10,19]]
         
         for i,ax in enumerate(axes):
             results_2 = results[results.top == top_values[i]]

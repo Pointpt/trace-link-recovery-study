@@ -209,3 +209,69 @@ def detail_features_br(exc_set, features, bugreports):
     df['br'] = [br for feat,br in exc_set]
     df['br_summary'] = [bugreports[bugreports.Bug_Number == br].Summary.values[0] for feat,br in exc_set]
     display(df)
+    
+
+
+def get_retrieved_traces_df(oracle, evals_df):
+    MODELS = ['lsi','lda','bm25','wordvector']
+    TOP_VALUES = [1,3,5,19]
+    SIM_THRESHOLDS = [0.0]
+    
+    retrieved_traces_df = pd.DataFrame(columns=['top','sim_thresh','model','retrieved','TP_amount','FP_amount','FN_amount','TP','FP','FN','precision','recall'])
+
+    for m in MODELS:
+        for top in TOP_VALUES:
+            for sim_thresh in SIM_THRESHOLDS:
+                df = evals_df[(evals_df.ref_name == 'top_{}_cosine_{}'.format(top,sim_thresh)) & (evals_df.model == m)].iloc[0,:]
+                trace_links = df.trace_links_df
+
+                tp = get_true_positives( oracle_df=oracle, output_df=trace_links)
+                fp = get_false_positives(oracle_df=oracle, output_df=trace_links)
+                fn = get_false_negatives(oracle_df=oracle, output_df=trace_links)
+
+                ans = {'top': top, 
+                       'sim_thresh': sim_thresh, 
+                       'model': m,
+                       'retrieved': sum([trace_links[col].sum() for col in trace_links.columns]),
+                       'precision': df.perc_precision,
+                       'recall': df.perc_recall,
+                       'TP': tp,
+                       'TP_amount': len(tp),
+                       'FP': fp,
+                       'FP_amount': len(fp),
+                       'FN': fn,
+                       'FN_amount': len(fn)} 
+
+                retrieved_traces_df = retrieved_traces_df.append(ans, ignore_index=True)
+    
+    retrieved_traces_df.sort_values(by='retrieved', inplace=True)
+    return retrieved_traces_df
+
+def get_oracle_true_positives(strat_runner):
+    oracle_true_traces = set()
+    oracle = strat_runner.get_oracle()
+
+    for idx,row in oracle.iterrows():
+        for col in oracle.columns:
+            if oracle.at[idx, col] == 1:
+                oracle_true_traces.add((idx,col))
+    
+    return oracle_true_traces
+
+
+def get_captured_traces_union(top_value, retrieved_traces_df):
+    bm25_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'bm25') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+    lsi_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'lsi') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+    lda_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'lda') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+    wordvector_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'wordvector') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+    
+    return(bm25_true_traces | lsi_true_traces | lda_true_traces | wordvector_true_traces)
+
+
+def get_captured_traces_intersec(top_value, retrieved_traces_df):
+    bm25_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'bm25') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+    lsi_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'lsi') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+    lda_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'lda') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+    wordvector_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'wordvector') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+    
+    return(bm25_true_traces & lsi_true_traces & lda_true_traces & wordvector_true_traces)
