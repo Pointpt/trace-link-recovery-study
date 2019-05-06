@@ -33,9 +33,7 @@ class ModelEvaluator:
     def evaluate_model(self, verbose=False, file=None, model=None, top_value=None, sim_threshold=None, ref_name=""):        
         trace_links_df = self.__fillUp_traceLinksDf(model=model, top_n=top_value, sim_threshold=sim_threshold)
                        
-        eval_df = pd.DataFrame(columns=['precision','recall','fscore'],
-                              index=self.oracle.columns)
-        
+        #eval_df = pd.DataFrame(columns=['precision','recall','fscore'], index=self.oracle.columns)
         #eval_df['precision'] = [precision_score(y_true=self.oracle[col],y_pred=trace_links_df[col]) for col in self.oracle.columns]
         #eval_df['recall'] = [recall_score(y_true=self.oracle[col],y_pred=trace_links_df[col]) for col in self.oracle.columns]
         #eval_df['fscore'] = [f1_score(y_true=self.oracle[col],y_pred=trace_links_df[col]) for col in self.oracle.columns]
@@ -69,8 +67,7 @@ class ModelEvaluator:
                 'perc_fscore': round(mean_fscore,4)*100,
                 'trace_links_df' : trace_links_df, 
                 'top': top_value, 
-                'sim_threshold': sim_threshold,
-                'eval_df': eval_df}
+                'sim_threshold': sim_threshold}
     
     
     def run_evaluator(self, verbose=False, file=None, models=None, top_values=[1,3,5,10], sim_thresholds=[(sm.SimilarityMeasure.COSINE, 0.0)]):               
