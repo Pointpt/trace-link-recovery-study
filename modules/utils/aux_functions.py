@@ -252,6 +252,7 @@ def get_retrieved_traces_df(oracle, evals_df):
     retrieved_traces_df.sort_values(by='retrieved', inplace=True)
     return retrieved_traces_df
 
+
 def get_oracle_true_positives(strat_runner):
     oracle_true_traces = set()
     oracle = strat_runner.get_oracle()
@@ -308,25 +309,48 @@ def plot_venn_diagrams(top_value, bm25_set, lsi_set, lda_set, wv_set, traces_typ
     plt.show()
 
     
-def get_exclusive_traces(bm25_set, lsi_set, lda_set, wv_set):
-    print("BM25 Exclusive:")
+def get_exclusive_traces(bm25_set, lsi_set, lda_set, wv_set, traces_type, verbose=False):
+    print("BM25 Exclusive {}:".format(traces_type))
     bm25_exc_set = bm25_set - lsi_set - lda_set - wv_set
-    display(bm25_exc_set)
+    if verbose: 
+        display(bm25_exc_set)
     print("len(bm25_exc_set): {}".format(len(bm25_exc_set)))
 
-    print("\n\nLSI Exclusive TP:")
+    print("\n\nLSI Exclusive {}:".format(traces_type))
     lsi_exc_set = lsi_set - bm25_set - lda_set - wv_set
-    display(lsi_exc_set)
+    if verbose:
+        display(lsi_exc_set)
     print("len(lsi_exc_set): {}".format(len(lsi_exc_set)))
 
-    print("\n\nLDA Exclusive TP:")
+    print("\n\nLDA Exclusive {}:".format(traces_type))
     lda_exc_set = lda_set - lsi_set - bm25_set - wv_set
-    display(lda_exc_set)
+    if verbose:
+        display(lda_exc_set)
     print("len(lda_exc_set): {}".format(len(lda_exc_set)))
 
-    print("\n\nWV Exclusive TP:")
+    print("\n\nWV Exclusive {}:".format(traces_type))
     wv_exc_set = wv_set - lda_set - lsi_set - bm25_set
-    display(wv_exc_set)
+    if verbose:
+        display(wv_exc_set)
     print("len(wv_exc_set): {}".format(len(wv_exc_set)))
     
     return (bm25_exc_set, lsi_exc_set, lda_exc_set, wv_exc_set)
+
+def _calc_goodness(precision, recall):
+    if precision > 20 and recall > 60:
+        return "Acceptable"
+    elif precision > 30 and recall > 70:
+        return "Good"
+    elif precision > 50 and recall > 80:
+        return "Excellent"
+
+def calculate_goodness(evals):
+    model_names = ['bm25','lsi','lda','wordvector']
+    
+    df = pd.DataFrame(columns=['model','precision','recall','goodness'])
+    df.model = model_names
+    df.precision = [np.mean(evals[evals.model == m.lower()]['perc_precision'].values) for m in model_names]
+    df.recall = [np.mean(evals[evals.model == m.lower()]['perc_recall'].values) for m in model_names]
+    df.goodness = df.apply(lambda row : _calc_goodness(row['precision'],row['recall']), axis=1)
+    
+    return df
