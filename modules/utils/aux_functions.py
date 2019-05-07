@@ -4,11 +4,16 @@ import seaborn as sns
 import numpy as np
 import pandas as pd
 import math
+
 from matplotlib import pyplot as plt
+from matplotlib_venn import venn3
+
 from PIL import Image
 from wordcloud import WordCloud
 
 from sklearn.metrics import cohen_kappa_score
+
+
 
 def generate_params_comb_list(**kwargs):
     list_params = []
@@ -275,3 +280,53 @@ def get_captured_traces_intersec(top_value, retrieved_traces_df):
     wordvector_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'wordvector') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
     
     return(bm25_true_traces & lsi_true_traces & lda_true_traces & wordvector_true_traces)
+
+
+def get_traces_set(retrieved_traces, top_value, traces_type):    
+    bm25_set = retrieved_traces[(retrieved_traces.model == 'bm25')       & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
+    lsi_set  = retrieved_traces[(retrieved_traces.model == 'lsi')        & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
+    lda_set  = retrieved_traces[(retrieved_traces.model == 'lda')        & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
+    wv_set   = retrieved_traces[(retrieved_traces.model == 'wordvector') & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
+    return (bm25_set, lsi_set, lda_set, wv_set)
+
+
+def plot_venn_diagrams(top_value, bm25_set, lsi_set, lda_set, wv_set, traces_type):
+    venn3([bm25_set, lsi_set, lda_set], ['BM25','LSI','LDA'])
+    plt.title('Comparison {} by Model (BM25, LSI, LDA) - TOP {}'.format(traces_type, top_value))
+    plt.show()
+
+    venn3([bm25_set, wv_set, lda_set], ['BM25','WV','LDA'])
+    plt.title('Comparison {} by Model (BM25, WV, LDA) - TOP {}'.format(traces_type, top_value))
+    plt.show()
+
+    venn3([lsi_set, wv_set, lda_set], ['LSI','WV','LDA'])
+    plt.title('Comparison {} by Model (LSI, WV, LDA) - TOP {}'.format(traces_type, top_value))
+    plt.show()
+
+    venn3([lsi_set, wv_set, bm25_set], ['LSI','WV','BM25'])
+    plt.title('Comparison {} by Model (LSI, WV, BM25) - TOP {}'.format(traces_type, top_value))
+    plt.show()
+
+    
+def get_exclusive_traces(bm25_set, lsi_set, lda_set, wv_set):
+    print("BM25 Exclusive:")
+    bm25_exc_set = bm25_set - lsi_set - lda_set - wv_set
+    display(bm25_exc_set)
+    print("len(bm25_exc_set): {}".format(len(bm25_exc_set)))
+
+    print("\n\nLSI Exclusive TP:")
+    lsi_exc_set = lsi_set - bm25_set - lda_set - wv_set
+    display(lsi_exc_set)
+    print("len(lsi_exc_set): {}".format(len(lsi_exc_set)))
+
+    print("\n\nLDA Exclusive TP:")
+    lda_exc_set = lda_set - lsi_set - bm25_set - wv_set
+    display(lda_exc_set)
+    print("len(lda_exc_set): {}".format(len(lda_exc_set)))
+
+    print("\n\nWV Exclusive TP:")
+    wv_exc_set = wv_set - lda_set - lsi_set - bm25_set
+    display(wv_exc_set)
+    print("len(wv_exc_set): {}".format(len(wv_exc_set)))
+    
+    return (bm25_exc_set, lsi_exc_set, lda_exc_set, wv_exc_set)
