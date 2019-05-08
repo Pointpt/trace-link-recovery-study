@@ -57,7 +57,7 @@ class Feat_BR_Generic_Strat_Runner(metaclass=ABCMeta):
                                                         self.get_lda_model(),
                                                         self.get_bm25_model(),
                                                         self.get_word2vec_model()],
-                                               top_values=[1,3,5,19], 
+                                               top_values=[1,3,5], 
                                                sim_thresholds=[(sm.SimilarityMeasure.COSINE, x/10) for x in range(0,10)])
     
     def execute(self):

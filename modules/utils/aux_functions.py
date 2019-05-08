@@ -218,10 +218,10 @@ def detail_features_br(exc_set, features, bugreports):
     
 
 
-def get_retrieved_traces_df(oracle, evals_df):
+def get_retrieved_traces_df(oracle, evals_df, top_values, sim_threshs):
     MODELS = ['lsi','lda','bm25','wordvector']
-    TOP_VALUES = [1,3,5,19]
-    SIM_THRESHOLDS = [0.0]
+    TOP_VALUES = top_values
+    SIM_THRESHOLDS = sim_threshs
     
     retrieved_traces_df = pd.DataFrame(columns=['top','sim_thresh','model','retrieved','TP_amount','FP_amount','FN_amount','TP','FP','FN','precision','recall'])
 
@@ -250,7 +250,7 @@ def get_retrieved_traces_df(oracle, evals_df):
 
                 retrieved_traces_df = retrieved_traces_df.append(ans, ignore_index=True)
     
-    retrieved_traces_df.sort_values(by='retrieved', inplace=True)
+    retrieved_traces_df.sort_values(by='top', inplace=True)
     return retrieved_traces_df
 
 
