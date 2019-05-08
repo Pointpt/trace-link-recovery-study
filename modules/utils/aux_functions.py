@@ -213,7 +213,8 @@ def detail_features_br(exc_set, features, bugreports):
     df['feat_desc'] = [features[features.Feature_Shortname == feat].Feature_Description.values[0] for feat,br in exc_set]
     df['br'] = [br for feat,br in exc_set]
     df['br_summary'] = [bugreports[bugreports.Bug_Number == br].Summary.values[0] for feat,br in exc_set]
-    display(df)
+    #display(df)
+    return df
     
 
 
