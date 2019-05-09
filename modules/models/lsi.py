@@ -94,6 +94,8 @@ class LSI(GenericModel):
         self._svd_matrix = svd_transformer.fit_transform(corpus)
         self._query_vector = svd_transformer.transform(query)
         self._sim_matrix = pairwise.cosine_similarity(X=self._svd_matrix, Y=self._query_vector)
+        
+        #self._sim_matrix =  super().normalize_sim_matrix(self._sim_matrix)
         self._sim_matrix = pd.DataFrame(data=self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
 
     

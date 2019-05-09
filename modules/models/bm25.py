@@ -71,7 +71,7 @@ class BM_25(GenericModel):
             for tc_id, sc in zip(test_cases_names, scores):
                 self._sim_matrix.at[tc_id, bug_id] = sc
         
-        self._sim_matrix =  MinMaxScaler().fit_transform(self._sim_matrix)
+        self._sim_matrix =  super().normalize_sim_matrix(self._sim_matrix)
         self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
         
         

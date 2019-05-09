@@ -224,7 +224,7 @@ def get_retrieved_traces_df(oracle, evals_df, top_values, sim_threshs):
     SIM_THRESHOLDS = sim_threshs
     
     retrieved_traces_df = pd.DataFrame(columns=['top','sim_thresh','model','retrieved','TP_amount','FP_amount','FN_amount','TP','FP','FN','precision','recall'])
-
+       
     for m in MODELS:
         for top in TOP_VALUES:
             for sim_thresh in SIM_THRESHOLDS:
@@ -337,21 +337,34 @@ def get_exclusive_traces(bm25_set, lsi_set, lda_set, wv_set, traces_type, verbos
     
     return (bm25_exc_set, lsi_exc_set, lda_exc_set, wv_exc_set)
 
-def _calc_goodness(precision, recall):
-    if precision > 20 and recall > 60:
+def _calc_goodness_prec(precision):
+    if precision >= 20 and precision < 30:
         return "Acceptable"
-    elif precision > 30 and recall > 70:
+    elif precision >= 30 and precision < 50:
         return "Good"
-    elif precision > 50 and recall > 80:
+    elif precision >= 50:
         return "Excellent"
+    else:
+        return "-"
+
+def _calc_goodness_rec(recall):
+    if recall >= 60 and recall < 70:
+        return "Acceptable"
+    elif recall >= 70 and recall < 80:
+        return "Good"
+    elif recall >= 80:
+        return "Excellent"
+    else:
+        return "-"
 
 def calculate_goodness(evals):
     model_names = ['bm25','lsi','lda','wordvector']
     
-    df = pd.DataFrame(columns=['model','precision','recall','goodness'])
+    df = pd.DataFrame(columns=['model','precision','recall','precision_goodness','recall_goodness'])
     df.model = model_names
-    df.precision = [np.mean(evals[evals.model == m.lower()]['perc_precision'].values) for m in model_names]
-    df.recall = [np.mean(evals[evals.model == m.lower()]['perc_recall'].values) for m in model_names]
-    df.goodness = df.apply(lambda row : _calc_goodness(row['precision'],row['recall']), axis=1)
+    df.precision = [round(np.mean(evals[evals.model == m.lower()]['perc_precision'].values), 2) for m in model_names]
+    df.recall =    [round(np.mean(evals[evals.model == m.lower()]['perc_recall'].values), 2) for m in model_names]
+    df.precision_goodness = df.apply(lambda row : _calc_goodness_prec(row['precision']), axis=1)
+    df.recall_goodness = df.apply(lambda row : _calc_goodness_rec(row['recall']), axis=1)
     
     return df

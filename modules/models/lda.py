@@ -99,6 +99,7 @@ class LDA(GenericModel):
         elif metric == sm.SimilarityMeasure.EUCLIDIAN_DISTANCE:
             self._sim_matrix = pairwise_distances(X=out_1, Y=out_2, metric='euclidean')
         
+        #self._sim_matrix =  super().normalize_sim_matrix(self._sim_matrix)
         self._sim_matrix = pd.DataFrame(data=self._sim_matrix, index=use_cases_names, columns=bug_reports_names)
 
         

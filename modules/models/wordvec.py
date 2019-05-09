@@ -77,6 +77,7 @@ class WordVec_BasedModel(GenericModel):
                 doc2 = self._nlp_model(tc_desc)
                 self._sim_matrix.at[tc_id, bug_id] = doc1.similarity(doc2)  # cosine similarity is default
         
+        #self._sim_matrix =  super().normalize_sim_matrix(self._sim_matrix)
         self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)      
     
     

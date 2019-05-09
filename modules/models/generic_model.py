@@ -2,6 +2,8 @@ import pandas as pd
 from abc import ABCMeta, abstractmethod
 import math
 
+from sklearn.preprocessing import MinMaxScaler
+
 class GenericModel(metaclass=ABCMeta):
     def __init__(self):
         self.name = None        
@@ -34,3 +36,6 @@ class GenericModel(metaclass=ABCMeta):
     @abstractmethod
     def model_setup(self):
         pass
+    
+    def normalize_sim_matrix(self, sim_matrix):
+        return MinMaxScaler().fit_transform(sim_matrix)
