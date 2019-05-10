@@ -48,13 +48,17 @@ class FilePath(Enum):
 class Tc_BR_Oracles:   
     def read_oracle_expert_volunteers_union_df():
         oracle_df = pd.read_csv(FilePath.ORACLE_EXPERT_VOLUNTEERS_UNION.value)
-        oracle_df.set_index('tc_name', inplace=True, drop=True)
+        oracle_df.set_index('TC_Number', inplace=True, drop=True)
+        oracle_df.columns.name = 'Bug_Number'
+        oracle_df.rename(columns=lambda col: int(col), inplace=True)
         print('OracleExpertVolunteers_UNION.shape: {}'.format(oracle_df.shape))
         return oracle_df
     
     def read_oracle_expert_volunteers_intersec_df():
         oracle_df = pd.read_csv(FilePath.ORACLE_EXPERT_VOLUNTEERS_INTERSEC.value)
-        oracle_df.set_index('tc_name', inplace=True, drop=True)
+        oracle_df.set_index('TC_Number', inplace=True, drop=True)
+        oracle_df.columns.name = 'Bug_Number'
+        oracle_df.rename(columns=lambda col: int(col), inplace=True)
         print('OracleExpertVolunteers_INTERSEC.shape: {}'.format(oracle_df.shape))
         return oracle_df
     
@@ -70,7 +74,9 @@ class Tc_BR_Oracles:
         
     def read_oracle_expert_df():
         oracle_df = pd.read_csv(FilePath.ORACLE_EXPERT.value)
-        oracle_df.set_index('tc_name', inplace=True, drop=True)
+        oracle_df.set_index('TC_Number', inplace=True, drop=True)
+        oracle_df.columns.name = 'Bug_Number'
+        oracle_df.rename(columns=lambda col: int(col), inplace=True)
         print('OracleExpert.shape: {}'.format(oracle_df.shape))
         return oracle_df
 
@@ -81,7 +87,9 @@ class Tc_BR_Oracles:
     
     def read_oracle_volunteers_df():
         oracle_df = pd.read_csv(FilePath.ORACLE_VOLUNTEERS.value)
-        oracle_df.set_index('tc_name', inplace=True, drop=True)
+        oracle_df.set_index('TC_Number', inplace=True, drop=True)
+        oracle_df.columns.name = 'Bug_Number'
+        oracle_df.rename(columns=lambda col: int(col), inplace=True)
         print('OracleVolunteers.shape: {}'.format(oracle_df.shape))
         return oracle_df
     

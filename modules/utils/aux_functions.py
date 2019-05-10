@@ -114,7 +114,7 @@ def get_true_positives(oracle_df, output_df):
 
 # get false positives list compared to an oracle
 def get_false_positives(oracle_df, output_df):
-    false_positives = []
+    false_positives = [] 
     for idx,row in output_df.iterrows():
         for col in output_df.columns:
             if row[col] == 1 and oracle_df.at[idx, col] == 0:
@@ -198,9 +198,9 @@ def detail_features_tc_br(exc_set, testcases, bugreports):
     pd.set_option('max_colwidth', 400)
     df = pd.DataFrame(columns=['tc','tc_feat','br','br_summary'])
     df['tc'] = [tc for tc,br in exc_set]
-    df['tc_feat'] = [testcases[testcases.tc_name == tc].Firefox_Feature.values[0] for tc,br in exc_set]
+    df['tc_feat'] = [testcases[testcases.TC_Number == tc].Firefox_Feature.values[0] for tc,br in exc_set]
     df['br'] = [br for tc,br in exc_set]
-    df['br_summary'] = [bugreports[bugreports.br_name == br].Summary.values[0] for tc,br in exc_set]
+    df['br_summary'] = [bugreports[bugreports.Bug_Number == br].Summary.values[0] for tc,br in exc_set]
     display(df)
 
     
@@ -368,3 +368,14 @@ def calculate_goodness(evals):
     df.recall_goodness = df.apply(lambda row : _calc_goodness_rec(row['recall']), axis=1)
     
     return df
+
+## highlight the top values of ranking for a given similarity matrix or
+## oracle and a selected list of bug reports (brs_list)
+def highlight_ranking_tc_br(brs_list, matrix, top_value):
+    tcs_set = set()
+    for br in brs_list:
+        tcs_list = matrix.nlargest(n=top_value, columns=br, keep='first').index.to_list()
+        for tc in tcs_list:
+            tcs_set.add(tc)
+
+    display(highlight_df(matrix.loc[tcs_set,brs_list].sort_index()))

@@ -56,7 +56,8 @@ class TC_BR_Generic_Strat_Runner(metaclass=ABCMeta):
         self.evals_df = self.evaluator.run_evaluator(models=[self.get_lsi_model(),
                                                         self.get_lda_model(),
                                                         self.get_bm25_model(),
-                                                        self.get_word2vec_model()],
+                                                        self.get_word2vec_model()
+                                                            ],
                                                top_values=[10,20,40], 
                                                sim_thresholds=[(sm.SimilarityMeasure.COSINE, x/10) for x in range(0,10)])
     

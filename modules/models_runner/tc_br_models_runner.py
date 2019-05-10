@@ -51,16 +51,34 @@ class TC_BR_Models_Hyperp:
         }
 
 class TC_BR_Runner:
-    def __init__(self):
-        self.test_cases_df = fd.Datasets.read_testcases_df()
-        self.bug_reports_df = fd.Datasets.read_selected_bugreports_df()
+    def __init__(self, testcases=None, bugreports=None):
+        self.test_cases_df = None
+        self.bug_reports_df = None
+        self.corpus = None
+        self.query = None
+        self.test_cases_names = None
+        self.bug_reports_names = None
+        
+        self.set_basic_params(testcases, bugreports)
+        
+    
+    def set_basic_params(self, testcases, bugreports):
+        if testcases == None:
+            self.test_cases_df = fd.Datasets.read_testcases_df()
+        else:
+            self.test_cases_df = testcases
+        
+        if bugreports == None:
+            self.bug_reports_df = fd.Datasets.read_selected_bugreports_df()
+        else:
+            self.bug_reports_df = bugreports
         
         self.corpus = self.test_cases_df.tc_desc
         self.query = self.bug_reports_df.br_desc
-
-        self.test_cases_names = self.test_cases_df.tc_name
-        self.bug_reports_names = self.bug_reports_df.br_name
-
+        
+        self.test_cases_names = self.test_cases_df.TC_Number
+        self.bug_reports_names = self.bug_reports_df.Bug_Number
+    
     def run_lsi_model(self, lsi_hyperp=None):
         print("Running LSI Model ------")
         
