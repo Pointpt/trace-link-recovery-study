@@ -201,7 +201,8 @@ def detail_features_tc_br(exc_set, testcases, bugreports):
     df['tc_feat'] = [testcases[testcases.TC_Number == tc].Firefox_Feature.values[0] for tc,br in exc_set]
     df['br'] = [br for tc,br in exc_set]
     df['br_summary'] = [bugreports[bugreports.Bug_Number == br].Summary.values[0] for tc,br in exc_set]
-    display(df)
+    #display(df)
+    return df
 
     
 # function to details the features related to bug reports and the summary of these bug reports
