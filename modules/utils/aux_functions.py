@@ -241,6 +241,7 @@ def get_retrieved_traces_df(oracle, evals_df, top_values, sim_threshs):
                        'retrieved': sum([trace_links[col].sum() for col in trace_links.columns]),
                        'precision': df.perc_precision,
                        'recall': df.perc_recall,
+                       'fscore': df.perc_fscore,
                        'TP': tp,
                        'TP_amount': len(tp),
                        'FP': fp,
