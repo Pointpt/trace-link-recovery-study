@@ -371,13 +371,13 @@ def calculate_goodness(evals):
     
     return df
 
-## highlight the top values of ranking for a given similarity matrix or
+## rank the top values of ranking for a given similarity matrix or
 ## oracle and a selected list of bug reports (brs_list)
-def highlight_ranking_tc_br(brs_list, matrix, top_value):
+def rank_tc_br_matrix(brs_list, matrix, top_value):
     tcs_set = set()
     for br in brs_list:
         tcs_list = matrix.nlargest(n=top_value, columns=br, keep='first').index.to_list()
         for tc in tcs_list:
             tcs_set.add(tc)
 
-    display(highlight_df(matrix.loc[tcs_set,brs_list].sort_index()))
+    return matrix.loc[tcs_set,brs_list].sort_index()
