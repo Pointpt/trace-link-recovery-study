@@ -51,7 +51,7 @@ class TC_BR_Models_Hyperp:
         }
 
 class TC_BR_Runner:
-    def __init__(self, testcases=None, bugreports=None):
+    def __init__(self, testcases=pd.DataFrame(), bugreports=pd.DataFrame()):
         self.test_cases_df = None
         self.bug_reports_df = None
         self.corpus = None
@@ -63,12 +63,12 @@ class TC_BR_Runner:
         
     
     def set_basic_params(self, testcases, bugreports):
-        if testcases == None:
+        if testcases.empty:
             self.test_cases_df = fd.Datasets.read_testcases_df()
         else:
             self.test_cases_df = testcases
         
-        if bugreports == None:
+        if bugreports.empty:
             self.bug_reports_df = fd.Datasets.read_selected_bugreports_df()
         else:
             self.bug_reports_df = bugreports
@@ -87,6 +87,7 @@ class TC_BR_Runner:
 
         lsi_model = LSI(**lsi_hyperp)
         lsi_model.set_name('LSI_Model_TC_BR')
+        
         lsi_model.recover_links(self.corpus, self.query, self.test_cases_names, self.bug_reports_names)
         
         return lsi_model

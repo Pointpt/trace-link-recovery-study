@@ -51,7 +51,7 @@ class Feat_BR_Models_Hyperp:
         }
 
 class Feat_BR_Models_Runner:
-    def __init__(self, features=None, bugreports=None):
+    def __init__(self, features=pd.DataFrame(), bugreports=pd.DataFrame()):
         self.features_df = None
         self.bug_reports_df = None
         self.corpus = None
@@ -62,12 +62,12 @@ class Feat_BR_Models_Runner:
         self.set_basic_params(features, bugreports)
     
     def set_basic_params(self, features, bugreports):
-        if features == None:
+        if features.empty:
             self.features_df = fd.Datasets.read_features_df()
         else:
             self.features_df = features
             
-        if bugreports == None:
+        if bugreports.empty:
             self.bug_reports_df = fd.Datasets.read_selected_bugreports_df()
         else:
             self.bug_reports_df = bugreports
