@@ -58,8 +58,8 @@ class BM_25(GenericModel):
         #self.tokenizer.set_params(**tokenizer_params)
         
     def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
-        bm25 = BM25([self.tokenizer.__call__(doc) for doc in corpus])
-        average_idf = sum(map(lambda k: float(bm25.idf[k]), bm25.idf.keys())) / len(bm25.idf.keys())
+        self.bm25 = BM25([self.tokenizer.__call__(doc) for doc in corpus])
+        average_idf = sum(map(lambda k: float(self.bm25.idf[k]), self.bm25.idf.keys())) / len(self.bm25.idf.keys())
         query = [self.tokenizer.__call__(doc) for doc in query]
         
         self._sim_matrix = pd.DataFrame(index = test_cases_names, 
@@ -67,7 +67,7 @@ class BM_25(GenericModel):
                                            data=np.zeros(shape=(len(test_cases_names), len(bug_reports_names)),dtype='float64'))
         
         for bug_id, bug_desc in zip(bug_reports_names, query):
-            scores = bm25.get_scores(bug_desc, average_idf=average_idf)
+            scores = self.bm25.get_scores(bug_desc, average_idf=average_idf)
             for tc_id, sc in zip(test_cases_names, scores):
                 self._sim_matrix.at[tc_id, bug_id] = sc
         

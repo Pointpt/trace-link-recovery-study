@@ -88,16 +88,16 @@ class LDA(GenericModel):
         self._corpus_matrix = self.vectorizer.fit_transform(corpus)
         self._query_vector = self.vectorizer.transform(query)
         
-        out_1 = self.lda_model.fit_transform(self._corpus_matrix)
-        out_2 = self.lda_model.transform(self._query_vector)
+        self.out_1 = self.lda_model.fit_transform(self._corpus_matrix)
+        self.out_2 = self.lda_model.transform(self._query_vector)
         
         metric = self.similarity_measure
         if metric == sm.SimilarityMeasure.COSINE:
-            self._sim_matrix = pairwise.cosine_similarity(X=out_1, Y=out_2)
+            self._sim_matrix = pairwise.cosine_similarity(X=self.out_1, Y=self.out_2)
         elif metric == sm.SimilarityMeasure.JSD:
-            self._sim_matrix = pairwise_distances(X=out_1, Y=out_2, metric=SimilarityMeasure.jsd)
+            self._sim_matrix = pairwise_distances(X=self.out_1, Y=self.out_2, metric=SimilarityMeasure.jsd)
         elif metric == sm.SimilarityMeasure.EUCLIDIAN_DISTANCE:
-            self._sim_matrix = pairwise_distances(X=out_1, Y=out_2, metric='euclidean')
+            self._sim_matrix = pairwise_distances(X=self.out_1, Y=self.out_2, metric='euclidean')
         
         #self._sim_matrix =  super().normalize_sim_matrix(self._sim_matrix)
         self._sim_matrix = pd.DataFrame(data=self._sim_matrix, index=use_cases_names, columns=bug_reports_names)
