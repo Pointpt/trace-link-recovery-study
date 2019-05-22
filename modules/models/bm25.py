@@ -62,16 +62,16 @@ class BM_25(GenericModel):
         average_idf = sum(map(lambda k: float(self.bm25.idf[k]), self.bm25.idf.keys())) / len(self.bm25.idf.keys())
         query = [self.tokenizer.__call__(doc) for doc in query]
         
-        self._sim_matrix = pd.DataFrame(index = test_cases_names, 
+        self._sim_matrix_origin = pd.DataFrame(index = test_cases_names, 
                                            columns = bug_reports_names,
                                            data=np.zeros(shape=(len(test_cases_names), len(bug_reports_names)),dtype='float64'))
         
         for bug_id, bug_desc in zip(bug_reports_names, query):
             scores = self.bm25.get_scores(bug_desc, average_idf=average_idf)
             for tc_id, sc in zip(test_cases_names, scores):
-                self._sim_matrix.at[tc_id, bug_id] = sc
+                self._sim_matrix_origin.at[tc_id, bug_id] = sc
         
-        self._sim_matrix =  super().normalize_sim_matrix(self._sim_matrix)
+        self._sim_matrix = super().normalize_sim_matrix(self._sim_matrix_origin)
         self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
         
         
