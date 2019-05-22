@@ -71,10 +71,14 @@ class WordVec_BasedModel(GenericModel):
                                            columns = bug_reports_names,
                                            data=np.zeros(shape=(len(test_cases_names), len(bug_reports_names)),dtype='float64'))
         
+        self.br_docs = []
+        self.tc_docs = []
         for bug_id, bug_desc in zip(bug_reports_names, query):
             for tc_id, tc_desc in zip(test_cases_names, corpus):
                 doc1 = self._nlp_model(bug_desc)
                 doc2 = self._nlp_model(tc_desc)
+                self.br_docs.append(doc1)
+                self.tc_docs.append(doc2)
                 self._sim_matrix.at[tc_id, bug_id] = doc1.similarity(doc2)  # cosine similarity is default
         
         #self._sim_matrix =  super().normalize_sim_matrix(self._sim_matrix)
