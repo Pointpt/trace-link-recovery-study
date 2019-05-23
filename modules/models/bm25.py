@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 
 from gensim.summarization.bm25 import BM25
+from gensim.summarization.bm25 import get_bm25_weights
 
 from enum import Enum
 
@@ -56,10 +57,13 @@ class BM_25(GenericModel):
         
         #tokenizer_params = {key.split('__')[2]:kwargs[key] for key,val in kwargs.items() if '__tokenizer__' in key}
         #self.tokenizer.set_params(**tokenizer_params)
-        
+    
+    def get_bm25_weights(self, corpus):
+        return get_bm25_weights(corpus)
+    
     def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
         self.bm25 = BM25([self.tokenizer.__call__(doc) for doc in corpus])
-        average_idf = sum(map(lambda k: float(self.bm25.idf[k]), self.bm25.idf.keys())) / len(self.bm25.idf.keys())
+        self.average_idf = sum(map(lambda k: float(self.bm25.idf[k]), self.bm25.idf.keys())) / len(self.bm25.idf.keys())
         query = [self.tokenizer.__call__(doc) for doc in query]
         
         self._sim_matrix_origin = pd.DataFrame(index = test_cases_names, 
@@ -67,7 +71,7 @@ class BM_25(GenericModel):
                                            data=np.zeros(shape=(len(test_cases_names), len(bug_reports_names)),dtype='float64'))
         
         for bug_id, bug_desc in zip(bug_reports_names, query):
-            scores = self.bm25.get_scores(bug_desc, average_idf=average_idf)
+            scores = self.bm25.get_scores(bug_desc, average_idf=self.average_idf)
             for tc_id, sc in zip(test_cases_names, scores):
                 self._sim_matrix_origin.at[tc_id, bug_id] = sc
         
