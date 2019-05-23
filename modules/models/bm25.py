@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+import math
+
 from gensim.summarization.bm25 import BM25
 from gensim.summarization.bm25 import get_bm25_weights
 
@@ -63,7 +65,7 @@ class BM_25(GenericModel):
     
     def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
         self.bm25 = BM25([self.tokenizer.__call__(doc) for doc in corpus])
-        self.average_idf = sum(map(lambda k: float(self.bm25.idf[k]), self.bm25.idf.keys())) / len(self.bm25.idf.keys())
+        #self.average_idf = sum(map(lambda k: float(self.bm25.idf[k]), self.bm25.idf.keys())) / len(self.bm25.idf.keys())
         query = [self.tokenizer.__call__(doc) for doc in query]
         
         self._sim_matrix_origin = pd.DataFrame(index = test_cases_names, 
@@ -71,13 +73,74 @@ class BM_25(GenericModel):
                                            data=np.zeros(shape=(len(test_cases_names), len(bug_reports_names)),dtype='float64'))
         
         for bug_id, bug_desc in zip(bug_reports_names, query):
-            scores = self.bm25.get_scores(bug_desc, average_idf=self.average_idf)
+            scores = self.bm25.get_scores(bug_desc)
             for tc_id, sc in zip(test_cases_names, scores):
                 self._sim_matrix_origin.at[tc_id, bug_id] = sc
         
         self._sim_matrix = super().normalize_sim_matrix(self._sim_matrix_origin)
         self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
         
+        self._recover_docs_feats(corpus, query, test_cases_names, bug_reports_names)
+    
+    
+    def _recover_docs_feats(self, corpus, query, test_cases_names, bug_reports_names):
+        self.mrw_tcs = self._recover_mrw_list(test_cases_names, corpus)
+        self.mrw_brs = self._recover_mrw_list(bug_reports_names, query)
+        
+        self.dl_tcs = self._recover_dl_list(test_cases_names, corpus)
+        self.dl_brs = self._recover_dl_list(bug_reports_names, query)
+        
+        index = list(test_cases_names) + list(bug_reports_names)
+        self.docs_feats_df = pd.DataFrame(index=index,
+                                         columns=['mrw','dl'])
+        
+        for tc_name, mrw in self.mrw_tcs:
+            self.docs_feats_df.at[tc_name, 'mrw'] = mrw
+
+        for tc_name, dl in self.dl_tcs:
+            self.docs_feats_df.at[tc_name, 'dl'] = dl
+            
+        for br_name, mrw in  self.mrw_brs:
+            self.docs_feats_df.at[br_name, 'mrw'] = mrw
+        
+        for br_name, dl in self.dl_brs:
+            self.docs_feats_df.at[br_name, 'dl'] = dl
+        
+    def _recover_dl_list(self, artf_names, artf_descs):
+        dl_list = []
+        for idx, (artf_name, artf_desc) in enumerate(zip(artf_names, artf_descs)):
+            dl_list.append( (artf_name, sum(self.bm25.doc_freqs[idx].values())) )
+        return dl_list
+    
+    def _recover_mrw_list(self, artfs_names, artfs_descs):
+        N_REL_WORDS = 6
+        mrw_list = [] # list of tuples (artf_name, mrw_list={})
+        
+        for idx,(artf_name,artf_desc) in enumerate(zip(artfs_names, artfs_descs)):
+            t_w_list = []
+            for token in self.bm25.doc_freqs[idx].keys():
+                Tf = self.bm25.doc_freqs[idx][token]
+                DL = len(self.bm25.doc_freqs[idx])
+                AVGDL = self.bm25.avgdl
+                N = self.bm25.corpus_size
+                NDt = np.sum([1 if token in d.keys() else 0 for d in self.bm25.doc_freqs])
+                K1 = self.k                
+                b = self.b
+                eps = self.epsilon
+                print(math.log(N/NDt))
+                t_weight = (Tf * (K1 + 1) / K1*((1-b) + b*DL/AVGDL) ) / (eps + math.log(N/NDt))
+                
+                t_w_list.append((token, t_weight))
+            
+            df_tokens = pd.DataFrame(columns=['token','token_weight'])
+            df_tokens['token'] = [tok for tok,tok_w in t_w_list]
+            df_tokens['token_weight'] = [tok_weight for tok,tok_weight in t_w_list]
+            df_tokens.sort_values(by='token_weight', ascending=False, inplace=True)
+            
+            mrw = list(df_tokens.iloc[0:N_REL_WORDS, 0].values)
+            mrw_list.append((artf_name, mrw))
+            
+        return mrw_list
         
     def model_setup(self):
         return {"Setup" : 

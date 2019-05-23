@@ -121,7 +121,7 @@ class LSI(GenericModel):
     
     def _recover_mrw_list(self, artf_names, artf_descs):
         N_REL_WORDS = 6
-        mrw_list = [] # list of tuples (artf_name, mrw_set={})
+        mrw_list = [] # list of tuples (artf_name, mrw_list={})
         
         for artf_name, artf_desc in zip(artf_names, artf_descs):
             X = self.vectorizer.transform([artf_desc])
