@@ -60,19 +60,15 @@ class BM_25(GenericModel):
         #tokenizer_params = {key.split('__')[2]:kwargs[key] for key,val in kwargs.items() if '__tokenizer__' in key}
         #self.tokenizer.set_params(**tokenizer_params)
     
-    def get_bm25_weights(self, corpus):
-        return get_bm25_weights(corpus)
-    
     def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
-        self.bm25 = BM25([self.tokenizer.__call__(doc) for doc in corpus])
-        #self.average_idf = sum(map(lambda k: float(self.bm25.idf[k]), self.bm25.idf.keys())) / len(self.bm25.idf.keys())
-        query = [self.tokenizer.__call__(doc) for doc in query]
-        
+        self.corpus = [self.tokenizer.__call__(doc) for doc in corpus]
+        self.query = [self.tokenizer.__call__(doc) for doc in query]
         self._sim_matrix_origin = pd.DataFrame(index = test_cases_names, 
                                            columns = bug_reports_names,
                                            data=np.zeros(shape=(len(test_cases_names), len(bug_reports_names)),dtype='float64'))
         
-        for bug_id, bug_desc in zip(bug_reports_names, query):
+        self.bm25 = BM25(self.corpus)
+        for bug_id, bug_desc in zip(bug_reports_names, self.query):
             scores = self.bm25.get_scores(bug_desc)
             for tc_id, sc in zip(test_cases_names, scores):
                 self._sim_matrix_origin.at[tc_id, bug_id] = sc
@@ -80,10 +76,10 @@ class BM_25(GenericModel):
         self._sim_matrix = super().normalize_sim_matrix(self._sim_matrix_origin)
         self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
         
-        self._recover_docs_feats(corpus, query, test_cases_names, bug_reports_names)
+        self._record_docs_feats(self.corpus, self.query, test_cases_names, bug_reports_names)
     
     
-    def _recover_docs_feats(self, corpus, query, test_cases_names, bug_reports_names):
+    def _record_docs_feats(self, corpus, query, test_cases_names, bug_reports_names):
         self.mrw_tcs = self._recover_mrw_list(test_cases_names, corpus)
         self.mrw_brs = self._recover_mrw_list(bug_reports_names, query)
         
@@ -109,7 +105,7 @@ class BM_25(GenericModel):
     def _recover_dl_list(self, artf_names, artf_descs):
         dl_list = []
         for idx, (artf_name, artf_desc) in enumerate(zip(artf_names, artf_descs)):
-            dl_list.append( (artf_name, sum(self.bm25.doc_freqs[idx].values())) )
+            dl_list.append( (artf_name, len(artf_desc) ))
         return dl_list
     
     def _recover_mrw_list(self, artfs_names, artfs_descs):
@@ -118,19 +114,20 @@ class BM_25(GenericModel):
         
         for idx,(artf_name,artf_desc) in enumerate(zip(artfs_names, artfs_descs)):
             t_w_list = []
-            for token in self.bm25.doc_freqs[idx].keys():
-                Tf = self.bm25.doc_freqs[idx][token]
-                DL = len(self.bm25.doc_freqs[idx])
-                AVGDL = self.bm25.avgdl
-                N = self.bm25.corpus_size
+            for token in np.unique(artf_desc):
                 NDt = np.sum([1 if token in d.keys() else 0 for d in self.bm25.doc_freqs])
-                K1 = self.k                
-                b = self.b
-                eps = self.epsilon
-                print(math.log(N/NDt))
-                t_weight = (Tf * (K1 + 1) / K1*((1-b) + b*DL/AVGDL) ) / (eps + math.log(N/NDt))
-                
-                t_w_list.append((token, t_weight))
+                if NDt == 0:
+                    t_w_list.append((token, 0))
+                else:
+                    Tf = sum([1 if x == token else 0 for x in artf_desc])
+                    DL = len(artf_desc)
+                    AVGDL = self.bm25.avgdl
+                    N = self.bm25.corpus_size
+                    K1 = self.k                
+                    b = self.b
+                    eps = self.epsilon
+                    t_weight = (Tf * (K1 + 1) / K1*((1-b) + b*DL/AVGDL) ) / (eps + math.log(N/NDt))
+                    t_w_list.append((token, t_weight))
             
             df_tokens = pd.DataFrame(columns=['token','token_weight'])
             df_tokens['token'] = [tok for tok,tok_w in t_w_list]

@@ -12,7 +12,7 @@ from modules.models.generic_model import GenericModel
 from modules.models.model_hyperps import LDA_Model_Hyperp
 
 from modules.utils import similarity_measures as sm
-
+from modules.utils.tokenizers import PorterStemmerBased_Tokenizer
 
 class SimilarityMeasure:
     def __init__(self):
@@ -84,7 +84,7 @@ class LDA(GenericModel):
         lda_model_params = {key.split('__')[2]:kwargs[key] for key,val in kwargs.items() if '__lda_model__' in key}
         self.lda_model.set_params(**lda_model_params)
     
-    def recover_links(self, corpus, query, use_cases_names, bug_reports_names):
+    def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
         self._corpus_matrix = self.vectorizer.fit_transform(corpus)
         self._query_vector = self.vectorizer.transform(query)
         
@@ -100,8 +100,55 @@ class LDA(GenericModel):
             self._sim_matrix = pairwise_distances(X=self.out_1, Y=self.out_2, metric='euclidean')
         
         #self._sim_matrix =  super().normalize_sim_matrix(self._sim_matrix)
-        self._sim_matrix = pd.DataFrame(data=self._sim_matrix, index=use_cases_names, columns=bug_reports_names)
+        self._sim_matrix = pd.DataFrame(data=self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
 
+        self._record_docs_feats(corpus, query, test_cases_names, bug_reports_names)
+    
+    
+    def _record_docs_feats(self, corpus, query, test_cases_names, bug_reports_names):
+        self.mrw_tcs = self._recover_mrw_list(test_cases_names, corpus)
+        self.mrw_brs = self._recover_mrw_list(bug_reports_names, query)
+        
+        self.dl_tcs = self._recover_dl_list(test_cases_names, corpus)
+        self.dl_brs = self._recover_dl_list(bug_reports_names, query)
+        
+        index = list(test_cases_names) + list(bug_reports_names)
+        self.docs_feats_df = pd.DataFrame(index=index,
+                                         columns=['mrw','dl'])
+        
+        for tc_name, mrw in self.mrw_tcs:
+            self.docs_feats_df.at[tc_name, 'mrw'] = mrw
+
+        for tc_name, dl in self.dl_tcs:
+            self.docs_feats_df.at[tc_name, 'dl'] = dl
+            
+        for br_name, mrw in  self.mrw_brs:
+            self.docs_feats_df.at[br_name, 'mrw'] = mrw
+        
+        for br_name, dl in self.dl_brs:
+            self.docs_feats_df.at[br_name, 'dl'] = dl
+    
+    def _recover_dl_list(self, artf_names, artf_descs):
+        tokenizer = PorterStemmerBased_Tokenizer()
+        dl_list = []
+        for artf_name, artf_desc in zip(artf_names, artf_descs):
+            dl_list.append((artf_name, len(tokenizer.__call__(artf_desc))))
+        return dl_list
+    
+    def _recover_mrw_list(self, artf_names, artf_descs):
+        N_REL_WORDS = 6
+        mrw_list = [] # list of tuples (artf_name, mrw_list={})
+        
+        for artf_name, artf_desc in zip(artf_names, artf_descs):
+            X = self.vectorizer.transform([artf_desc])
+            df1 = pd.DataFrame(X.T.toarray())
+            df1['token'] = self.vectorizer.get_feature_names()
+            df1.sort_values(by=0, ascending=False, inplace=True)
+            mrw = list(df1.iloc[0:N_REL_WORDS,1].values)
+            mrw_list.append((artf_name, mrw))
+            
+        return mrw_list
+    
         
     def model_setup(self):
         return {"Setup" : 

@@ -8,6 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.preprocessing import Normalizer, normalize
 
 from modules.utils.similarity_measures import SimilarityMeasure
+from modules.utils.tokenizers import WordNetBased_LemmaTokenizer
 
 from modules.models.generic_model import GenericModel
 from modules.models.model_hyperps import LSI_Model_Hyperp
@@ -114,9 +115,10 @@ class LSI(GenericModel):
             self.docs_feats_df.at[br_name, 'dl'] = dl
     
     def _recover_dl_list(self, artf_names, artf_descs):
+        tokenizer = WordNetBased_LemmaTokenizer()
         dl_list = []
         for artf_name, artf_desc in zip(artf_names, artf_descs):
-            dl_list.append((artf_name, len(artf_desc)))
+            dl_list.append((artf_name, len(tokenizer.__call__(artf_desc))))
         return dl_list
     
     def _recover_mrw_list(self, artf_names, artf_descs):
