@@ -10,6 +10,7 @@ from matplotlib_venn import venn3
 
 from PIL import Image
 from wordcloud import WordCloud
+from collections import Counter
 
 from sklearn.metrics import cohen_kappa_score
 
@@ -381,3 +382,23 @@ def rank_tc_br_matrix(brs_list, matrix, top_value):
             tcs_set.add(tc)
 
     return matrix.loc[tcs_set,brs_list].sort_index()
+
+# return most common words for documents in list of traces
+# (source and target artifacts)
+def get_mrw_traces_set(traces_list, model):
+    df = pd.DataFrame(columns=['trg_artf','src_artf','mrw_trg_artf','mrw_src_artf','trg_artf_dl','src_artf_dl'])
+    for idx,(d1_num,d2_num) in enumerate(traces_list):    
+        df.at[idx,'trg_artf'] = d1_num
+        df.at[idx,'src_artf'] = d2_num
+        df.at[idx,'mrw_trg_artf'] = model.docs_feats_df.loc[d1_num,'mrw']
+        df.at[idx,'mrw_src_artf'] = model.docs_feats_df.loc[d2_num,'mrw']
+        df.at[idx,'trg_artf_dl'] =  model.docs_feats_df.loc[d1_num,'dl']
+        df.at[idx,'src_artf_dl'] =  model.docs_feats_df.loc[d2_num,'dl']
+    
+    word_list_trg_artf = [w for l in df.mrw_trg_artf.values for w in l]
+    most_common_trg_artfs = Counter(word_list_trg_artf).most_common()[0:6]
+    
+    word_list_src_artf = [w for l in df.mrw_src_artf.values for w in l]
+    most_common_src_artfs = Counter(word_list_src_artf).most_common()[0:6]
+    
+    return(most_common_trg_artfs, most_common_src_artfs)
