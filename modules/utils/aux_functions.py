@@ -372,6 +372,7 @@ def calculate_goodness(evals):
     
     return df
 
+
 ## rank the top values of ranking for a given similarity matrix or
 ## oracle and a selected list of bug reports (brs_list)
 def rank_tc_br_matrix(brs_list, matrix, top_value):
@@ -382,6 +383,7 @@ def rank_tc_br_matrix(brs_list, matrix, top_value):
             tcs_set.add(tc)
 
     return matrix.loc[tcs_set,brs_list].sort_index()
+
 
 # return most common words for documents in list of traces
 # (source and target artifacts)
@@ -396,9 +398,9 @@ def get_mrw_traces_set(traces_list, model):
         df.at[idx,'src_artf_dl'] =  model.docs_feats_df.loc[d2_num,'dl']
     
     word_list_trg_artf = [w for l in df.mrw_trg_artf.values for w in l]
-    most_common_trg_artfs = Counter(word_list_trg_artf).most_common()[0:6]
+    most_common_words_trg_artfs = Counter(word_list_trg_artf).most_common()[0:6]
     
     word_list_src_artf = [w for l in df.mrw_src_artf.values for w in l]
-    most_common_src_artfs = Counter(word_list_src_artf).most_common()[0:6]
+    most_common_words_src_artfs = Counter(word_list_src_artf).most_common()[0:6]
     
-    return(most_common_trg_artfs, most_common_src_artfs)
+    return(most_common_words_trg_artfs, most_common_words_src_artfs)
