@@ -20,6 +20,10 @@ class ModelEvaluator:
         return self.oracle
     
     def __fillUp_traceLinksDf(self, model, top_n, sim_threshold):
+        if 'zero_r' in model.get_model_gen_name(): # zero_r model case
+            #print('Zero R Model Detected')
+            return model.get_sim_matrix()
+        
         trace_links_df = pd.DataFrame(index = model.get_sim_matrix().index,
                                       columns = model.get_sim_matrix().columns,
                                       data = model.get_sim_matrix().values)
@@ -132,9 +136,9 @@ class ModelEvaluator:
         results = evals_df
         
         start_pos, width = 0.25, 0.25
-        pos_1 = list([start_pos,         start_pos+1,         start_pos+2,         start_pos+3])    # precisions
-        pos_2 = list([start_pos+width,   start_pos+1+width,   start_pos+2+width,   start_pos+3+width])   # recalls
-        pos_3 = list([start_pos+2*width, start_pos+1+2*width, start_pos+2+2*width, start_pos+3+2*width])  # fscores      
+        pos_1 = list([start_pos,         start_pos+1,         start_pos+2,         start_pos+3           , start_pos+4])    # precisions
+        pos_2 = list([start_pos+width,   start_pos+1+width,   start_pos+2+width,   start_pos+3+width     , start_pos+4+width])   # recalls
+        pos_3 = list([start_pos+2*width, start_pos+1+2*width, start_pos+2+2*width, start_pos+3+2*width   , start_pos+4+2*width  ])  # fscores      
 
         positions = [pos_1, pos_2, pos_3]
 
@@ -149,9 +153,9 @@ class ModelEvaluator:
         heights_2 = [np.mean(results[results.model == m.lower()]['perc_recall'].values) for m in model_names]
         heights_3 = [np.mean(results[results.model == m.lower()]['perc_fscore'].values) for m in model_names]
 
-        labels = [[(pos_1[i], heights_1[i] + .3, str(round(heights_1[i],1)) + '%') for i in range(4)],
-                  [(pos_2[i], heights_2[i] + .3, str(round(heights_2[i],1)) + '%') for i in range(4)],
-                  [(pos_3[i], heights_3[i] + .3, str(round(heights_3[i],1)) + '%') for i in range(4)]]
+        labels = [[(pos_1[i], heights_1[i] + .3, str(round(heights_1[i],1)) + '%') for i in range(5)],
+                  [(pos_2[i], heights_2[i] + .3, str(round(heights_2[i],1)) + '%') for i in range(5)],
+                  [(pos_3[i], heights_3[i] + .3, str(round(heights_3[i],1)) + '%') for i in range(5)]]
         
         ax.bar(pos_1, width=width, height=heights_1, color='black')
         ax.bar(pos_2, width=width, height=heights_2, color='darkgray')
@@ -162,7 +166,7 @@ class ModelEvaluator:
                 ax.text(x=x, y=y, s=label, ha='center', va='bottom', color='black')
         
         ax.set(xlabel='Model', ylabel='Mean Metric Value (%)')
-        ax.set_xticks([0.5, 1.5, 2.5, 3.5])
+        ax.set_xticks([0.5, 1.5, 2.5, 3.5, 4.5])
         ax.set_xticklabels(model_names)
         ax.set_ylim([0,100])
         ax.legend(legends, loc='upper right')

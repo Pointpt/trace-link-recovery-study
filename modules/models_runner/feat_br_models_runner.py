@@ -12,6 +12,7 @@ from modules.models.lda import LDA
 from modules.models.lsi import LSI
 from modules.models.bm25 import BM_25
 from modules.models.wordvec import WordVec_BasedModel
+from modules.models.zeror import ZeroR_Model
 
 import modules.models.model_hyperps as mh
 
@@ -125,3 +126,14 @@ class Feat_BR_Models_Runner:
         wv_model.recover_links(self.corpus, self.query, self.features_names, self.bug_reports_names)
 
         return wv_model
+    
+    def run_zeror_model(self, zeror_hyperp=None):
+        print("Running ZeroR model -----")
+        
+        oracle = fd.Feat_BR_Oracles.read_feat_br_expert_volunteers_intersec_df().T
+        
+        zeror_model = ZeroR_Model(oracle)
+        zeror_model.set_name('ZeroR_Model_Feat_BR')
+        zeror_model.recover_links()
+        
+        return zeror_model
