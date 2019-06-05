@@ -340,22 +340,15 @@ def get_exclusive_traces(bm25_set, lsi_set, lda_set, wv_set, traces_type, verbos
     
     return (bm25_exc_set, lsi_exc_set, lda_exc_set, wv_exc_set)
 
-def _calc_goodness_prec(precision):
-    if precision >= 20 and precision < 30:
-        return "Acceptable"
-    elif precision >= 30 and precision < 50:
-        return "Good"
-    elif precision >= 50:
-        return "Excellent"
-    else:
-        return "-"
 
-def _calc_goodness_rec(recall):
-    if recall >= 60 and recall < 70:
+def _calc_goodness(row):
+    precision = row['precision']
+    recall = row['recall']
+    if precision >= 20 and recall >= 60:
         return "Acceptable"
-    elif recall >= 70 and recall < 80:
+    elif precision >= 30 and recall >= 70:
         return "Good"
-    elif recall >= 80:
+    elif precision >= 50 and recall >= 80:
         return "Excellent"
     else:
         return "-"
@@ -363,12 +356,11 @@ def _calc_goodness_rec(recall):
 def calculate_goodness(evals):
     model_names = ['bm25','lsi','lda','wordvector']
     
-    df = pd.DataFrame(columns=['model','precision','recall','precision_goodness','recall_goodness'])
+    df = pd.DataFrame(columns=['model','precision','recall','goodness'])
     df.model = model_names
     df.precision = [round(np.mean(evals[evals.model == m.lower()]['perc_precision'].values), 2) for m in model_names]
     df.recall =    [round(np.mean(evals[evals.model == m.lower()]['perc_recall'].values), 2) for m in model_names]
-    df.precision_goodness = df.apply(lambda row : _calc_goodness_prec(row['precision']), axis=1)
-    df.recall_goodness = df.apply(lambda row : _calc_goodness_rec(row['recall']), axis=1)
+    df.goodness = df.apply(lambda row : _calc_goodness(row), axis=1)
     
     return df
 
