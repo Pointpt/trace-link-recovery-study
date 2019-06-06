@@ -55,11 +55,12 @@ class ModelEvaluator:
         mean_precision = tp / (tp + fp)
         mean_recall = tp / (tp + fn)
         
+        # F_2-SCORE
         mean_fscore = None
         if mean_precision == 0 and mean_recall == 0:
             mean_fscore = 0
         else:
-            mean_fscore = 2 * mean_precision * mean_recall / (mean_precision + mean_recall)
+            mean_fscore = (1 + 2**2) * (mean_precision * mean_recall) / ((2**2 * mean_precision) + mean_recall) 
         
         if verbose:
             self.print_report(file)

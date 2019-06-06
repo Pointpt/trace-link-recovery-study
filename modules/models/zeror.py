@@ -31,11 +31,14 @@ class ZeroR_Model:
     
     def _get_major(self):
         counts = self.oracle.apply(lambda row : np.sum(row), axis=1)
-        df_aux = pd.DataFrame(data=zip(self.oracle.index,counts))
-        df_aux.sort_values(by=1, inplace=True, ascending=False)
-        max_ = df_aux.iloc[0,1]
-        max_counts_df = df_aux[df_aux[1] == max_]
+        self.major_counts_df = pd.DataFrame(data=zip(self.oracle.index,counts))
+        self.major_counts_df.sort_values(by=1, inplace=True, ascending=False)
+        max_ = self.major_counts_df.iloc[0,1]
+        max_counts_df = self.major_counts_df[self.major_counts_df[1] == max_]
         return list(max_counts_df.iloc[:,0])
-        
+    
     def get_sim_matrix(self):
         return self._sim_matrix
+    
+    def get_major_counts_df(self):
+        return self.major_counts_df
