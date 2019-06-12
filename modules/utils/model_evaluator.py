@@ -197,7 +197,28 @@ class ModelEvaluator:
         if output_file != "":
             path = '/home/guilherme/Dropbox/Aplicativos/Overleaf/ESEM 2019 Paper/imgs/'
             plt.savefig(path + output_file + '.eps', format='eps', bbox_inches='tight', dpi=1200, pad_inches=.3)
-            
+    
+    # plot precision, recall for a single model, varying
+    # similarity thresholds range(0.0, 0.9) and the top values (10,20,40) (BR_TC Context)
+    def plot_evaluations_2_2(self, title, results, model_name):        
+        f,axes = plt.subplots(1,3,figsize=(25,5))
+        f.suptitle(title)
+
+        top_values = [10.0, 20.0, 40.0]
+        top_names = ['TOP {}'.format(a) for a in [10,20,40]]
+
+        for i,ax in enumerate(axes):
+            results_2 = results[(results.top == top_values[i]) & (results.model == model_name)]
+            ax.set_title(top_names[i])
+            ax.plot(results_2.sim_threshold, results_2.perc_precision, marker='o', linestyle='dashed', color='black')
+            ax.plot(results_2.sim_threshold, results_2.perc_recall, marker='v', linestyle='dashed', color='gray')
+            ax.plot(results_2.sim_threshold, results_2.perc_fscore, marker='^', linestyle='dashed', color='darkgray')
+            ax.set_ylim([0,100])
+            ax.set_xlabel('similarity threshold')
+            ax.set_ylabel('metric value (%)')
+            ax.legend(['Precision','Recall','F2-Score'])
+            ax.grid()
+    
     # plot precision x recall graphs for each model in a figure with 4 axes
     def plot_evaluations_4(self, results):
         f,axes = plt.subplots(1,4, figsize=(20,5))

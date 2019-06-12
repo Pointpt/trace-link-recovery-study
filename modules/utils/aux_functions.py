@@ -205,7 +205,19 @@ def detail_features_tc_br(exc_set, testcases, bugreports):
     #display(df)
     return df
 
-    
+
+# summarizes the grouped traces for each tuple bug report,feature to a list of related test cases
+def detail_features_tc_br_groups(tc_br_list, testcases, bugreports):
+    grouped = detail_features_tc_br(tc_br_list, testcases=testcases, bugreports=bugreports).groupby(['br','br_summary','tc_feat']).groups
+    df = pd.DataFrame(columns=['br','br_summary','tc_feat','tc_ids'])
+    l = list(tc_br_list)
+    for idx,(key,val) in enumerate(grouped.items()):
+        df.at[idx,'br'] = key[0]
+        df.at[idx,'br_summary'] = key[1]
+        df.at[idx,'tc_feat'] = key[2]
+        df.at[idx,'tc_ids'] = [l[i][0] for i in val]
+    return df
+
 # function to details the features related to bug reports and the summary of these bug reports
 # associated with a exclusive set of results of a specific model
 def detail_features_br(exc_set, features, bugreports):
@@ -219,13 +231,12 @@ def detail_features_br(exc_set, features, bugreports):
     return df
     
 
-
 def get_retrieved_traces_df(oracle, evals_df, top_values, sim_threshs):
     MODELS = ['lsi','lda','bm25','wordvector']
     TOP_VALUES = top_values
     SIM_THRESHOLDS = sim_threshs
     
-    retrieved_traces_df = pd.DataFrame(columns=['top','sim_thresh','model','retrieved','TP_amount','FP_amount','FN_amount','TP','FP','FN','precision','recall'])
+    retrieved_traces_df = pd.DataFrame(columns=['top','sim_thresh','model','retrieved','num_TP','num_FP','num_FN','TP','FP','FN','precision','recall'])
        
     for m in MODELS:
         for top in TOP_VALUES:
@@ -245,11 +256,11 @@ def get_retrieved_traces_df(oracle, evals_df, top_values, sim_threshs):
                        'recall': df.perc_recall,
                        'fscore': df.perc_fscore,
                        'TP': tp,
-                       'TP_amount': len(tp),
+                       'num_TP': len(tp),
                        'FP': fp,
-                       'FP_amount': len(fp),
+                       'num_FP': len(fp),
                        'FN': fn,
-                       'FN_amount': len(fn)} 
+                       'num_FN': len(fn)} 
 
                 retrieved_traces_df = retrieved_traces_df.append(ans, ignore_index=True)
     
@@ -396,3 +407,5 @@ def get_mrw_traces_set(traces_list, model):
     most_common_words_src_artfs = Counter(word_list_src_artf).most_common()[0:6]
     
     return(most_common_words_trg_artfs, most_common_words_src_artfs)
+
+
