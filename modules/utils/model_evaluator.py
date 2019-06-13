@@ -175,23 +175,24 @@ class ModelEvaluator:
     
     # plot precision, recall and fscore for a single model, varying
     # similarity thresholds range(0.0, 0.9) and the top values (1,3,5)
-    def plot_evaluations_2(self, title, results, output_file=""):        
-        f,axes = plt.subplots(1,int(len(results)/10),figsize=(25,5))
+    def plot_evaluations_2(self, title, results, output_file="", model_name=""):        
+        f,axes = plt.subplots(1,3,figsize=(25,5))
         f.suptitle(title)
-        
-        top_values = [1.0, 3.0, 5.0, 10.0, 19.0]
-        top_names = ['TOP {}'.format(a) for a in [1,3,5,10,19]]
-        
+
+        top_values = [1.0, 3.0, 5.0]
+        top_names = ['TOP {}'.format(a) for a in [1,3,5]]
+
         for i,ax in enumerate(axes):
-            results_2 = results[results.top == top_values[i]]
+            results_2 = results[(results.top == top_values[i]) & (results.model == model_name)]
             ax.set_title(top_names[i])
-            ax.plot(results_2.sim_threshold, results_2.perc_precision, marker='o', linestyle='dashed', color='black')
-            ax.plot(results_2.sim_threshold, results_2.perc_recall, marker='v', linestyle='dashed', color='gray')
-            ax.plot(results_2.sim_threshold, results_2.perc_fscore, marker='^', linestyle='dashed', color='darkgray')
+            ax.plot(results_2.sim_threshold, results_2.perc_precision, marker='o', linestyle='dashed', color='blue')
+            ax.plot(results_2.sim_threshold, results_2.perc_recall, marker='v', linestyle='dashed', color='green')
+            ax.plot(results_2.sim_threshold, results_2.perc_fscore, marker='^', linestyle='dashed', color='brown')
+            ax.hlines(y=42.85, color='red', xmin=0, xmax=1)
             ax.set_ylim([0,100])
             ax.set_xlabel('similarity threshold')
             ax.set_ylabel('metric value (%)')
-            ax.legend(['Precision','Recall','FScore'])
+            ax.legend(['Precision','Recall','F2-Score'])
             ax.grid()
         
         if output_file != "":
@@ -210,9 +211,10 @@ class ModelEvaluator:
         for i,ax in enumerate(axes):
             results_2 = results[(results.top == top_values[i]) & (results.model == model_name)]
             ax.set_title(top_names[i])
-            ax.plot(results_2.sim_threshold, results_2.perc_precision, marker='o', linestyle='dashed', color='black')
-            ax.plot(results_2.sim_threshold, results_2.perc_recall, marker='v', linestyle='dashed', color='gray')
-            ax.plot(results_2.sim_threshold, results_2.perc_fscore, marker='^', linestyle='dashed', color='darkgray')
+            ax.plot(results_2.sim_threshold, results_2.perc_precision, marker='o', linestyle='dashed', color='blue')
+            ax.plot(results_2.sim_threshold, results_2.perc_recall, marker='v', linestyle='dashed', color='green')
+            ax.plot(results_2.sim_threshold, results_2.perc_fscore, marker='^', linestyle='dashed', color='brown')
+            ax.hlines(y=42.85, color='red', xmin=0, xmax=1)
             ax.set_ylim([0,100])
             ax.set_xlabel('similarity threshold')
             ax.set_ylabel('metric value (%)')
