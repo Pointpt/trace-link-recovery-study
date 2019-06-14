@@ -189,6 +189,8 @@ class ModelEvaluator:
             ax.plot(results_2.sim_threshold, results_2.perc_recall, marker='v', linestyle='dashed', color='green')
             ax.plot(results_2.sim_threshold, results_2.perc_fscore, marker='^', linestyle='dashed', color='brown')
             ax.hlines(y=42.85, color='red', xmin=0, xmax=1)
+            ax.hlines(y=55.26, color='red', xmin=0, xmax=1)
+            ax.hlines(y=66.66, color='red', xmin=0, xmax=1)
             ax.set_ylim([0,100])
             ax.set_xlabel('similarity threshold')
             ax.set_ylabel('metric value (%)')
