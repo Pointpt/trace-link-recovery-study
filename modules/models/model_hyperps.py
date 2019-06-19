@@ -41,4 +41,6 @@ class BM25_Model_Hyperp(Enum):
 class WordVec_Model_Hyperp(Enum):
     NAME = 'wordvec__name'
     TOKENIZER = 'wordvec__tokenizer'
+    WORD_EMBEDDING = 'wordvec__word_embedding'
+    GEN_NAME = 'wordvector__gen_name'
     

@@ -9,7 +9,7 @@ from modules.models.model_hyperps import WordVec_Model_Hyperp
 
 from modules.utils import tokenizers as tok
 from modules.utils import similarity_measures as sm
-
+from modules.utils import firefox_dataset_p2 as fd
 
 """
 params_dict = {
@@ -21,6 +21,7 @@ class WordVec_BasedModel(GenericModel):
     def __init__(self, **kwargs):
         self._nlp_model = None
         self.tokenizer = None
+        self.word_embedding = None
         
         super().__init__()
         
@@ -36,26 +37,27 @@ class WordVec_BasedModel(GenericModel):
         
     def set_basic_params(self, **kwargs):
         self.set_name('WordVec' if WordVec_Model_Hyperp.NAME.value not in kwargs.keys() else kwargs[WordVec_Model_Hyperp.NAME.value])
-        self.set_model_gen_name('wordvector')
-        self.tokenizer = tok.WordNetBased_LemmaTokenizer() if WordVec_Model_Hyperp.TOKENIZER.value not in kwargs.keys() else kwargs[WordVec_Model_Hyperp.TOKENIZER.value]
+        self.set_model_gen_name(kwargs[WordVec_Model_Hyperp.GEN_NAME.value])
+        self.tokenizer = kwargs[WordVec_Model_Hyperp.TOKENIZER.value]
+        self.word_embedding = kwargs[WordVec_Model_Hyperp.WORD_EMBEDDING.value]
         
     
     def set_nlp_model(self):
-        """
-            WordVec based on GloVe 1.1M keys x 300 dim
-            300-dimensional word vectors trained on Common Crawl with GloVe.
-        """
-        self._nlp_model = spacy.load('en_vectors_web_lg')
+        if self.word_embedding == 'CC_BASED':
+            """
+                Word Embedding based on GloVe 1.1M keys x 300 dim
+                300-dimensional word vectors trained on Common Crawl with GloVe.
+            """
+            self._nlp_model = spacy.load('en_vectors_web_lg')
+        
+        elif self.word_embedding == 'CUSTOMIZED':
+            """
+                Word Embedding based on Word2Vec library 11592 keys x 300 dim
+                300-dimensional word vectors trained on Mozilla's Artifacts dataset
+            """
+            cust_model_path = fd.FilePath.CUST_WORD_EMBEDDING.value
+            self._nlp_model = spacy.load(cust_model_path.replace('.txt',''))
     
-    def __getstate__(self):
-        """to pickle object serialization/deserialization"""
-        d = dict(self.__dict__)
-        del d['_nlp_model']
-        return d
-    
-    def __setstate__(self, d):
-        """to pickle object serialization/deserialization"""
-        self.__dict__.update(d)
     
     def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
         return self._recover_links_cosine(corpus, query, test_cases_names, bug_reports_names)

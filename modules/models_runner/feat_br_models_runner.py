@@ -48,7 +48,17 @@ class Feat_BR_Models_Hyperp:
     @staticmethod
     def get_w2v_hyperp():
         return {
-            mh.WordVec_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer()
+            mh.WordVec_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer(),
+            mh.WordVec_Model_Hyperp.WORD_EMBEDDING.value : 'CC_BASED',
+            mh.WordVec_Model_Hyperp.GEN_NAME.value : 'wordvector'
+        }
+    
+    @staticmethod
+    def get_cust_w2v_hyperp():
+        return {
+            mh.WordVec_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer(),
+            mh.WordVec_Model_Hyperp.WORD_EMBEDDING.value : 'CUSTOMIZED',
+            mh.WordVec_Model_Hyperp.GEN_NAME.value : 'cust_wordvector'
         }
 
 class Feat_BR_Models_Runner:
@@ -123,6 +133,18 @@ class Feat_BR_Models_Runner:
 
         wv_model = WordVec_BasedModel(**wv_hyperp)
         wv_model.set_name('WordVec_Model_Feat_BR')
+        wv_model.recover_links(self.corpus, self.query, self.features_names, self.bug_reports_names)
+
+        return wv_model
+    
+    def run_cust_word2vec_model(self, wv_hyperp=None):
+        print("Running Customized W2V model -----")
+        
+        if wv_hyperp == None:
+            wv_hyperp = Feat_BR_Models_Hyperp.get_cust_w2v_hyperp()
+
+        wv_model = WordVec_BasedModel(**wv_hyperp)
+        wv_model.set_name('Customized_WordVec_Model_Feat_BR')
         wv_model.recover_links(self.corpus, self.query, self.features_names, self.bug_reports_names)
 
         return wv_model

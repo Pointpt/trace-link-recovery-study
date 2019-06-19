@@ -14,6 +14,8 @@ FEATURES_M_PATH = BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_engl
 
 TASKRUNS_M_PATH = BASE_PATH + '/data/mozilla_firefox_v2/firefoxDataset/docs_english/taskruns/'
 
+CUST_WORD_EMBEDDING_M = '/data/mozilla_firefox_v2/firefoxDataset/wv_embeddings/'
+
 class FilePath(Enum):
     ORACLE_EXPERT_VOLUNTEERS_UNION = TC_X_BR_M_PATH + 'oracle_expert_volunteers_union.csv'
     ORACLE_EXPERT_VOLUNTEERS_INTERSEC = TC_X_BR_M_PATH + 'oracle_expert_volunteers_intersec.csv'
@@ -41,6 +43,8 @@ class FilePath(Enum):
     VOLUNTEERS_TASKRUNS_1 = TASKRUNS_M_PATH + 'taskruns_volunteers.csv'
     VOLUNTEERS_TASKRUNS_2 = TASKRUNS_M_PATH + 'taskruns_volunteers_2.csv'
     AUX_2_TASKRUNS = TASKRUNS_M_PATH + 'taskruns_aux_2.csv'
+    
+    CUST_WORD_EMBEDDING = BASE_PATH + CUST_WORD_EMBEDDING_M + 'cust_wv_model.txt'
 
     
 # TC_BR ORACLES --------------------------
