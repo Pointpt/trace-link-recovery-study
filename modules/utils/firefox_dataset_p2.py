@@ -189,7 +189,7 @@ class Datasets:
         bugreports_df = bugreports_df[(bugreports_df.Bug_Number != 1181835) & (bugreports_df.Bug_Number != 1315514)] # drop bug_reports lost during empirical study execution
         print('SelectedBugReports.shape: {}'.format(bugreports_df.shape))
         return bugreports_df
-
+    
     def write_selected_bug_reports_df(bugreports):
         bugreports.to_csv(FilePath.BUGREPORTS.value)
         print('SelectedBugReports.shape: {}'.format(bugreports_df.shape))
