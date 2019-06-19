@@ -245,7 +245,7 @@ class ModelEvaluator:
         models_names = ['lsi', 'lda', 'bm25', 'wordvector']
         #line_styles = ['v--', '^--', 'o--', '>--']
         #colors = ['black', 'black', 'black', 'black']
-        line_styles = ['g^--', 'rv--', 'bo--', 'k+--']
+        line_styles = ['g^--', 'yv--', 'bo--', 'k+--']
 
         for i in range(4):
             results_subset = results[results.model == models_names[i]]
@@ -255,4 +255,10 @@ class ModelEvaluator:
             ax.set_ylabel('precision')
             #ax.set_title('All Techniques Evaluation')
             ax.set_ylim(0,100)
-            ax.legend(['LSI','LDA','BM25','WordVector'])
+        
+        zeror_precision = results[results.model == 'zero_r'].perc_precision
+        zeror_recall = results[results.model == 'zero_r'].perc_recall
+        
+        ax.hlines(y=zeror_precision, color='red', xmin=0, xmax=zeror_recall)
+        ax.vlines(x=zeror_recall, color='red', ymin=0, ymax=zeror_precision)
+        ax.legend(['LSI','LDA','BM25','Word Vector', 'Zero R'])
