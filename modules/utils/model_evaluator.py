@@ -52,8 +52,15 @@ class ModelEvaluator:
         fp = len(aux_functions.get_false_positives(oracle_df = self.oracle, output_df = trace_links_df))
         fn = len(aux_functions.get_false_negatives(oracle_df = self.oracle, output_df = trace_links_df))
         
-        mean_precision = tp / (tp + fp)
-        mean_recall = tp / (tp + fn)
+        if tp > 0 and fp > 0:
+            mean_precision = tp / (tp + fp)
+        else:
+            mean_precision = 0
+        
+        if tp > 0 and fn > 0:
+            mean_recall = tp / (tp + fn)
+        else:
+            mean_recall = 0
         
         # F_2-SCORE
         mean_fscore = None
