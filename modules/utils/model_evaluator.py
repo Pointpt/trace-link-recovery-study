@@ -249,25 +249,31 @@ class ModelEvaluator:
             ax.set_xlim(0,100)
 
     # plot precision x recall graph in a single figure for all the models
-    def plot_evaluations_5(self, results):
+    def plot_evaluations_5(self, results, models):
         f,ax = plt.subplots(1,1, figsize=(10,5))
-        models_names = ['lsi', 'lda', 'bm25', 'wordvector']
         #line_styles = ['v--', '^--', 'o--', '>--']
         #colors = ['black', 'black', 'black', 'black']
-        line_styles = ['g^--', 'yv--', 'bo--', 'k+--']
+        line_styles = ['g^--', 'yv--', 'bo--', 'k+--', 'co--']
 
-        for i in range(4):
-            results_subset = results[results.model == models_names[i]]
+        for i in range(len(models)):
+            results_subset = results[results.model == models[i]]
             results_subset.sort_values('perc_recall', inplace=True)
             ax.plot(results_subset.perc_recall, results_subset.perc_precision, line_styles[i], linewidth=1.5)
             ax.set_xlabel('recall')
             ax.set_ylabel('precision')
             #ax.set_title('All Techniques Evaluation')
             ax.set_ylim(0,100)
-        
+
         zeror_precision = results[results.model == 'zero_r'].perc_precision
         zeror_recall = results[results.model == 'zero_r'].perc_recall
-        
+
         ax.hlines(y=zeror_precision, color='red', xmin=0, xmax=zeror_recall)
         ax.vlines(x=zeror_recall, color='red', ymin=0, ymax=zeror_precision)
-        ax.legend(['LSI','LDA','BM25','Word Vector', 'Zero R'])
+
+        legends = None
+        if len(models) == 5:
+            legends = ['LSI','LDA','BM25','Word Vector', 'Cust Word Vector', 'Zero R']
+        else:
+            legends = ['LSI','LDA','BM25','Word Vector', 'Zero R']
+
+        ax.legend(legends)

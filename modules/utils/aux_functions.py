@@ -323,7 +323,8 @@ def get_traces_set(retrieved_traces, models, top_value, traces_type):
     return traces_sets_by_model
 
 
-def plot_venn_diagrams(top_value, bm25_set, lsi_set, lda_set, wv_set, traces_type):
+def plot_venn_diagrams(top_value, bm25_set, lsi_set, lda_set, wv_set, cust_wv_set=None, traces_type='_'):
+    
     venn3([bm25_set, lsi_set, lda_set], ['BM25','LSI','LDA'])
     plt.title('Comparison {} by Model (BM25, LSI, LDA) - TOP {}'.format(traces_type, top_value))
     plt.show()
@@ -395,14 +396,12 @@ def _calc_goodness(row):
     else:
         return "-"
 
-def calculate_goodness(evals):
-    model_names = ['bm25','lsi','lda','wordvector']
-    
+def calculate_goodness(evals, models):
     df = pd.DataFrame(columns=['model','precision','recall','fscore','goodness'])
-    df.model = model_names
-    df.precision = [round(np.mean(evals[evals.model == m.lower()]['perc_precision'].values), 2) for m in model_names]
-    df.recall =    [round(np.mean(evals[evals.model == m.lower()]['perc_recall'].values), 2) for m in model_names]
-    df.fscore =    [round(np.mean(evals[evals.model == m.lower()]['perc_fscore'].values), 2) for m in model_names]
+    df.model = models
+    df.precision = [round(np.mean(evals[evals.model == m.lower()]['perc_precision'].values), 2) for m in models]
+    df.recall =    [round(np.mean(evals[evals.model == m.lower()]['perc_recall'].values), 2) for m in models]
+    df.fscore =    [round(np.mean(evals[evals.model == m.lower()]['perc_fscore'].values), 2) for m in models]
     df.goodness = df.apply(lambda row : _calc_goodness(row), axis=1)
     
     return df

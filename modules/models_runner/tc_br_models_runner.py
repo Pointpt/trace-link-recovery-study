@@ -143,7 +143,7 @@ class TC_BR_Runner:
         print("Running Customized W2V model -----")
         
         if wv_hyperp == None:
-            wv_hyperp = TC_BR_Models_Hyperp.get_cust_w2v_hyperp()
+            wv_hyperp = TC_BR_Models_Hyperp.get_cust_w2v_model_hyperp()
 
         wv_model = WordVec_BasedModel(**wv_hyperp)
         wv_model.set_name('Customized_WordVec_Model_TC_BR')
