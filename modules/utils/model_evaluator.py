@@ -144,16 +144,17 @@ class ModelEvaluator:
         results = evals_df
         
         start_pos, width = 0.25, 0.25
-        pos_1 = list([start_pos,         start_pos+1,         start_pos+2,         start_pos+3           , start_pos+4])    # precisions
-        pos_2 = list([start_pos+width,   start_pos+1+width,   start_pos+2+width,   start_pos+3+width     , start_pos+4+width])   # recalls
-        pos_3 = list([start_pos+2*width, start_pos+1+2*width, start_pos+2+2*width, start_pos+3+2*width   , start_pos+4+2*width  ])  # fscores      
+        num_unique_models = len(results.model.unique())
+        pos_1 = list([start_pos+i         for i in range(num_unique_models)])  # precisions
+        pos_2 = list([start_pos+j+width   for j in range(num_unique_models)])  # recalls
+        pos_3 = list([start_pos+k+2*width for k in range(num_unique_models)])  # fscores      
 
         positions = [pos_1, pos_2, pos_3]
 
         f, ax = plt.subplots(1,1, figsize=(10,5))
         f.suptitle(title)
 
-        model_names = [m.upper() for m in results.model.unique()]
+        model_names = [m.lower() for m in results.model.unique()]
 
         legends = ['Percentual Precision','Percentual Recall','Percentual FScore']
 
@@ -161,10 +162,10 @@ class ModelEvaluator:
         heights_2 = [np.mean(results[results.model == m.lower()]['perc_recall'].values) for m in model_names]
         heights_3 = [np.mean(results[results.model == m.lower()]['perc_fscore'].values) for m in model_names]
 
-        labels = [[(pos_1[i], heights_1[i] + .3, str(round(heights_1[i],1)) + '%') for i in range(5)],
-                  [(pos_2[i], heights_2[i] + .3, str(round(heights_2[i],1)) + '%') for i in range(5)],
-                  [(pos_3[i], heights_3[i] + .3, str(round(heights_3[i],1)) + '%') for i in range(5)]]
-        
+        labels = [[(pos_1[i], heights_1[i] + .3, str(round(heights_1[i],1)) + '%') for i in range(num_unique_models)],
+                  [(pos_2[i], heights_2[i] + .3, str(round(heights_2[i],1)) + '%') for i in range(num_unique_models)],
+                  [(pos_3[i], heights_3[i] + .3, str(round(heights_3[i],1)) + '%') for i in range(num_unique_models)]]
+
         ax.bar(pos_1, width=width, height=heights_1, color='black')
         ax.bar(pos_2, width=width, height=heights_2, color='darkgray')
         ax.bar(pos_3, width=width, height=heights_3, color='lightgray')
@@ -172,10 +173,10 @@ class ModelEvaluator:
         for l in labels:
             for x,y,label in l:
                 ax.text(x=x, y=y, s=label, ha='center', va='bottom', color='black')
-        
+
         ax.set(xlabel='Model', ylabel='Mean Metric Value (%)')
-        ax.set_xticks([0.5, 1.5, 2.5, 3.5, 4.5])
-        ax.set_xticklabels(model_names)
+        ax.set_xticks([x + 0.5 for x in range(num_unique_models)])
+        ax.set_xticklabels(model_names, rotation=10)
         ax.set_ylim([0,100])
         ax.legend(legends, loc='upper right')
         
@@ -232,10 +233,11 @@ class ModelEvaluator:
     
     # plot precision x recall graphs for each model in a figure with 4 axes
     def plot_evaluations_4(self, results):
-        f,axes = plt.subplots(1,4, figsize=(20,5))
-        models_names = ['lsi', 'lda', 'bm25', 'wordvector']
-        line_styles = ['go--', 'bo--', 'ro--', 'k+--']
-        
+        num_unique_models = len(results.model.unique())
+        f,axes = plt.subplots(1,num_unique_models, figsize=(20,5))
+        models_names = [m.lower() for m in results.model.unique()]
+        line_styles = ['go--', 'bo--', 'ro--', 'k+--', 'yo--', 'c^--']
+
         for i,ax in enumerate(axes):
             results_subset = results[results.model == models_names[i]]
             results_subset.sort_values('perc_recall', inplace=True)

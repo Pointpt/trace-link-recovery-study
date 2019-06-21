@@ -231,14 +231,13 @@ def detail_features_br(exc_set, features, bugreports):
     return df
     
 
-def get_retrieved_traces_df(oracle, evals_df, top_values, sim_threshs):
-    MODELS = ['lsi','lda','bm25','wordvector']
+def get_retrieved_traces_df(oracle, evals_df, top_values, sim_threshs, models):
     TOP_VALUES = top_values
     SIM_THRESHOLDS = sim_threshs
     
     retrieved_traces_df = pd.DataFrame(columns=['top','sim_thresh','model','retrieved','num_TP','num_FP','num_FN','TP','FP','FN','precision','recall'])
        
-    for m in MODELS:
+    for m in models:
         for top in TOP_VALUES:
             for sim_thresh in SIM_THRESHOLDS:
                 df = evals_df[(evals_df.ref_name == 'top_{}_cosine_{}'.format(top,sim_thresh)) & (evals_df.model == m)].iloc[0,:]
@@ -281,29 +280,47 @@ def get_oracle_true_positives(strat_runner):
 
 
 def get_captured_traces_union(top_value, retrieved_traces_df):
-    bm25_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'bm25') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
-    lsi_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'lsi') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
-    lda_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'lda') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
-    wordvector_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'wordvector') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
-    
-    return(bm25_true_traces | lsi_true_traces | lda_true_traces | wordvector_true_traces)
+    unique_models = [m for m in retrieved_traces_df.model.unique()]
+    sets_list = []
+    for unique_model in unique_models:
+        model_true_traces_set = retrieved_traces_df[(retrieved_traces_df.model == unique_model) & 
+                                                    (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+        sets_list.append(model_true_traces_set)
 
+    gen_union = set()
+    for i in range(len(sets_list)):
+        gen_union = gen_union.union(sets_list[i])
+
+    return gen_union        
+    
 
 def get_captured_traces_intersec(top_value, retrieved_traces_df):
-    bm25_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'bm25') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
-    lsi_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'lsi') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
-    lda_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'lda') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
-    wordvector_true_traces = retrieved_traces_df[(retrieved_traces_df.model == 'wordvector') & (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+    unique_models = [m for m in retrieved_traces_df.model.unique()]
+    sets_list = []
+    for unique_model in unique_models:
+        model_true_traces_set = retrieved_traces_df[(retrieved_traces_df.model == unique_model) & 
+                                                    (retrieved_traces_df.top == top_value)].iloc[0,:].TP
+        sets_list.append(model_true_traces_set)
+
+    gen_intersec = sets_list[0]
+    for i in range(len(sets_list)):
+        gen_intersec = gen_intersec.intersection(sets_list[i])
+
+    return gen_intersec
+
+def get_traces_set(retrieved_traces, models, top_value, traces_type): 
+    traces_sets_by_model = []
+    for m in models:
+        traces_sets_by_model.append(retrieved_traces[(retrieved_traces.model == m)       & (retrieved_traces.top == top_value)].iloc[0,:][traces_type])
     
-    return(bm25_true_traces & lsi_true_traces & lda_true_traces & wordvector_true_traces)
-
-
-def get_traces_set(retrieved_traces, top_value, traces_type):    
-    bm25_set = retrieved_traces[(retrieved_traces.model == 'bm25')       & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
-    lsi_set  = retrieved_traces[(retrieved_traces.model == 'lsi')        & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
-    lda_set  = retrieved_traces[(retrieved_traces.model == 'lda')        & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
-    wv_set   = retrieved_traces[(retrieved_traces.model == 'wordvector') & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
-    return (bm25_set, lsi_set, lda_set, wv_set)
+    #bm25_set = retrieved_traces[(retrieved_traces.model == 'bm25')       & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
+    #lsi_set  = retrieved_traces[(retrieved_traces.model == 'lsi')        & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
+    #lda_set  = retrieved_traces[(retrieved_traces.model == 'lda')        & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
+    #wv_set   = retrieved_traces[(retrieved_traces.model == 'wordvector') & (retrieved_traces.top == top_value)].iloc[0,:][traces_type]
+    
+    #return (bm25_set, lsi_set, lda_set, wv_set)
+    
+    return traces_sets_by_model
 
 
 def plot_venn_diagrams(top_value, bm25_set, lsi_set, lda_set, wv_set, traces_type):
@@ -324,32 +341,45 @@ def plot_venn_diagrams(top_value, bm25_set, lsi_set, lda_set, wv_set, traces_typ
     plt.show()
 
     
-def get_exclusive_traces(bm25_set, lsi_set, lda_set, wv_set, traces_type, verbose=False):
-    print("BM25 Exclusive {}:".format(traces_type))
-    bm25_exc_set = bm25_set - lsi_set - lda_set - wv_set
-    if verbose: 
-        display(bm25_exc_set)
-    print("len(bm25_exc_set): {}".format(len(bm25_exc_set)))
-
-    print("\n\nLSI Exclusive {}:".format(traces_type))
-    lsi_exc_set = lsi_set - bm25_set - lda_set - wv_set
-    if verbose:
-        display(lsi_exc_set)
-    print("len(lsi_exc_set): {}".format(len(lsi_exc_set)))
-
-    print("\n\nLDA Exclusive {}:".format(traces_type))
-    lda_exc_set = lda_set - lsi_set - bm25_set - wv_set
-    if verbose:
-        display(lda_exc_set)
-    print("len(lda_exc_set): {}".format(len(lda_exc_set)))
-
-    print("\n\nWV Exclusive {}:".format(traces_type))
-    wv_exc_set = wv_set - lda_set - lsi_set - bm25_set
-    if verbose:
-        display(wv_exc_set)
-    print("len(wv_exc_set): {}".format(len(wv_exc_set)))
+def get_exclusive_traces(bm25_set, lsi_set, lda_set, wv_set, cust_wv_set=None, traces_type='_', verbose=False):
     
-    return (bm25_exc_set, lsi_exc_set, lda_exc_set, wv_exc_set)
+    exc_traces_list_by_model = []
+    if cust_wv_set == None:
+        bm25_exc_set = bm25_set - lsi_set - lda_set - wv_set
+        lsi_exc_set = lsi_set - bm25_set - lda_set - wv_set
+        lda_exc_set = lda_set - lsi_set - bm25_set - wv_set
+        wv_exc_set = wv_set - lda_set - lsi_set - bm25_set
+        exc_traces_list_by_model = [bm25_exc_set,lsi_exc_set,lda_exc_set,wv_exc_set]
+    else:
+        bm25_exc_set = bm25_set - lsi_set - lda_set - wv_set - cust_wv_set
+        lsi_exc_set = lsi_set - bm25_set - lda_set - wv_set - cust_wv_set
+        lda_exc_set = lda_set - lsi_set - bm25_set - wv_set - cust_wv_set
+        wv_exc_set = wv_set - lda_set - lsi_set - bm25_set - cust_wv_set
+        cust_wv_exc_set = cust_wv_set - bm25_set - lsi_set - lda_set - wv_set
+        exc_traces_list_by_model = [bm25_exc_set,lsi_exc_set,lda_exc_set,wv_exc_set,cust_wv_exc_set]
+    
+    if verbose: 
+        print("BM25 Exclusive {}:".format(traces_type))
+        display(bm25_exc_set)
+        print("\n\nLSI Exclusive {}:".format(traces_type))
+        display(lsi_exc_set)
+        print("\n\nLDA Exclusive {}:".format(traces_type))
+        display(lda_exc_set)
+        print("\n\nWV Exclusive {}:".format(traces_type))
+        display(wv_exc_set)
+        if cust_wv_set != None:
+            print("\n\nCustomized WV Exclusive {}:".format(traces_type))
+            display(cust_wv_exc_set)
+    
+    print('\n')
+    print("len(bm25_exc_set): {}".format(len(bm25_exc_set)))
+    print("len(lsi_exc_set): {}".format(len(lsi_exc_set)))
+    print("len(lda_exc_set): {}".format(len(lda_exc_set)))
+    print("len(wv_exc_set): {}".format(len(wv_exc_set)))
+    if cust_wv_set != None:
+        print("len(cust_wv_exc_set): {}".format(len(cust_wv_exc_set)))
+
+    return exc_traces_list_by_model
 
 
 def _calc_goodness(row):
