@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 import numpy as np
 
@@ -78,6 +79,7 @@ class LSI(GenericModel):
         
     
     def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
+        starttime = time.time()
         
         if self.similarity_measure == SimilarityMeasure.COSINE:
             self._recover_links_cosine(corpus, query, test_cases_names, bug_reports_names)
@@ -89,6 +91,10 @@ class LSI(GenericModel):
             self._recover_links_edit(corpus, query, test_cases_names, bug_reports_names)
     
         self._record_docs_feats(corpus, query, test_cases_names, bug_reports_names)
+        
+        endtime = time.time()
+        
+        print(f' ..Total processing time: {round(endtime-starttime, 2)} seconds', )
     
     
     def _record_docs_feats(self, corpus, query, test_cases_names, bug_reports_names):

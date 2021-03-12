@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 import numpy as np
 
@@ -85,6 +86,8 @@ class LDA(GenericModel):
         self.lda_model.set_params(**lda_model_params)
     
     def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
+        starttime = time.time()
+        
         self._corpus_matrix = self.vectorizer.fit_transform(corpus)
         self._query_vector = self.vectorizer.transform(query)
         
@@ -103,6 +106,10 @@ class LDA(GenericModel):
         self._sim_matrix = pd.DataFrame(data=self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
 
         self._record_docs_feats(corpus, query, test_cases_names, bug_reports_names)
+        
+        endtime = time.time()
+        
+        print(f' ..Total processing time: {round(endtime-starttime,2)} seconds')
     
     
     def _record_docs_feats(self, corpus, query, test_cases_names, bug_reports_names):
