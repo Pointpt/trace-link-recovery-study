@@ -236,7 +236,7 @@ class ModelEvaluator:
         num_unique_models = len(results.model.unique())
         f,axes = plt.subplots(1,num_unique_models, figsize=(20,5))
         models_names = [m.lower() for m in results.model.unique()]
-        line_styles = ['go--', 'bo--', 'ro--', 'k+--', 'yo--', 'c^--']
+        line_styles = ['go--', 'bo--', 'ro--', 'k+--', 'yo--', 'c^--', 'bo--']
 
         for i,ax in enumerate(axes):
             results_subset = results[results.model == models_names[i]]
@@ -253,7 +253,7 @@ class ModelEvaluator:
         f,ax = plt.subplots(1,1, figsize=(10,5))
         #line_styles = ['v--', '^--', 'o--', '>--']
         #colors = ['black', 'black', 'black', 'black']
-        line_styles = ['g^--', 'yv--', 'bo--', 'k+--', 'co--']
+        line_styles = ['g^--', 'yv--', 'bo--', 'k+--', 'co--', 'r+--']
 
         for i in range(len(models)):
             results_subset = results[results.model == models[i]]
@@ -271,9 +271,9 @@ class ModelEvaluator:
         ax.vlines(x=zeror_recall, color='red', ymin=0, ymax=zeror_precision)
 
         legends = None
-        if len(models) == 5:
-            legends = ['LSI','LDA','BM25','Word Vector', 'Cust Word Vector', 'Zero R']
+        if len(models) == 6:
+            legends = ['LSI','LDA','BM25','Word Vector', 'Cust Word Vector', 'VSM', 'Zero R']
         else:
-            legends = ['LSI','LDA','BM25','Word Vector', 'Zero R']
+            legends = ['LSI','LDA','BM25','Word Vector', 'VSM', 'Zero R']
 
         ax.legend(legends)

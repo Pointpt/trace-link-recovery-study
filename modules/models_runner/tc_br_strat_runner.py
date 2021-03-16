@@ -20,6 +20,7 @@ class TC_BR_Generic_Strat_Runner(metaclass=ABCMeta):
         self.wv_model = None
         self.cust_wv_model = None
         self.zeror_model = None
+        self.vsm_model = None
         
         self.oracle = oracle
         
@@ -44,6 +45,9 @@ class TC_BR_Generic_Strat_Runner(metaclass=ABCMeta):
     def get_zeror_model(self):
         return self.zeror_model
     
+    def get_vsm_model(self):
+        return self.vsm_model
+    
     def get_oracle(self):
         return self.oracle
     
@@ -60,6 +64,7 @@ class TC_BR_Generic_Strat_Runner(metaclass=ABCMeta):
         self.wv_model = self.models_runner.run_word2vec_model()
         self.cust_wv_model = self.models_runner.run_cust_word2vec_model()
         self.zeror_model = self.models_runner.run_zeror_model()
+        self.vsm_model = self.models_runner.run_vsm_model()
 
     def __evaluate_models(self):
         self.evaluator = m_eval.ModelEvaluator(self.get_oracle())
@@ -68,7 +73,8 @@ class TC_BR_Generic_Strat_Runner(metaclass=ABCMeta):
                                                         self.get_bm25_model(),
                                                         self.get_word2vec_model(),
                                                         self.get_cust_word2vec_model(),
-                                                        self.get_zeror_model()],
+                                                        self.get_zeror_model(),
+                                                        self.get_vsm_model()],
                                                top_values=[10,20,40], 
                                                sim_thresholds=[(sm.SimilarityMeasure.COSINE, x/10) for x in range(0,10)])
     
@@ -98,6 +104,9 @@ class TC_BR_Vol_Strat_Runner(TC_BR_Generic_Strat_Runner):
     
     def get_zeror_model(self):
         return super().get_zeror_model()
+    
+    def get_vsm_model(self):
+        return super().get_vsm_model()
     
     def get_oracle(self):
         return super().get_oracle()
@@ -134,6 +143,9 @@ class TC_BR_Exp_Strat_Runner(TC_BR_Generic_Strat_Runner):
     def get_zeror_model(self):
         return super().get_zeror_model()
     
+    def get_vsm_model(self):
+        return super().get_vsm_model()
+    
     def get_oracle(self):
         return super().get_oracle()
     
@@ -169,6 +181,9 @@ class TC_BR_Exp_Vol_Union_Strat_Runner(TC_BR_Generic_Strat_Runner):
     def get_zeror_model(self):
         return super().get_zeror_model()
     
+    def get_vsm_model(self):
+        return super().get_vsm_model()
+    
     def get_oracle(self):
         return super().get_oracle()
     
@@ -202,6 +217,9 @@ class TC_BR_Exp_Vol_Intersec_Strat_Runner(TC_BR_Generic_Strat_Runner):
     
     def get_zeror_model(self):
         return super().get_zeror_model()
+    
+    def get_vsm_model(self):
+        return super().get_vsm_model()
     
     def get_oracle(self):
         return super().get_oracle()
