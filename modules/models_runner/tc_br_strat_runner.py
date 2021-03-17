@@ -63,7 +63,7 @@ class TC_BR_Generic_Strat_Runner(metaclass=ABCMeta):
         self.bm25_model = self.models_runner.run_bm25_model()
         self.wv_model = self.models_runner.run_word2vec_model()
         self.cust_wv_model = self.models_runner.run_cust_word2vec_model()
-        self.zeror_model = self.models_runner.run_zeror_model()
+        #self.zeror_model = self.models_runner.run_zeror_model()
         self.vsm_model = self.models_runner.run_vsm_model()
 
     def __evaluate_models(self):
@@ -73,7 +73,7 @@ class TC_BR_Generic_Strat_Runner(metaclass=ABCMeta):
                                                         self.get_bm25_model(),
                                                         self.get_word2vec_model(),
                                                         self.get_cust_word2vec_model(),
-                                                        self.get_zeror_model(),
+                                                        #self.get_zeror_model(),
                                                         self.get_vsm_model()],
                                                top_values=[10,20,40], 
                                                sim_thresholds=[(sm.SimilarityMeasure.COSINE, x/10) for x in range(0,10)])
