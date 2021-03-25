@@ -50,8 +50,8 @@ class LDA(GenericModel):
         self._query_vector = None
         
         self.vectorizer = None
-        self.lda_model = LatentDirichletAllocation(n_jobs=-1)
-               
+        self.lda_model = LatentDirichletAllocation(n_jobs=-1, random_state=42)
+        
         super().__init__()
         
         self.similarity_measure = None
