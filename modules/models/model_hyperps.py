@@ -44,3 +44,15 @@ class WordVec_Model_Hyperp(Enum):
     WORD_EMBEDDING = 'wordvec__word_embedding'
     GEN_NAME = 'wordvector__gen_name'
     
+
+class VSM_Model_Hyperp(Enum):
+    NAME = 'vsm__name'
+    SIMILARITY_MEASURE = 'vsm__similarity_measure'
+    VECTORIZER = 'vsm__vectorizer'
+    VECTORIZER_STOP_WORDS = 'vsm__vectorizer__stop_words'
+    VECTORIZER_TOKENIZER = 'vsm__vectorizer__tokenizer'
+    VECTORIZER_USE_IDF = 'vsm__vectorizer__use_idf'
+    VECTORIZER_SMOOTH_IDF = 'vsm__vectorizer__smooth_idf'
+    VECTORIZER_NGRAM_RANGE = 'vsm__vectorizer__ngram_range'
+    VECTORIZER_MAX_FEATURES = 'vsm__vectorizer__max_features'
+    

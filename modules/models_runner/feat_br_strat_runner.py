@@ -63,12 +63,14 @@ class Feat_BR_Generic_Strat_Runner(metaclass=ABCMeta):
 
     def __evaluate_models(self):
         self.evaluator = m_eval.ModelEvaluator(self.get_oracle())
-        self.evals_df = self.evaluator.run_evaluator(models=[self.get_lsi_model(),
+        self.evals_df = self.evaluator.run_evaluator(models=[
+                                                        self.get_lsi_model(),
                                                         self.get_lda_model(),
                                                         self.get_bm25_model(),
                                                         self.get_word2vec_model(),
                                                         self.get_cust_word2vec_model(),
-                                                        self.get_zeror_model()],
+                                                        self.get_zeror_model()
+        ],
                                                top_values=[1,3,5], 
                                                sim_thresholds=[(sm.SimilarityMeasure.COSINE, x/10) for x in range(0,10)])
     

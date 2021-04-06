@@ -13,6 +13,7 @@ from modules.models.lsi import LSI
 from modules.models.bm25 import BM_25
 from modules.models.wordvec import WordVec_BasedModel
 from modules.models.zeror import ZeroR_Model
+from modules.models.vsm import VSM
 
 import modules.models.model_hyperps as mh
 
@@ -59,6 +60,15 @@ class TC_BR_Models_Hyperp:
             mh.WordVec_Model_Hyperp.TOKENIZER.value : tok.PorterStemmerBased_Tokenizer(),
             mh.WordVec_Model_Hyperp.WORD_EMBEDDING.value : 'CUSTOMIZED',
             mh.WordVec_Model_Hyperp.GEN_NAME.value : 'cust_wordvector'
+        }
+    
+    @staticmethod
+    def get_vsm_model_hyperp():
+        return {
+            mh.VSM_Model_Hyperp.VECTORIZER_NGRAM_RANGE.value: (1,1),
+            mh.VSM_Model_Hyperp.VECTORIZER_MAX_FEATURES.value: 400,
+            mh.VSM_Model_Hyperp.VECTORIZER.value : TfidfVectorizer(stop_words='english', use_idf=True, smooth_idf=True),
+            mh.VSM_Model_Hyperp.VECTORIZER_TOKENIZER.value : tok.WordNetBased_LemmaTokenizer()
         }
 
 class TC_BR_Runner:
@@ -161,3 +171,15 @@ class TC_BR_Runner:
         zeror_model.recover_links()
         
         return zeror_model
+
+    def run_vsm_model(self, vsm_hyperp=None):
+        print('Running VSM model -----')
+        
+        if vsm_hyperp == None:
+            vsm_hyperp = TC_BR_Models_Hyperp.get_vsm_model_hyperp()
+        
+        vsm_model = VSM(**vsm_hyperp)
+        vsm_model.set_name('VSM_Model_TC_BR')
+        vsm_model.recover_links(self.corpus, self.query, self.test_cases_names, self.bug_reports_names)
+        
+        return vsm_model

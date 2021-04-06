@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 import numpy as np
 
@@ -14,6 +15,8 @@ class ZeroR_Model:
         return self.gen_name
     
     def recover_links(self):
+        starttime = time.time()
+        
         major_target_artifact = self._get_major()
         print('major_target_artifact: {}'.format(major_target_artifact))
         
@@ -28,6 +31,10 @@ class ZeroR_Model:
         self._sim_matrix = pd.DataFrame(data=self._sim_matrix, index=self.oracle.index, columns=self.oracle.columns)
         
         #display(self._sim_matrix)
+        
+        endtime = time.time()
+        
+        print(f' ..Total processing time: {round(endtime-starttime,2)} seconds')
     
     def _get_major(self):
         counts = self.oracle.apply(lambda row : np.sum(row), axis=1)

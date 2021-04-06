@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 import numpy as np
 
@@ -61,6 +62,8 @@ class BM_25(GenericModel):
         #self.tokenizer.set_params(**tokenizer_params)
     
     def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
+        starttime = time.time()
+        
         self.corpus = [self.tokenizer.__call__(doc) for doc in corpus]
         self.query = [self.tokenizer.__call__(doc) for doc in query]
         self._sim_matrix_origin = pd.DataFrame(index = test_cases_names, 
@@ -68,8 +71,9 @@ class BM_25(GenericModel):
                                            data=np.zeros(shape=(len(test_cases_names), len(bug_reports_names)),dtype='float64'))
         
         self.bm25 = BM25(self.corpus)
+        average_idf = sum(map(lambda k: float(self.bm25.idf[k]), self.bm25.idf.keys())) / len(self.bm25.idf.keys())
         for bug_id, bug_desc in zip(bug_reports_names, self.query):
-            scores = self.bm25.get_scores(bug_desc)
+            scores = self.bm25.get_scores(bug_desc, average_idf=average_idf)
             for tc_id, sc in zip(test_cases_names, scores):
                 self._sim_matrix_origin.at[tc_id, bug_id] = sc
         
@@ -77,6 +81,10 @@ class BM_25(GenericModel):
         self._sim_matrix = pd.DataFrame(self._sim_matrix, index=test_cases_names, columns=bug_reports_names)
         
         self._record_docs_feats(self.corpus, self.query, test_cases_names, bug_reports_names)
+        
+        endtime = time.time()
+        
+        print(f' ..Total processing time: {round(endtime-starttime,2)} seconds')
     
     
     def _record_docs_feats(self, corpus, query, test_cases_names, bug_reports_names):
@@ -115,7 +123,7 @@ class BM_25(GenericModel):
         for idx,(artf_name,artf_desc) in enumerate(zip(artfs_names, artfs_descs)):
             t_w_list = []
             for token in np.unique(artf_desc):
-                NDt = np.sum([1 if token in d.keys() else 0 for d in self.bm25.doc_freqs])
+                NDt = np.sum([1 if token in d else 0 for d in self.bm25.df.keys()])
                 if NDt == 0:
                     t_w_list.append((token, 0))
                 else:

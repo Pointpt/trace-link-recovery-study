@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 import numpy as np
 import spacy
@@ -60,7 +61,12 @@ class WordVec_BasedModel(GenericModel):
     
     
     def recover_links(self, corpus, query, test_cases_names, bug_reports_names):
-        return self._recover_links_cosine(corpus, query, test_cases_names, bug_reports_names)
+        starttime = time.time()
+        out = self._recover_links_cosine(corpus, query, test_cases_names, bug_reports_names)
+        endtime = time.time()
+        print(f' ..Total processing time: {round(endtime-starttime,2)} seconds')
+        del self._nlp_model
+        return out
     
     def _recover_links_cosine(self, corpus, query, test_cases_names, bug_reports_names):
         #list_corpus_tokens = [self.tokenizer.__call__(doc) for doc in corpus]
